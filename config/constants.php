@@ -15,23 +15,34 @@ return [
     */
 
     'grados' => [
-        'Doctorado',
-        'Maestria',
+        'Primaria',
+        'Secundaria',
+        'Bachillerato o carrera técnica',
         'Licenciatura',
-        'Tecnico superior'
+        'Maestría',
+        'Doctorado',
     ],
+
     'estatus_grados' => [
-        'Titulado',
         'Trunca',
+        'Concluida',
+        'Titulado',
     ],
 
     'tipos_de_medio' => [
-        'Facebook',
-        'Twitter',
-        'Tiktok',
-        'Telefono',
-        'Correo',
-        'Dirección'
+        'A. Cartel',
+        'B. Volante',
+        'C. Televisión',
+        'D. Prensa',
+        'E. Perifoneo',
+        'F. Bolsa de trabajo',
+        'G. Pláticas informativas',
+        'H. Radio',
+        'I. Contacto personal',
+        'J. Página del INE',
+        'K. Red Social',
+        'L. Otro',
+
     ],
 
     'pueblos' => [
@@ -64,8 +75,14 @@ return [
         '3a.  Suplente General'
     ],
     'sexos' => [
-        'Hombre',
-        'Mujer',
+        'Femenino',
+        'Masculino',
+        'Prefiero no decir',
+    ],
+    'sexos1' => [
+        'Si',
+        'No',
+        'Prefiero no decir',
     ],
 
     'distritos' => [

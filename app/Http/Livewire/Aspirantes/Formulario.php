@@ -25,7 +25,7 @@ class Formulario extends Component
     public $apellido2;
 
     public $email;
-    public $sexo;
+    public $generos;
     public $edad;
     public $foto;
     public $fotoBase64;
@@ -109,6 +109,7 @@ class Formulario extends Component
         $this->pueblos        =  config('constants.pueblos');
         $this->cargos         =  config('constants.cargos');
         $this->sexos          =  config('constants.sexos');
+        $this->sexos1          =  config('constants.sexos1');
         $this->distritos      =  config('constants.distritos');
         $this->partidos       =  config('constants.partidos');
         $this->cuestionarios  =  config('constants.cuestionarios');
@@ -284,6 +285,7 @@ class Formulario extends Component
             'tiposDeMedio',
             'tiposCandidatura',
             'sexos',
+            'sexos1',
             'distritos',
             'cargos',
             'partidos',

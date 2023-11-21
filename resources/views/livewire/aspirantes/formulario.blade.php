@@ -2,42 +2,104 @@
 @section('content_header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="xtitulox"><i class="fa fa-users text-secondary"></i> Candidaturas</h1>
+            <h1 class="xtitulox"><i class="fa fa-users text-secondary"></i> ECAE</h1>
         </div>
     </div>
 @stop
 <div class="card card-secondary">
     <div class="card-header">
-        <h5 class="modal-title text-uppercase">{{ $candidato_id > 0 ? 'Actualizar' : 'Nuevo' }} candidato</h5>
+        <h5 class="modal-title text-uppercase">Nuevo aspirante</h5>
     </div>
+{{-- SECCION UNO --}}
     <div class="card-body">
         <div class="card card-iepc-outline">
             <div class="card-header">
                 <h4 class="card-title w-100">
                     <a class="d-block w-100" data-toggle="collapse" href="#seccion-general">
-                        Datos generales
+                    Este apartado es para uso exclusivo del personal del Organismo Público Local
                     </a>
                 </h4>
             </div>
+        <div class="card-body">
             <div id="seccion-general" class="collapse show" wire:ignore.self>
-                <div class="card-body">
                     <div class="form row">
-                        <div class="col-3 col-md-3 col-sm-12">
+                        <div class="col-12 col-md-12 col-sm-12">
                             <div class="form row">
-                                <div class="col-12 text-center">
-                                    <img style="height: 100px" src="{{ $this->uploadedFoto  ? 'data:image/jpeg;base64,'.$this->fotoBase64 : asset($this->foto ? $this->foto->temporaryUrl(): 'storage/perfil/default.png') }}"
-                                         class="profile-user-img img-fluid img-rounded" alt="Imagen">
-                                </div>
-                                <div class="col-12 text-center">
-                                    <div class="form-group">
-                                        <label class="d-inline-block"><span class="text-danger">* </span></label>
-                                        <input wire:model='foto' type="file" class="form-control" name="foto">
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span> Fecha de recepción</label>
+                                        <input wire:model.defer="fecha_recepcion" id="fecha_recepcion" type="date"
+                                               class="form-control "/>
                                     </div>
-                                    @error('foto')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                    @error('fecha_recepcion')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Num. de convocatoria</label>
+                                        <input wire:model.defer="numero_convocatoria" id="numero_convocatoria" type="number" class="form-control "/>
+                                    </div>
+                                    @error('numero_convocatoria')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Folio de la persona aspirante</label>
+                                        <input wire:model.defer="folio_aspirante" id="folio_aspirante" type="number" class="form-control "/>
+                                    </div>
+                                    @error('folio_aspirante')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Entidad</label>
+                                        <input wire:model.defer="entidad" id="entidad" type="text" class="form-control "/>
+                                    </div>
+                                    @error('entidad')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Municipio/Alcadía</label>
+                                        <input wire:model.defer="municipio" id="municipio" type="text" class="form-control "/>
+                                    </div>
+                                    @error('municipio')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>localidad</label>
+                                        <input wire:model.defer="localidad" id="localidad" type="text" class="form-control "/>
+                                    </div>
+                                    @error('localidad')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Sede</label>
+                                        <input wire:model.defer="sede" id="sede" type="text" class="form-control "/>
+                                    </div>
+                                    @error('sede')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Fija</label>
+                                        <input wire:model.defer="sede_fija" id="sede_fija" type="text" class="form-control "/>
+                                    </div>
+                                    @error('sede_fija')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Alterna</label>
+                                        <input wire:model.defer="sede_alterna" id="sede_alterna" type="text" class="form-control "/>
+                                    </div>
+                                    @error('sede_fija')<span class="text-danger error h6">{{ $message }}</span>@enderror
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 col-md-9 col-sm-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+{{-- SECCION DOS --}}
+        <div class="card card-iepc-outline">
+            <div class="card-body">
+                <div class="form row">
+                        <div class="col-12 col-md-12 col-sm-12">
                             <div class="form row">
                                 <div class="col-4 col-md-4 col-sm-12">
                                     <div class="form-group" wire:ignore>
@@ -49,51 +111,266 @@
                                 </div>
                                 <div class="col-4 col-md-4 col-sm-12">
                                     <div class="form-group" wire:ignore>
-                                        <label class=""><span class="text-danger ">*</span> Nombre</label>
-                                        <input wire:model.defer="nombre" type="text" class="form-control " id="area"
-                                               name="area"/>
+                                        <label class=""><span class="text-danger ">*</span>Sección electoral</label>
+                                        <input wire:model.defer="seccion_electoral" id="seccion_electoral" type="number" class="form-control "/>
+                                    </div>                                    
+                                    @error('seccion_electoral')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>RFC</label>
+                                        <input wire:model.defer="rfc" id="rfc" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('rfc')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>CURP</label>
+                                        <input wire:model.defer="curp" id="curp" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('curp')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Primero Apellido</label>
+                                        <input wire:model.defer="primer_apellido" id="primer_apellido" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('primer_apellido')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Segundo Apellido</label>
+                                        <input wire:model.defer="segundo_apellido" id="segundo_apellido" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('segundo_apellido')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Nombre</label>
+                                        <input wire:model.defer="nombre" id="nombre" type="text"
+                                               class="form-control "/>
                                     </div>
                                     @error('nombre')<span class="text-danger error h6">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="col-4 col-md-4 col-sm-12">
                                     <div class="form-group" wire:ignore>
-                                        <label class=""><span class="text-danger ">*</span> Primero apellido</label>
-                                        <input wire:model.defer="apellido1" type="text" class="form-control " id="area"
-                                               name="area"/>
+                                        <label class=""><span class="text-danger ">*</span>Fecha de nacimiento</label>
+                                        <input wire:model.defer="fecha_nacimiento" id="fecha_nacimiento" type="date"
+                                               class="form-control "/>
                                     </div>
-                                    @error('apellido1')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                    @error('fecha_nacimiento')<span class="text-danger error h6">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="col-4 col-md-4 col-sm-12">
                                     <div class="form-group" wire:ignore>
-                                        <label class=""><span class="text-danger ">*</span> Segundo apellido</label>
-                                        <input wire:model.defer="apellido2" type="text" class="form-control " id="area"
-                                               name="area"/>
+                                        <label class=""><span class="text-danger ">*</span>Edad</label>
+                                        <input wire:model.defer="edad" id="edad" type="number"
+                                               class="form-control "/>
                                     </div>
-                                    @error('apellido2')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                    @error('edad')<span class="text-danger error h6">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="col-4 col-md-4 col-sm-12">
                                     <div class="form-group" wire:ignore>
-                                        <label class=""><span class="text-danger ">*</span> Cargo</label>
-                                        <select wire:model.defer="cargo" class="form-control">
-                                            <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
-                                            @foreach ($this->cargos as $cargo)
-                                                <option value="{{$cargo}}"
-                                                        wire:key="grado-{{ $cargo }}">{{ $cargo }}</option>
+                                        <label class=""><span class="text-danger ">*</span>Género</label>
+                                        <select wire:model.defer="sexo" class="form-control">
+                                        <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                                            @foreach ($this->sexos as $sexo)
+                                        <option value="{{ $sexo }}" wire:key="sexo-{{ $sexo }}">{{ $sexo }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    @error('cargo')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                    @error('sexo')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-6 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>¿Se identifica como una persona  LGBTTTIQ+?</label>
+                                        <select wire:model.defer="sexo" class="form-control">
+                                        <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                                            @foreach ($this->sexos1 as $sexo)
+                                        <option value="{{ $sexo }}" wire:key="sexo-{{ $sexo }}">{{ $sexo }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('sexo')<span class="text-danger error h6">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="col-4 col-md-4 col-sm-12">
                                     <div class="form-group" wire:ignore>
-                                        <label class=""><span class="text-danger ">*</span> Edad</label>
-                                        <input wire:model.defer="edad" type="number" class="form-control "/>
+                                        <label class=""><span class="text-danger ">*</span>Calle</label>
+                                        <input wire:model.defer="dom_calle" id="dom_calle" type="number"
+                                               class="form-control "/>
                                     </div>
-                                    @error('edad')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                    @error('dom_calle')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Número exterior</label>
+                                        <input wire:model.defer="dom_num_exterior" id="dom_num_exterior" type="number"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('dom_num_exterior')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Número interior</label>
+                                        <input wire:model.defer="dom_num_interior" id="dom_num_interior" type="number"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('dom_num_interior')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Colonia</label>
+                                        <input wire:model.defer="dom_colonia" id="dom_colonia" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('dom_colonia')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Municipio/Alcaldía</label>
+                                        <input wire:model.defer="dom_municipio" id="dom_municipio" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('dom_municipio')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Localidad</label>
+                                        <input wire:model.defer="dom_localidad" id="dom_localidad" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('dom_localidad')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Teléfono fijo</label>
+                                        <input wire:model.defer="tel_fijo" id="tel_fijo" type="number"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('tel_fijo')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span>Teléfono celular</label>
+                                        <input wire:model.defer="tel_celular" id="tel_celular" type="number"
+                                               class="form-control "/>
+                                    </div>
+                                    @error('tel_celular')<span class="text-danger error h6">{{ $message }}</span>@enderror
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+{{-- SECCION TRES --}}
+        <div class="card card-iepc-outline">
+            <div class="card-body">
+                <div class="form row">
+                    <div class="col-12 col-md-12 col-sm-12">
+                        <div class="form row">
+                            <div class="col-4 col-md-4 col-sm-12">
+                                <div class="form-group" wire:ignore><label class=""><span class="text-danger ">*</span> Maximo grado de estudios</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span title="Agregar observación" class="input-group-text text-warning"
+                                                    wire:click.prevent="$emitTo('candidatos.observacion', 'open',{{ $candidato_id }},'porque_desea_el_cargo')">
+                                                    <i class="fas fa-eye" aria-hidden="true"></i></span>
+                                                </div>
+                                                    <select wire:model.defer="maximo_estudio" class="form-control"><option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                                                        @foreach ($this->grados as $grado)
+                                                        <option value="{{ $grado}}" wire:key="grado-{{ $grado }}">{{ $grado }}</option>
+                                                        @endforeach
+                                                    </select>
+                                            </div>
+                                        </div>
+                                    @error('maximo_estudio')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                <div class="form-group" wire:ignore> <label class=""><span class="text-danger ">*</span> Estatus Maximo grado de estudios</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span title="Agregar observación" class="input-group-text text-warning"
+                                                    wire:click.prevent="$emitTo('candidatos.observacion', 'open',{{ $candidato_id }},'porque_desea_el_cargo')">
+                                                    <i class="fas fa-eye" aria-hidden="true"></i></span>
+                                                </div>
+                                                    <select wire:model.defer="maximo_estudio_estatus" class="form-control"><option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                                                        @foreach ($estatusGrados as $key => $estatusGrado)
+                                                        <option value="{{$estatusGrado}}" wire:key="estatus-grado-{{ $key }}">{{ $estatusGrado }}</option>
+                                                        @endforeach
+                                                    </select>
+                                            </div>
+                                        </div>
+                                    @error('maximo_estudio_estatus')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12">
+                                <div class="form-group" wire:ignore><label class=""><span class="text-danger ">*</span>¿Realiza estudios actualmente? Especifique:</label>
+                                        <input wire:model.defer="realiza_estudios" id="realiza_estudios" type="text" class="form-control "/>
+                                </div>
+                                    @error('realiza_estudios')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                            </div>
+                            <div class="col-12 col-md-12 col-sm-12">
+                            <div class="form row">
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore><label class=""><span class="text-danger ">*</span>Medio por el que se enteró de la convocatoria</label>
+                                             <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                     <span title="Agregar observación" class="input-group-text text-warning" wire:click.prevent="$emitTo('candidatos.observacion', 'open',{{ $candidato_id }},'tipos_de_medio')">
+                                                <i class="fas fa-eye" aria-hidden="true"></i></span>
+                                                </div>
+                                                <select wire:model.defer="tipos_de_medio" class="form-control"><option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                                                    @foreach ($this->tiposDeMedio as $tipos_de_medio)
+                                                    <option value="{{ $tipos_de_medio}}" wire:key="tipos-de-medio{{ $tipos_de_medio }}">{{ $tipos_de_medio }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @error('tipos_de_medio')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="col-4 col-md-8 col-sm-12">
+                                    <div class="form-group" wire:ignore><label class=""><span class="text-danger ">*</span>¿Cual es el motivo por el que quiere participar como SE o CAE Local? Especifique:</label>
+                                    <input wire:model.defer="motivo_secae" id="motivo_secae" type="text" class="form-control "/>
+                                    </div>
+                                    @error('motivo_secae')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{{-- SECCION CUATRO --}}
+
+            <div class="card card-iepc-outline">
+                <div class="card-body">
+                    <div class="form row">
+                        <div class="col-9 col-md-9 col-sm-12">
+                            <div class="form row">
+                                <div class="col-4 col-md-4 col-sm-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label class=""><span class="text-danger ">*</span> Clave de elector</label>
+                                        <input wire:model.defer="clave_elector" id="clave_elector" type="text"
+                                               class="form-control "/>
+                                    </div>
+                                        @error('clave_elector')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+{{-- SECCION CINCO --}}
+     
+        <div class="card card-iepc-outline">
+            <div class="card-body">
+            <div id="seccion-general" class="collapse show" wire:ignore.self>
+                    <div class="form row">
+                        
                     <div class="form row">
                         <div class="col-3 col-md-3 col-sm-12">
                             <div class="form-group" wire:ignore>
@@ -390,70 +667,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-iepc-outline">
-            <div class="card-header">
-                <h4 class="card-title w-100">
-                    <a class="d-block w-100" data-toggle="collapse" href="#seccion-identidad">
-                        Cuestionario de identidad
-                    </a>
-                </h4>
-            </div>
-            <div id="seccion-identidad" class="collapse show" wire:ignore.self>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-sm-12">
-                            @foreach($cuestionarios as $kcuestionario => $cuestionario)
-                                <div class="callout callout-info">
-                                    <h4 class="text-bold">{{ $cuestionario['titulo'] }}</h4>
-                                    <div class="form row">
-                                        @foreach($cuestionario['preguntas'] as $kpregunta => $pregunta)
-                                            <div class="col-12">
-                                                <h5>{{ $pregunta['texto'] }}</h5>
-                                                @foreach($pregunta['opciones'] as $kopcion => $opcion)
-                                                    @if($kopcion === 'select')
-                                                        <select class="form-control"
-                                                                wire:model="respuestas.respuesta-{{$cuestionario['clave']}}-{{ $kpregunta }}"
-                                                                id="respuesta-{{$cuestionario['clave']}}-{{ $kpregunta }}"
-                                                                name="respuesta-{{$cuestionario['clave']}}-{{ $kpregunta }}">
-                                                            <option
-                                                                value="">{{ __('adminlte::adminlte.please_select') }}</option>
-                                                            @foreach($this->$opcion as $subopcion)
-                                                                <option value="{{$subopcion}}">{{$subopcion}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    @else
-
-                                                        <div class="form-check">
-                                                            <input type="radio" class="form-check-input"
-                                                                   wire:model="respuestas.respuesta-{{$cuestionario['clave']}}-{{ $kpregunta }}"
-                                                                   value="{{ is_array($opcion) ? $kopcion : $opcion }}"
-                                                                   id="respuesta-{{$cuestionario['clave']}}-{{ $kpregunta }}"
-                                                                   name="respuesta-{{$cuestionario['clave']}}-{{ $kpregunta }}">
-                                                            <label
-                                                                class="form-check-label">{{ is_array($opcion) ? $kopcion.(strlen($opcion['subtexto']) ? '. '.$opcion['subtexto'] : '') : $opcion }}</label>
-                                                            @if(is_array($opcion))
-                                                                <ul class="list">
-                                                                    @foreach($opcion['subopciones'] as $subopcion)
-                                                                        <li class="item">{{$subopcion}}</li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            </div>
-                                            @error("respuestas.respuesta-{$cuestionario['clave']}-{$kpregunta}")<span
-                                                class="text-danger error h6">{{ $message }}</span>@enderror
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
     <div class="card-footer">
         <a href='{{ url()->previous() }}' type="button" class="btn btn-danger " title="Regresar">
