@@ -12,7 +12,7 @@ class Resumen extends Component
     public $theme = 'info';
 
     public function mount() {
-        $candidatos =  Aspirante::where('estatus_publicacion', $this->estatus)->get();
+        $candidatos =  Aspirante::all();
         $this->total = count($candidatos);
     }
     public function render()

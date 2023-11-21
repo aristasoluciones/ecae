@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', function() {
+
+Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
 
+Route::get('/', function () {
+    return redirect('aspirante');
+});
+
 Route::get('/aspirantes', [\App\Http\Controllers\AspiranteController::class, 'index'])->name('aspirantes')->middleware('auth');
-Route::get('/aspirante/{aspirante?}', \App\Http\Livewire\Aspirantes\Formulario::class)->name('aspirante')->middleware(['auth', 'permission:aspirantes.editar']);
+Route::get('/aspirante/{aspirante?}', \App\Http\Livewire\Aspirantes\Formulario::class)->name('aspirante');
 Route::get('/usuarios', \App\Http\Controllers\UsuarioController::class)->name('usuarios')->middleware('auth');
 Route::get('/roles', \App\Http\Controllers\RoleController::class)->name('roles')->middleware('auth');

@@ -9,7 +9,7 @@ class Aspirante extends Model
 {
     use HasFactory;
 
-    protected $casts = ['medios_contacto' => 'json', 'otra_formacion' => 'json'];
+    protected $casts = ['experiencia_laboral' => 'json'];
 
     protected $guarded = [];
 }

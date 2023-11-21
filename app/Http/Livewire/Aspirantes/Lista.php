@@ -13,30 +13,7 @@ use Rappasoft\LaravelLivewireTables\Views\Columns\ComponentColumn;
 class Lista extends DataTableComponent
 {
     protected $model = Aspirante::class;
-    public $tipoCandidatura;
 
-    protected $listeners = [
-        'setTipoCandidatura'
-    ];
-
-    public function setTipoCandidatura($val) {
-        $this->tipoCandidatura =  $val;
-    }
-    public function filtrar($query): builder
-    {
-        $query->where('tipo_candidatura', $this->tipoCandidatura);
-        if (auth()->user()->hasRole('representante')) {
-            $query->where('partido', auth()->user()->partido);
-        }
-        return $query;
-    }
-
-    public function getRows()
-    {
-        $query = $this->baseQuery();
-        $this->builder = $this->filtrar($query);
-        return $this->executeQuery();
-    }
     public function configure(): void
     {
         $this->setPrimaryKey('id');
@@ -62,14 +39,13 @@ class Lista extends DataTableComponent
     {
 
         return [
-            Column::make('Clave de elector', 'clave_elector'),
+            Column::make('#Folio', 'id'),
             Column::make('Nombre','nombre')->sortable(),
             Column::make('Primer apellido', 'apellido1'),
             Column::make('Segundo apellido', 'apellido2'),
-            Column::make('Sexo', 'sexo'),
+            Column::make('Sexo', 'genero'),
             Column::make('Edad', 'edad'),
-            Column::make('Cargo', 'cargo'),
-            Column::make('Estatus', 'estatus_publicacion'),
+            Column::make('Municipio', 'municipio'),
             ComponentColumn::make('acciones', 'id')
                 ->component('acciones')
                 ->attributes(fn($value) => ['id' => $value]),
