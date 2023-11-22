@@ -383,45 +383,496 @@
             <div class="col-12">
                 <h3>Otros datos</h3>
             </div>
-            <div class="col-12 dropdown-divider">
-            </div>
-            <div class="col-12"><h5>1- ¿ Has participado en proceso electoral ?</h5></div>
+            <div class="col-12 dropdown-divider"></div>
+
+    {{-- Pregunta numero 1 --}}
+    <div class="form-row justify-content-between">
+        <div class="col-12"><h5>1- ¿ Has participado en proceso electoral ?</h5></div>
             <div class="col-4">
                 <div class="form-check">
                     <input type="radio" class="form-check-input"
                            value="Si"
-                           id="respuesta-p1_proceso_electoral"
-                           name="respuesta-p1_proceso_electoral">
+                           id="p1_proceso_electoral"
+                           name="p1_proceso_electoral">
                     <label
                         class="form-check-label">Si</label>
                 </div>
                 <div class="form-check">
                     <input type="radio" class="form-check-input"
                            value="No"
-                           id="respuesta-p1_proceso_electoral"
-                           name="respuesta-p1_proceso_electoral">
+                           id="p1_proceso_electoral"
+                           name="p1_proceso_electoral">
                     <label
-                        class="form-check-label">Si</label>
+                        class="form-check-label">No</label>
                 </div>
             </div>
         </div>
-        <div class="form-row">
+    </div>
+    {{-- Pregunta numero 1.1 --}}
+        <div class="form-row justify-content-between mb-3">
             <div class="col-12"><h5>1.1- Cual</h5></div>
             <div class="col-4">
                 <input type="text" class="form-control"
-                       id="respuesta-p1_proceso_electorals"
-                       name="respuesta-p1_proceso_electorals">
+                       id="p1_1_cual"
+                       name="p1_1_cual">
             </div>
         </div>
-        <div class="form-row">
+    {{-- Pregunta numero 1.2 --}}    
+        <div class="form-row justify-content-between mb-3">
             <div class="col-12"><h5>1.2- De que forma</h5></div>
             <div class="col-4">
                 <input type="text" class="form-control"
-                       id="respuesta-p1_proceso_electorals"
-                       name="respuesta-p1_proceso_electorals">
+                       id="p1_2_forma"
+                       name="p1_2_forma">
             </div>
         </div>
+
+    {{-- Pregunta numero 2 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>2- ¿Tiene disponibilidad de tiempo para prestar sus servicios en horario fuera de lo habitual?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p2_disponibilidad"
+                           name="p2_disponibilidad">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p2_disponibilidad"
+                           name="p2_disponibilidad">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+
+    
+    {{-- Pregunta numero 3 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y días festivos?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p3_finsemanal"
+                           name="p3_finsemana">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p3_finsemana"
+                           name="p3_finsemana">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+
+    {{-- Prgeunta numero 4 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>4. ¿Está dispuesta/o a realizar actividades de campo? (visitar a la ciudadanía casa por casa, trasladarse grandes distancias, entre otras)</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p4_campo"
+                           name="p4_campol">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p4_campo"
+                           name="p4_campo">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+
+    {{-- Pregunta numero 5 --}}
+    <div class="form-row justify-content-between mb-3" >
+        <div class="col-12"><h5>5. ¿Milita en algún partido político u organización política o ha participado activamente en alguna campaña electoral en el último año?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p5_milita"
+                           name="p5_milita">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p5_milita"
+                           name="p5_milita">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 6 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>6. ¿Ha participado como representante de partido político con registro vigente, candidatura independiente registrada en el PE 2023-2024 o coalición en alguna elección realizada en los últimos tres años?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p6_como_representante"
+                           name="p6_como_representante">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p6_como_representante"
+                           name="p6_como_representante">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 7 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>7. ¿Es familiar consanguíneo o por afinidad, hasta el 4° grado, de alguna persona que ostente el cargo de Vocal de la Junta Local o Distrital Ejecutiva o del Consejo Local o Distrital INE o de órganos ejecutivos y directivos del OPL (Consejeras/os y representantes de partido político o, en su caso, candidatas/os independientes que ya estén registradas/os para el PE 2023-2024)?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p7_familiar"
+                           name="p7_familiar">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p7_familiar"
+                           name="p7_familiar">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 8 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>8. ¿Es o ha sido persona servidora pública vinculada con programas sociales en el gobierno municipal, estatal o federal, persona operadora de programas sociales y actividades institucionales, cualquiera que sea su denominación, persona servidora de la nación o ha ostentado alguno de estos cargos en el último año previo a este registro para el PE 2023-2024? **</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p8_servidora"
+                           name="p8_servidora">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p8_servidora"
+                           name="p8_servidora">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 9 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>9. ¿Cuenta con experiencia en manejo o trato con grupos?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p9_experiencia"
+                           name="p9_experiencia">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p9_experiencia"
+                           name="p9_experiencia">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 10 --}}
+    <div class="form-row justify-content-between mb-3">
+        <div class="col-12"><h5>10. ¿Ha impartido capacitación presencial o virtual?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p10_impartido"
+                           name="p10_impartido">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p10_impartido"
+                           name="p10_impartido">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 11 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>11. ¿Habla alguna lengua indígena?</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p11_habla_lindigena"
+                           name="p11_habla_lindigena">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p11_habla_lindigena"
+                           name="p11_habla_lindigena">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 11.1 --}}
+    <div class="form-row justify-content-between mb-3">
+            <div class="col-12"><h5>11.1- Cual</h5></div>
+            <div class="col-4">
+                <input type="text" class="form-control"
+                       id="p11_1_cual"
+                       name="p11_1_cual">
+            </div>
+        </div>
+    {{-- Prgeunta numero 12 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>12. ¿Sabe conducir automóvil? *</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p12_conducir"
+                           name="p12_conducir">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p12_conducir"
+                           name="p12_conducir">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 12.1 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>12.1. ¿Cuenta con licencia de manejo? *</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p12_1_licencia"
+                           name="p12_1_licencia">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p12_1_licencia"
+                           name="p12_1_licencia">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    
+    {{-- Prgeunta numero 12.3 --}}
+    <div class="form-row justify-content-between mb-3">
+            <div class="col-12"><h5>12.3. Anote marca y modelo*.</h5></div>
+            <div class="col-4">
+                <input type="text" class="form-control"
+                       id="p12_3_marca"
+                       name="p12_3_marca">
+            </div>
+        </div>
+    {{-- Prgeunta numero 12.4 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>12.4. ¿Está usted dispuesta/ o utilizar su vehículo para sus actividades si el OPL le brinda un apoyo económico para combustible? *</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p12_4_prestar"
+                           name="p12_4_prestar">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p12_4_prestar"
+                           name="p12_4_prestar">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 13 --}}
+    <div class="form-row justify-content-between mb-3">
+            <div class="col-12"><h5>13. ¿Cuánto tiempo le lleva trasladarse de su domicilio al OPL? *</h5></div>
+            <div class="col-4">
+                <input type="text" class="form-control"
+                       id="p13_tiempo_traslado"
+                       name="p13_tiempo_traslado">
+            </div>
+        </div>
+    {{-- Prgeunta numero 14 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>14. ¿Cuenta con acceso a Internet en su casa? *</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p14_acceso_internet"
+                           name="p14_acceso_internet">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p14_acceso_internet"
+                           name="p14_acceso_internet">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 15 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>15. ¿Tiene alguna discapacidad? *</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p15_discapacidad"
+                           name="p15_discapacidad">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p15_discapacidad"
+                           name="p15_discapacidad">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 15.1 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>15.1 En caso de haber señalado “Sí” en la pregunta 15, selección una opción.</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="fisica_motora"
+                           id="p15_1_tipodiscapacidad"
+                           name="p15_1_tipodiscapacidad">
+                    <label
+                        class="form-check-label">A) Física o motora</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="intelectual"
+                           id="p15_1_tipodiscapacidad"
+                           name="p15_1_tipodiscapacidad">
+                    <label
+                        class="form-check-label">B) Intelectual</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="mental_psicosocial"
+                           id="p15_1_tipodiscapacidad"
+                           name="p15_1_tipodiscapacidad">
+                    <label
+                        class="form-check-label">C) Mental o psicosocial</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="sensorial"
+                           id="p15_1_tipodiscapacidad"
+                           name="p15_1_tipodiscapacidad">
+                    <label
+                        class="form-check-label">D) Sensorial</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 15.2 --}}
+    <div class="form-row justify-content-between mb-3">
+            <div class="col-12"><h5>15.2 Especifique:</h5></div>
+            <div class="col-4">
+                <input type="text" class="form-control"
+                       id="p15_2_otradiscapacidad"
+                       name="p15_2_otradiscapacidad">
+            </div>
+        </div>
+    {{-- Prgeunta numero 16 --}}
+    <div class="form-row">
+        <div class="col-12"><h5>16. ¿Sabe utilizar el teléfono celular? *</h5></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="Si"
+                           id="p16_utilizar_celular"
+                           name="p16_utilizar_celular">
+                    <label
+                        class="form-check-label">Si</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           value="No"
+                           id="p16_utilizar_celular"
+                           name="p16_utilizar_celular">
+                    <label
+                        class="form-check-label">No</label>
+                </div>
+            </div>
+        </div>
+    {{-- Prgeunta numero 12.4 --}}
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="card-footer d-flex flex-row justify-content-end">
         <button class="btn btn-primary" wire:click.prevent="guardar">
             <span wire:loading.remove>Guardar</span>

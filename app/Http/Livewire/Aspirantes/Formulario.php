@@ -18,7 +18,6 @@ class Formulario extends Component
 
     public $aspirante_id;
     public $numero_convocatoria;
-    public $p1_proceso_electoral;
     public $entidad;
     public $municipio;
     public $localidad;
@@ -50,6 +49,34 @@ class Formulario extends Component
     public $motivo_secae;
     public $medio_convocatoria;
     public $email;
+
+    //Preguntas
+    public $p1_proceso_electoral;
+    public $p1_1_cual;
+    public $p1_2_forma;
+    public $p2_disponibilidad;
+    public $p3_finsemana;
+    public $p4_campo;
+    public $p5_milita;
+    public $p6_como_representante;
+    public $p7_familiar;
+    public $p8_servidora;
+    public $p9_experiencia;
+    public $p10_impartido;
+    public $p11_habla_lindigena;
+    public $p11_1_cual;
+    public $p12_conducir;
+    public $p12_1_licencia;
+    public $p12_2_vehiculo;
+    public $p12_3_marca;
+    public $p12_4_prestar;
+    public $p13_tiempo_traslado;
+    public $p14_acceso_internet;
+    public $p15_discapacidad;
+    public $p15_1_tipodiscapacidad;
+    public $p15_2_otradiscapacidad;
+    public $p16_utilizar_celular;
+
 
     //CATALOGOS
     public $grados;
