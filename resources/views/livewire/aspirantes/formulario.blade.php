@@ -417,7 +417,7 @@
                        name="p1_1_cual">
             </div>
         </div>
-    {{-- Pregunta numero 1.2 --}}    
+    {{-- Pregunta numero 1.2 --}}
         <div class="form-row justify-content-between mb-3">
             <div class="col-12"><h5>1.2- De que forma</h5></div>
             <div class="col-4">
@@ -450,7 +450,7 @@
             </div>
         </div>
 
-    
+
     {{-- Pregunta numero 3 --}}
     <div class="form-row justify-content-between mb-3">
         <div class="col-12"><h5>3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y días festivos?</h5></div>
@@ -704,7 +704,7 @@
                 </div>
             </div>
         </div>
-    
+
     {{-- Prgeunta numero 12.3 --}}
     <div class="form-row justify-content-between mb-3">
             <div class="col-12"><h5>12.3. Anote marca y modelo*.</h5></div>
@@ -859,21 +859,12 @@
             </div>
         </div>
     {{-- Prgeunta numero 12.4 --}}
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="card-footer d-flex flex-row justify-content-end">
+        <button class="btn btn-warning" wire:click.prevent="generarFicha">
+            <span wire:loading.remove>Generar ficha</span>
+            <span wire:loading>Guardando información....</span>
+        </button>
         <button class="btn btn-primary" wire:click.prevent="guardar">
             <span wire:loading.remove>Guardar</span>
             <span wire:loading>Guardando información....</span>
@@ -883,8 +874,8 @@
 
 @section('js')
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            @this.on('confirmar', params => {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.livewire.on('confirmar', params => {
                 Swal.fire({
                     icon:params.icon,
                     title:params.title,
@@ -897,7 +888,7 @@
                     width:'50%'
                 }).then(result => {
                     if (result.value) {
-                    @this.call(params.method)
+                    this.livewire.call(params.method)
                     }
                 })
             })

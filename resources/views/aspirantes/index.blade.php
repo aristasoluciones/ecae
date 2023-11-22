@@ -11,16 +11,7 @@
 @stop
 
 @section('content')
-    @role('candidato')
-        <h3>Soy un representante</h3>
-    @else
-        @livewire('aspirantes.inicio')
-        <div id="modal-user" wire:ignore.self class="modal fade" role="dialog" data-backdrop="static"
-             data-keyboard="false">
-            <livewire:usuarios.formulario fromCandidato="1" />
-        </div>
-    @endrole
-
+    @livewire('aspirantes.formulario')
 @stop
 
 

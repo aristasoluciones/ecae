@@ -11,6 +11,7 @@ use Livewire\Component;
 use App\Models\Aspirante;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class Formulario extends Component
 {
@@ -239,5 +240,11 @@ class Formulario extends Component
         $this->fill([
             'experiencia_laboral' =>[],
         ]);
+    }
+
+    public function generarFicha() {
+
+        $content = Pdf::loadView('aspirantes.acuse')->setPaper('legal')->output();
+        return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
     }
 }

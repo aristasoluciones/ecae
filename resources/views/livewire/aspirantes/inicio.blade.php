@@ -4,7 +4,7 @@
             <div class="card-header">
             </div>
             <div class="card-body">
-                @livewire('aspirantes.lista')
+
             </div>
         </div>
     </div>
