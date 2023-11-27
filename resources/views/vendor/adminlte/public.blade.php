@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin_custom.css') }}">
 @stop
 
-@section('classes_body', 'register-page layout-boxed')
+@section('classes_body', 'layout-top-nav sidebar-collapse sidebar-closed')
 
 @section('body_data', $layoutHelper->makeBodyData())
 
@@ -20,6 +20,9 @@
             @include('adminlte::partials.common.preloader')
         @endif
 
+
+        {{-- Top Navbar --}}
+        @include('adminlte::partials.navbar.navbar-layout-topnav-public')
 
 
         {{-- Content Wrapper --}}
