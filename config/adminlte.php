@@ -66,8 +66,8 @@ return [
     'logo' => '<h4 class="text-white"><b>IEPC</b> Chiapas</h4>',
     'logo_img' => 'imgs/logo-UTSI_40x40.png',
     'logo_img_class' => 'brand-image elevation-3 bg-primary',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
+    'logo_img_xl' => 'imgs/logo-UTSI-200x98.png',
+    'logo_img_xl_class' => 'brand-image-xl',
     'logo_img_alt' => 'IEPC Chiapas',
 
     /*
@@ -87,7 +87,7 @@ return [
         'enabled' => false,
         'img' => [
             'path' => 'imgs/auth_logo.jpg',
-            'alt' => 'Conoceles | IEPC Chiapas',
+            'alt' => 'ECAE | IEPC Chiapas',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -195,7 +195,7 @@ return [
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
-    'classes_topnav_nav' => 'navbar-expand',
+    'classes_topnav_nav' => 'navbar-expand-md',
     'classes_topnav_container' => 'container',
 
     /*
@@ -211,7 +211,7 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
+    'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
@@ -235,8 +235,8 @@ return [
     'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
-    'right_sidebar_slide' => true,
-    'right_sidebar_push' => true,
+    'right_sidebar_slide' => false,
+    'right_sidebar_push' => false,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
     'right_sidebar_scrollbar_auto_hide' => 'l',
 
@@ -290,22 +290,11 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => false,
-        ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => false,
         ],
 
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
         [
             'text'        => 'Configuraciones',
             'icon'        => 'fas fa-fw fa-users',

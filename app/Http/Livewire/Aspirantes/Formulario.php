@@ -15,11 +15,11 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class Formulario extends Component
 {
-    use WithFileUploads, AuthorizesRequests;
+    use AuthorizesRequests;
+
+    public  $candidato;
 
     public $aspirante_id;
-    public $numero_convocatoria;
-    public $entidad;
     public $municipio;
     public $localidad;
     public $sede;
@@ -89,8 +89,6 @@ class Formulario extends Component
     protected function rules() {
 
         return [
-            'entidad'           => 'required|string',
-            'numero_convocatoria'           => 'nullable|string',
             'municipio'         => 'required|string',
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
@@ -120,7 +118,27 @@ class Formulario extends Component
             'experiencia_laboral'   => 'nullable|array',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'   => 'nullable|string',
+            'p1_proceso_electoral'   => 'required|string',
+            'p1_1_cual'              => 'nullable|string',
+            'p1_2_forma'             => 'nullable|string',
+
+            'p3_finsemana'           => 'required|string',
+            'p4_campo'               => 'required|string',
+            'p5_milita'              => 'required|string',
+            'p6_como_representante'  => 'required|string',
+            'p7_familiar'            => 'required|string',
+            'p8_servidora'            => 'required|string',
         ];
+    }
+
+    public function messages() {
+        return [
+            '*.required' => 'Este campo es requerido'
+        ];
+    }
+
+    public function getRegistradoProperty() {
+        return $this->candidato?->id > 0;
     }
 
     public function mount(Aspirante $candidato) {
@@ -145,7 +163,7 @@ class Formulario extends Component
         }
 
         $this->fill([
-            'experiencia_laboral' =>[],
+            'experiencia_laboral' => $this->construirExperiencias($this->experiencia_laboral ?? []),
         ]);
     }
 
@@ -160,11 +178,11 @@ class Formulario extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
+        $dataFill['numero_convocatoria'] = 1;
 
-        $candidato = Aspirante::create($dataFill);
+        $this->candidato = Aspirante::create($dataFill);
 
-
-        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$candidato->id.'</strong>');
+        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
     }
 
     public function handlerSave() {
@@ -191,17 +209,10 @@ class Formulario extends Component
         $this->notificar('success', 'Registro actualizado');
     }
 
-
-
     public function agregarFormacion() {
 
         $formaciones = is_array($this->experiencia_laboral) ? $this->experiencia_laboral : [];
-        array_push($formaciones,[
-            'nombre' => '',
-            'puesto' => '',
-            'periodo' => '',
-            'telefono' => ''
-        ]);
+
         $this->experiencia_laboral = $formaciones;
     }
 
@@ -242,8 +253,25 @@ class Formulario extends Component
         ]);
     }
 
-    public function generarFicha() {
+    public function construirExperiencias(array $experiencias) {
 
+        $formaciones = [];
+
+        for ($ii = 0; $ii < 3; $ii++) {
+            $formaciones[] = [
+                'nombre' => '',
+                'puesto' => '',
+                'inicio' => '',
+                'fin' => '',
+                'telefono' => ''
+            ];
+        }
+
+        return array_merge_recursive($formaciones, $experiencias);
+    }
+
+    public function generarFicha() {
+        \Log::info($this->candidato);
         $content = Pdf::loadView('aspirantes.acuse')->setPaper('legal')->output();
         return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
     }

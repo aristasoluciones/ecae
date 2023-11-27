@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             // SECCION 01
             $table->string('numero_convocatoria')->nullable()->default(null);
-            $table->string('entidad')->nullable();
+            $table->string('entidad')->default('Chiapas');
             $table->string('municipio')->nullable();
             $table->string('localidad')->nullable();
             $table->string('sede')->nullable()->default(null);

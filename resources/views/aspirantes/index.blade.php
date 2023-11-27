@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    @livewire('aspirantes.formulario')
+    @livewire('aspirantes.lista')
 @stop
 
 
