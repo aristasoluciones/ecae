@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Aspirantes;
 
 
+use Carbon\Carbon;
+use Carbon\Factory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Session\Store;
 use Illuminate\Validation\Rule;
@@ -93,52 +95,97 @@ class Formulario extends Component
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
             'tipo_sede'         => 'required|string',
-            'clave_elector'              => 'required|string',
-            'seccion_electoral'             => 'required|string',
+            'clave_elector'     => 'required|string|size:18',
+            'seccion_electoral' => 'required|string|size:4',
             'rfc'              =>  'nullable|string',
             'curp'           => 'nullable|string',
             'nombre'          => 'required|string',
             'apellido1'  => 'required|string',
-            'apellido2'   => 'nullable|string',
+            'apellido2'   => 'required|string',
             'fecha_nacimiento'    => 'required|date',
-            'edad'    => 'nullable|integer',
+            'edad'    => 'required|integer',
             'genero'    => 'required|string',
             'persona_lgbtttiq'    => 'required|string',
-            'otro_lgbtttiq'    => 'nullable|string',
-            'dom_calle'    => 'nullable|string',
-            'dom_num_exterior'    => 'nullable|string',
+            'otro_lgbtttiq'    => 'required_if:persona_lgbtttiq,=,Otro',
+            'dom_calle'    => 'required|string',
+            'dom_num_exterior'    => 'required|string',
             'dom_num_interior'    => 'nullable|string',
-            'dom_colonia'    => 'nullable|string',
-            'dom_municipio'    => 'nullable|string',
-            'dom_localidad'    => 'nullable|string',
-            'tel_fijo'    => 'nullable|string',
-            'tel_celular'    => 'nullable|string',
+            'dom_colonia'    => 'required|string',
+            'dom_municipio'    => 'required|string',
+            'dom_localidad'    => 'required|string',
+            'tel_fijo'         => 'nullable|string',
+            'tel_celular'      => 'nullable|string',
             'ultimo_grado_estudio' => 'required|string',
             'realiza_estudios' => 'nullable|string',
             'experiencia_laboral'   => 'nullable|array',
+            'experiencia_laboral.*.nombre'   => 'nullable|string',
+            'experiencia_laboral.*.puesto'   => 'nullable|string',
+            'experiencia_laboral.*.inicio'   => 'nullable|string',
+            'experiencia_laboral.*.fin'   => 'nullable|string',
+            'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
-            'medio_convocatoria'   => 'nullable|string',
-            'p1_proceso_electoral'   => 'required|string',
-            'p1_1_cual'              => 'nullable|string',
-            'p1_2_forma'             => 'nullable|string',
-
-            'p3_finsemana'           => 'required|string',
-            'p4_campo'               => 'required|string',
-            'p5_milita'              => 'required|string',
-            'p6_como_representante'  => 'required|string',
-            'p7_familiar'            => 'required|string',
-            'p8_servidora'            => 'required|string',
+            'medio_convocatoria'    => 'required|string',
+            'p1_proceso_electoral'  => 'required|string',
+            'p1_1_cual'             => 'nullable|string',
+            'p1_2_forma'            => 'nullable|string',
+            'p3_finsemana'          => 'required|string',
+            'p4_campo'              => 'required|string',
+            'p5_milita'             => 'required|string',
+            'p6_como_representante' => 'required|string',
+            'p7_familiar'           => 'required|string',
+            'p8_servidora'          => 'required|string',
+            'p9_experiencia'        => 'required|string',
+            'p10_impartido'         => 'required|string',
+            'p11_habla_lindigena'   => 'required|string',
+            'p11_1_cual'            => 'required_if:p11_habla_lindigena,=,Si',
+            'p12_conducir'          => 'required|string',
+            'p12_1_licencia'        => 'required_if:p12_conducir,=,Si',
+            'p12_2_vehiculo'        => 'required_if:p12_conducir,=,Si',
+            'p12_3_marca'           => 'required_if:p12_2_vehiculo,=,Si',
+            'p12_4_prestar'         => 'required_if:p12_2_vehiculo,=,Si',
+            'p13_tiempo_traslado'   => 'required|string',
+            'p14_acceso_internet'   => 'required|string',
+            'p15_discapacidad'      => 'required|string',
+            'p15_1_tipodiscapacidad'=> 'required_if:p15_discapacidad,=,Si',
+            'p15_2_otradiscapacidad'=> 'required_if:p15_1_tipodiscapacidad,=,Otro',
+            'p16_utilizar_celular'  => 'required|string',
         ];
     }
 
+    public function updated($field) {
+        return $this->validateOnly($field);
+    }
     public function messages() {
         return [
-            '*.required' => 'Este campo es requerido'
+            '*.required' => 'Este campo es obligatorio',
+            '*.required_if' => 'Este campo es obligatorio'
         ];
     }
 
     public function getRegistradoProperty() {
         return $this->candidato?->id > 0;
+    }
+
+    public function updatedClaveElector($value) {
+
+        if(strlen($value) <= 0)
+            return;
+
+        $nacAnio = substr($value,6,2);
+        $nacMes = substr($value,8,2);
+        $nacDia = substr($value,10,2);
+        $anio = (int)$nacAnio + 1900;
+        if($anio < 1938)
+            $anio +=100;
+
+        if(!checkdate($nacMes, $nacDia,$anio))
+            return;
+
+        $sexos = config('constants.sexos');
+        $nacimiento = Carbon::parse($nacDia."/".$nacMes."/".$anio, )->format('d/m/Y');
+        $this->fecha_nacimiento = $nacimiento;
+        $this->edad = Carbon::parse(config('constants.fecha_eleccion'))->diffInYears($nacimiento);
+        $this->genero = $sexos[substr($value, 14,1)] ?? '';
     }
 
     public function mount(Aspirante $candidato) {
@@ -193,7 +240,7 @@ class Formulario extends Component
             'title'   => 'Confirmar información',
             'text'    => '¿Esta seguro de enviar sus datos?',
             'confirmText' => $this->aspirante_id > 0 ? 'Actualizar' : 'Guardar',
-            'method'  => $this->aspirante_id > 0 ? "actualizar" : "'guardar'",
+            'method'  => $this->aspirante_id > 0 ? "actualizar" : "guardar",
         ]);
     }
     public function actualizar() {
@@ -207,20 +254,6 @@ class Formulario extends Component
         $candidato = Aspirante::find($this->candidato_id);
 
         $this->notificar('success', 'Registro actualizado');
-    }
-
-    public function agregarFormacion() {
-
-        $formaciones = is_array($this->experiencia_laboral) ? $this->experiencia_laboral : [];
-
-        $this->experiencia_laboral = $formaciones;
-    }
-
-    public function eliminarFormacion($index) {
-
-        $formaciones = $this->experiencia_laboral ?? [];
-        $formaciones =  array_filter($formaciones, fn($item, $idx) => $index != $idx, ARRAY_FILTER_USE_BOTH);
-        $this->experiencia_laboral = $formaciones;
     }
 
     public function notificar($type, $titulo) {
@@ -271,8 +304,9 @@ class Formulario extends Component
     }
 
     public function generarFicha() {
-        \Log::info($this->candidato);
-        $content = Pdf::loadView('aspirantes.acuse')->setPaper('legal')->output();
+
+
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
         return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
     }
 }
