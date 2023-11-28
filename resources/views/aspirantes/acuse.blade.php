@@ -6,24 +6,24 @@
     <title>Document</title>
     <style type="">
         table.inicio {
-    width: 100%;    
+    width: 100%;
     border: 1pt solid #AD84C6;
     border-bottom: none;
     border-collapse: collapse;
 }
 table.enmedio {
-width: 100%;    
+width: 100%;
 border: 1pt solid #AD84C6;
 border-top: none;
 border-bottom: none;
 border-collapse: collapse;
 }
 table.final {
-    width: 100%;    
+    width: 100%;
     border: 1pt solid #AD84C6;
     border-top: none;
     border-collapse: collapse;
-    margin-bottom: 10pt;    
+    margin-bottom: 10pt;
 }
 td.gris{
 background:#F2F2F2;
@@ -86,17 +86,17 @@ tr{
                 <td class="gris" style="width: 6%; text-align: center; ">
                     Entidad</td>
                 <td class="rosa"
-                    style="width: 23%; text-align: center; text-align: center;">
+                    style="width: 23%; text-align: center; text-align: center;">{{$aspirante->entidad}}
                     &nbsp;</td>
                 <td class="gris" style="width: 7%; text-align: center; ">
                     Municipio/Alcadía</td>
                 <td class="rosa"
-                    style="width: 23%; text-align: center; text-align: center;">
+                    style="width: 23%; text-align: center; text-align: center;">{{$aspirante->municipio}}
                     &nbsp;</td>
                 <td class="gris" style="width: 5%; text-align: center;">
                     Localidad</td>
                 <td class="rosa"
-                    style="width: 23%; text-align: center; text-align: center;">
+                    style="width: 23%; text-align: center; text-align: center;">{{ $aspirante->localidad }}
                     &nbsp;</td>
             </tr>
         </tbody>
@@ -136,24 +136,24 @@ tr{
             <tr>
                 <td class="blanco" colspan="7" rowspan="2">Clave electoral o
                     FUAR:</td>
-                <td class="rosa" rowspan="2">1</td>
-                <td class="rosa" rowspan="2">2</td>
-                <td class="rosa" rowspan="2">3</td>
-                <td class="rosa" rowspan="2">4</td>
-                <td class="rosa" rowspan="2">5</td>
-                <td class="rosa" rowspan="2">6</td>
-                <td class="rosa" rowspan="2">7</td>
-                <td class="rosa" rowspan="2">8</td>
-                <td class="rosa" rowspan="2">9</td>
-                <td class="rosa" rowspan="2">10</td>
-                <td class="rosa" rowspan="2">11</td>
-                <td class="rosa" rowspan="2">12</td>
-                <td class="rosa" rowspan="2">13</td>
-                <td class="rosa" rowspan="2">14</td>
-                <td class="rosa" rowspan="2">15</td>
-                <td class="rosa" rowspan="2">16</td>
-                <td class="rosa" rowspan="2">17</td>
-                <td class="rosa" rowspan="2">18</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[0] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[1] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[2] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[3] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[4] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[5] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[6] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[7] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[8] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[9] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[10] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[11] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[12] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[13] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[14] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[15] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[16] }}</td>
+                <td class="rosa" rowspan="2">{{ $aspirante->clave_elector[17] }}</td>
                 <td class="gris" colspan="2">&nbsp;</td>
                 <td class="gris" colspan="2">&nbsp;</td>
                 <td class="gris" colspan="2">&nbsp;</td>
@@ -437,7 +437,7 @@ tr{
             <tr>
                 <td class="rosa" colspan="2"
                     style="width: 15%; text-align: left;">Primaria</td>
-                <td class="rosa" style="width: 5%; text-align: center;">1&ordm;
+                <td class="rosa" style="width: 5%; text-align: center; @if($aspirante->ultimo_grado_estudio)text-decoration:underline" @endif>1&ordm;
                 </td>
                 <td class="rosa" style="width: 5%; text-align: center;">2&ordm;
                 </td>

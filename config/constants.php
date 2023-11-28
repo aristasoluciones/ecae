@@ -21,6 +21,8 @@ return [
         'Titulado',
     ],
 
+    'fecha_eleccion' => '2024-06-06',
+
     'tipos_de_medio' => [
         'A. Cartel',
         'B. Volante',
@@ -274,14 +276,10 @@ return [
         '3a.  Suplente General'
     ],
     'sexos' => [
-        'Femenino',
-        'Masculino',
-        'Prefiero no decir',
-    ],
-    'sexos1' => [
-        'Si',
-        'No',
-        'Prefiero no decir',
+        'M' => 'Femenino',
+        'H' => 'Masculino',
+        'O' => 'Otro',
+        'P' => 'Prefiero no decir',
     ],
 
     'distritos' => [

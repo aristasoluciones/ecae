@@ -12,4 +12,5 @@ class Aspirante extends Model
     protected $casts = ['experiencia_laboral' => 'json'];
 
     protected $guarded = [];
+
 }

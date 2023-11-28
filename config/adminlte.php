@@ -64,9 +64,9 @@ return [
     */
 
     'logo' => '<h4 class="text-white"><b>IEPC</b> Chiapas</h4>',
-    'logo_img' => 'imgs/logo-UTSI_40x40.png',
+    'logo_img' => 'imgs/logo-iepc.jpeg',
     'logo_img_class' => 'brand-image elevation-3 bg-primary',
-    'logo_img_xl' => 'imgs/logo-UTSI-200x98.png',
+    'logo_img_xl' => 'imgs/logo-iepc.jpeg',
     'logo_img_xl_class' => 'brand-image-xl',
     'logo_img_alt' => 'IEPC Chiapas',
 
