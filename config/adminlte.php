@@ -70,6 +70,8 @@ return [
     'logo_img_xl_class' => 'brand-image-xl',
     'logo_img_alt' => 'IEPC Chiapas',
 
+    
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Logo
