@@ -114,7 +114,7 @@ input{
 
                 <div class="col">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Sección electoral</label>
+                        <label class=""><span class="text-danger ">*</span>Sección electoral</label>
                         <input wire:model.lazy="seccion_electoral"
                                id="seccion_electoral"
                                type="text"
@@ -127,7 +127,7 @@ input{
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> RFC</label>
-                        <input maxlength="9" wire:model.lazy="rfc"
+                        <input maxlength="10" wire:model.lazy="rfc"
                                id="rfc"
                                type="text"
                                class="form-control {{ $errors->has('rfc') ? 'is-invalid' : '' }}"/>
