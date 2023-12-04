@@ -29,6 +29,7 @@ class Formulario extends Component
     public $clave_elector;
     public $seccion_electoral;
     public $rfc;
+    public $homoclave;
     public $curp;
     public $nombre;
     public $apellido1;
@@ -36,6 +37,7 @@ class Formulario extends Component
     public $fecha_nacimiento;
     public $edad;
     public $genero;
+    public $otro_genero;
     public $persona_lgbtttiq;
     public $otro_lgbtttiq;
     public $experiencia_laboral;
@@ -45,9 +47,11 @@ class Formulario extends Component
     public $dom_colonia;
     public $dom_municipio;
     public $dom_localidad;
+    public $dom_postal;
     public $tel_fijo;
     public $tel_celular;
     public $ultimo_grado_estudio;
+    public $carrera;
     public $realiza_estudios;
     public $motivo_secae;
     public $medio_convocatoria;
@@ -87,6 +91,11 @@ class Formulario extends Component
     public $paises;
     public $entidades;
     public $municipios;
+    public $localidades;
+    public $localidadesFiltrado;
+    public $consejosMunicipales;
+    public $consejosFiltrado;
+
 
     protected function rules() {
 
@@ -97,7 +106,8 @@ class Formulario extends Component
             'tipo_sede'         => 'required|string',
             'clave_elector'     => 'required|string|size:18',
             'seccion_electoral' => 'required|string|size:4',
-            'rfc'              =>  'nullable|string',
+            'rfc'              =>  'nullable|string|size:10',
+            'homoclave'              =>  'nullable|string|size:3',
             'curp'           => 'nullable|string',
             'nombre'          => 'required|string',
             'apellido1'  => 'required|string',
@@ -105,6 +115,7 @@ class Formulario extends Component
             'fecha_nacimiento'    => 'required|date',
             'edad'    => 'required|integer',
             'genero'    => 'required|string',
+            'otro_genero'    => 'nullable|string',
             'persona_lgbtttiq'    => 'required|string',
             'otro_lgbtttiq'    => 'required_if:persona_lgbtttiq,=,Otro',
             'dom_calle'    => 'required|string',
@@ -113,9 +124,11 @@ class Formulario extends Component
             'dom_colonia'    => 'required|string',
             'dom_municipio'    => 'required|string',
             'dom_localidad'    => 'required|string',
+            'dom_postal'    => 'required|string|size:5',
             'tel_fijo'         => 'nullable|string',
             'tel_celular'      => 'nullable|string',
             'ultimo_grado_estudio' => 'required|string',
+            'carrera' => 'nullable|string',
             'realiza_estudios' => 'nullable|string',
             'experiencia_laboral'   => 'nullable|array',
             'experiencia_laboral.*.nombre'   => 'nullable|string',
@@ -182,20 +195,37 @@ class Formulario extends Component
             return;
 
         $sexos = config('constants.sexos');
-        $nacimiento = Carbon::parse($nacDia."/".$nacMes."/".$anio, )->format('d/m/Y');
+        $nacimiento = Carbon::parse($anio."-".$nacMes."-".$nacDia)->format('Y-m-d');
         $this->fecha_nacimiento = $nacimiento;
         $this->edad = Carbon::parse(config('constants.fecha_eleccion'))->diffInYears($nacimiento);
         $this->genero = $sexos[substr($value, 14,1)] ?? '';
     }
 
+    public function updatedMunicipio($value) {
+
+        $this->localidadesFiltrado = $this->localidades[$value] ?? [];
+        $this->sede = $this->consejosMunicipales[$value] ?? [];
+
+    }
+
     public function mount(Aspirante $candidato) {
 
-        $this->grados         =  config('constants.grados');
-        $this->tiposDeMedio   =  config('constants.tipos_de_medio');
-        $this->sexos          =  config('constants.sexos');
-        $this->entidades      =  config('constants.entidades');
-        $this->municipios      =  config('constants.municipios');
-        $this->paises         =  config('constants.paises');
+        $this->grados               =  config('constants.grados');
+        $this->tiposDeMedio         =  config('constants.tipos_de_medio');
+        $this->sexos                =  config('constants.sexos');
+        $this->entidades            =  config('constants.entidades');
+        $this->municipios            =  config('constants.municipios');
+        $this->paises                =  config('constants.paises');
+        $this->localidades     =  config('constants.localidades');
+        $this->localidadesFiltrado     =  [];
+        
+        $consejos = [];
+        foreach($this->municipios as $mun) {
+            $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
+        }
+        $this->consejosMunicipales     =  $consejos;
+        $this->consejosFiltrado     =  [];
+
 
         $this->resetearCandidato();
 
@@ -279,6 +309,11 @@ class Formulario extends Component
             'paises',
             'entidades',
             'municipios',
+            'localidades',
+            'localidadesFiltrado',
+            'consejosMunicipales',
+            'consejosFiltrado',
+            'fecha_nacimiento',
         ]);
 
         $this->fill([

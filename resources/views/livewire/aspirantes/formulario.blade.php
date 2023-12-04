@@ -1,5 +1,12 @@
 @section('title', 'Nuevo registro')
 @section('content_header')
+
+<style>
+input{
+    text-transform:uppercase;
+}
+</style>
+
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -17,7 +24,7 @@
             <div class="form-row">
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Municipio/Alcadía</label>
+                        <label class=""><span class="text-danger ">*</span> Municipio</label>
                         <select class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}"
                                 id="municipio"
                                 name="municipio"
@@ -33,13 +40,25 @@
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> localidad</label>
-                        <input wire:model.lazy="localidad" id="localidad" type="text"
-                               class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"/>
+
+                        <label class=""><span class="text-danger ">*</span>Localidad</label>
+                        <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
+                                id="localidad"
+                                name="localidad"
+                                wire:model.lazy="localidad">
+                            <option
+                                value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                            @foreach($this->localidadesFiltrado as $loc)
+                                <option value="{{$loc}}">{{$loc}}</option>
+                            @endforeach
+                        </select>
                         @error('localidad')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
+                
+             
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
+
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span> Sede</label>
                         <select class="form-control {{ $errors->has('sede') ? 'is-invalid' : '' }}"
@@ -48,12 +67,13 @@
                                 wire:model.lazy="sede">
                             <option
                                 value="">{{ __('adminlte::adminlte.please_select') }}</option>
-                            @foreach($this->municipios as $municipio)
-                                <option value="{{$municipio}}">{{$municipio}}</option>
+                            @foreach($this->consejosMunicipales as $cons)
+                                <option value="{{$cons}}">{{$cons}}</option>
                             @endforeach
                         </select>
                         @error('sede')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
+                    
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
@@ -77,6 +97,8 @@
                 <div class="col-12 divider">
                     <h3 class="dropdown-divider"></h3>
                 </div>
+                <div class="row">
+
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span> Clave de elector o FUAR</label>
@@ -88,31 +110,45 @@
                         <small id="clave-elector-help-text" class="form-text text-muted">Ingrese la <strong class="text-uppercase">clave de elector</strong> tal como aparece en su INE sin espacios y sin guiones</small>
                         @error('clave_elector')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
-
                 </div>
-                <div class="col-4 col-md-4 col-sm-12">
+
+                <div class="col">
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span> Sección electoral</label>
                         <input wire:model.lazy="seccion_electoral"
                                id="seccion_electoral"
                                type="text"
                                class="form-control  {{ $errors->has('seccion_electoral') ? 'is-invalid' : '' }}"/>
-                        <small id="clave-elector-help-text" class="form-text text-muted">Ingrese los 4 digitos de la <strong>SECCION</strong> tal como aparece en su INE</small>
+                        <small style="font-size:0.6em" id="clave-elector-help-text" class="form-text text-muted">Ingrese los 4 digitos de la <strong>SECCION</strong> tal como aparece en su INE</small>
                         @error('seccion_electoral')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
-
                 </div>
+
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> RFC</label>
-                        <input wire:model.lazy="rfc"
+                        <input maxlength="9" wire:model.lazy="rfc"
                                id="rfc"
                                type="text"
                                class="form-control {{ $errors->has('rfc') ? 'is-invalid' : '' }}"/>
                         @error('rfc')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
-
                 </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label class=""><sup>1</sup>Homoclave</label>
+                        <input maxlength="3" wire:model.lazy="homoclave"
+                               id="homoclave"
+                               type="text"
+                               class="form-control {{ $errors->has('rfc') ? 'is-invalid' : '' }}"/>
+                        @error('homoclave')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                    </div>
+                </div>
+
+
+            </div>
+
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> CURP</label>
@@ -127,7 +163,7 @@
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Nombre</label>
+                        <label class=""><span class="text-danger ">*</span> Nombre(s)</label>
                         <input wire:model.lazy="nombre"
                                id="nombre"
                                name="nombre"
@@ -139,7 +175,7 @@
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Primero Apellido</label>
+                        <label class=""><span class="text-danger ">*</span> Primer Apellido</label>
                         <input wire:model.lazy="apellido1"
                                id="apellido1"
                                name="apellido1"
@@ -165,7 +201,7 @@
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span> Fecha nacimiento</label>
                         <input
-                               wire:model="fecha_nacimiento"
+                               wire:model.lazy="fecha_nacimiento"
                                readonly
                                id="fecha_nacimiento"
                                name="fecha_nacimiento"
@@ -190,7 +226,7 @@
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Género</label>
+                        <label class=""><span class="text-danger ">*</span>Género</label>
                         <select wire:model.lazy="genero" class="form-control {{ $errors->has('genero') ? 'is-invalid' : '' }}">
                             <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
                             @foreach ($this->sexos as $sexo)
@@ -199,8 +235,16 @@
                         </select>
                         @error('genero')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
-
                 </div>
+                @if($genero === 'Otro')
+                    <div class="col-4 col-md-4 col-sm-12">
+                        <div class="form-group {{ $errors->has('genero') ? 'is-invalid' : '' }}">
+                            <label class=""><span class="text-danger ">*</span>Especifique:</label>
+                            <input wire:model.lazy="otro_genero" class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
+                            @error('otro_genero')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                @endif
                 <div class="col-6 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span> ¿Se identifica como una persona  LGBTTTIQ+?</label>
@@ -280,7 +324,7 @@
                 </div>
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Municipio/Alcaldía</label>
+                        <label class=""><span class="text-danger ">*</span>Municipio</label>
                         <select wire:model.lazy="dom_municipio" class="form-control {{ $errors->has('dom_municipio') ? 'is-invalid' : '' }}">
                             <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
                             @foreach ($this->municipios as $municipio)
@@ -300,8 +344,19 @@
                                class="form-control {{ $errors->has('dom_localidad') ? 'is-invalid' : '' }}"/>
                         @error('dom_localidad')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
+                    </div>
 
+                <div class="col-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label class=""><span class="text-danger ">*</span>Código Postal</label>
+                        <input wire:model.lazy="dom_postal"
+                               id="dom_postal"
+                               type="text"
+                               class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}"/>
+                        @error('dom_postal')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                    </div>
                 </div>
+
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><span class="text-danger "></span> Teléfono fijo</label>
@@ -330,7 +385,7 @@
                 <div class="col-12 dropdown-divider"></div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span> Ultimo grado de estudios</label>
+                        <label class=""><span class="text-danger ">*</span>último grado de estudios</label>
                         <select wire:model.lazy="ultimo_grado_estudio" class="form-control {{ $errors->has('ultimo_grado_estudio') ? 'is-invalid' : '' }}">
                             <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
                             @foreach ($this->grados as $grado)
@@ -339,6 +394,16 @@
                         </select>
                         @error('ultimo_grado_estudio')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
+                    @if($ultimo_grado_estudio === 'Carrera (especifique)')carrera
+                    <div class="col-4 col-md-4 col-sm-12">
+                        <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
+                            <label class=""><span class="text-danger ">*</span>Especifique:</label>
+                            <input wire:model.lazy="carrera" class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
+                            @error('carrera')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                @endif
+
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
@@ -363,18 +428,20 @@
                     </div>
 
                 </div>
-
+            
                 <div class="col-md-8 col-sm-12">
                     <div class="form-group">
                         <label class=""><span class="text-danger "></span> ¿Cual es el motivo por el que quiere participar como SE o CAE Local? Especifique:</label>
-                        <textarea wire:model.lazy="motivo_secae"
-                               rows="5"
+                        <textarea maxlength="250" wire:model.lazy="motivo_secae"
+                               rows="2"
                                id="motivo_secae"
                                class="form-control {{ $errors->has('motivo_secae') ? 'is-invalid' : '' }}"></textarea>
                         @error('motivo_secae')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
-
                 </div>
+            
+
+
             </div>
             <div class="form-row">
                 <div class="col-12 table-responsive">
@@ -392,11 +459,11 @@
                             <th>Puesto</th>
                             <th colspan="2">
                                 <div class="row">
-                                    <div class="col-12">Periodo en que laboro</div>
+                                    <div class="col-12">Periodo en que laboró</div>
                                     <div class="col-6">Fecha inicio</div>
                                     <div class="col-6">Fecha final</div>
                                 </div></th>
-                            <th>Telefono</th>
+                            <th>Teléfono</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -444,9 +511,9 @@
 
                 {{-- Pregunta numero 1 --}}
                 <div class="form-row">
-                    <div class="col-12"><h5>1- ¿ Has participado en proceso electoral ?</h5></div>
-                    <div class="col-4">
-                        <div class="form-check">
+                    <div class="col-12"><h5>1- ¿Has participado en algún proceso electoral?</h5></div>
+                        <div class="col-4">
+                            <div class="form-check">
                             <input type="radio" class="form-check-input"
                                    value="Si"
                                    wire:model.lazy="p1_proceso_electoral"
@@ -455,7 +522,7 @@
                             <label
                                 for="p1_proceso_electoral_si"
                                 class="form-check-label">Si</label>
-                        </div>
+                            </div>
                         <div class="form-check">
                             <input type="radio" class="form-check-input"
                                    value="No"
@@ -467,16 +534,19 @@
                                 class="form-check-label">No</label>
                         </div>
                     </div>
+
                     <div class="col-12">
                         @error('p1_proceso_electoral')<span class="text-danger error h6">{{ $message }}</span>@enderror
                     </div>
-                </div>
-            </div>
+                
+          
+        
+
             @if($p1_proceso_electoral === 'Si')
             {{-- Pregunta numero 1.1 --}}
             <div class="form-row justify-content-between mb-3">
-                <div class="col-12"><h5>1.1- Cual</h5></div>
-                <div class="col-4">
+                <div class="col-12"><h5>1.1- ¿Cuál?</h5></div>
+                <div class="col-12 col-md-12 col-sm-12">
                     <input type="text" class="form-control"
                            wire:model.lazy="p1_1_cual"
                            id="p1_1_cual"
@@ -487,21 +557,36 @@
                 </div>
             </div>
             @endif
+
             {{-- Pregunta numero 1.2 --}}
             @if($p1_proceso_electoral === 'Si')
-            <div class="form-row justify-content-between mb-3">
-                <div class="col-12"><h5>1.2- De que forma</h5></div>
-                <div class="col-4">
-                    <input type="text" class="form-control"
-                           wire:model.lazy="p1_2_forma"
-                           id="p1_2_forma"
-                           name="p1_2_forma">
-                </div>
-                <div class="col-12">
-                    @error('p1_2_forma')<span class="text-danger error h6">{{ $message }}</span>@enderror
+
+            <div class="form-group">
+                        <label class=""><span class="text-danger ">*</span>1.2- ¿De qué forma?</label>
+                        <select wire:model.lazy="p1_2_forma" class="form-control {{ $errors->has('p1_2_forma') ? 'is-invalid' : '' }}">
+                            <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                            <option value="SE">SE</option>
+                            <option value="CAE">CAE</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        @error('p1_2_forma')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                    </div>
+                    @endif
+               
+                @if($p1_2_forma === 'Otro')
+                    <div class="col-4 col-md-4 col-sm-12">
+                        <div class="form-group {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
+                            <label class=""><span class="text-danger ">*</span> Especifique</label>
+                            <input wire:model.lazy="otro_p1_2_forma" class="form-control {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
+                            @error('otro_p1_2_forma')<span class="text-danger error h6">{{ $message }}</span>@enderror
+                        </div>
+                   
+                    @endif
                 </div>
             </div>
-            @endif
+              
+            
+         
 
             {{-- Pregunta numero 2 --}}
             <div class="form-row justify-content-between mb-3">
