@@ -9,7 +9,7 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 use App\Models\Aspirante;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ComponentColumn;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class Lista extends DataTableComponent
 {
     protected $model = Aspirante::class;
@@ -50,5 +50,12 @@ class Lista extends DataTableComponent
                 ->component('acciones')
                 ->attributes(fn($value) => ['id' => $value]),
         ];
+    }
+
+    public function generarFicha($id) {
+
+        $candidato =  Aspirante::find($id);
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $candidato])->setPaper('legal')->output();
+        return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
     }
 }

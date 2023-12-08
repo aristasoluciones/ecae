@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('clave_elector')->nullable();
             $table->string('seccion_electoral')->nullable();
             $table->string('rfc')->nullable()->default(null);
+            $table->string('homoclave')->nullable()->default(null);
             $table->string('curp')->nullable()->default(null);
             $table->string('apellido1')->nullable();
             $table->string('apellido2')->nullable();
@@ -33,6 +34,7 @@ return new class extends Migration
             $table->string('fecha_nacimiento')->nullable();
             $table->string('edad')->nullable();
             $table->string('genero')->nullable();
+            $table->string('otro_genero')->nullable();
             $table->string('persona_lgbtttiq')->nullable()->default(null);
             $table->string('otro_lgbtttiq')->nullable()->default(null);
             $table->string('dom_calle')->nullable();
@@ -41,10 +43,12 @@ return new class extends Migration
             $table->string('dom_colonia')->nullable();
             $table->string('dom_municipio')->nullable();
             $table->string('dom_localidad')->nullable();
+            $table->string('dom_postal')->nullable();
             $table->string('tel_fijo')->nullable();
             $table->string('tel_celular')->nullable();
             // SECCION 03
             $table->string('ultimo_grado_estudio')->nullable();
+            $table->string('carrera')->nullable();
             $table->string('realiza_estudios')->nullable();
             $table->string('medio_convocatoria')->nullable();
             $table->string('motivo_secae')->nullable();
