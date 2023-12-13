@@ -248,8 +248,7 @@
                     @endif
                     <div class="col-6 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span> ¿Se
-                                identifica como una persona LGBTTTIQ+?</label>
+                            <label class=""><span class="text-danger ">*</span> ¿Se identifica como una persona LGBTTTIQ+?</label>
                             <select wire:model.lazy="persona_lgbtttiq"
                                 class="form-control {{ $errors->has('persona_lgbtttiq') ? 'is-invalid' : '' }}">
                                 <option value="">
@@ -551,6 +550,9 @@
 
                 <div class="form-row">
                     <div class="col-12"><h3 class="text-bold">Otros datos</h3></div>
+                    <div class="col-12">
+                        <sup class="text-bold">*</sup><small class="text-gray">LAS PREGUNTAS DE LA <strong>11 A LA 15</strong> SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
+                    </div>
                     <div class="col-12 dropdown-divider"></div>
                     
                     {{-- Pregunta numero 1 --}}
@@ -1048,10 +1050,18 @@
                         <h5>13. ¿Cuánto tiempo le lleva trasladarse de su
                             domicilio al OPL? *</h5>
                     </div>
-                    <div class="col-4">
-                        <input type="text" class="form-control" wire:model.lazy="p13_tiempo_traslado"
-                            id="p13_tiempo_traslado" name="p13_tiempo_traslado">
+                    
+                    <div>
+                            <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+                            <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
                     </div>
+
+                    {{--<div class="col-4">
+                        <input type="time" class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                            id="p13_tiempo_traslado" name="p13_tiempo_traslado">
+                    </div>--}}
+
+
                     <div class="col-12">
                         @error('p13_tiempo_traslado')
                             <span class="text-danger error h6">{{ $message }}</span>
@@ -1201,6 +1211,9 @@
                     </div>
                 </div>
                 {{-- Prgeunta numero 12.4 --}}
+            </div>
+            <div>
+                <p style="text-aling: left; font-size: 8pt; line-break: auto">** En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.</p>
             </div>
             <div class="card-footer d-flex flex-row justify-content-end">
                 <button class="btn btn-primary" wire:click.prevent="handlerSave">

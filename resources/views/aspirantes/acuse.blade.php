@@ -863,10 +863,7 @@ table.saltopagina {
             <tr>
                 <td class="blanco" colspan="2"
                     style="width: 100; text-align: center;">
-                    EXPERIENCIA<br>(Señale los tres
-                    últimos empleos
-                    o prestaciones de servicios. El no contar con experiencia no
-                    será causa de exclusión)
+                    EXPERIENCIA<br>(Señale los tres últimos empleoso prestaciones de servicios. El no contar con experiencia no será causa de exclusión)
                     </br></td>
             </tr>
         </tbody>
@@ -874,27 +871,17 @@ table.saltopagina {
     </table>
     <table class="enmedio">
         <tbody>
-        <tbody>
             <tr>
                 <td class="rosa" rowspan="2"
-                    style="width: 40%; text-align: center;">Nombre de la empresa
-                    o Institución
-                </td>
-                <td class="rosa" rowspan="2"
-                    style="width: 20%; text-align: center;">Puesto</td>
-                <td class="rosa" colspan="2"
-                    style="width: 20%; text-align: center;">Periodo en que
-                    laboró</td>
-                <td class="rosa" rowspan="2"
-                    style="width: 10%; text-align: center;">Teléfono</td>
+                    style="width: 40%; text-align: center;">Nombre de la empresa o Institución</td>
+                <td class="rosa" rowspan="2" style="width: 20%; text-align: center;">Puesto</td>
+                <td class="rosa" colspan="2" style="width: 20%; text-align: center;">Periodo en que laboró</td>
+                <td class="rosa" rowspan="2" style="width: 10%; text-align: center;">Teléfono</td>
+            </tr>
             <tr>
-                <td class="rosa" style="text-align: center; width: 10%;">Inicio
-                </td>
-                <td class="rosa" style="text-align: center; width: 10%;">Fin
-                </td>
+                <td class="rosa" style="text-align: center; width: 10%;">Inicio</td>
+                <td class="rosa" style="text-align: center; width: 10%;">Fin</td>
             </tr>
-            </tr>
-        </tbody>
         </tbody>
     </table>
     <table class="enmedio">
@@ -902,16 +889,21 @@ table.saltopagina {
         <tbody>
             <tr>
                 <td class="blanco" style="width: 5%; text-align: center;">1</td>
-                <td class="gris" style="width: 35%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 20%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
+                
+                @foreach($aspirante['experiencia_laboral' => $key] as $aspirantes)
+                    
+                   
+                <td class="gris" style="width: 35%; text-align: center;">{{$aspirantes['nombre']}}</td>
+                    
+                <td class="gris" style="width: 20%; text-align: center;">{{$aspirantes['puesto']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['inicio']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['fin']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['telefono']}}</td>
+                    
+                @endforeach
+                 
+               
+                
             </tr>
         </tbody>
         </tbody>
@@ -921,16 +913,14 @@ table.saltopagina {
         <tbody>
             <tr>
                 <td class="blanco" style="width: 5%; text-align: center;">2</td>
-                <td class="gris" style="width: 35%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 20%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
+
+
+                
+                <td class="gris" style="width: 35%; text-align: center;">{{$aspirantes['nombre']}}</td>
+                <td class="gris" style="width: 20%; text-align: center;">{{$aspirantes['puesto']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['inicio']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['fin']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['telefono']}}</td>
             </tr>
         </tbody>
         </tbody>
@@ -940,16 +930,14 @@ table.saltopagina {
         <tbody>
             <tr>
                 <td class="blanco" style="width: 5%; text-align: center;">3</td>
-                <td class="gris" style="width: 35%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 20%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
-                <td class="gris" style="width: 10%; text-align: center;">&nbsp;
-                </td>
+                
+                <td class="gris" style="width: 35%; text-align: center;">{{$aspirantes['nombre']}}</td>
+                <td class="gris" style="width: 20%; text-align: center;">{{$aspirantes['puesto']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['inicio']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['fin']}}</td>
+                <td class="gris" style="width: 10%; text-align: center;">{{$aspirantes['telefono']}}</td>
+                   
+            
             </tr>
         </tbody>
         </tbody>
@@ -959,7 +947,7 @@ table.saltopagina {
     <table style="table-layout: fixed; width: 726px; margin-top: 50pt;">
         <tr>
             <td style="text-align: center; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES Y CAPACITADORES/AS-ASISTENTES ELECTORALES | ANEXO 21.1 SOLICITUD 
-</td>
+        </td>
         </tr>
     </table>
     <!-- TERMINA PÁGINA 01 -->
@@ -1589,5 +1577,11 @@ table.saltopagina {
         </tbody>
     </table>
     <!-- TERMINA PÁGINA 05 -->
+    <table style="table-layout: fixed; width: 726px; margin-top: 50pt;">
+        <tr>
+            <td style="text-align: center; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES Y CAPACITADORES/AS-ASISTENTES ELECTORALES | ANEXO 21.1 SOLICITUD 
+        </td>
+        </tr>
+    </table>
 </body>
 </html>

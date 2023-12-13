@@ -42,7 +42,7 @@ return [
     'grados' => [
         'Primaria Primer grado',
         'Primaria Segundo grado',
-        'Primaria Tercero grado',
+        'Primaria Tercer grado',
         'Primaria Cuarto grado',
         'Primaria Quinto grado',
         'Primaria Sexto grado',

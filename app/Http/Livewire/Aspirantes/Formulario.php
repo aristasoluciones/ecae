@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Session\Store;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
+use App\Rules\ClaveElectorRule;
 
 use App\Models\Aspirante;
 use Livewire\WithFileUploads;
@@ -104,7 +105,7 @@ class Formulario extends Component
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
             'tipo_sede'         => 'required|string',
-            'clave_elector'     => 'required|string|size:18',
+            'clave_elector'     => ['required','string','size:18', new ClaveElectorRule],
             'seccion_electoral' => 'required|string|size:4',
             'rfc'              =>  'nullable|string|size:10',
             'homoclave'              =>  'nullable|string|size:3',
