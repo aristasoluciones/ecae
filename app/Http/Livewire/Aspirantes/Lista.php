@@ -55,7 +55,7 @@ class Lista extends DataTableComponent
     public function generarFicha($id) {
 
         $candidato =  Aspirante::find($id);
-        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $candidato])->setPaper('legal')->output();
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $candidato])->setPaper('letter')->output();
         return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
     }
 }
