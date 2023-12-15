@@ -18,6 +18,7 @@ class Lista extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setColumnSelectDisabled();
+        $this->setAdditionalSelects(['id']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'components.button',
@@ -46,9 +47,11 @@ class Lista extends DataTableComponent
             Column::make('Sexo', 'genero'),
             Column::make('Edad', 'edad'),
             Column::make('Municipio', 'municipio'),
-            ComponentColumn::make('acciones', 'id')
-                ->component('acciones')
-                ->attributes(fn($value) => ['id' => $value]),
+            Column::make('acciones')
+                ->label(function($row) {
+                    return view('aspirantes.acciones')->with(['row' => $row]);
+                }),
+
         ];
     }
 
