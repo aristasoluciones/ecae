@@ -57,6 +57,9 @@ class Formulario extends Component
     public $motivo_secae;
     public $medio_convocatoria;
     public $email;
+    public $acepto_aviso;
+    public $acepto_ser_contactado;
+    public $acepto_declaratoria;
 
     //Preguntas
     public $p1_proceso_electoral;
@@ -139,6 +142,10 @@ class Formulario extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
+            'email'    => 'required|email',
+            'acepto_aviso'    => 'required|integer',
+            'acepto_ser_contactado'    => 'required|integer',
+            'acepto_declaratoria'    => 'required|integer',
             'p1_proceso_electoral'  => 'required|string',
             'p1_1_cual'             => 'nullable|string',
             'p1_2_forma'            => 'nullable|string',
@@ -219,7 +226,7 @@ class Formulario extends Component
         $this->paises                =  config('constants.paises');
         $this->localidades     =  config('constants.localidades');
         $this->localidadesFiltrado     =  [];
-        
+
         $consejos = [];
         foreach($this->municipios as $mun) {
             $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
@@ -340,7 +347,6 @@ class Formulario extends Component
     }
 
     public function generarFicha() {
-
 
         $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
         return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');

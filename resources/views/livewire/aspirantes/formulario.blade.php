@@ -554,11 +554,11 @@
                         <sup class="text-bold">*</sup><small class="text-gray">LAS PREGUNTAS DE LA <strong>11 A LA 15</strong> SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
                     </div>
                     <div class="col-12 dropdown-divider"></div>
-                    
+
                     {{-- Pregunta numero 1 --}}
 
                     <div class="form-row justify-content-between mb-3 col-12">
-                        <div class="col-12"><h5>1- ¿Has participado en algún proceso electoral?</h5></div>                        
+                        <div class="col-12"><h5>1- ¿Has participado en algún proceso electoral?</h5></div>
                         <div class="col-12">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" value="Si"
@@ -599,9 +599,9 @@
                         {{-- Pregunta numero 1.2 --}}
 
                         @if ($p1_proceso_electoral === 'Si')
-                        <div class="form-row justify-content-between mb-3 col-12">    
+                        <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12"><label class=""><span class="text-danger ">*</span>1.2- ¿De qué forma?</label>
-                        
+
                                 <select wire:model.lazy="p1_2_forma"
                                     class="form-control col-4 {{ $errors->has('p1_2_forma') ? 'is-invalid' : '' }}">
                                     <option value="">
@@ -616,11 +616,11 @@
                                 @enderror
                             </div>
                         </div>
-                    
+
                         @endif
 
                         @if ($p1_2_forma === 'Otro')
-                        <div class="form-row justify-content-between mb-3 col-12">      
+                        <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12">
                                 <div class="form-group {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
                                     <label class="col-12"><span class="text-danger ">*</span>
@@ -863,7 +863,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 {{-- Prgeunta numero 10 --}}
                 <div class="form-row justify-content-between mb-3 col-12">
                     <div class="col-12">
@@ -1050,7 +1050,7 @@
                         <h5>13. ¿Cuánto tiempo le lleva trasladarse de su
                             domicilio al OPL? *</h5>
                     </div>
-                    
+
                     <div>
                             <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
                             <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
@@ -1215,12 +1215,41 @@
             <div>
                 <p style="text-aling: left; font-size: 8pt; line-break: auto">** En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.</p>
             </div>
-            <div class="card-footer d-flex flex-row justify-content-end">
-                <button class="btn btn-primary" wire:click.prevent="handlerSave">
-                    <span wire:loading.remove wire:target="handlerSave">Guardar</span>
-                    <span wire:loading wire:target="handlerSave">Guardando
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" wire:model="acepto_aviso"
+                                   class="custom-control-input custom-control-input-success checkbox-3x"
+                                   id="acepto-aviso">
+                            <label class="custom-control-label" for="acepto-aviso">Acepto aviso</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" wire:model="acepto_aviso"
+                                   class="custom-control-input custom-control-input-success checkbox-3x"
+                                   id="acepto-aviso">
+                            <label class="custom-control-label" for="acepto-aviso">Acepto ser contactado</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" wire:model="acepto_aviso"
+                                   class="custom-control-input custom-control-input-success checkbox-3x"
+                                   id="acepto-aviso">
+                            <label class="custom-control-label" for="acepto-aviso">Acepto declatoria</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" wire:click.prevent="handlerSave">
+                            <span wire:loading.remove wire:target="handlerSave">Guardar</span>
+                            <span wire:loading wire:target="handlerSave">Guardando
                         información....</span>
-                </button>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     @endif
