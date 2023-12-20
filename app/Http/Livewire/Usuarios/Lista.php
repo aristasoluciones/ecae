@@ -9,6 +9,11 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 use App\Models\User;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ComponentColumn;
+use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Spatie\Permission\Models\Role;
 
 class Lista extends DataTableComponent
 {
@@ -29,6 +34,34 @@ class Lista extends DataTableComponent
         ]);
     }
 
+    public function filters(): array
+    {
+        $rolesQuery = Role::query();
+        if (!auth()->user()->hasRole('superadministrador')) {
+            $rolesQuery->where('name', '!=', 'superadministrador');
+        }
+        $roles =  $rolesQuery->orderBy('name')
+                            ->get()
+                            ->keyBy('name')
+                            ->map(fn($rol) => $rol->name)
+                            ->toArray();
+
+        return [
+            MultiSelectFilter::make('Tipo de usuario')
+                ->options($roles)->filter(function(Builder $builder, array $value) {
+                    $builder->whereHas('roles', fn ($query2) => $query2->whereIn('name', $value));
+                }),
+            TextFilter::make('Nombre')
+                ->config([
+                    'placeholder' => 'Buscar por nombre',
+                    'maxlength' => '100',
+                ])
+                ->filter(function(Builder $builder, string $value) {
+                    $builder->where('name','like','%'.$value.'%')
+                    ->orWhere('email','like','%'.$value.'%');
+                }),
+        ];
+    }
     public function filtrar($query): Builder
     {
         if (!auth()->user()->hasRole('superadministrador')) {
@@ -48,9 +81,9 @@ class Lista extends DataTableComponent
     {
 
         return [
-            Column::make('Nombre', 'name')->sortable(),
+            Column::make('Nombre', 'name')->sortable()->searchable(),
             Column::make('Nombre de usuario o Correo electrónico','email'),
-            Column::make('Tipo de usuario')->label(fn ($row) => view('usuarios.tipo')->with(['row' => $row])),
+            Column::make('Tipo de usuario')->label(fn ($row) => view('usuarios.tipo')->with(['row' => $row]))->searchable(),
             Column::make('Estatus')
                 ->label(function($row) {
                     return view('usuarios.estatus')->with(['row' => $row]);
