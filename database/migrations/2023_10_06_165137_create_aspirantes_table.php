@@ -79,8 +79,8 @@ return new class extends Migration
             $table->string('p15_1_tipodiscapacidad')->nullable()->default(null);
             $table->string('p15_2_otradiscapacidad')->nullable()->default(null);
             $table->string('p16_utilizar_celular')->nullable()->default(null);
-            $table->string('estatus', 50)->default('pendiente');
-            $table->string('email')->default(null);
+            $table->string('estatus', 50)->default('Pendiente');
+            $table->string('email')->nullable()->default(null);
             $table->unsignedTinyInteger('acepto_aviso');
             $table->unsignedTinyInteger('acepto_declaratoria');
             $table->unsignedTinyInteger('acepto_ser_contactado')->default(0);

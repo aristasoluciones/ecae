@@ -18,7 +18,7 @@ class Lista extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setColumnSelectDisabled();
-        $this->setAdditionalSelects(['id']);
+        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'components.button',
@@ -41,13 +41,16 @@ class Lista extends DataTableComponent
 
         return [
             Column::make('#Folio', 'id'),
-            Column::make('Nombre','nombre')->sortable(),
-            Column::make('Primer apellido', 'apellido1'),
-            Column::make('Segundo apellido', 'apellido2'),
-            Column::make('Sexo', 'genero'),
-            Column::make('Edad', 'edad'),
-            Column::make('Municipio', 'municipio'),
-            Column::make('acciones')
+            Column::make('Clave elector','clave_elector')->format(fn($value) => strtoupper($value))->searchable(),
+            Column::make('Nombre','nombre')->format(fn($value,$row) => $row->nombre." ".$row->apellido1." ".$row->apellido2)->searchable(),
+            Column::make('Genero', 'genero')->format(fn($value) => strtoupper($value))->searchable(),
+            Column::make('Edad', 'edad')->searchable(),
+            Column::make('Sede', 'sede')->format(fn($value) => strtoupper($value))->searchable(),
+            Column::make('Estatus')
+                ->label(function($row) {
+                    return view('aspirantes.estatus')->with(['row' => $row]);
+                }),
+            Column::make('')
                 ->label(function($row) {
                     return view('aspirantes.acciones')->with(['row' => $row]);
                 }),
@@ -57,8 +60,8 @@ class Lista extends DataTableComponent
 
     public function generarFicha($id) {
 
-        $candidato =  Aspirante::find($id);
-        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $candidato])->setPaper('letter')->output();
-        return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
+        $aspirante =  Aspirante::find($id);
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'DECLARATORIA-'.strtoupper($aspirante->clave_elector).'.PDF');
     }
 }

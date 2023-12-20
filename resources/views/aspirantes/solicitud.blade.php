@@ -11,7 +11,16 @@
 @stop
 
 @section('content')
-    @livewire('aspirantes.solicitud', ['candidato' => $aspirante])
+    <div class="row">
+        <div class="col-6">
+            @livewire('aspirantes.solicitud', ['aspirante' => $aspirante])
+        </div>
+        <div class="col-6">
+            @livewire('aspirantes.expediente', ['aspirante' => $aspirante])
+        </div>
+    </div>
 @stop
+
+
 
 

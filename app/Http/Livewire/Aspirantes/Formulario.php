@@ -15,6 +15,7 @@ use App\Models\Aspirante;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
+use function PHPUnit\Framework\isNull;
 
 class Formulario extends Component
 {
@@ -142,10 +143,10 @@ class Formulario extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
-            'email'    => 'required|email',
-            'acepto_aviso'    => 'required|integer',
-            'acepto_ser_contactado'    => 'required|integer',
-            'acepto_declaratoria'    => 'required|integer',
+            //'email'    => 'required|email',
+            'acepto_aviso' => 'required|integer',
+            'acepto_ser_contactado' => 'nullable',
+            'acepto_declaratoria'   => 'nullable',
             'p1_proceso_electoral'  => 'required|string',
             'p1_1_cual'             => 'nullable|string',
             'p1_2_forma'            => 'nullable|string',
@@ -264,6 +265,8 @@ class Formulario extends Component
         $data     = $this->validate();
         $dataFill =  $data;
         $dataFill['numero_convocatoria'] = 1;
+        $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
+        $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
 
         $this->candidato = Aspirante::create($dataFill);
 

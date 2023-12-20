@@ -1,5 +1,5 @@
 <div class="flex">
-    <div class="btn-group btn-group-sm">
+    <div class="btn-group-toggle btn-group-sm">
         <a href='{{ url("solicitud/" . $row->id) }}' class="btn btn-primary " title="Ver solicitud">
             <i class="fas fa-edit" aria-hidden="true"></i>
         </a>

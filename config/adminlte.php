@@ -70,7 +70,7 @@ return [
     'logo_img_xl_class' => 'brand-image-xl',
     'logo_img_alt' => 'IEPC Chiapas',
 
-    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -441,6 +441,16 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => '/vendor/sweetalert2/sweetalert2.min.css',
+                ],
+            ],
+        ],
+        'popper' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/popper/esm/popper.min.js',
                 ],
             ],
         ],

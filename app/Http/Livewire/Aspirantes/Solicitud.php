@@ -12,12 +12,13 @@ use App\Rules\ClaveElectorRule;
 use App\Models\Aspirante;
 use App\Models\Documento;
 use Barryvdh\DomPDF\Facade\Pdf;
-
 class Solicitud extends Component
 {
     use AuthorizesRequests;
 
-    public  $candidato;
+    public $aspirante;
+
+    public $editar;
 
     public $aspirante_id;
     public $municipio;
@@ -176,7 +177,7 @@ class Solicitud extends Component
     }
 
     public function getRegistradoProperty() {
-        return $this->candidato?->id > 0;
+        return $this->aspirante?->id > 0;
     }
 
     public function updatedClaveElector($value) {
@@ -208,7 +209,7 @@ class Solicitud extends Component
 
     }
 
-    public function mount(Aspirante $candidato) {
+    public function mount(Aspirante $aspirante) {
 
         $this->grados               =  config('constants.grados');
         $this->tiposDeMedio         =  config('constants.tipos_de_medio');
@@ -218,6 +219,7 @@ class Solicitud extends Component
         $this->paises                =  config('constants.paises');
         $this->localidades     =  config('constants.localidades');
         $this->localidadesFiltrado     =  [];
+        $this->editar =  false;
 
         $this->documentos = Documento::all();
 
@@ -229,13 +231,13 @@ class Solicitud extends Component
         $this->consejosFiltrado     =  [];
 
 
-        $this->resetearCandidato();
+        $this->resetearAspirante();
 
-        if($candidato) {
+        if($aspirante) {
 
-            $this->candidato = $candidato;
-            $this->aspirante_id = $candidato->id;
-            foreach($candidato->toArray() as $key => $cad) {
+            $this->aspirante = $aspirante;
+            $this->aspirante_id = $aspirante->id;
+            foreach($aspirante->toArray() as $key => $cad) {
                 $this->{$key} = $cad;
             }
 
@@ -257,21 +259,21 @@ class Solicitud extends Component
         $dataFill =  $data;
         $dataFill['numero_convocatoria'] = 1;
 
-        $this->candidato = Aspirante::create($dataFill);
+        $this->aspirante = Aspirante::create($dataFill);
 
-        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->aspirante->id.'</strong>');
     }
 
     public function handlerSave() {
 
+        $rules = $this->rules();
+        $this->validate($rules);
+        $this->emit('modal:show', '#modal-confirmar');
+    }
 
-       $this->emit('confirmar', [
-            'icon'    => 'question',
-            'title'   => 'Confirmar información',
-            'text'    => '¿Esta seguro de enviar sus datos?',
-            'confirmText' => $this->aspirante_id > 0 ? 'Actualizar' : 'Guardar',
-            'method'  => $this->aspirante_id > 0 ? "actualizar" : "guardar",
-        ]);
+    public function handlerAceptar() {
+
+        $this->emit('modal:show', '#modal-aceptar');
     }
     public function actualizar() {
 
@@ -279,11 +281,23 @@ class Solicitud extends Component
         $data     = $this->validate();
         $dataFill =  $data;
 
-        Aspirante::where('id', $this->candidato_id)->update($dataFill);
+        Aspirante::where('id', $this->aspirante_id)->update($dataFill);
 
-        $candidato = Aspirante::find($this->candidato_id);
+        Aspirante::find($this->aspirante_id);
 
         $this->notificar('success', 'Registro actualizado');
+    }
+
+    public function aceptar() {
+
+        $this->aspirante->estatus = Aspirante::ESTATUS_ACEPTADO;
+        $this->aspirante->save();
+        $this->emit('swal:alert', [
+            'icon'    => 'success',
+            'title'   => 'Se ha guardado la información',
+            'timeout' => 5000
+        ]);
+        $this->redirect('/aspirantes');
     }
 
     public function notificar($type, $titulo) {
@@ -293,12 +307,13 @@ class Solicitud extends Component
             'title'   => $titulo,
             'timeout' => 5000
         ]);
-
+        $this->reset(['editar']);
+        $this->emit('modal:hide', '#modal-confirmar');;
         $this->render();
 
     }
 
-    private function resetearCandidato() {
+    private function resetearAspirante() {
 
         $this->resetExcept([
             'filterCount',
@@ -336,13 +351,21 @@ class Solicitud extends Component
             ];
         }
 
-        return array_merge_recursive($formaciones, $experiencias);
+        return array_merge_recursive_distinct($formaciones, $experiencias);
     }
 
     public function generarFicha() {
 
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($this->aspirante->clave_elector).'.PDF');
+    }
 
-        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
-        return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
+    public function generarDeclaratoria() {
+
+        $content = Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'DECLARATORIA-'.strtoupper($this->aspirante->clave_elector).'.PDF');
+    }
+    public function toggleEditar() {
+        $this->editar =  !$this->editar;
     }
 }
