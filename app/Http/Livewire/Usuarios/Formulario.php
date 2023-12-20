@@ -18,8 +18,10 @@ class Formulario extends Component
     public $role;
     public $password;
     public $password_confirmation;
+    public $sede;
 
     public $roles;
+    public $consejos;
 
     public $viewPassword = false;
     public $fromCandidato;
@@ -28,8 +30,9 @@ class Formulario extends Component
 
     public $messages = [
         'name.required'  => 'El campo Nombre es requerido',
-        'email.required' => 'El campo Correo electrónico es requerido',
+        'email.required' => 'El campo Nombre de usuario o Correo electrónico es requerido',
         'role.required'  => 'El campo Rol es requerido',
+        'sede.required'  => 'El campo Consejo electoral es requerido',
         'password.required'  => 'El campo Contraseña es requerido',
         'password.confirmed'  => 'La contraseña no coincide con la confirmación',
         'password_confirmation.required'  => 'El campo Confirmar contraseña es requerido',
@@ -41,8 +44,8 @@ class Formulario extends Component
             'email'            => ['required', Rule::unique('users')->ignore($this->user?->id)],
             'name'             => 'required|string',
             'role'             => 'required|string',
+            'sede'             => 'required_if:role,=,odes|string',
             'password'         => $this->validarPassword().'|confirmed',
-            'password_confirmation' => $this->validarConfirmationPassword()
         ];
     }
 
@@ -68,7 +71,10 @@ class Formulario extends Component
     }
     public function mount() {
         $this->roles    = Role::all();
-        $this->partidos = config('constants.partidos');
+        $municipios = config('constants.municipios');
+
+        $this->consejos = array_map(fn($var) => "CONSEJO MUNICIPAL ELECTORAL ".mb_strtoupper($var), $municipios);
+
     }
 
     public function render()
@@ -89,6 +95,7 @@ class Formulario extends Component
 
         $this->name    = $this->user->name;
         $this->email   =  $this->user->email;
+        $this->sede    =  $this->user->sede;
         $this->role    =  $this->user->roles[0]['name'] ?? null;
 
         $this->emit('modal:show', '#modal-user');
@@ -122,30 +129,18 @@ class Formulario extends Component
 
         $this->user->name    = $dataFill['name'];
         $this->user->email   = $dataFill['email'];
+        $this->user->sede    = $dataFill['sede'] ?? null;
         if(strlen($dataFill['password']) > 0)
             $this->user->password =  Hash::make($dataFill['password']);
 
         $this->user->save();
         $this->user->syncRoles([$data['role']]);
-
-        if(strlen($dataFill['password']) > 0) {
-            $this->emit('confirmarAcuse', [
-                'icon'    => 'question',
-                'title'   => 'Descargar acuse',
-                'text'    => '',
-                'confirmText' => 'Si',
-                'method'   => 'generarAcuse',
-                'callback' => 'confirmar',
-                'callback_props' => ['success',$mensaje]
-            ]);
-        } else {
-            $this->confirmar('success', $mensaje);
-        }
+        $this->confirmar('success', $mensaje);
     }
 
     private function resetear() {
 
-        $this->resetExcept(['roles','partidos']);
+        $this->resetExcept(['roles','consejos']);
     }
     public function confirmar($type, $titulo) {
 
@@ -157,10 +152,4 @@ class Formulario extends Component
         $this->emit('modal:hide', '#modal-user');
         $this->emitUp('recargar');
     }
-
-    public function generarAcuse() {
-        $content = Pdf::loadView('usuarios.acuse', ['name'=> $this->name,'email' => $this->email, 'pass' => $this->password])->output();
-        return response()->streamDownload(fn() => print($content), 'acuse-'.time().'.pdf');
-    }
-
 }

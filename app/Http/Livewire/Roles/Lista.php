@@ -17,6 +17,7 @@ class Lista extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setAdditionalSelects(['id']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'roles.boton-agregar'
@@ -29,9 +30,10 @@ class Lista extends DataTableComponent
 
         return [
             Column::make('Nombre', 'name')->sortable(),
-            ComponentColumn::make('acciones', 'id')
-                ->component('acciones-role')
-                ->attributes(fn($value) => ['id' => $value]),
+            Column::make('')
+                ->label(function($row) {
+                    return view('roles.acciones')->with(['row' => $row]);
+                })
         ];
     }
 
