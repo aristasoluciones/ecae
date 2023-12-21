@@ -213,8 +213,6 @@ class Formulario extends Component
 
     public function updatedMunicipio($value) {
 
-        \Log::info($this->localidades);
-        \Log::info($value);
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
         $this->sede = $this->consejosMunicipales[$value] ?? [];
 
@@ -295,7 +293,6 @@ class Formulario extends Component
 
         Aspirante::where('id', $this->candidato_id)->update($dataFill);
 
-        $candidato = Aspirante::find($this->candidato_id);
 
         $this->notificar('success', 'Registro actualizado');
     }
