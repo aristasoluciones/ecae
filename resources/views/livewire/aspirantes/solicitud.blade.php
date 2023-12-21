@@ -1236,12 +1236,12 @@
     @endif
     @if(!$editar)
         <script wire:key="{{ rand() }}">
-            let elements = document.querySelectorAll('input,select,textarea');
+            let elements = document.querySelectorAll('div#solicitud-aspirante input,select,textarea');
             elements.forEach(element => element.setAttribute('disabled', 'disabled') );
         </script>
     @else
         <script wire:key="{{ rand() }}">
-            let elements = document.querySelectorAll('input,select,textarea');
+            let elements = document.querySelectorAll('div#solicitud-aspirante input,select,textarea');
             elements.forEach(element => element.removeAttribute('disabled') );
         </script>
     @endif

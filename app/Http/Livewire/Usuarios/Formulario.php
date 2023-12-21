@@ -73,7 +73,7 @@ class Formulario extends Component
         $this->roles    = Role::all();
         $municipios = config('constants.municipios');
 
-        $this->consejos = array_map(fn($var) => "CONSEJO MUNICIPAL ELECTORAL ".mb_strtoupper($var), $municipios);
+        $this->consejos = array_map(fn($var) => "CONSEJO MUNICIPAL ELECTORAL DE ".mb_strtoupper($var), $municipios);
 
     }
 

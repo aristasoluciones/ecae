@@ -27,4 +27,8 @@ class Aspirante extends Model
         return $this->hasMany(Expediente::class);
     }
 
+    public function getClaveElector($value)
+    {
+        return strtoupper($value);
+    }
 }

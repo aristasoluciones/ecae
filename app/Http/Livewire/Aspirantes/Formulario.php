@@ -230,7 +230,7 @@ class Formulario extends Component
 
         $consejos = [];
         foreach($this->municipios as $mun) {
-            $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
+            $consejos[$mun] = mb_strtoupper('Consejo Municipal Electoral de ' .$mun);
         }
         $this->consejosMunicipales     =  $consejos;
         $this->consejosFiltrado     =  [];

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" id="expediente-aspirante">
     <div class="card-header">
         <div class="btn-group-toggle text-right">
             <a href="javascript:;" class="btn btn-primary"

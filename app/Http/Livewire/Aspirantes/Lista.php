@@ -18,7 +18,7 @@ class Lista extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setColumnSelectDisabled();
-        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2']);
+        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'components.button',
@@ -56,6 +56,22 @@ class Lista extends DataTableComponent
                 }),
 
         ];
+    }
+
+    public function filtrar($query): Builder
+    {
+        if (auth()->user()->hasRole('odes')) {
+            $query->where('sede','=',auth()->user()->sede);
+        }
+
+        return $query;
+    }
+
+    public function getRows()
+    {
+        $query = $this->baseQuery();
+        $this->builder = $this->filtrar($query);
+        return $this->executeQuery();
     }
 
     public function generarFicha($id) {

@@ -225,7 +225,7 @@ class Solicitud extends Component
 
         $consejos = [];
         foreach($this->municipios as $mun) {
-            $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
+            $consejos[$mun] = mb_strtoupper('Consejo Municipal Electoral de ' .$mun);
         }
         $this->consejosMunicipales     =  $consejos;
         $this->consejosFiltrado     =  [];
@@ -310,7 +310,6 @@ class Solicitud extends Component
         $this->reset(['editar']);
         $this->emit('modal:hide', '#modal-confirmar');;
         $this->render();
-
     }
 
     private function resetearAspirante() {
