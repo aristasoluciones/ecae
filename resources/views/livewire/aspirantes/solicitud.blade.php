@@ -56,7 +56,7 @@
                 <div class="col-12 dropdown-divider"></div>
             @endif
             <div class="col-4">
-                <h6><strong>FECHA: </strong><div class="badge bg-gradient-indigo badge-btn">
+                <h6><strong>FECHA DE RECEPCIÓN: </strong><div class="badge bg-gradient-indigo badge-btn">
                         <span class="text-bold"> {{ $aspirante->created_at }}</span>
                     </div></h6>
             </div>
