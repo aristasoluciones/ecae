@@ -637,12 +637,12 @@
                         @if ($p1_2_forma === 'Otro')
                         <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12">
-                                <div class="form-group {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
+                                <div class="form-group {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                     <label class="col-12"><span class="text-danger ">*</span>
                                         Especifique</label>
-                                    <input wire:model.lazy="otro_p1_2_forma"
-                                        class="form-control col-4 {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
-                                    @error('otro_p1_2_forma')
+                                    <input wire:model.lazy="p1_2_otra_forma"
+                                        class="form-control col-4 {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
+                                    @error('p1_2_otra_forma')
                                         <span class="text-danger error h6">{{ $message }}</span>
                                     @enderror
                                 </div>

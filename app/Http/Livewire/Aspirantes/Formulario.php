@@ -220,14 +220,13 @@ class Formulario extends Component
 
     public function mount(Aspirante $candidato) {
 
-        $this->grados               =  config('constants.grados');
-        $this->tiposDeMedio         =  config('constants.tipos_de_medio');
-        $this->sexos                =  config('constants.sexos');
-        $this->entidades            =  config('constants.entidades');
-        $this->municipios            =  config('constants.municipios');
-        $this->paises                =  config('constants.paises');
-        $this->localidades     =  config('constants.localidades');
-         \Log::info(config('constants.localidades'));
+        $this->grados      =  config('constants.grados');
+        $this->tiposDeMedio=  config('constants.tipos_de_medio');
+        $this->sexos       =  config('constants.sexos');
+        $this->entidades   =  config('constants.entidades');
+        $this->municipios  =  config('constants.municipios');
+        $this->paises      =  config('constants.paises');
+        $this->localidades =  config('constants.localidades');
         $this->localidadesFiltrado     =  [];
 
         $consejos = [];

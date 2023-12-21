@@ -57,6 +57,7 @@ return new class extends Migration
             $table->string('p1_proceso_electoral')->nullable()->default(null);
             $table->string('p1_1_cual')->nullable()->default(null);
             $table->string('p1_2_forma')->nullable()->default(null);
+            $table->string('p1_2_otra_forma')->nullable()->default(null);
             $table->string('p2_disponibilidad')->nullable()->default(null);
             $table->string('p3_finsemana')->nullable()->default(null);
             $table->string('p4_campo')->nullable()->default(null);
