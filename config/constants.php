@@ -153,88 +153,6 @@ return [
         'O' => 'Otro',
         'P' => 'Prefiero no decir',
     ],
-    'distritos' => [
-        'Distrito 1',
-        'Distrito 2',
-        'Distrito 3',
-    ],
-
-    'partidos' => [
-        [
-            'nombre' => 'Partido Acción Nacional',
-            'sigla' => 'PAN'
-        ],
-        [
-            'nombre' => 'Partido Revolucionario Institucional',
-            'sigla' => 'PRI'
-        ],
-        [
-            'nombre' => 'Partido del Trabajo',
-            'sigla' => 'PT'
-        ],
-        [
-            'nombre' => 'Partido Verde Ecologista de México',
-            'sigla' => 'PVEM'
-        ],
-        [
-            'nombre' => 'Movimiento Ciudadano',
-            'sigla' => 'MC'
-        ],
-        [
-            'nombre' => 'Chiapas Unido',
-            'sigla' => 'CHU'
-        ],
-        [
-            'nombre' => 'Partido Morena',
-            'sigla' => 'PM'
-        ],
-        [
-            'nombre' => 'Partido Morena',
-            'sigla' => 'PM'
-        ],
-        [
-            'nombre' => 'Podemos Mover a Chiapas',
-            'sigla' => 'PMCH'
-        ],
-        [
-            'nombre' => 'Nueva Alianza Chiapas',
-            'sigla' => 'NACH'
-        ],
-        [
-            'nombre' => 'Partido Popular Chiapaneco',
-            'sigla' => 'PPCH'
-        ],
-        [
-            'nombre' => 'Fuerza por México',
-            'sigla' => 'FXM	'
-        ],
-        [
-            'nombre' => 'Partido Encuentro Solidario Chiapas',
-            'sigla' => 'PES	'
-        ],
-        [
-            'nombre' => 'Redes Sociales Progresistas Chiapas',
-            'sigla' => 'RSP	'
-        ],
-        [
-            'nombre' => 'POR CHIAPAS AL FRENTE',
-            'sigla' => 'PAN_PRD	'
-        ],
-        [
-            'nombre' => 'JUNTOS HACEMOS HISTORIA EN CHIAPAS',
-            'sigla' => 'PVEM_PM	'
-        ],
-
-    ],
-    'paises' => [
-        'Estados unidos',
-        'Turquia',
-        'Australia',
-        'Rusia',
-    ],
-
-    /* TERMINA CONSTANTES DE MUNICIPIOS */
-
     'municipios' => [
         'Acacoyagua',
         'Acala',
@@ -361,9 +279,6 @@ return [
         'Yajalón',
         'Zinacantán',
     ],
-    /* TERMINA CONSTANTES DE MUNICIPIOS */
-
-    /* INICIA CONSTANTES DE LOCALIDADES */
     'localidades' => [
         'Acacoyagua' => [
             'Acacoyagua',
@@ -16472,5 +16387,4 @@ return [
             'Yut Lumiljá',
         ],
     ],
-    /* TERMINA CONSTANTES DE LOCALIDADES */
 ];
