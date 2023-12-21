@@ -1,30 +1,89 @@
+@push('css')
+    <style>
+        input[type=time]::-webkit-datetime-edit-ampm-field {
+            display: none;
+        }
+        select,textarea,input[type="email"],input[type="text"] {
+            text-transform: uppercase;
+        }
+        .otro-dato h5 {
+            text-align: justify;
+        }
+
+    </style>
+@endpush
 <div class="card" id="solicitud-aspirante">
     <div class="card-header">
-        <div class="btn-group-toggle text-right">
-            <a href="javascript:;" class="btn btn-success m-1"
-               data-toggle="tooltip"
-               title="Aceptar y validar" wire:click="handlerAceptar"><i class="fa fa-check"></i></a>
-            <a href="javascript:;" class="btn {{ !$editar ? 'btn-warning':'btn-danger'}} m-1"
-               data-toggle="tooltip"
-               title="Editar información" wire:click="toggleEditar"><i class="fa  {{ !$editar ? 'fa-pen-square':'fa-times'}}"></i></a>
-            @if($editar)
-                <a href="javascript:;" class="btn btn-info m-1"
-                   data-toggle="tooltip"
-                   title="Guardar cambios" wire:click="handlerSave"><span wire:loading wire:target="Actualizar">Guardando cambios...</span><i wire:loading.remove class="fas fa-save"></i></a>
-            @endif
-            @if(!$editar)
-                <a href="javascript:;" class="btn btn-success m-1"
-                   data-toggle="tooltip"
-                   title="Imprimir solicitud" wire:click="generarFicha" ><span wire:loading wire:target="generarFicha">Generando documento...</span><span wire:loading.remove wire:target="generarFicha"><i class="fas fa-file-pdf"></i></span></a>
-            @endif
-            @if(!$editar)
-                <a href="javascript:;" class="btn btn-primary m-1"
-                   data-toggle="tooltip"
-                   title="Imprimir declaratoria" wire:click="generarDeclaratoria" ><span wire:loading wire:target="generarDeclaratoria">Generando documento...</span><span wire:loading.remove wire:target="generarDeclaratoria"><i class="fas fa-file-signature"></i></span></a>
-            @endif
+        <div class="row">
+            <div class="col-12">
+                <div class="btn-group-toggle text-right">
+                    @if(!$editar)
+                        <a href="javascript:;" class="btn btn-success"
+                           data-toggle="tooltip"
+                           title="Aceptar y validar" wire:click="handlerAceptar"><i class="fa fa-check"></i></a>
+                    @endif
+                    <a href="javascript:;" class="btn {{ !$editar ? 'btn-warning':'btn-danger'}} m-1"
+                       data-toggle="tooltip"
+                       title="{{ !$editar ? 'Editar información':'Cancelar edición'}}" wire:click="toggleEditar"><i class="fa  {{ !$editar ? 'fa-pen-square':'fa-window-close'}}"></i></a>
+                    @if($editar)
+                        <a href="javascript:;" class="btn btn-info"
+                           data-toggle="tooltip"
+                           title="Guardar cambios" wire:click="handlerSave"><span wire:loading wire:target="Actualizar">Guardando cambios...</span><i wire:loading.remove class="fas fa-save"></i></a>
+                    @endif
+                    @if(!$editar)
+                        <a href="javascript:;" class="btn btn-success"
+                           data-toggle="tooltip"
+                           title="Imprimir solicitud" wire:click="generarFicha" ><span wire:loading wire:target="generarFicha">Generando documento...</span><span wire:loading.remove wire:target="generarFicha"><i class="fas fa-file-pdf"></i></span></a>
+                    @endif
+                    @if(!$editar)
+                        <a href="javascript:;" class="btn btn-primary"
+                           data-toggle="tooltip"
+                           title="Imprimir declaratoria" wire:click="generarDeclaratoria" ><span wire:loading wire:target="generarDeclaratoria">Generando documento...</span><span wire:loading.remove wire:target="generarDeclaratoria"><i class="fas fa-file-signature"></i></span></a>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
     <div class="card-body">
+        <div class="row">
+            @if($editar)
+                <div class="col-12">
+                    <div class="callout callout-info">
+                        <p><sup class="text-bold text-danger">*</sup> <small class="text-justify">Los campos son obligatorios</small></p>
+                        <p><sup class="text-bold">1</sup> <small class="text-justify">No contar con estos documentos no será causa de exclusión en este momento. En caso de ser contratado/a será obligatorio.</small></p>
+                    </div>
+                </div>
+                <div class="col-12 dropdown-divider"></div>
+            @endif
+            <div class="col-4">
+                <h6><strong>FECHA: </strong><div class="badge bg-gradient-indigo badge-btn">
+                        <span class="text-bold"> {{ $aspirante->created_at }}</span>
+                    </div></h6>
+            </div>
+            <div class="col-4">
+                <h6><strong>FOLIO: </strong><div class="badge bg-gradient-indigo badge-btn">
+                        <span class="text-bold"> {{ $aspirante->id }}</span>
+                    </div></h6>
+            </div>
+            <div class="col-4">
+                <h6><strong>NO. CONVOCATORIA: </strong>
+                    @if(!$editar)
+                        <div class="badge bg-gradient-indigo badge-btn">
+                            <span class="text-bold"> {{ $aspirante->numero_convocatoria }}</span>
+                        </div>
+                    @endif
+                    @if($editar)
+                        <div class="form-group">
+                            <input type="text" class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}" wire:model.lazy="numero_convocatoria">
+                            @error('numero_convocatoria')
+                                <span class="text-danger error h6">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    @endif
+                </h6>
+            </div>
+            <div class="col-12 dropdown-divider"></div>
+        </div>
         {{-- SECCION UNO --}}
         <div class="form-row">
             <div class="col-4 col-md-4 col-sm-12">
@@ -50,7 +109,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger ">*</span>Localidad</label>
+                    <label class=""><span class="text-danger ">*</span> Localidad</label>
                     <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
                             id="localidad"
                             name="localidad"
@@ -81,7 +140,7 @@
                         @endforeach
                     </select>
                     @error('sede')
-                    <span class="text-danger error h6">{{ $message }}</span>
+                        <span class="text-danger error h6">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -102,14 +161,35 @@
                     @enderror
                 </div>
             </div>
+            <div class="col-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label class=""><span class="text-danger"></span> Correo electrónico</label>
+                    <input wire:model.lazy="email" id="email" name="email" type="email"
+                           aria-describedby="clave-elector-help-text"
+                           class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
+                    @error('email')
+                    <span class="text-danger error h6">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                    <input wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
+                           class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
+                    @error('email_confirmation')
+                    <span class="text-danger error h6">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
         </div>
         {{-- SECCION DOS --}}
         <div class="form-row">
-            <div class="col-12 divider">
+            <div class="col-12">
                 <h3 class="dropdown-divider"></h3>
             </div>
             <div class="row">
-                <div class="col-6 col-md-6 col-sm-12">
+                <div class="col-6 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span>
                             Clave de elector o FUAR</label>
@@ -125,9 +205,9 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-6 col-md-6 col-sm-12">
+                <div class="col-6 col-md-3 col-sm-12">
                     <div class="form-group">
-                        <label class=""><span class="text-danger ">*</span>Sección
+                        <label class=""><span class="text-danger ">*</span> Sección
                             electoral</label>
                         <input maxlength="4" wire:model.lazy="seccion_electoral" id="seccion_electoral"
                                type="text"
@@ -141,7 +221,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4 col-md-4 col-sm-12">
+                <div class="col-4 col-md-3 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> RFC</label>
                         <input maxlength="10" wire:model.lazy="rfc" id="rfc" type="text"
@@ -151,9 +231,9 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-4 col-md-2 col-sm-12">
                     <div class="form-group">
-                        <label class=""><sup>1</sup>Homoclave</label>
+                        <label class=""><sup>1</sup> Homoclave</label>
                         <input maxlength="3" wire:model.lazy="homoclave" id="homoclave" type="text"
                                class="form-control {{ $errors->has('rfc') ? 'is-invalid' : '' }}" />
                         @error('homoclave')
@@ -229,7 +309,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger ">*</span>Género</label>
+                    <label class=""><span class="text-danger ">*</span> Género</label>
                     <select wire:model.lazy="genero"
                             class="form-control {{ $errors->has('genero') ? 'is-invalid' : '' }}">
                         <option value="">
@@ -257,7 +337,7 @@
                     </div>
                 </div>
             @endif
-            <div class="col-6 col-md-4 col-sm-12">
+            <div class="col-6 col-md-8 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span> ¿Se identifica como una persona LGBTTTIQ+?</label>
                     <select wire:model.lazy="persona_lgbtttiq"
@@ -289,12 +369,6 @@
                     </div>
                 </div>
             @endif
-            <div class="col-12">
-                <sup class="text-bold">1</sup><span class="text-gray"> No
-                                contar con estos documentos no será causa de exclusión
-                                en este momento. En caso de ser contratado/a será
-                                obligatorio.</span>
-            </div>
             <div class="col-12 divider">
                 <h4 class="text-bold">Domicilio</h4>
                 <h3 class="dropdown-divider"></h3>
@@ -312,10 +386,10 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger ">*</span>
+                    <label class=""><span class="text-danger "></span>
                         Número exterior</label>
                     <input wire:model.lazy="dom_num_exterior" id="dom_num_exterior" name="dom_num_exterior"
-                           type="number"
+                           type="text"
                            class="form-control {{ $errors->has('dom_num_exterior') ? 'is-invalid' : '' }}" />
                     @error('dom_num_exterior')
                     <span class="text-danger error h6">{{ $message }}</span>
@@ -327,7 +401,7 @@
                     <label class=""><span class="text-danger"></span> Número
                         interior</label>
                     <input wire:model.lazy="dom_num_interior" id="dom_num_interior" name="dom_num_interior"
-                           type="number"
+                           type="text"
                            class="form-control {{ $errors->has('dom_num_interior') ? 'is-invalid' : '' }}" />
                     @error('dom_num_interior')
                     <span class="text-danger error h6">{{ $message }}</span>
@@ -347,7 +421,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger ">*</span>Municipio</label>
+                    <label class=""><span class="text-danger ">*</span> Municipio</label>
                     <select wire:model.lazy="dom_municipio"
                             class="form-control {{ $errors->has('dom_municipio') ? 'is-invalid' : '' }}">
                         <option value="">
@@ -376,9 +450,9 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger ">*</span>Código
+                    <label class=""><span class="text-danger ">*</span> Código
                         Postal</label>
-                    <input wire:model.lazy="dom_postal" id="dom_postal" type="text"
+                    <input wire:model.lazy="dom_postal" id="dom_postal" type="number"
                            class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}" />
                     @error('dom_postal')
                     <span class="text-danger error h6">{{ $message }}</span>
@@ -415,7 +489,7 @@
             <div class="col-12 dropdown-divider"></div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger ">*</span>último grado de
+                    <label class=""><span class="text-danger ">*</span>Último grado de
                         estudios.</label>
                     <select wire:model.lazy="ultimo_grado_estudio"
                             class="form-control {{ $errors->has('ultimo_grado_estudio') ? 'is-invalid' : '' }}">
@@ -558,14 +632,23 @@
                 @enderror
             </div>
         </div>
-
-        <div class="form-row">
-            <div class="col-12"><h3 class="text-bold">Otros datos</h3></div>
-            <div class="col-12">
-                <sup class="text-bold">*</sup><small class="text-gray">LAS PREGUNTAS DE LA <strong>11 A LA 15</strong> SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
-            </div>
+        <div class="row">
             <div class="col-12 dropdown-divider"></div>
-
+        </div>
+        <div class="form-row otro-dato">
+            <div class="col-12"><h3 class="text-bold">Otros datos</h3></div>
+            @if($editar)
+            <div class="col-12">
+                <div class="callout callout-info">
+                    <p>
+                        <sup class="text-bold">*</sup> <small class="text-bold text-justify"> LAS PREGUNTAS DE LA 11 A LA 15 SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
+                    </p>
+                    <p>
+                        <sup>**</sup><small class="text-justify"> En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.</small>
+                    </p>
+                </div>
+            </div>
+            @endif
             {{-- Pregunta numero 1 --}}
 
             <div class="form-row justify-content-between mb-3 col-12">
@@ -584,13 +667,12 @@
                         <label for="p1_proceso_electoral_no" class="form-check-label">No</label>
                     </div>
                 </div>
-
                 <div class="col-12">
                     @error('p1_proceso_electoral')
                     <span class="text-danger error h6">{{ $message }}</span>
                     @enderror
                 </div>
-
+            </div>
                 @if ($p1_proceso_electoral === 'Si')
                     {{-- Pregunta numero 1.1 --}}
                     <div class="form-row justify-content-between mb-3 col-12">
@@ -598,8 +680,6 @@
                         <div class="col-4">
                             <input type="text" class="form-control" wire:model.lazy="p1_1_cual"
                                    id="p1_1_cual" name="p1_1_cual">
-                        </div>
-                        <div class="">
                             @error('p1_1_cual')
                             <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -610,9 +690,9 @@
                 {{-- Pregunta numero 1.2 --}}
 
                 @if ($p1_proceso_electoral === 'Si')
-                    <div class="form-row justify-content-between mb-3 col-12">
-                        <div class="col-12"><label class=""><span class="text-danger ">*</span>1.2- ¿De qué forma?</label>
-
+                    <div class="form-row  mb-3 col-12">
+                        <div class="col-12"><h5><span class="text-danger ">*</span> 1.2- ¿De qué forma?</h5></div>
+                        <div class="col-12">
                             <select wire:model.lazy="p1_2_forma"
                                     class="form-control col-4 {{ $errors->has('p1_2_forma') ? 'is-invalid' : '' }}">
                                 <option value="">
@@ -627,25 +707,23 @@
                             @enderror
                         </div>
                     </div>
-
                 @endif
 
                 @if ($p1_2_forma === 'Otro')
                     <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12">
-                            <div class="form-group {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
-                                <label class="col-12"><span class="text-danger ">*</span>
+                            <div class="form-group">
+                                <label class="col-12"><span class="text-danger">*</span>
                                     Especifique</label>
-                                <input wire:model.lazy="otro_p1_2_forma"
-                                       class="form-control col-4 {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
-                                @error('otro_p1_2_forma')
+                                <input wire:model.lazy="p1_2_otra_forma"
+                                       class="form-control col-4 {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
+                                @error('p1_2_otra_forma')
                                 <span class="text-danger error h6">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
                     </div>
                 @endif
-            </div>
 
             {{-- Pregunta numero 2 --}}
             <div class="form-row justify-content-between mb-3 col-12">
@@ -1056,23 +1134,17 @@
 
             {{-- Prgeunta numero 13 --}}
 
-            <div class="form-row justify-content-between mb-3 col-12">
+            <div class="form-row">
                 <div class="col-12">
                     <h5>13. ¿Cuánto tiempo le lleva trasladarse de su
                         domicilio al OPL? *</h5>
                 </div>
-
-                <div>
-                    <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
-                    <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+                <div class="col-4">
+                    <div class="form-group">
+                        <input type="time" class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                               id="p13_tiempo_traslado" name="p13_tiempo_traslado">
+                    </div>
                 </div>
-
-                {{--<div class="col-4">
-                    <input type="time" class="form-control" wire:model.lazy="p13_tiempo_traslado"
-                        id="p13_tiempo_traslado" name="p13_tiempo_traslado">
-                </div>--}}
-
-
                 <div class="col-12">
                     @error('p13_tiempo_traslado')
                     <span class="text-danger error h6">{{ $message }}</span>
@@ -1263,9 +1335,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div class="btn-group" wire:loading.remove>
+                        <div class="btn-group-toggle" wire:loading.remove>
                             <button type="button"
-                                    class="btn btn-danger close-btn mr-2"
+                                    class="btn btn-danger close-btn"
                                     data-dismiss="modal">No
                             </button>
                             <button type="button"
@@ -1300,9 +1372,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div class="btn-group" wire:loading.remove>
+                        <div class="btn-group-toggle" wire:loading.remove>
                             <button type="button"
-                                    class="btn btn-danger close-btn mr-2"
+                                    class="btn btn-danger close-btn"
                                     data-dismiss="modal">No
                             </button>
                             <button type="button"
@@ -1321,30 +1393,3 @@
         </div>
     </div>
 </div>
-
-
-@section('js')
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', () => {
-            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-            const doc = document.getElementById("solicitud-aspirante");
-            this.livewire.find(doc.getAttribute("wire:id")).on('confirmar', params => {
-                Swal.fire({
-                    icon:params.icon,
-                    title:params.title,
-                    html:params.text,
-                    showCancelButton: true,
-                    confirmButtonColor: '#50c46c',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText:params.confirmText,
-                    reverseButtons: true,
-                    cancelButtonText: 'No',
-                }).then(result => {
-                    if (result.value) {
-                        this.livewire.find(doc.getAttribute("wire:id")).call(params.method);
-                    }
-                })
-            })
-        })
-    </script>
-@endsection

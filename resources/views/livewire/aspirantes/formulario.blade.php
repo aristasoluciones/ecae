@@ -1,10 +1,5 @@
 @section('title', 'Nuevo registro')
 @section('content_header')
-    <style>
-        input {
-            text-transform: uppercase;
-        }
-    </style>
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -19,6 +14,13 @@
     input[type=time]::-webkit-datetime-edit-ampm-field {
         display: none;
     }
+    select,textarea,input[type="email"],input[type="text"] {
+         text-transform: uppercase;
+     }
+    .otro-dato h5 {
+        text-align: justify;
+    }
+
 </style>
 @endpush
 <div class="container">
@@ -54,7 +56,7 @@
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>Localidad</label>
+                            <label class=""><span class="text-danger ">*</span> Localidad</label>
                             <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
                                 id="localidad" name="localidad" wire:model.lazy="localidad">
                                 <option value="">
@@ -96,10 +98,31 @@
                                 <option value="">
                                     {{ __('adminlte::adminlte.please_select') }}
                                 </option>
-                                <option value="Fija">Fija</option>
-                                <option value="Alterna">Alterna</option>
+                                <option value="Fija">FIJA</option>
+                                <option value="Alterna">ALTERNA</option>
                             </select>
                             @error('tipo_sede')
+                                <span class="text-danger error h6">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label class=""><span class="text-danger"></span> Correo electrónico</label>
+                            <input wire:model.lazy="email" id="email" name="email" type="email"
+                                   aria-describedby="clave-elector-help-text"
+                                   class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
+                            @error('email')
+                            <span class="text-danger error h6">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                            <input wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
+                                   class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
+                            @error('email_confirmation')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
@@ -311,7 +334,7 @@
                             <label class=""><span class="text-danger ">*</span>
                                 Número exterior</label>
                             <input wire:model.lazy="dom_num_exterior" id="dom_num_exterior" name="dom_num_exterior"
-                                type="number"
+                                type="text"
                                 class="form-control {{ $errors->has('dom_num_exterior') ? 'is-invalid' : '' }}" />
                             @error('dom_num_exterior')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -323,7 +346,7 @@
                             <label class=""><span class="text-danger"></span> Número
                                 interior</label>
                             <input wire:model.lazy="dom_num_interior" id="dom_num_interior" name="dom_num_interior"
-                                type="number"
+                                type="text"
                                 class="form-control {{ $errors->has('dom_num_interior') ? 'is-invalid' : '' }}" />
                             @error('dom_num_interior')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -374,7 +397,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Código
                                 Postal</label>
-                            <input wire:model.lazy="dom_postal" id="dom_postal" type="text"
+                            <input wire:model.lazy="dom_postal" id="dom_postal" type="number"
                                 class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}" />
                             @error('dom_postal')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -411,7 +434,7 @@
                     <div class="col-12 dropdown-divider"></div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>último grado de
+                            <label class=""><span class="text-danger ">*</span> Último grado de
                                 estudios.</label>
                             <select wire:model.lazy="ultimo_grado_estudio"
                                 class="form-control {{ $errors->has('ultimo_grado_estudio') ? 'is-invalid' : '' }}">
@@ -637,7 +660,7 @@
                         @if ($p1_2_forma === 'Otro')
                         <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12">
-                                <div class="form-group {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
+                                <div class="form-group">
                                     <label class="col-12"><span class="text-danger ">*</span>
                                         Especifique</label>
                                     <input wire:model.lazy="p1_2_otra_forma"
@@ -1293,13 +1316,11 @@
             </div>
         </div>
     @endif
-    @if ($errors->any())
+    @if($errors->any())
         <script wire:key="{{ rand() }}">
             let firstInvalidInput = document.querySelector(".is-invalid");
-            if (firstInvalidInput)
-                firstInvalidInput.focus({
-                    preventScroll: false
-                });
+            if(firstInvalidInput)
+                firstInvalidInput.focus({preventScroll:true});
         </script>
     @endif
 </div>

@@ -21,6 +21,7 @@ class Solicitud extends Component
     public $editar;
 
     public $aspirante_id;
+    public $numero_convocatoria;
     public $municipio;
     public $localidad;
     public $sede;
@@ -55,11 +56,13 @@ class Solicitud extends Component
     public $motivo_secae;
     public $medio_convocatoria;
     public $email;
+    public $email_confirmation;
 
     //Preguntas
     public $p1_proceso_electoral;
     public $p1_1_cual;
     public $p1_2_forma;
+    public $p1_2_otra_forma;
     public $p2_disponibilidad;
     public $p3_finsemana;
     public $p4_campo;
@@ -101,6 +104,7 @@ class Solicitud extends Component
     protected function rules() {
 
         return [
+            'numero_convocatoria'         => 'required|string',
             'municipio'         => 'required|string',
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
@@ -120,7 +124,7 @@ class Solicitud extends Component
             'persona_lgbtttiq'    => 'required|string',
             'otro_lgbtttiq'    => 'required_if:persona_lgbtttiq,=,Otro',
             'dom_calle'    => 'required|string',
-            'dom_num_exterior'    => 'required|string',
+            'dom_num_exterior'    => 'nullable|string',
             'dom_num_interior'    => 'nullable|string',
             'dom_colonia'    => 'required|string',
             'dom_municipio'    => 'required|string',
@@ -139,9 +143,13 @@ class Solicitud extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
+            'email'    => 'nullable|email',
+            'email_confirmation'    => 'nullable|email|same:email',
             'p1_proceso_electoral'  => 'required|string',
-            'p1_1_cual'             => 'nullable|string',
-            'p1_2_forma'            => 'nullable|string',
+            'p1_1_cual'             => 'required_if:p1_proceso_electoral,=,Si',
+            'p1_2_forma'            => 'required_if:p1_proceso_electoral,=,Si',
+            'p1_2_otra_forma'       => 'required_if:p1_2_forma,=,Otro',
+            'p2_disponibilidad'     => 'required|string',
             'p3_finsemana'          => 'required|string',
             'p4_campo'              => 'required|string',
             'p5_milita'             => 'required|string',
@@ -202,6 +210,13 @@ class Solicitud extends Component
         $this->genero = $sexos[substr($value, 14,1)] ?? '';
     }
 
+    public function updatedP1ProcesoElectoral() {
+
+        $this->p1_1_cual = null;
+        $this->p1_2_forma = null;
+        $this->p1_2_otra_forma = null;
+    }
+
     public function updatedMunicipio($value) {
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
@@ -211,25 +226,24 @@ class Solicitud extends Component
 
     public function mount(Aspirante $aspirante) {
 
-        $this->grados               =  config('constants.grados');
-        $this->tiposDeMedio         =  config('constants.tipos_de_medio');
-        $this->sexos                =  config('constants.sexos');
-        $this->entidades            =  config('constants.entidades');
-        $this->municipios            =  config('constants.municipios');
-        $this->paises                =  config('constants.paises');
-        $this->localidades     =  config('constants.localidades');
-        $this->localidadesFiltrado     =  [];
+        $this->grados      =  config('constants.grados');
+        $this->tiposDeMedio=  config('constants.tipos_de_medio');
+        $this->sexos       =  config('constants.sexos');
+        $this->entidades   =  config('constants.entidades');
+        $this->municipios  =  config('constants.municipios');
+        $this->paises      =  config('constants.paises');
+        $this->localidades =  config('constants.localidades');
+
         $this->editar =  false;
 
         $this->documentos = Documento::all();
 
         $consejos = [];
         foreach($this->municipios as $mun) {
-            $consejos[$mun] = mb_strtoupper('Consejo Municipal Electoral de ' .$mun);
+            $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
         }
         $this->consejosMunicipales     =  $consejos;
         $this->consejosFiltrado     =  [];
-
 
         $this->resetearAspirante();
 
@@ -243,6 +257,9 @@ class Solicitud extends Component
 
         }
 
+        $this->email_confirmation   = $this->email;
+        $this->localidadesFiltrado  =  $this->localidades[$this->municipio];
+
         $this->fill([
             'experiencia_laboral' => $this->construirExperiencias($this->experiencia_laboral ?? []),
         ]);
@@ -251,17 +268,6 @@ class Solicitud extends Component
     public function render()
     {
         return view('livewire.aspirantes.solicitud');
-    }
-
-    public function guardar() {
-
-        $data     = $this->validate();
-        $dataFill =  $data;
-        $dataFill['numero_convocatoria'] = 1;
-
-        $this->aspirante = Aspirante::create($dataFill);
-
-        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->aspirante->id.'</strong>');
     }
 
     public function handlerSave() {
@@ -277,13 +283,14 @@ class Solicitud extends Component
     }
     public function actualizar() {
 
-
         $data     = $this->validate();
         $dataFill =  $data;
+        if(isset($dataFill['email_confirmation']))
+            unset($dataFill['email_confirmation']);
 
-        Aspirante::where('id', $this->aspirante_id)->update($dataFill);
+        $this->aspirante->update($dataFill);
 
-        Aspirante::find($this->aspirante_id);
+        $this->aspirante->refresh();
 
         $this->notificar('success', 'Registro actualizado');
     }

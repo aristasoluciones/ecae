@@ -58,6 +58,7 @@ class Formulario extends Component
     public $motivo_secae;
     public $medio_convocatoria;
     public $email;
+    public $email_confirmation;
     public $acepto_aviso;
     public $acepto_ser_contactado;
     public $acepto_declaratoria;
@@ -66,6 +67,7 @@ class Formulario extends Component
     public $p1_proceso_electoral;
     public $p1_1_cual;
     public $p1_2_forma;
+    public $p1_2_otra_forma;
     public $p2_disponibilidad;
     public $p3_finsemana;
     public $p4_campo;
@@ -143,13 +145,16 @@ class Formulario extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
-            //'email'    => 'required|email',
+            'email'    => 'nullable|email',
+            'email_confirmation'    => 'nullable|email|same:email',
             'acepto_aviso' => 'required|integer',
             'acepto_ser_contactado' => 'nullable',
             'acepto_declaratoria'   => 'nullable',
             'p1_proceso_electoral'  => 'required|string',
-            'p1_1_cual'             => 'nullable|string',
-            'p1_2_forma'            => 'nullable|string',
+            'p1_1_cual'             => 'required_if:p1_proceso_electoral,=,Si',
+            'p1_2_forma'            => 'required_if:p1_proceso_electoral,=,Si',
+            'p1_2_otra_forma'       => 'required_if:p1_2_forma,=,Otro',
+            'p2_disponibilidad'     => 'required|string',
             'p3_finsemana'          => 'required|string',
             'p4_campo'              => 'required|string',
             'p5_milita'             => 'required|string',
@@ -179,8 +184,10 @@ class Formulario extends Component
     }
     public function messages() {
         return [
-            '*.required' => 'Este campo es obligatorio',
-            '*.required_if' => 'Este campo es obligatorio'
+            '*.required' => 'Este campo es obligatorio.',
+            '*.required_if' => 'Este campo es obligatorio.',
+            'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar corre electrónico deben coincidir.',
+            'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.'
         ];
     }
 
@@ -210,6 +217,13 @@ class Formulario extends Component
         $this->genero = $sexos[substr($value, 14,1)] ?? '';
     }
 
+    public function updatedP1ProcesoElectoral() {
+
+        $this->p1_1_cual = null;
+        $this->p1_2_forma = null;
+        $this->p1_2_otra_forma = null;
+    }
+
 
     public function updatedMunicipio($value) {
 
@@ -231,7 +245,7 @@ class Formulario extends Component
 
         $consejos = [];
         foreach($this->municipios as $mun) {
-            $consejos[$mun] = mb_strtoupper('Consejo Municipal Electoral de ' .$mun);
+            $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
         }
         $this->consejosMunicipales     =  $consejos;
         $this->consejosFiltrado     =  [];
@@ -265,6 +279,9 @@ class Formulario extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
+        if(isset($dataFill['email_confirmation']))
+            unset($dataFill['email_confirmation']);
+
         $dataFill['numero_convocatoria'] = 1;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
         $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
