@@ -35,6 +35,6 @@ Route::get('/', function () {
 
 Route::get('/aspirantes', [\App\Http\Controllers\AspiranteController::class, 'index'])->name('aspirantes')->middleware('auth');
 Route::get('/aspirante/{aspirante?}', \App\Http\Livewire\Aspirantes\Formulario::class)->name('aspirante');
-Route::get('/usuarios', \App\Http\Controllers\UsuarioController::class)->name('usuarios')->middleware('auth');
+Route::get('/usuarios', \App\Http\Controllers\UsuarioController::class)->name('usuarios')->middleware('auth','permission:usuarios');
 Route::get('/solicitud/{aspirante}', \App\Http\Controllers\SolicitudController::class)->name('solicitud')->middleware('auth');
 Route::get('/roles', \App\Http\Controllers\RoleController::class)->name('roles')->middleware('auth');
