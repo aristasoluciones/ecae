@@ -83,7 +83,6 @@ return [
         'Chamula',
         'Villaflores'
     ],
-
     'entidades' => [
         'Aguascalientes',
         'Baja California',
@@ -1209,7 +1208,6 @@ return [
             'Villahermosa',
             'Zapotal',
         ],
-
         'Amatenango de la Frontera' => [
             'Amatenango de la Frontera',
             'Agua Escondida',
@@ -1337,7 +1335,6 @@ return [
             'Zacatonal',
             'Zacualpán',
         ],
-
         'Amatenango del Valle' => [
             'Amatenango del Valle',
             'Benito Juárez',
@@ -1397,7 +1394,6 @@ return [
             'Unión Buenavista',
             'Yalchitán',
         ],
-
         'Ángel Albino Corzo' => [
             'Agapito Pérez',
             'Agua Escondida',
@@ -1595,7 +1591,6 @@ return [
             'Venecia',
             'Villahermosa',
         ],
-
         'Arriaga' => [
             'Arriaga',
             '21 de Marzo (La Pampa)',
@@ -2060,7 +2055,6 @@ return [
             'Vistahermosa (El Matocho)',
             'Xochimilco',
         ],
-
         'Bejucal de Ocampo' => [
             'Bejucal de Ocampo',
             'Los Aguacatales',
@@ -2099,7 +2093,6 @@ return [
             'El Paraíso',
             'El Cipresal',
         ],
-
         'Bella Vista' => [
             'Bella Vista',
             'Allende',
@@ -2198,7 +2191,6 @@ return [
             'Veinte de Noviembre',
             'Zaragoza',
         ],
-
         'Benemérito de las Américas' => [
             'Benemérito de las Américas',
             'Arroyo Delicias',
@@ -2274,7 +2266,6 @@ return [
             'La Gravera',
             'Guadalupe',
         ],
-
         'Berriozábal' => [
             'Berriozábal',
             'Agua Escondida',
@@ -2755,7 +2746,6 @@ return [
             'Villa Paloma',
             'Vistahermosa',
         ],
-
         'Bochil' => [
             'Bochil',
             'Agua Bendita',
@@ -2839,7 +2829,6 @@ return [
             'Vista Hermosa',
             'Yerbabuena Isbontick',
         ],
-
         'Cacahoatán' => [
             'Cacahoatán',
             '1ra. Ampliación Manacal',
@@ -2959,7 +2948,6 @@ return [
             'Zabakché',
 
         ],
-
         'Capitán Luis Ángel Vidal' => [
             'Capitán Luis Ángel Vidal',
             'Agua Tibia',
@@ -3011,7 +2999,6 @@ return [
             'Tres Estrellas',
             'Villa Reforma',
         ],
-
         'Catazajá' => [
             'Catazajá',
             'Agua Fría',
@@ -3259,7 +3246,6 @@ return [
             'Victorico R. Grajales',
             'Villa Paraíso',
         ],
-
         'Chalchihuitán' => [
             'Chalchihuitán',
             'Abanchén',
@@ -3325,7 +3311,6 @@ return [
             'Yolonhuitz',
             'Yut Uk´Um',
         ],
-
         'Chamula' => [
             'Chamula',
             'Agil Santa Rita',
@@ -3488,7 +3473,6 @@ return [
             'Yutniotic',
             'Yutosil Tres',
         ],
-
         'Chanal' => [
             'Chanal',
             'Chanalito',
@@ -3511,7 +3495,6 @@ return [
             'Suiltik',
             'Tzajalnich',
         ],
-
         'Chapultenango' => [
             'Chapultenango',
             'Buenavista Caracol',
@@ -3549,7 +3532,6 @@ return [
             'Valtierra Centro',
             'Volcán Chichonal',
         ],
-
         'Chenalhó' => [
             'Chenalhó',
             'Acteal Alto',
@@ -3699,7 +3681,6 @@ return [
             'Yolontzuy',
             'Yut-Uk´Um',
         ],
-
         'Chiapa de Corzo' => [
             'Chiapa de Corzo',
             '12 de Marzo',
@@ -4170,7 +4151,6 @@ return [
             'Vistahermosa',
             'Z 2000',
         ],
-
         'Chiapilla' => [
             'Chiapilla',
             'Delfino Vázquez',
@@ -4191,7 +4171,6 @@ return [
             'San José',
             'Santa Teresita',
         ],
-
         'Chicoasén' => [
             'Chicoasén',
             'Agua Zarca',
@@ -4219,7 +4198,6 @@ return [
             'Vistahermosa',
             'Zoquipak',
         ],
-
         'Chicomuselo' => [
             'Chicomuselo',
             '15 de Enero',
@@ -4513,7 +4491,6 @@ return [
             'Zapata',
             'Zapote Ventanas',
         ],
-
         'Chilón' => [
             'Chilón',
             '1ra. Yalxex',
@@ -5250,7 +5227,6 @@ return [
             'Yulubmax',
             'Zazaquil',
         ],
-
         'Cintalapa de Figueroa' => [
             'Cintalapa de Figueroa',
             '14 de Febrero',
@@ -6212,7 +6188,6 @@ return [
             'Último de Mayo',
 
         ],
-
         'Coapilla' => [
             'Coapilla',
             'Buenavista (Matasanos)',
@@ -6256,7 +6231,6 @@ return [
             'Vicente Guerrero',
             'Vistahermosa',
         ],
-
         'Comitán de Domínguez' => [
             'Comitán de Domínguez',
             'El Aguacate',
@@ -6636,7 +6610,6 @@ return [
             'Las Torres',
 
         ],
-
         'Copainalá' => [
             'Copainalá',
             'Aceldama',
@@ -7542,7 +7515,6 @@ return [
             'Vicente Guerrero',
             'Villaflores',
         ],
-
         'Frontera Comalapa' => [
             'Frontera Comalapa',
             '1a. Ampliación Monte Redondo',
@@ -7857,7 +7829,6 @@ return [
             'Zunzapote el Mango Dos',
 
         ],
-
         'Frontera Hidalgo' => [
             'Frontera Hidalgo',
             'Cantón Santa Cruz',
