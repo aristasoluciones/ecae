@@ -227,6 +227,7 @@ class Formulario extends Component
         $this->municipios            =  config('constants.municipios');
         $this->paises                =  config('constants.paises');
         $this->localidades     =  config('constants.localidades');
+         \Log::info(config('constants.localidades'));
         $this->localidadesFiltrado     =  [];
 
         $consejos = [];

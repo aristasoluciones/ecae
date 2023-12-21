@@ -14,15 +14,12 @@ return [
     |
     */
 
-
     'estatus_grados' => [
         'Trunca',
         'Concluida',
         'Titulado',
     ],
-
     'fecha_eleccion' => '2024-06-06',
-
     'tipos_de_medio' => [
         'A. Cartel',
         'B. Volante',
@@ -38,7 +35,6 @@ return [
         'L. Otro',
 
     ],
-
     'grados' => [
         'Primaria Primer grado',
         'Primaria Segundo grado',
@@ -64,9 +60,6 @@ return [
         'Maestria',
         'Doctorado',
     ],
-
-    
-
     'distritos' => [
         'Tuxtla Gutiérrez Oriente',
         'Tuxtla Gutiérrez Poniente',
@@ -125,7 +118,6 @@ return [
         'Yucatán',
         'Zacatecas',
     ],
-
     'pueblos' => [
         'Tseltal',
         'Tsotsil',
@@ -161,7 +153,6 @@ return [
         'O' => 'Otro',
         'P' => 'Prefiero no decir',
     ],
-
     'distritos' => [
         'Distrito 1',
         'Distrito 2',
@@ -498,7 +489,7 @@ return [
         'Villa Corzo' =>['Consejo Municipal Electoral Villa Corzo'],
         'Villaflores' =>['Consejo Municipal Electoral Villaflores'],
         'Yajalón' =>['Consejo Municipal Electoral Yajalón'],
-        'Zinacantán' =>['Consejo Municipal Electoral Zinacantán'],       
+        'Zinacantán' =>['Consejo Municipal Electoral Zinacantán'],
     ],
 
 /* TERMINA CONSTANTES DE CONSEJOS MUNICIPALES */
@@ -506,7 +497,7 @@ return [
 
 
  /* INICIA CONSTANTES DE LOCALIDADES */
-'localidades' => [ 
+'localidades' => [
 
     'Acacoyagua' => [
         'Acacoyagua',
@@ -1285,7 +1276,7 @@ return [
         'Villaflores',
         'Villahermosa',
     ],
-    
+
     'Amatán' => [
         'Amatán',
         'Acapulco',
@@ -2505,7 +2496,7 @@ return [
         'Los 3 Hermanos',
         'Nueva Magdalena',
         'La Gravera',
-        'Guadalupe',        
+        'Guadalupe',
     ],
 
     'Berriozábal' =>[
@@ -2986,7 +2977,7 @@ return [
         'Villa Esmeralda',
         'Villa Florencia',
         'Villa Paloma',
-        'Vistahermosa',        
+        'Vistahermosa',
     ],
 
     'Bochil' =>[
@@ -3190,7 +3181,7 @@ return [
         'Toquián',
         'Unión Roja',
         'Zabakché',
-        
+
     ],
 
     'Capitán Luis Ángel Vidal' =>[
@@ -3242,7 +3233,7 @@ return [
         'Santa Isabel Ziján (La Frailesca)',
         'Santa María',
         'Tres Estrellas',
-        'Villa Reforma',        
+        'Villa Reforma',
     ],
 
     'Catazajá' =>[
@@ -3490,7 +3481,7 @@ return [
         'Vicente Guerrero',
         'Victoria',
         'Victorico R. Grajales',
-        'Villa Paraíso',        
+        'Villa Paraíso',
     ],
 
     'Chalchihuitán' =>[
@@ -3780,7 +3771,7 @@ return [
         'Señor de Tila',
         'Sonora',
         'Valtierra Centro',
-        'Volcán Chichonal',        
+        'Volcán Chichonal',
     ],
 
     'Chenalhó' =>[
@@ -3930,7 +3921,7 @@ return [
         'Yokventana',
         'Yolonchén',
         'Yolontzuy',
-        'Yut-Uk´Um',        
+        'Yut-Uk´Um',
     ],
 
     'Chiapa de Corzo' =>[
@@ -4401,7 +4392,7 @@ return [
         'Vistahermosa',
         'Vistahermosa',
         'Vistahermosa',
-        'Z 2000',       
+        'Z 2000',
     ],
 
     'Chiapilla' =>[
@@ -4450,7 +4441,7 @@ return [
         'Santa Ana',
         'Santo Domingo',
         'Vistahermosa',
-        'Zoquipak',        
+        'Zoquipak',
     ],
 
     'Chicomuselo' =>[
@@ -4744,7 +4735,7 @@ return [
         'Vista Alegre',
         'Vista Hermosa',
         'Zapata',
-        'Zapote Ventanas',        
+        'Zapote Ventanas',
     ],
 
     'Chilón' =>[
@@ -6443,7 +6434,7 @@ return [
         'Zacualpa',
         'Zapote Negro',
         'Último de Mayo',
-        
+
     ],
 
     'Coapilla' =>[
@@ -6487,7 +6478,7 @@ return [
         'Tierra Blanca',
         'Unión Portes Gil (San Pedro)',
         'Vicente Guerrero',
-        'Vistahermosa',        
+        'Vistahermosa',
     ],
 
     'Comitán de Domínguez' =>[
@@ -6867,7 +6858,7 @@ return [
         'Anexo Arturo Albores Velasco',
         'Villas Edén',
         'Las Torres',
-        
+
     ],
 
     'Copainalá' =>[
@@ -7041,7 +7032,7 @@ return [
         'Tres Picos',
         'Tuñajén (San Rafael)',
         'Villas del Rosario',
-        'Vista Hermosa',        
+        'Vista Hermosa',
     ],
 
     'El Bosque' =>[
@@ -7106,7 +7097,7 @@ return [
         'Tierra Caliente',
         'Unión Progreso',
         'Unión Tierra Tzotzil',
-        'Vergel',        
+        'Vergel',
     ],
 
     'El Parral' =>[
@@ -7265,7 +7256,7 @@ return [
         'Tres Hermanos',
         'Tres Ocotes',
         'Ube Hernández',
-        'Vista Hermosa (Jesús Cruz)',        
+        'Vista Hermosa (Jesús Cruz)',
     ],
 
     'El Porvenir' =>[
@@ -7324,7 +7315,7 @@ return [
         'Santa Rosa',
         'Unión Buenavista 2',
         'Unión Buenavista',
-        'Zapotillo',        
+        'Zapotillo',
     ],
 
     'Emiliano Zapata' =>[
@@ -7470,7 +7461,7 @@ return [
         'Valle Encantado',
         'Veintinueve de Octubre',
         'Veracruz',
-        'Villa Guadalupe',        
+        'Villa Guadalupe',
     ],
 
     'Escuintla' =>[
@@ -7718,7 +7709,7 @@ return [
         'Villa  Coapa',
         'Villahermosa',
         'Vistahermosa',
-        'Zacualpa Dos',        
+        'Zacualpa Dos',
     ],
 
     'Francisco León' =>[
@@ -7773,7 +7764,7 @@ return [
         'Siete Arroyos',
         'Simbac (El Porvenir)',
         'Vicente Guerrero',
-        'Villaflores',        
+        'Villaflores',
     ],
 
     'Frontera Comalapa' =>[
@@ -8088,7 +8079,7 @@ return [
         'Vivaley el Sabino',
         'Vivero el Bosque',
         'Zunzapote el Mango Dos',
-        
+
     ],
 
     'Frontera Hidalgo' =>[
@@ -8633,7 +8624,7 @@ return [
         'Tzelepat',
         'Veinte de Noviembre',
         'Yalcuc',
-        'Zitim',        
+        'Zitim',
     ],
 
     'Ixhuatán' =>[
@@ -8763,7 +8754,7 @@ return [
         'Santa Rita',
         'Santa Rosa',
         'Tescubia',
-        'Viejo Lindavista',        
+        'Viejo Lindavista',
     ],
 
     'Ixtapa' =>[
@@ -13218,7 +13209,7 @@ return [
         'Tierra y Libertad',
         'Trece de Septiembre',
         'Unión del Progreso',
-        'Vicente Guerrero (Dique Dos)',        
+        'Vicente Guerrero (Dique Dos)',
     ],
 
     'Mitontic' =>[
@@ -16620,33 +16611,6 @@ return [
         'Yoshib',
         'Yut Lumiljá',
     ],
-
-    'Palenque' =>[
-
-    ]
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
 ],
-
   /* TERMINA CONSTANTES DE LOCALIDADES */
-
 ];
