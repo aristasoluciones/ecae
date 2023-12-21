@@ -210,6 +210,7 @@ class Formulario extends Component
         $this->genero = $sexos[substr($value, 14,1)] ?? '';
     }
 
+    
     public function updatedMunicipio($value) {
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
