@@ -14,12 +14,25 @@
         </div>
     </div>
 @stop
+@push('css')
+<style>
+    input[type=time]::-webkit-datetime-edit-ampm-field {
+        display: none;
+    }
+</style>
+@endpush
 <div class="container">
     @if (!$this->registrado)
         <div class="card card-secondary">
             <div class="card-body p-5">
                 {{-- SECCION UNO --}}
                 <div class="form-row">
+                    <div class="col-12">
+                        <div class="callout callout-info">
+                            <p><sup class="text-bold text-danger">*</sup> <small class="text-justify">Los campos son obligatorios</small></p>
+                            <p><sup class="text-bold">1</sup> <small class="text-justify">No contar con estos documentos no será causa de exclusión en este momento. En caso de ser contratado/a será obligatorio.</small></p>
+                        </div>
+                    </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
@@ -248,8 +261,7 @@
                     @endif
                     <div class="col-6 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span> ¿Se
-                                identifica como una persona LGBTTTIQ+?</label>
+                            <label class=""><span class="text-danger ">*</span> ¿Se identifica como una persona LGBTTTIQ+?</label>
                             <select wire:model.lazy="persona_lgbtttiq"
                                 class="form-control {{ $errors->has('persona_lgbtttiq') ? 'is-invalid' : '' }}">
                                 <option value="">
@@ -279,12 +291,6 @@
                             </div>
                         </div>
                     @endif
-                    <div class="col-12">
-                        <sup class="text-bold">1</sup><span class="text-gray"> No
-                            contar con estos documentos no será causa de exclusión
-                            en este momento. En caso de ser contratado/a será
-                            obligatorio.</span>
-                    </div>
                     <div class="col-12 divider">
                         <h4 class="text-bold">Domicilio</h4>
                         <h3 class="dropdown-divider"></h3>
@@ -550,13 +556,24 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="col-12"><h3 class="text-bold">Otros datos</h3></div>
                     <div class="col-12 dropdown-divider"></div>
-                    
+                    <div class="col-12"><h3 class="text-bold">Otros datos</h3></div>
+                    <div class="col-12">
+                        <div class="callout callout-info">
+                            <p>
+                                <sup class="text-bold">*</sup> <small class="text-bold text-justify"> LAS PREGUNTAS DE LA 11 A LA 15 SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
+                            </p>
+                            <p>
+                                <sup>**</sup><small class="text-justify"> En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.</small>
+                            </p>
+                        </div>
+
+                    </div>
+
                     {{-- Pregunta numero 1 --}}
 
                     <div class="form-row justify-content-between mb-3 col-12">
-                        <div class="col-12"><h5>1- ¿Has participado en algún proceso electoral?</h5></div>                        
+                        <div class="col-12"><h5>1- ¿Has participado en algún proceso electoral?</h5></div>
                         <div class="col-12">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" value="Si"
@@ -597,9 +614,9 @@
                         {{-- Pregunta numero 1.2 --}}
 
                         @if ($p1_proceso_electoral === 'Si')
-                        <div class="form-row justify-content-between mb-3 col-12">    
+                        <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12"><label class=""><span class="text-danger ">*</span>1.2- ¿De qué forma?</label>
-                        
+
                                 <select wire:model.lazy="p1_2_forma"
                                     class="form-control col-4 {{ $errors->has('p1_2_forma') ? 'is-invalid' : '' }}">
                                     <option value="">
@@ -614,11 +631,11 @@
                                 @enderror
                             </div>
                         </div>
-                    
+
                         @endif
 
                         @if ($p1_2_forma === 'Otro')
-                        <div class="form-row justify-content-between mb-3 col-12">      
+                        <div class="form-row justify-content-between mb-3 col-12">
                         <div class="col-12">
                                 <div class="form-group {{ $errors->has('otro_p1_2_forma') ? 'is-invalid' : '' }}">
                                     <label class="col-12"><span class="text-danger ">*</span>
@@ -861,7 +878,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 {{-- Prgeunta numero 10 --}}
                 <div class="form-row justify-content-between mb-3 col-12">
                     <div class="col-12">
@@ -1042,15 +1059,16 @@
                 @endif
 
                 {{-- Prgeunta numero 13 --}}
-
-                <div class="form-row justify-content-between mb-3 col-12">
+                <div class="form-row">
                     <div class="col-12">
                         <h5>13. ¿Cuánto tiempo le lleva trasladarse de su
                             domicilio al OPL? *</h5>
                     </div>
                     <div class="col-4">
-                        <input type="text" class="form-control" wire:model.lazy="p13_tiempo_traslado"
-                            id="p13_tiempo_traslado" name="p13_tiempo_traslado">
+                        <div class="form-group">
+                            <input type="time" class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                                   id="p13_tiempo_traslado" name="p13_tiempo_traslado">
+                        </div>
                     </div>
                     <div class="col-12">
                         @error('p13_tiempo_traslado')
@@ -1202,12 +1220,54 @@
                 </div>
                 {{-- Prgeunta numero 12.4 --}}
             </div>
-            <div class="card-footer d-flex flex-row justify-content-end">
-                <button class="btn btn-primary" wire:click.prevent="handlerSave">
-                    <span wire:loading.remove wire:target="handlerSave">Guardar</span>
-                    <span wire:loading wire:target="handlerSave">Guardando
-                        información....</span>
-                </button>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" wire:model="acepto_aviso"
+                                   value="1"
+                                   class="custom-control-input custom-control-input-success checkbox-3x"
+                                   id="acepto-aviso">
+                            <label class="custom-control-label" for="acepto-aviso">He leído el aviso de privacidad y acepto los términos y condiciones.</label>
+                            <p class="text-justify">
+                                El Organismo Público Local en el estado de (agregar entidad federativa), con domicilio en: (agregar dirección del OPL) reciba sus datos personales y es responsable del tratamiento que les dé. Los datos personales reunidos s serán utilizados para corroborar que la ciudadanía interesada en participar en el proceso de reclutamiento, selección y contratación de personal eventual que colaborará con el OPL como Supervisora/or Electoral Local o Capacitadora/or-Asistente Electoral Local, cumpla con los requisitos legales y administrativos establecidos en la Convocatoria. Simultáneamente, los datos personales serán utilizados para que la autoridad electoral cuente con información respecto de los grupos en situación de vulnerabilidad en los que se sitúan las personas con autoadscripción indígena; pertenecientes a la población afromexicana; que viven con algún tipo de discapacidad; que se consideran parte de las personas LGBTTTIQ+ o si se trata de una persona mexicana migrante, con el fin de realizar análisis de datos y estadísticas como insumos para el ejercicio de sus atribuciones, para determinar lo conducente en futuros procesos electorales. Lo anterior, de conformidad con el marco normativo electoral y con base en lo establecido en los artículos 6º Base A, fracciones II y III y 16, segundo párrafo de la Constitución Política de los Estados Unidos Mexicanos, así como los artículos 3º, fracción II y IX, 16, 17, 18, 19, 20, 21, 22, 23, 25,26, 27 y 28 de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" wire:model="acepto_ser_contactado"
+                                   value="1"
+                                   class="custom-control-input custom-control-input-success checkbox-3x"
+                                   id="acepto-ser-contactado">
+                            <label class="custom-control-label" for="acepto-ser-contactado">Acepto ser contactado/a vía correo electrónico para algún seguimiento o notificación de información sobre el proceso de reclutamiento y selección, en el que estoy participando. </label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" wire:model="acepto_declaratoria"
+                                   value="1"
+                                   class="custom-control-input custom-control-input-success checkbox-3x"
+                                   id="acepto-declaratoria">
+                            <label class="custom-control-label" for="acepto-declaratoria">Acepto la declaratoria.</label>
+                            <p class="text-justify">
+                                Que de comprobarse que alguno de los datos asentados en esta Solicitud resultara falso, el OPL puede dejar sin efecto la presente solicitud o, en su caso, el compromiso que estableciera para contar con mis servicios, sin que el OPL incurra en responsabilidad alguna sobre el particular.</p>
+                            <p class="text-justify">
+                                De la misma manera manifiesto mantener en estricta reserva y no revelar ningún tipo de información sobre el contenido del Examen de conocimientos, habilidades y aptitudes, así como de la Entrevista para el proceso de selección de Supervisoras/es Electorales Locales y Capacitadoras/es-Asistentes Electorales Locales correspondiente al Proceso Electoral 2023-2024, en caso de acceder a ella.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        @if($acepto_aviso == 1)
+                            <button class="btn btn-primary" wire:click.prevent="handlerSave">
+                                <span wire:loading.remove wire:target="handlerSave">Guardar</span>
+                                <span wire:loading wire:target="handlerSave">Guardando
+                            información....</span>
+                            </button>
+                        @endif
+                    </div>
+                </div>
+
             </div>
         </div>
     @endif
@@ -1243,6 +1303,7 @@
         </script>
     @endif
 </div>
+
 @section('js')
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {

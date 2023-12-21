@@ -4,24 +4,21 @@ namespace App\Http\Livewire\Aspirantes;
 
 
 use Carbon\Carbon;
-use Carbon\Factory;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Session\Store;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 use App\Rules\ClaveElectorRule;
 
 use App\Models\Aspirante;
-use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Documento;
 use Barryvdh\DomPDF\Facade\Pdf;
-use function PHPUnit\Framework\isNull;
-
-class Formulario extends Component
+class Solicitud extends Component
 {
     use AuthorizesRequests;
 
-    public  $candidato;
+    public $aspirante;
+
+    public $editar;
 
     public $aspirante_id;
     public $municipio;
@@ -58,9 +55,6 @@ class Formulario extends Component
     public $motivo_secae;
     public $medio_convocatoria;
     public $email;
-    public $acepto_aviso;
-    public $acepto_ser_contactado;
-    public $acepto_declaratoria;
 
     //Preguntas
     public $p1_proceso_electoral;
@@ -100,6 +94,8 @@ class Formulario extends Component
     public $localidadesFiltrado;
     public $consejosMunicipales;
     public $consejosFiltrado;
+
+    public $documentos;
 
 
     protected function rules() {
@@ -143,10 +139,6 @@ class Formulario extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
-            //'email'    => 'required|email',
-            'acepto_aviso' => 'required|integer',
-            'acepto_ser_contactado' => 'nullable',
-            'acepto_declaratoria'   => 'nullable',
             'p1_proceso_electoral'  => 'required|string',
             'p1_1_cual'             => 'nullable|string',
             'p1_2_forma'            => 'nullable|string',
@@ -185,7 +177,7 @@ class Formulario extends Component
     }
 
     public function getRegistradoProperty() {
-        return $this->candidato?->id > 0;
+        return $this->aspirante?->id > 0;
     }
 
     public function updatedClaveElector($value) {
@@ -217,7 +209,7 @@ class Formulario extends Component
 
     }
 
-    public function mount(Aspirante $candidato) {
+    public function mount(Aspirante $aspirante) {
 
         $this->grados               =  config('constants.grados');
         $this->tiposDeMedio         =  config('constants.tipos_de_medio');
@@ -227,6 +219,9 @@ class Formulario extends Component
         $this->paises                =  config('constants.paises');
         $this->localidades     =  config('constants.localidades');
         $this->localidadesFiltrado     =  [];
+        $this->editar =  false;
+
+        $this->documentos = Documento::all();
 
         $consejos = [];
         foreach($this->municipios as $mun) {
@@ -236,13 +231,13 @@ class Formulario extends Component
         $this->consejosFiltrado     =  [];
 
 
-        $this->resetearCandidato();
+        $this->resetearAspirante();
 
-        if($candidato) {
+        if($aspirante) {
 
-            $this->candidato = $candidato;
-            $this->aspirante_id = $candidato->id;
-            foreach($candidato->toArray() as $key => $cad) {
+            $this->aspirante = $aspirante;
+            $this->aspirante_id = $aspirante->id;
+            foreach($aspirante->toArray() as $key => $cad) {
                 $this->{$key} = $cad;
             }
 
@@ -255,9 +250,7 @@ class Formulario extends Component
 
     public function render()
     {
-        return view('livewire.aspirantes.formulario')
-            ->extends('adminlte::public')
-            ->section('content');
+        return view('livewire.aspirantes.solicitud');
     }
 
     public function guardar() {
@@ -265,24 +258,22 @@ class Formulario extends Component
         $data     = $this->validate();
         $dataFill =  $data;
         $dataFill['numero_convocatoria'] = 1;
-        $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
-        $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
 
-        $this->candidato = Aspirante::create($dataFill);
+        $this->aspirante = Aspirante::create($dataFill);
 
-        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->aspirante->id.'</strong>');
     }
 
     public function handlerSave() {
 
+        $rules = $this->rules();
+        $this->validate($rules);
+        $this->emit('modal:show', '#modal-confirmar');
+    }
 
-       $this->emit('confirmar', [
-            'icon'    => 'question',
-            'title'   => 'Confirmar información',
-            'text'    => '¿Esta seguro de enviar sus datos?',
-            'confirmText' => $this->aspirante_id > 0 ? 'Actualizar' : 'Guardar',
-            'method'  => $this->aspirante_id > 0 ? "actualizar" : "guardar",
-        ]);
+    public function handlerAceptar() {
+
+        $this->emit('modal:show', '#modal-aceptar');
     }
     public function actualizar() {
 
@@ -290,11 +281,23 @@ class Formulario extends Component
         $data     = $this->validate();
         $dataFill =  $data;
 
-        Aspirante::where('id', $this->candidato_id)->update($dataFill);
+        Aspirante::where('id', $this->aspirante_id)->update($dataFill);
 
-        $candidato = Aspirante::find($this->candidato_id);
+        Aspirante::find($this->aspirante_id);
 
         $this->notificar('success', 'Registro actualizado');
+    }
+
+    public function aceptar() {
+
+        $this->aspirante->estatus = Aspirante::ESTATUS_ACEPTADO;
+        $this->aspirante->save();
+        $this->emit('swal:alert', [
+            'icon'    => 'success',
+            'title'   => 'Se ha guardado la información',
+            'timeout' => 5000
+        ]);
+        $this->redirect('/aspirantes');
     }
 
     public function notificar($type, $titulo) {
@@ -304,12 +307,12 @@ class Formulario extends Component
             'title'   => $titulo,
             'timeout' => 5000
         ]);
-
+        $this->reset(['editar']);
+        $this->emit('modal:hide', '#modal-confirmar');;
         $this->render();
-
     }
 
-    private function resetearCandidato() {
+    private function resetearAspirante() {
 
         $this->resetExcept([
             'filterCount',
@@ -325,6 +328,7 @@ class Formulario extends Component
             'consejosMunicipales',
             'consejosFiltrado',
             'fecha_nacimiento',
+            'documentos',
         ]);
 
         $this->fill([
@@ -346,12 +350,21 @@ class Formulario extends Component
             ];
         }
 
-        return array_merge_recursive($formaciones, $experiencias);
+        return array_merge_recursive_distinct($formaciones, $experiencias);
     }
 
     public function generarFicha() {
 
-        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
-        return response()->streamDownload(fn() => print($content), 'ficha-'.time().'.pdf');
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($this->aspirante->clave_elector).'.PDF');
+    }
+
+    public function generarDeclaratoria() {
+
+        $content = Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'DECLARATORIA-'.strtoupper($this->aspirante->clave_elector).'.PDF');
+    }
+    public function toggleEditar() {
+        $this->editar =  !$this->editar;
     }
 }
