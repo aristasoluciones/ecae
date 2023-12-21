@@ -60,7 +60,7 @@
                                 <option value="">
                                     {{ __('adminlte::adminlte.please_select') }}
                                 </option>
-                                @foreach ($this->localidadesFiltrado as $loc)
+                                @foreach ($localidadesFiltrado as $loc)
                                     <option value="{{ $loc }}">{{ $loc }}</option>
                                 @endforeach
                             </select>
