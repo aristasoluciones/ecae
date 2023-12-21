@@ -44,7 +44,7 @@ class Formulario extends Component
             'email'            => ['required', Rule::unique('users')->ignore($this->user?->id)],
             'name'             => 'required|string',
             'role'             => 'required|string',
-            'sede'             => 'required_if:role,=,odes|string',
+            'sede'             => 'required_if:role,=,odes',
             'password'         => $this->validarPassword().'|confirmed',
         ];
     }
