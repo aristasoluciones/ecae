@@ -36,6 +36,7 @@ class Formulario extends Component
         'password.required'  => 'El campo Contraseña es requerido',
         'password.confirmed'  => 'La contraseña no coincide con la confirmación',
         'password_confirmation.required'  => 'El campo Confirmar contraseña es requerido',
+        'password_confirmation.same'  => 'Los campos Contraseña y Confirmar contraseña deben coincidir'
     ];
 
     protected function rules() {
