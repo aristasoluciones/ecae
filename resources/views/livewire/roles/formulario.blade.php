@@ -86,10 +86,24 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger close-btn" data-dismiss="modal">Cancelar</button>
-            <button class="btn btn-primary" wire:click.prevent=@if($role?->id > 0)"actualizar()"@else
-                "guardar()"
-            @endif>Guardar</button>
+            <div class="btn-group-toggle" wire:loading.remove wire.target="{{ $role?->id > 0 ? 'actualizar' : 'guardar' }}">
+                <button type="button"
+                        class="btn btn-danger close-btn mr-2"
+                        data-dismiss="modal">Cancelar
+                </button>
+                <button type="button"
+                        class="btn btn-primary"
+                        wire:click.prevent="{{ $role?->id > 0 ? 'actualizar' : 'guardar' }}">@if($role?->id > 0)
+                        Actualizar
+                    @else
+                        Guardar
+                    @endif</button>
+            </div>
+            <button type="button"
+                    class="btn btn-primary"
+                    wire:loading wire.target="{{ $role?->id > 0 ? 'actualizar' : 'guardar' }}">
+                <span>Guardardando información <i class="fas fa-spinner"></i></span>
+            </button>
         </div>
     </div>
 </div>
