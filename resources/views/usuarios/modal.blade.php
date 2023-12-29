@@ -7,7 +7,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Confirmar acción</h4>
+                <h4 class="modal-title">Confirmar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -18,23 +18,23 @@
                         <p>Esta seguro de realizar esta acción</p>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <div class="btn-group-toggle" wire:loading.remove>
-                        <button type="button"
-                                class="btn btn-danger close-btn mr-2"
-                                data-dismiss="modal">No
-                        </button>
-                        <button type="button"
-                                class="btn btn-primary"
-                                wire:click="toggleEstatus">Si
-                        </button>
-                    </div>
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group-toggle" wire:loading.remove>
                     <button type="button"
-                            class="btn btn-primary"
-                            wire:loading wire.target="toggleEstatus">
-                        <span>Eliminando información <i class="fas fa-spinner"></i></span>
+                            class="btn btn-danger close-btn mr-2"
+                            data-dismiss="modal">No
+                    </button>
+                    <button type="button"
+                            class="btn btn-success"
+                            wire:click="toggleEstatus">Si
                     </button>
                 </div>
+                <button type="button"
+                        class="btn btn-info"
+                        wire:loading wire.target="toggleEstatus">
+                    <span>Eliminando información <i class="fas fa-spinner"></i></span>
+                </button>
             </div>
         </div>
     </div>

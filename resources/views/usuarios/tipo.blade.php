@@ -1,5 +1,5 @@
 
-<div class="badge badge-btn bg-gradient-success">
+<div class="badge badge-btn bg-gradient-gray-dark">
     <span class="text-bold">{{ strtoupper($row->roles[0]['name']) }}</span>
 </div>
 @if($row->hasRole('odes'))

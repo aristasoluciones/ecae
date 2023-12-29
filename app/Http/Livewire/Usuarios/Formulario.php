@@ -45,7 +45,8 @@ class Formulario extends Component
             'name'             => 'required|string',
             'role'             => 'required|string',
             'sede'             => 'required_if:role,=,odes',
-            'password'         => $this->validarPassword().'|confirmed',
+            'password'         => $this->validarPassword(),
+            'password_confirmation' => $this->validarConfirmationPassword().'|same:password'
         ];
     }
 
@@ -70,7 +71,7 @@ class Formulario extends Component
         $this->validateOnly($propertyName);
     }
     public function mount() {
-        $this->roles    = Role::all();
+        $this->roles    = Role::whereNotIn('name', config('constants.roles_especiales'))->get();
         $municipios = config('constants.municipios');
 
         $this->consejos = array_map(fn($var) => 'Consejo Municipal Electoral de ' .$var, $municipios);
@@ -117,7 +118,7 @@ class Formulario extends Component
         $this->emit('modal:show', '#modal-user');
     }
 
-    public function save() {
+    public function guardar() {
 
         $data = $this->validate();
         $dataFill =  $data;
@@ -140,6 +141,7 @@ class Formulario extends Component
 
     private function resetear() {
 
+        $this->resetValidation();
         $this->resetExcept(['roles','consejos']);
     }
     public function confirmar($type, $titulo) {

@@ -78,11 +78,11 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger close-btn"
-                    wire:loading.remove wire:target="save"
+                    wire:loading.remove wire:target="guardar"
                     data-dismiss="modal">Cancelar</button>
-            <button class="btn btn-primary" wire:click=save()>
-                <span wire:loading.remove wire:target="save">Guardar</span>
-                <span wire:loading wire:target="save">Guardando información</span>
+            <button class="btn btn-success" wire:click="guardar">
+                <span wire:loading.remove wire:target="guardar">Guardar</span>
+                <span wire:loading wire:target="guardar">Guardando información</span>
             </button>
         </div>
     </div>

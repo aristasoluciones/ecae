@@ -2,16 +2,12 @@
 
 namespace App\Http\Livewire\Usuarios;
 
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Validation\Rule;
+use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 use App\Models\User;
-use Rappasoft\LaravelLivewireTables\Views\Columns\ComponentColumn;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
 use Spatie\Permission\Models\Role;
 
@@ -37,9 +33,8 @@ class Lista extends DataTableComponent
     public function filters(): array
     {
         $rolesQuery = Role::query();
-        if (!auth()->user()->hasRole('superadministrador')) {
-            $rolesQuery->where('name', '!=', 'superadministrador');
-        }
+        $rolesQuery->whereNotIn('name', config('constants.roles_especiales'));
+
         $roles =  $rolesQuery->orderBy('name')
                             ->get()
                             ->keyBy('name')
@@ -64,9 +59,7 @@ class Lista extends DataTableComponent
     }
     public function filtrar($query): Builder
     {
-        if (!auth()->user()->hasRole('superadministrador')) {
-             $query->whereHas('roles', fn ($query2) => $query2->where('name', '!=', 'superadministrador'));
-        }
+        $query->whereHas('roles', fn ($query2) => $query2->whereNotIn('name',config('constants.roles_especiales')));
         return $query;
     }
 

@@ -16358,4 +16358,7 @@ return [
             'Yut Lumiljá',
         ],
     ],
+    'roles_especiales' => [
+        'superadministrador',
+    ]
 ];
