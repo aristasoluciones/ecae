@@ -322,14 +322,13 @@ return [
             'can'         => 'aspirantes',
         ],
         [
-            'text'        => 'Reportes',
-            'url'       => '/reportes',
+            'text'        => 'Reportes y estadisticas',
             'icon'        => 'far fa-fw fa-file',
             'can'         => 'reportes',
             'submenu'     => [
                 [
-                    'text'        => 'Graficas',
-                    'url'       => '/reportes',
+                    'text'        => 'Estadisticas',
+                    'url'       => '/estadistica',
                     'can'         => 'reportes.graficas',
 
                 ],
@@ -451,6 +450,36 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => '/vendor/popper/esm/popper.min.js',
+                ],
+            ],
+        ],
+        'Highcharts' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '/vendor/highcharts/code/css/highcharts.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/highcharts/code/highcharts.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/highcharts/code/modules/accessibility.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/highcharts/code/modules/exporting.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/highcharts/code/themes/gray.js',
                 ],
             ],
         ],

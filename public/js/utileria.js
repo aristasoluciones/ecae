@@ -67,3 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
         $(data).modal('hide');
     })
 })
+window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
+    let chart = Highcharts.charts.find(c => c.renderTo.id == chartId);
+    chart.update({
+        series: [
+            { data: datasets[0]}
+        ],
+        xAxis: {
+            categories: labels,
+        }
+    });
+});

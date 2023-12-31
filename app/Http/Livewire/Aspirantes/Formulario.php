@@ -197,8 +197,10 @@ class Formulario extends Component
 
     public function updatedClaveElector($value) {
 
-        if(strlen($value) <= 0)
+        if(strlen($value) <= 0) {
+            $this->reset(['fecha_nacimiento','edad','genero']);
             return;
+        }
 
         $nacAnio = substr($value,6,2);
         $nacMes = substr($value,8,2);
@@ -207,8 +209,10 @@ class Formulario extends Component
         if($anio < 1938)
             $anio +=100;
 
-        if(!checkdate($nacMes, $nacDia,$anio))
+        if(!checkdate($nacMes, $nacDia,$anio)) {
+            $this->reset(['fecha_nacimiento','edad','genero']);
             return;
+        }
 
         $sexos = config('constants.sexos');
         $nacimiento = Carbon::parse($anio."-".$nacMes."-".$nacDia)->format('Y-m-d');

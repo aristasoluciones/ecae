@@ -30,7 +30,17 @@ class ClaveElectorRule implements Rule
         $nacMes  = substr($value,8,2);
         $nacDia  = substr($value,10,2);
 
-        return is_numeric($nacAnio) && is_numeric($nacMes) && $nacDia;
+        if(!is_numeric($nacAnio) || !is_numeric($nacMes) || !is_numeric($nacDia))
+            return false;
+
+        $anio = (int)$nacAnio + 1900;
+        if($anio < 1938)
+            $anio +=100;
+
+        if(!checkdate($nacMes, $nacDia,$anio))
+            return false;
+
+        return true;
     }
 
     /**

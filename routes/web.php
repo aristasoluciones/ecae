@@ -37,4 +37,5 @@ Route::get('/aspirantes', [\App\Http\Controllers\AspiranteController::class, 'in
 Route::get('/aspirante/{aspirante?}', \App\Http\Livewire\Aspirantes\Formulario::class)->name('aspirante');
 Route::get('/usuarios', \App\Http\Controllers\UsuarioController::class)->name('usuarios')->middleware('auth','permission:configuraciones.usuarios');
 Route::get('/solicitud/{aspirante}', \App\Http\Controllers\SolicitudController::class)->name('solicitud')->middleware('auth');
+Route::get('/estadistica', \App\Http\Controllers\EstadisticaController::class)->name('estadistica')->middleware('auth');
 Route::get('/roles', \App\Http\Controllers\RoleController::class)->name('roles')->middleware('auth');
