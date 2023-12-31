@@ -30,6 +30,15 @@
                                data-toggle="pill"
                                class="nav-link">Por edad</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#tab-by-municipio"
+                               id="by-edad"
+                               role="tab"
+                               aria-controls="by-municipio"
+                               aria-selected="true"
+                               data-toggle="pill"
+                               class="nav-link">Por municipio</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -42,6 +51,11 @@
                         <div class="tab-pane fade" id="tab-by-edad" role="tabpanel" aria-labelledby="tab-by-edad-t">
                             <div class="overlay-wrapper">
                                 @livewire('charts.edad')
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-by-municipio" role="tabpanel" aria-labelledby="tab-by-municipio-t">
+                            <div class="overlay-wrapper">
+                                @livewire('charts.municipio')
                             </div>
                         </div>
                     </div>

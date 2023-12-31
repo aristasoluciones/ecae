@@ -337,12 +337,6 @@ return [
                     'url'       => '/reportes',
                     'can'         => 'reportes.por_generos',
                 ],
-                [
-                    'text'        => 'Por tipo de candidaturas',
-                    'url'       => '/reportes',
-                    'can'         => 'reportes.por_candidaturas',
-
-                ]
             ]
 
         ]
