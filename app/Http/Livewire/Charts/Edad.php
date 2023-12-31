@@ -17,7 +17,7 @@ class Edad extends ChartComponent
      */
     protected function view(): string
     {
-        return 'charts.genero';
+        return 'charts.default';
     }
 
     /**
