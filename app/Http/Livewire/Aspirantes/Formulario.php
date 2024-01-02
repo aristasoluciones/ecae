@@ -373,12 +373,12 @@ class Formulario extends Component
     public function generarFicha() {
 
         $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
-        return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($this->aspirante->clave_elector).'.PDF');
+        return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($this->candidato->clave_elector).'.PDF');
     }
 
     public function generarDeclaratoria() {
 
-        $content = Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->aspirante])->setPaper('letter')->output();
-        return response()->streamDownload(fn() => print($content), 'DECLARATORIA-'.strtoupper($this->aspirante->clave_elector).'.PDF');
+        $content = Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'DECLARATORIA-'.strtoupper($this->candidato->clave_elector).'.PDF');
     }
 }
