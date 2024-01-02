@@ -19,7 +19,7 @@
                                aria-controls="by-genero"
                                aria-selected="true"
                                data-toggle="pill"
-                               class="nav-link active">Por genero</a>
+                               class="nav-link active">Por grado de estudio y genero</a>
                         </li>
                         <li class="nav-item">
                             <a href="#tab-by-edad"

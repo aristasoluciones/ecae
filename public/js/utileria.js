@@ -69,10 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
     let chart = Highcharts.charts.find(c => c.renderTo.id == chartId);
+    let series = [];
+    chart.series.forEach((serie,key) => {
+        series.push(datasets[key]);
+    });
     chart.update({
-        series: [
-            { data: datasets[0]}
-        ],
+        series: series,
         xAxis: {
             categories: labels,
         }

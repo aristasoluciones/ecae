@@ -258,7 +258,7 @@ class Solicitud extends Component
         }
 
         $this->email_confirmation   = $this->email;
-        $this->localidadesFiltrado  =  $this->localidades[$this->municipio];
+        $this->localidadesFiltrado  =  $this->localidades[$this->municipio] ?? [];
 
         $this->fill([
             'experiencia_laboral' => $this->construirExperiencias($this->experiencia_laboral ?? []),

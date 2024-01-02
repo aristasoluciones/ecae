@@ -35,10 +35,10 @@ class GeneroChart extends Chart
                 ]
             ],
             'subtitle' => [
-                'text' => 'Grafica representativa de aspirantes registrados por genero',
+                'text' => 'Aspirantes por grado de estudios y genero',
             ],
             'legend' => [
-                'enabled' => false,
+                'enabled' => true,
             ],
             'plotOptions' => [
                 'series' => [
@@ -46,18 +46,11 @@ class GeneroChart extends Chart
                 ]
             ]
         ]);
-        $this->title('Grafica por genero');
+        $this->title('Grafica por grado de estudio y genero');
 
         $this->labels($data->labels());
-
-        $this->dataset('', "column", $data->datasets()[0])->options([
-            'keys' => ['name','y'],
-            'borderRadius' => 5,
-            'colorByPoint' => true,
-            'dataLabels' => [
-                'enabled' => true,
-                'format' => '{y} aspirantes'
-            ],
-        ]);
+        foreach ($data->datasets() as $dataset) {
+            $this->dataset($dataset['name'], "column", $dataset['data']);
+        }
     }
 }

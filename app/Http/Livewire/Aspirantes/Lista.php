@@ -8,20 +8,34 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 use App\Models\Aspirante;
-use Rappasoft\LaravelLivewireTables\Views\Columns\ComponentColumn;
 use Barryvdh\DomPDF\Facade\Pdf;
+
+use Illuminate\Support\Facades\DB;
+
 class Lista extends DataTableComponent
 {
     protected $model = Aspirante::class;
 
+    public $municipios;
+    public $edades;
+    public $generos;
+    public $estatuses;
+
+    public $fMunicipio;
+    public $fEdad;
+    public $fGenero;
+    public $fEstatus;
+
+
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setSearchVisibilityStatus(false);
         $this->setColumnSelectDisabled();
         $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede']);
         $this->setConfigurableAreas([
             'before-tools' => [
-                'components.button',
+                'aspirantes.busqueda',
                [
                    'type'    =>'button',
                    'route'   =>'aspirante',
@@ -34,6 +48,51 @@ class Lista extends DataTableComponent
             ],
             'before-toolbar' =>'components.loading'
         ]);
+    }
+
+    public function mount() {
+
+        $queryMun = Aspirante::query()
+            ->select('municipio', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes'))
+            $queryMun->where('sede','=',auth()->user()->sede);
+
+        $this->municipios = $queryMun->groupBy('municipio')
+                                     ->orderBy('municipio')
+                                     ->get();
+
+        $queryEdad = Aspirante::query()
+            ->select('edad', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes'))
+            $queryEdad->where('sede','=',auth()->user()->sede);
+
+        $this->edades = $queryEdad->groupBy('edad')
+                                  ->orderBy('edad')
+                                  ->get();
+
+        $queryGenero = Aspirante::query()
+            ->select('genero', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes'))
+            $queryGenero->where('sede','=',auth()->user()->sede);
+
+
+        $this->generos = $queryGenero->groupBy('genero')
+                                     ->orderBy('genero')
+                                     ->get();
+
+        $queryEstatus = Aspirante::query()
+            ->select('estatus', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes'))
+            $queryEstatus->where('sede','=',auth()->user()->sede);
+
+        $this->estatuses = $queryEstatus->groupBy('estatus')
+                                        ->orderBy('estatus')
+                                        ->get();
+
     }
 
     public function columns(): array
@@ -63,6 +122,18 @@ class Lista extends DataTableComponent
         if (auth()->user()->hasRole('odes')) {
             $query->where('sede','=',auth()->user()->sede);
         }
+
+        if($this->fMunicipio)
+            $query->where('municipio', $this->fMunicipio);
+
+        if($this->fEdad)
+            $query->where('edad', $this->fEdad);
+
+        if($this->fGenero)
+            $query->where('genero', $this->fGenero);
+
+        if($this->fEstatus)
+            $query->where('estatus', $this->fEstatus);
 
         return $query;
     }
