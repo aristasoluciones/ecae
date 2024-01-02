@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Aspirantes;
 
 
+use App\Exports\AspirantesExport;
 use Illuminate\Database\Eloquent\Builder;
+use Maatwebsite\Excel\Facades\Excel;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
@@ -34,6 +36,7 @@ class Lista extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setSearchVisibilityStatus(false);
         $this->setColumnSelectDisabled();
+        $this->setPerPageAccepted([10, 25, 50, 100,500,1000,2000,3000]);
         $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede']);
         $this->setConfigurableAreas([
             'before-tools' => [
@@ -158,5 +161,11 @@ class Lista extends DataTableComponent
         $aspirante =  Aspirante::find($id);
         $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $aspirante])->setPaper('letter')->output();
         return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($aspirante->clave_elector).'.PDF');
+    }
+
+    public function exportar() {
+        $builder = $this->getBuilder();
+        $rows =  $builder->get();
+        return Excel::download(new AspirantesExport($rows), 'aspirantes_registrados.xlsx');
     }
 }

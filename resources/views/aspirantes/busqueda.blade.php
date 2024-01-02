@@ -84,7 +84,16 @@
                     </div>
                 </div>
                 <div class="d-flex flex-row justify-content-center">
-                    <button class="btn btn-success" wire:click="getRows">Buscar</button>
+                    <div class="btn-group-toggle">
+                        <button class="btn btn-success" wire:click="getRows">
+                            <span wire:loading.remove wire:target="getRows">Buscar</span>
+                            <span wire:loading wire:target="getRows">Buscando información</span>
+                        </button>
+                        <button class="btn btn-info" wire:click="exportar">
+                            <span wire:loading.remove wire:target="exportar">Exportar a excel</span>
+                            <span wire:loading wire:target="exportar">Generando archivo</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
