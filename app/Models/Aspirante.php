@@ -12,12 +12,14 @@ class Aspirante extends Model
 
     protected $casts = ['experiencia_laboral' => 'json'];
 
-    const ESTATUS_PENDIENTE = 'Pendiente';
-    const ESTATUS_ACEPTADO  = 'Aceptado';
+    const ESTATUS_PENDIENTE   = 'Pendiente';
+    const ESTATUS_ACEPTADO    = 'Aceptado';
+    const ESTATUS_NO_ACEPTADO = 'No aceptado';
 
     const ESTATUS_TITULO = [
         self::ESTATUS_PENDIENTE => 'Pendiente',
         self::ESTATUS_ACEPTADO  => 'Aceptado',
+        self::ESTATUS_NO_ACEPTADO  => 'No aceptado',
     ];
 
     protected $guarded = [];
