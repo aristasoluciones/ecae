@@ -8,6 +8,8 @@
 
 @if($chart)
     @push('js')
-        {!! $chart->script() !!}
+        @if(count($chart->datasets) > 0)
+            {!! $chart->script() !!}
+        @endif
     @endpush
 @endif

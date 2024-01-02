@@ -149,6 +149,6 @@ class Lista extends DataTableComponent
 
         $aspirante =  Aspirante::find($id);
         $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $aspirante])->setPaper('letter')->output();
-        return response()->streamDownload(fn() => print($content), 'DECLARATORIA-'.strtoupper($aspirante->clave_elector).'.PDF');
+        return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($aspirante->clave_elector).'.PDF');
     }
 }
