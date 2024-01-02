@@ -1312,12 +1312,12 @@
                             cotejo de su información</p>
                         <div class="btn-group-toggle">
                             <a class="btn btn-iepc btn-lg" wire:click.prevent="generarFicha">
-                                <span wire:loading.remove><i class="fa fa-file-pdf"></i> Descargar solicitud</span>
-                                <span wire:loading>Generando acuse....</span>
+                                <span wire:loading.remove wire:target="generarFicha"><i class="fa fa-file-pdf"></i> Descargar solicitud</span>
+                                <span wire:loading wire:target="generarFicha">Generando acuse....</span>
                             </a>
                             <a class="btn btn-warning btn-lg" wire:click.prevent="generarDeclaratoria">
-                                <span wire:loading.remove><i class="fa fa-file-signature"></i> Descargar declaratoria</span>
-                                <span wire:loading>Generando declaratoria....</span>
+                                <span wire:loading.remove wire:target="generarDeclaratoria"><i class="fa fa-file-signature"></i> Descargar declaratoria</span>
+                                <span wire:loading wire:target="generarDeclaratoria">Generando declaratoria....</span>
                             </a>
                         </div>
                     </div>
