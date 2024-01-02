@@ -281,6 +281,10 @@ class Solicitud extends Component
 
         $this->emit('modal:show', '#modal-aceptar');
     }
+    public function handlerRechazar() {
+
+        $this->emit('modal:show', '#modal-rechazar');
+    }
     public function actualizar() {
 
         $data     = $this->validate();
@@ -298,6 +302,18 @@ class Solicitud extends Component
     public function aceptar() {
 
         $this->aspirante->estatus = Aspirante::ESTATUS_ACEPTADO;
+        $this->aspirante->save();
+        $this->emit('swal:alert', [
+            'icon'    => 'success',
+            'title'   => 'Se ha guardado la información',
+            'timeout' => 5000
+        ]);
+        $this->redirect('/aspirantes');
+    }
+
+    public function rechazar() {
+
+        $this->aspirante->estatus = Aspirante::ESTATUS_NO_ACEPTADO;
         $this->aspirante->save();
         $this->emit('swal:alert', [
             'icon'    => 'success',

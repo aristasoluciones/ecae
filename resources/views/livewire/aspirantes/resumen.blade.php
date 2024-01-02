@@ -4,6 +4,6 @@
         <p>{{ $estatus }}</p>
     </div>
     <div class="icon">
-        <i class="ion ion-users"></i>
+        <i class="fa fa-user"></i>
     </div>
 </div>

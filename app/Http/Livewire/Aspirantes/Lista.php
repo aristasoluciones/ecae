@@ -21,6 +21,8 @@ class Lista extends DataTableComponent
     public $generos;
     public $estatuses;
 
+    public $fFolio;
+    public $fNombre;
     public $fMunicipio;
     public $fEdad;
     public $fGenero;
@@ -100,11 +102,11 @@ class Lista extends DataTableComponent
 
         return [
             Column::make('#Folio', 'id'),
-            Column::make('Clave elector','clave_elector')->format(fn($value) => strtoupper($value))->searchable(),
-            Column::make('Nombre','nombre')->format(fn($value,$row) => $row->nombre." ".$row->apellido1." ".$row->apellido2)->searchable(),
+            Column::make('Clave elector','clave_elector')->format(fn($value) => mb_strtoupper($value))->searchable(),
+            Column::make('Nombre','nombre')->format(fn($value,$row) => mb_strtoupper($row->nombre." ".$row->apellido1." ".$row->apellido2))->searchable(),
             Column::make('Genero', 'genero')->format(fn($value) => strtoupper($value))->searchable(),
             Column::make('Edad', 'edad')->searchable(),
-            Column::make('Sede', 'sede')->format(fn($value) => strtoupper($value))->searchable(),
+            Column::make('Sede', 'sede')->format(fn($value) => mb_strtoupper($value))->searchable(),
             Column::make('Estatus')
                 ->label(function($row) {
                     return view('aspirantes.estatus')->with(['row' => $row]);
@@ -122,6 +124,12 @@ class Lista extends DataTableComponent
         if (auth()->user()->hasRole('odes')) {
             $query->where('sede','=',auth()->user()->sede);
         }
+
+        if($this->fFolio)
+            $query->where('id', $this->fFolio);
+
+        if($this->fNombre)
+            $query->whereRaw('CONCAT_WS(" ",nombre,apellido1,apellido2) LIKE ?', ['%'.$this->fNombre.'%']);
 
         if($this->fMunicipio)
             $query->where('municipio', $this->fMunicipio);

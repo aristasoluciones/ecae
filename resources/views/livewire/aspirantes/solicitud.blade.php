@@ -18,10 +18,14 @@
             <div class="col-12">
                 <div class="btn-group-toggle text-right">
                     @if(!$editar)
+                        <a href="javascript:;" class="btn btn-danger"
+                           data-toggle="tooltip"
+                           title="Rechazar solicitud" wire:click="handlerRechazar"><i class="fa fa-user-minus"></i></a>
                         <a href="javascript:;" class="btn btn-success"
                            data-toggle="tooltip"
-                           title="Aceptar y validar" wire:click="handlerAceptar"><i class="fa fa-check"></i></a>
+                           title="Aceptar solicitud" wire:click="handlerAceptar"><i class="fa fa-user-check"></i></a>
                     @endif
+
                     <a href="javascript:;" class="btn {{ !$editar ? 'btn-warning':'btn-danger'}} m-1"
                        data-toggle="tooltip"
                        title="{{ !$editar ? 'Editar información':'Cancelar edición'}}" wire:click="toggleEditar"><i class="fa  {{ !$editar ? 'fa-pen-square':'fa-window-close'}}"></i></a>
@@ -1359,8 +1363,8 @@
          data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Aceptar y validar</h4>
+                <div class="modal-header bg-success">
+                    <h4 class="modal-title">Confirmar</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -1368,7 +1372,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 text-justify">
-                            <p>Esta seguro de validar este participante</p>
+                            <p>Esta seguro de validar este registro</p>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1378,13 +1382,50 @@
                                     data-dismiss="modal">No
                             </button>
                             <button type="button"
-                                    class="btn btn-primary"
+                                    class="btn btn-success"
                                     wire:click="aceptar">Si
                             </button>
                         </div>
                         <button type="button"
                                 class="btn btn-primary"
                                 wire:loading wire.target="aceptar">
+                            <span>Guardando información <i class="fas fa-spinner"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-rechazar" wire:ignore.self class="modal fade" role="dialog" data-backdrop="static"
+         data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h4 class="modal-title">Confirmar</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 text-justify">
+                            <p>Esta seguro de rechazar el registro</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group-toggle" wire:loading.remove>
+                            <button type="button"
+                                    class="btn btn-danger close-btn"
+                                    data-dismiss="modal">No
+                            </button>
+                            <button type="button"
+                                    class="btn btn-success"
+                                    wire:click="rechazar">Si
+                            </button>
+                        </div>
+                        <button type="button"
+                                class="btn btn-primary"
+                                wire:loading wire.target="rechazar">
                             <span>Guardando información <i class="fas fa-spinner"></i></span>
                         </button>
                     </div>

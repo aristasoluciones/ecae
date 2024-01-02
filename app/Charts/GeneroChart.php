@@ -38,7 +38,7 @@ class GeneroChart extends Chart
                 'text' => 'Aspirantes por grado de estudios y genero',
             ],
             'legend' => [
-                'enabled' => count($this->datasets) > 0,
+                'enabled' => count($data->datasets()) > 0,
             ],
             'plotOptions' => [
                 'series' => [

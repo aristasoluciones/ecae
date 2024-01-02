@@ -1294,28 +1294,47 @@
             </div>
         </div>
     @endif
-    @if ($this->registrado)
+    @if($this->registrado)
         <div class="card card-iepc-outline">
             <div class="card-header">
-                <h4 class="card-title">Acuse de registro</h4>
+                <h4 class="card-title text-bold">Acuse de registro</h4>
             </div>
             <div class="card-body">
-                <div class="col-12 text-center">
-                    <p>Presente el siguiente acuse en las oficinas para el
-                        cotejo de su información</p>
-                    <div class="btn-group-toggle">
-                        <a class="btn btn-info btn-lg" href="/aspirante" wire:loading.remove>
-                            <i class="fa fa-plus-circle"></i> Nuevo registro
-                        </a>
-                        <a class="btn btn-iepc btn-lg" wire:click.prevent="generarFicha">
-                            <span wire:loading.remove>Descargar acuse</span>
-                            <span wire:loading>Generando acuse....</span>
-                        </a>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Se ha registrado su solicitud con el folio siguiente:</p>
+                        <div class="badge badge-info d-inline-block">
+                            <h2>{{ $this->candidato->id }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <p>Descargue los siguientes documentos y presentarse en las oficinas para el
+                            cotejo de su información</p>
+                        <div class="btn-group-toggle">
+                            <a class="btn btn-iepc btn-lg" wire:click.prevent="generarFicha">
+                                <span wire:loading.remove><i class="fa fa-file-pdf"></i> Descargar solicitud</span>
+                                <span wire:loading>Generando acuse....</span>
+                            </a>
+                            <a class="btn btn-warning btn-lg" wire:click.prevent="generarDeclaratoria">
+                                <span wire:loading.remove><i class="fa fa-file-signature"></i> Descargar declaratoria</span>
+                                <span wire:loading>Generando declaratoria....</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center pt-5">
+                        <p>Para registrar una nueva solicitud haga click en el siguiente boton</p>
+                        <div class="btn-group-toggle">
+                            <a class="btn btn-info btn-lg" href="/aspirante" wire:loading.remove>
+                                <i class="fa fa-plus-circle"></i> Nuevo registro
+                            </a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     @endif
+
     @if($errors->any())
         <script wire:key="{{ rand() }}">
             let firstInvalidInput = document.querySelector(".is-invalid");

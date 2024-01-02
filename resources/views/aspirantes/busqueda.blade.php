@@ -10,6 +10,24 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group">
+                            <label for="">Folio</label>
+                            <input type="number" class="form-control"
+                                    wire:model.defer="fFolio"
+                                    name="fFolio"
+                                    id="fFolio">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
+                            <label for="">Nombre</label>
+                            <input type="text" class="form-control"
+                                   wire:model.defer="fNombre"
+                                   name="fNombre"
+                                   id="fNombre">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
                             <label for="">Municipio</label>
                             <select class="form-control"
                                     wire:model.defer="fMunicipio"
