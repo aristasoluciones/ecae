@@ -1339,7 +1339,7 @@
         <script wire:key="{{ rand() }}">
             let firstInvalidInput = document.querySelector(".is-invalid");
             if(firstInvalidInput)
-                firstInvalidInput.focus({preventScroll:true});
+                firstInvalidInput.focus({preventScroll:false});
         </script>
     @endif
 </div>
