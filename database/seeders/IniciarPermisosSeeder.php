@@ -48,8 +48,7 @@ class IniciarPermisosSeeder extends Seeder
             ],
             'reportes' => [
                 'graficas',
-                'por_generos',
-                'por_candidaturas',
+                'reportes',
             ]
         ];
 
