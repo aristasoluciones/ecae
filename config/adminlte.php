@@ -473,6 +473,11 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
+                    'location' => '/js/highcharts.lang.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
                     'location' => '/vendor/highcharts/code/themes/gray.js',
                 ],
             ],
