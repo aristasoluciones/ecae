@@ -145,8 +145,7 @@ class Formulario extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
-            'email'    => 'nullable|email',
-            'email_confirmation'    => 'nullable|email|same:email',
+            'email'    => 'nullable|email|confirmed',
             'acepto_aviso' => 'required|integer',
             'acepto_ser_contactado' => 'nullable',
             'acepto_declaratoria'   => 'nullable',
@@ -233,6 +232,18 @@ class Formulario extends Component
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
         $this->sede = $this->consejosMunicipales[$value] ?? [];
+
+    }
+
+    public function updatingEmail($value) {
+
+        $this->email = mb_strtoupper($value);
+
+    }
+
+    public function updatingEmailConfirmation($value) {
+
+        $this->email_confirmation = mb_strtoupper($value);
 
     }
 
