@@ -132,7 +132,7 @@ img{
     <table style="table-layout: fixed; width: 726px; margin-bottom: 5pt;">
         <tbody>
             <tr border-collapse: collapse;>
-                <td style="width: 20% " rowspan="3"><img src="C:\laragon\www\ecae\public\imgs\LOGO_out.png" width="110px" height="80px" alt=""></td>
+                <td style="width: 20% " rowspan="3"><img src="../public/imgs/LOGO_out.png" width="110px" height="80px" alt=""></td>
                 <td style="width: 80%; text-align: center; font-size: 14pt; letter-spacing: 10px;">SOLICITUD</td>
             </tr>
             <tr>
