@@ -5,18 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="">
+
+body {
+            margin-top: 3cm;
+            margin-left: 0.3cm;
+            }
+
+header {
+            position: fixed;
+            top: 0cm;
+            left: 0cm;
+            right: 0cm;
+            height: 3cm;
+            }
+
+footer {
+            position: fixed;
+            bottom: 0cm;
+            left: 0cm;
+            right: 0cm;
+            height: 2cm;
+            }
+
  
 </style>
 </head>
 <body>
 
 <!--LOGO Y ENCABEZADO-->
-
+<header>
 <table style="table-layout: fixed; width: 726px;">
 	<tbody>
 		<tr border-collapse: collapse;>
-			<td style="width: 20% " rowspan="3"><img src="C:\laragon\www\ecae\public\imgs\LOGO_out.png" width="110px" height="80px" alt=""></td>
-			<td style="width: 80%; text-align: center; font-size: 14pt; letter-spacing: 10px;">SOLICITUD</td>
+			<td style="width: 20% " rowspan="3"><img src="../public/imgs/LOGO_out.png" width="110px" height="80px" alt=""></td>
+			<td style="width: 80%; text-align: center; font-size: 14pt;">DECLARATORIA BAJO PROTESTA DE DECIR VERDAD</td>
 		</tr>
 		<tr>
 			<td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
@@ -26,13 +48,14 @@
 		</tr>
 	</tbody>
 </table>
+		</header>
 
 <!--INICIA SECCION 01 -->
 
 <table style="table-layout: fixed; width: 726px; font-size: 10pt;">
 	<tbody>
 		<tr>
-			<td>C. _____________________________________</td>
+			<td>C. MARÍA MAGDALENA VILA DOMÍNGUEZ</td>
 		</tr>
 		<tr>
 			<td>REPRESENTANTE DEL ORGANISMO PÚBLICO LOCAL</td>
@@ -50,38 +73,30 @@
 
 <!--INICIA SECCION 02 -->
 
-<table style="table-layout: fixed; width: 726px; font-size: 10pt;">
+<table style="table-layout: fixed; width: 726px; font-size: 10pt; text-align: justify; ">
 	<tbody>
 		<tr>
 			<td>
                 Con fundamento en el artículo 303, numeral 3 de la Ley General de Instituciones y Procedimientos Electorales, con el objeto de cumplir con los requisitos legales que me permitan aspirar a participar en el Organismo Público Local como Supervisor/a Electoral Local o Capacitador/a-Asistente Electoral Local durante el Proceso Electoral 2023-2024, en el Organismo Público Local
             </td>
 		</tr>
+		<tr>
+			<td style="text-align: center; font-size: 8pt;">DECLARO BAJO PROTESTA DE DECIR VERDAD</td>
+		</tr>
     </tbody>
 </table>
 <!--TERMINA SECCION 02 -->
 
-<!--INICIA SECCION 03 -->
-<table style="table-layout: fixed; width: 726px; font-size: 10pt;">
-	<tbody>
-		<tr>
-			<td>
-                <P style="text-align: center;">DECLARO BAJO PROTESTA DE DECIR VERDAD
-            </td>
-		</tr>
-    </tbody>
-</table>
-<!--TERMINA SECCION 03 -->
-
 <!--INICIA SECCION 04 -->
-<table style="table-layout: fixed; width: 726px; text-align: justify; font-size: 11pt;">
+<table style="table-layout: fixed; width: 726px; text-align: justify; font-size: 10pt;">
 	<tbody>
 		<tr>
 			<td>
                 <ul type="square">
                     <li>Ser ciudadano (a) mexicano (a) y estar en pleno goce y ejercicio de mis derechos políticos y civiles.</li>
                     <li>Tener <u>{{ $aspirante->edad }}</u> edad.</li>
-                    <li> Mi domicilio se encuentra en:  Calle <u>{{mb_strtoupper ($aspirante->dom_calle)}}</u> número <u>{{mb_strtoupper ($aspirante->dom_calle)}}</u> Colonia <u>{{mb_strtoupper ($aspirante->dom_colonia)}}<</u> municipio <u>{{mb_strtoupper ($aspirante->dom_municipio)}}</u> Estado <u>CHIAPAS</u> código postal <u>{{mb_strtoupper ($aspirante->dom_postal)}}</u>. Tel. casa <u>{{ $aspirante->tel_fijo }}</u> Tel. celular <u>{{ $aspirante->tel_celular }}</u>.</li>
+                    <li>Ser ciudadano (a) mexicano (a) y estar en pleno goce y ejercicio de mis derechos políticos y civiles.</li>
+                    <li> Mi domicilio se encuentra en:  Calle <u>{{mb_strtoupper ($aspirante->dom_calle)}},</u> <span>No. exterior <u>{{mb_strtoupper ($aspirante->dom_num_exterior)}},</span> <span>No. interior <u>{{mb_strtoupper ($aspirante->dom_num_interior)}},</u></span> Colonia <u>{{mb_strtoupper ($aspirante->dom_colonia)}}<</u> municipio <u>{{mb_strtoupper ($aspirante->dom_municipio)}}</u> Estado <u>CHIAPAS</u> código postal <u>{{mb_strtoupper ($aspirante->dom_postal)}}</u>. Tel. casa <u>{{ $aspirante->tel_fijo }}</u> Tel. celular <u>{{ $aspirante->tel_celular }}</u>.</li>
                     <li> Estar de acuerdo en sujetarme a las evaluaciones que determinen las autoridades del Organismo Público Local.</li>
                     <li>Tener disposición para dedicarme a las actividades para las que se me contrate, de tiempo completo para cubrirlas a cabalidad en las condiciones en que se requiera; por lo que me obligo a cumplir completamente y de manera prioritaria los servicios y actividades objeto de la contratación, dedicando el tiempo necesario para llevarlos a cabo, siendo incompatible cualquier otro empleo dentro del periodo y tiempo destinado para la realización de éstos. En su caso, apoyar en las actividades que se realicen durante el cómputo local y demás relacionadas en el contrato de prestación de servicios.</li>
                     <li>Devolver las prendas de identificación, el material y/o los instrumentos de trabajo proporcionados por el Organismo Público Local, una vez concluido el periodo de contratación.</li>
@@ -99,15 +114,27 @@
 <!--TERMINA SECCION 04 -->
 
 <!--INICIA SECCION 05 -->
-<table style="table-layout: fixed; width: 726px;">
+<table style="table-layout: fixed; width: 726px; font-size: 8pt; margin-top: 20pt">
 	<tbody>
 		<tr>
-			<td style="text-align: center;">_____________________ <br>NOMBRE COMPLETO</td>
-			<td style="text-align: center;">_____________________ <br>FECHA</td>
+			<td style="text-align: center;"><u>{{mb_strtoupper ($aspirante->nombre) }} {{mb_strtoupper ($aspirante->apellido1) }} {{mb_strtoupper ($aspirante->apellido2) }}</u><br>NOMBRE COMPLETO</td>
+			<td style="text-align: center;"><u>{{date ("Y-m-d", strtotime($aspirante->created_at)) }} </u><br>FECHA</td>
 			<td style="text-align: center;">_____________________ <br>FIRMA</td>
 		</tr>
 	</tbody>
 </table>
+
+<footer>
+    <table style="table-layout: fixed; width: 726px; margin-top: 5pt;">
+        <tr>
+            <td style="text-align: center; font-size: 8pt; text-align: justify;">* En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.
+        </td>
+		<td style="text-align: center; font-size: 8pt; text-align: right;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y <br>CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES <br>Y CAPACITADORES/AS-ASISTENTES ELECTORALES <br>| ANEXO 21.2. DECLARATORIA BAJO PROTESTA DE DECIR VERDAD
+
+        </td>
+        </tr>
+    </table>
+</footer>
 
 </body>
 </html>
