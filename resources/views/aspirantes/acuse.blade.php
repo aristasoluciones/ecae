@@ -161,7 +161,8 @@ img{
             <tr>
                 <td class="grisp1" style="width:18.3%;">
                     Fecha de recepción</td>
-                <td class="rosap1" style="width: 23%; text-align: center;">{{mb_strtoupper ($aspirante->created_at)}}&nbsp;
+                                        
+                <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}&nbsp;
                 </td>
                 <td class="grisp1" style="width: 10%; text-align: center;">
                     Número de convocatoria</td>
@@ -232,24 +233,24 @@ img{
                 <tr>
                     <td class="blancop1" colspan="7" rowspan="2">Clave electoral o
                         FUAR:</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[0] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[1] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[2] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[3] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[4] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[5] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[6] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[7] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[8] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[9] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[10] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[11] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[12] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[13] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[14] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[15] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[16] }}</td>
-                    <td class="rosap1" rowspan="2">{{ $aspirante->clave_elector[17] }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[0]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[1]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[2]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[3]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[4]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[5]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[6]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[7]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[8]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[9]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[10]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[11]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[12]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[13]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[14]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[15]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[16]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[17]) }}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[0] }}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[1] }}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2] }}</td>
@@ -266,38 +267,38 @@ img{
         <tbody>
             <tr>
                 <td class="blancop1" align="center">RFC</td>
-                <td class="rosap1">{{ $aspirante->rfc[0] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[1] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[2] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[3] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[4] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[5] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[6] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[7] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[8] }}</td>
-                <td class="rosap1">{{ $aspirante->rfc[9] }}</td>
-                <td class="rosap1">{{ $aspirante->homoclave[0] }}</td>
-                <td class="rosap1">{{ $aspirante->homoclave[1] }}</td>
-                <td class="rosap1">{{ $aspirante->homoclave[2] }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[0]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[1]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[2]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[3]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[4]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[5]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[6]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[7]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[8]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[9]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[0]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[1]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]) }}</td>
                 <td class="blancop1" style="width: 5%" align="center">CURP</td>
-                <td class="rosap1">{{ $aspirante->curp[0] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[1] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[2] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[3] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[4] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[5] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[6] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[7] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[8] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[9] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[10] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[11] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[12] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[12] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[13] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[14] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[15] }}</td>
-                <td class="rosap1">{{ $aspirante->curp[16] }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[0]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[1]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[2]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[3]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[4]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[5]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[6]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[7]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[8]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[9]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[10]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[11]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[12]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[13]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[14]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[15]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[16]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[17]) }}</td>
             </tr>
         </tbody>
         </tbody>
@@ -370,14 +371,16 @@ img{
                 <td class="rosap1" style="width: 10%; text-align: center;">Otro
                     (especifica)</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">@if ($aspirante->genero=='Otro')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">{{$aspirante->sexos}}&nbsp;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">{{$aspirante->sexos}}&nbsp;</span>
                     elseif
                     <span>&nbsp;</span>
                     @endif</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">
                     @if ($aspirante->genero=='Prefiero no decir')
                     <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 10%; text-align: center;">X</span>
-                        <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">Prefiero no decir</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">Prefiero no decir</span>
                     
                     @else
                         <span>Prefiero no decir</span>
@@ -423,7 +426,8 @@ img{
                 </td>
                 <td class="rosap1" rowspan="2"
                     style="width: 10%; text-align: center;">@if ($aspirante->otro_lgbtttiq)
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">{{$aspirante->otro_lgbtttiq}}&nbsp;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">{{$aspirante->otro_lgbtttiq}}&nbsp;</span>
                     @else
                     <span>&nbsp;</span>
                     @endif
@@ -431,7 +435,8 @@ img{
                 <td class="rosap1" rowspan="2"
                     style="width: 10%; text-align: center;">
                     @if ($aspirante->persona_lgbtttiq=='Prefiero no decir')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">Prefiero no decir</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">Prefiero no decir</span>
                     @else
                     <span>Prefiero no decir</span>
                     @endif</td></td>
@@ -467,7 +472,7 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 65%; text-align: center;">{{mb_strtoupper ($aspirante->dom_calle)}}&nbsp;
+                <td class="rosap1" style="width: 65%; text-align: center;">{{mb_strtoupper ($aspirante->dom_calle)}}, <span>NO. EXTERIOR {{mb_strtoupper ($aspirante->dom_num_exterior)}},</span> <span>NO. INTERIOR {{mb_strtoupper ($aspirante->dom_num_interior)}}</span>&nbsp;
                 </td>
                 <td class="rosap1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspirante->dom_colonia)}}&nbsp;
                 </td>
@@ -573,7 +578,8 @@ img{
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Primer grado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">1&ordm;</span>
+                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
                         @else
                             <span>1&ordm;</span>
                         @endif
@@ -582,7 +588,8 @@ img{
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Segundo grado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">2&ordm;</span>
+                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
                         @else
                             <span>2&ordm;</span>
                         @endif
@@ -591,7 +598,8 @@ img{
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Tercer grado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">3&ordm;</span>
+                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
                         @else
                             <span>3&ordm;</span>
                         @endif
@@ -600,7 +608,8 @@ img{
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Cuarto grado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">4&ordm;</span>
+                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">4&ordm;</span>
                         @else
                             <span>4&ordm;</span>
                         @endif
@@ -609,7 +618,8 @@ img{
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Quinto grado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">5&ordm;</span>
+                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">5&ordm;</span>
                         @else
                             <span>5&ordm;</span>
                         @endif
@@ -618,7 +628,8 @@ img{
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Sexto grado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">6&ordm;</span>
+                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">6&ordm;</span>
                             @else
                             <span>6&ordm;</span>
                         @endif
@@ -659,7 +670,8 @@ img{
                 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Primer grado')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">1&ordm;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
                     @else
                     <span>1&ordm;</span>
                     @endif
@@ -667,7 +679,8 @@ img{
 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Segundo grado')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">2&ordm;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
                     @else
                     <span>2&ordm;</span>
                     @endif
@@ -675,7 +688,8 @@ img{
 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Tercer grado')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">3&ordm;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
                     @else
                     <span>3&ordm;</span>
                     @endif
@@ -716,7 +730,8 @@ img{
                 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Primer grado')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">1&ordm;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
                     @else
                     <span>1&ordm;</span>
                     @endif
@@ -724,7 +739,8 @@ img{
 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Segundo grado')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">2&ordm;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
                     @else
                     <span>2&ordm;</span>
                     @endif
@@ -732,7 +748,8 @@ img{
 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Tercero grado')
-                    <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">3&ordm;</span>
+                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
                     @else
                     <span>3&ordm;</span>
                     @endif
@@ -774,7 +791,8 @@ img{
                 <td class="grisp1" style="width: 15%; text-align: left;">Licenciatura</td>
                     <td class="rosap1" style="width: 5%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Primer año')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">1&ordm;</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
                         @else
                             <span>1&ordm;</span>
                         @endif
@@ -783,7 +801,8 @@ img{
 
                     <td class="rosap1" style="width: 5%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Segundo año')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">2&ordm;</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
                         @else
                             <span>2&ordm;</span>
                         @endif
@@ -792,7 +811,8 @@ img{
 
                     <td class="rosap1" style="width: 5%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Tercero año')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">3&ordm;</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
                         @else
                             <span>3&ordm;</span>
                         @endif
@@ -801,7 +821,8 @@ img{
 
                     <td class="rosap1" style="width: 5%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Cuarto año')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">4&ordm;</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">4&ordm;</span>
                         @else
                             <span>4&ordm;</span>
                         @endif
@@ -810,7 +831,8 @@ img{
 
                     <td class="rosap1" style="width: 5%; text-align: center;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Quinto año')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">5&ordm;</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">5&ordm;</span>
                         @else
                             <span>5&ordm;</span>
                         @endif
@@ -818,7 +840,8 @@ img{
 
                     <td class="rosap1" style="width: 5%; text-align: center; font-size: 5pt;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura concluida')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">Concluida</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">Concluida</span>
                         @else
                             <span>Concluida</span>
                         @endif
@@ -826,7 +849,8 @@ img{
 
                     <td class="rosap1" style="width: 5%; text-align: center; font-size: 5pt;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura titulado')
-                            <span style="font-weight: bold; text-decoration: line-through; text-decoration-thickness: 3px;">Titulado</span>
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
+                            <span style="position: absolute; width: 5%; text-align: center;">Titulado</span>
                         @else
                             <span>Titulado</span>
                         @endif
@@ -895,7 +919,7 @@ img{
                         <span style="font-weight: bold;">X</span>
                     @endif
                     </td>
-                <td class="rosap1" style="width: 50%; text-align: center;">&nbsp;</td>
+                <td class="rosap1" style="width: 50%; text-align: center;">{{ mb_strtoupper ($aspirante->motivo_secae)}}&nbsp;</td>
             </tr>
         </tbody>
         </tbody>
@@ -1079,7 +1103,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="rosap2" style="width: 10; text-align: left;">1.2 ¿Dequé forma</td>
+                <td class="rosap2" style="width: 10; text-align: left;">1.2 ¿De qué forma</td>
                 <td class="rosap2" style="width: 3%; text-align: left;">
                     @if ($aspirante->p1_2_forma=='SE')
                     <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
@@ -1102,7 +1126,7 @@ img{
 
                 <td class="rosap2" style="width: 25%; text-align: left;">Especifique
                     @if ($aspirante->p1_1_cual=='Otro')
-                        <span style="font-weight: bold; text-decoration: underline; text-decoration-thickness: 3px;">{{$aspirante->p1_1_cual=='Otro'}}</span>
+                        <span style="font-weight: bold; text-decoration: underline; text-decoration-thickness: 3px; font-size: 5pt">{{$aspirante->p1_2_otra_forma}}</span>
                     @endif
                 </td>
 
@@ -1150,7 +1174,7 @@ img{
                     @endif
                 </td>
                 <td class="grisp2" style="width: 40; text-align: left;">12.3.Anote marca y modelo*.</td>
-                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold;">{{$aspirante->p12_3_marca}}</td>
+                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt;">{{mb_strtoupper ($aspirante->p12_3_marca)}}</td>
             </tr>
         </tbody>
     </table>
@@ -1224,9 +1248,9 @@ img{
 
                 <td class="grisp2" style="width: 30%; text-align: left;">13. ¿Cuánto tiempo le lleva trasladarse de su domicilio al OPL? *</td>
                 <td class="grisp2" style="width: 5%; text-align: center;">Horas:</td>
-                <td class="grisp2" style="width: 5%; text-align: center;">&nbsp;</td>
+                <td class="grisp2" style="width: 5%; text-align: center;">{{ date("H", strtotime($aspirante->p13_tiempo_traslado))}}&nbsp;</td>
                 <td class="grisp2" style="width: 5%; text-align: center;">Minutos:</td>
-                <td class="grisp2" style="width: 5%; text-align: center;">&nbsp;
+                <td class="grisp2" style="width: 5%; text-align: center;">{{ date("i", strtotime($aspirante->p13_tiempo_traslado))}}&nbsp;
                 </td>
             </tr>
         </tbody>
@@ -1555,40 +1579,14 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap2" style="width: 60%; text-align: left; font-size: 6pt;">
-                    <p style="text-align: center;">AVISO DE PRIVACIDAD
-                        SIMPLIFICADO</p>
-                    <p style="text-align: justify;"></p>El Organismo Público
-                    Local en el estado de (agregar entidad federativa), con
-                    domicilio en: (agregar dirección del OPL) reciba sus datos
-                    personales y es responsable del tratamiento que les dé. Los
-                    datos personales reunidos s serán utilizados para corroborar
-                    que la ciudadanía interesada en participar en el proceso de
-                    reclutamiento, selección y contratación de personal eventual
-                    que colaborará con el OPL como Supervisora/or Electoral
-                    Local o Capacitadora/or-Asistente Electoral Local, cumpla
-                    con los requisitos legales y administrativos establecidos en
-                    la Convocatoria. Simultáneamente, los datos personales serán
-                    utilizados para que la autoridad electoral cuente con
-                    información respecto de los grupos en situación de
-                    vulnerabilidad en los que se sitúan las personas con
-                    autoadscripción indígena; pertenecientes a la población
-                    afromexicana; que viven con algún tipo de discapacidad; que
-                    se consideran parte de las personas LGBTTTIQ+ o si se trata
-                    de una persona mexicana migrante, con el fin de realizar
-                    análisis de datos y estadísticas como insumos para el
-                    ejercicio de sus atribuciones, para determinar lo conducente
-                    en futuros procesos electorales. Lo anterior, de conformidad
-                    con el marco normativo electoral y con base en lo
-                    establecido en los artículos 6º Base A, fracciones II y III
-                    y 16, segundo párrafo de la Constitución Política de los
-                    Estados Unidos Mexicanos, así como los artículos 3º,
-                    fracción II y IX, 16, 17, 18, 19, 20, 21, 22, 23, 25,26, 27
-                    y 28 de la Ley General de Protección de Datos Personales en
-                    Posesión de Sujetos Obligados. Si desea conocer nuestro
-                    aviso de privacidad integral consulte la siguiente dirección
-                    electrónica: </p>
-                </td>
+                <td class="rosap2" style="width: 50%; text-align: left; font-size: 5pt;">
+    <p style="text-align: center;">AVISO DE PRIVACIDAD
+        SIMPLIFICADO</p>
+    <p style="text-align: justify;">El Organismo Público Local en el estado de Chiapas, con
+        domicilio en: Periferico Sur Poniente #2185, Colonia Penipak; Tuxtla Gutiérrez, Chiapas. C.P. 29060, reciba sus datos personales y es responsable del tratamiento que les dé. Los
+        datos personales reunidos s serán utilizados para corroborar que la ciudadanía interesada en participar en el proceso de reclutamiento, selección y contratación de personal eventual que colaborará con el OPL como Supervisora/or Electoral Local o Capacitadora/or-Asistente Electoral Local, cumpla con los requisitos legales y administrativos establecidos en la Convocatoria. Simultáneamente, los datos personales serán utilizados para que la autoridad electoral cuente con información respecto de los grupos en situación de vulnerabilidad en los que se sitúan las personas con autoadscripción indígena; pertenecientes a la población afromexicana; que viven con algún tipo de discapacidad; que se consideran parte de las personas LGBTTTIQ+ o si se trata de una persona mexicana migrante, con el fin de realizar análisis de datos y estadísticas como insumos para el ejercicio de sus atribuciones, para determinar lo conducente en futuros procesos electorales. Lo anterior, de conformidad con el marco normativo electoral y con base en lo establecido en los artículos 6º Base A, fracciones II y III y 16, segundo párrafo de la Constitución Política de los Estados Unidos Mexicanos, así como los artículos 3º, fracción II y IX, 16, 17, 18, 19, 20, 21, 22, 23, 25,26, 27 y 28 de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica: https://shorturl.at/qzADJ
+    </p>
+</td>
                 <td class="rosap2" style="width: 40%; text-align: center; font-size: 6pt;">DECLARO
                     <br>
                     <p style="text-align: justify;">Que de comprobarse que
