@@ -256,7 +256,7 @@ img{
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2] }}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[3] }}</td>
                 <tr>
-                    <td class="blancop1" align="center" colspan="8">Seccion electoral</td>
+                    <td class="blancop1" align="center" colspan="8">Sección electoral</td>
                 </tr>
             
         </tbody>
