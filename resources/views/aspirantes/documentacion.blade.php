@@ -108,7 +108,7 @@ table.saltopagina {
         <tbody>
             <tr border-collapse: collapse;>
                 <td style="width: 20% " rowspan="3"><img src="C:\laragon\www\ecae\public\imgs\LOGO_out.png" width="110px" height="80px" alt=""></td>
-                <td style="width: 80%; text-align: center; font-size: 14pt; letter-spacing: 10px;">SOLICITUD</td>
+                <td style="width: 80%; text-align: center; font-size: 11pt; ">RELACIÓN DE DOCUMENTACIÓN ENTREGADA POR LA PERSONA ASPIRANTE</td>
             </tr>
             <tr>
                 <td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
@@ -127,12 +127,12 @@ table.saltopagina {
 <table class="inicio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 110px; font-size: 7pt;">FECHA DE RECEPCIÓN</td>
-			<td class="rosa" style="width: 40%;"></td>
-			<td class="blanco" style="width: 121px; font-size: 7pt;">NÚM. DE CONVOCATORIA</td>
-			<td class="rosa" style="width: 20%;"></td>
-			<td class="blanco" style="width: 155px; font-size: 7pt;">FOLIO DE LA PERSONA ASPIRANTE</td>
-			<td class="rosa" style="width: 40%;"></td>
+			<td class="blanco" style="width: 18%; font-size: 8pt; text-align: center;">FECHA DE RECEPCIÓN</td>
+			<td class="rosa" style="width: 15%;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}&nbsp;</td>
+			<td class="blanco" style="width: 24%px; font-size: 8pt; text-align: center;">NÚM. DE CONVOCATORIA</td>
+			<td class="rosa" style="width: 6%">{{mb_strtoupper ($aspirante->numero_convocatoria)}}&nbsp;</td>
+			<td class="blanco" style="width: 32%; font-size: 8pt; text-align: center;" >FOLIO DE LA PERSONA ASPIRANTE</td>
+			<td class="rosa" style="width: 6%;">{{mb_strtoupper ($aspirante->id)}}&nbsp;</td>
 		</tr>
 	</tbody>
 </table>
@@ -140,10 +140,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 50px; font-size: 7pt;">MUNICIPIO</td>
-			<td class="rosa" style="width: 50%;"></td>
-			<td class="blanco" style="width: 55px; font-size: 7pt;">LOCALIDAD</td>
-			<td class="rosa" style="width: 50%;"></td>
+			<td class="blanco" style="width: 10%; font-size: 8pt; text-align: center;">MUNICIPIO</td>
+			<td class="rosa" style="width: 40%;">{{mb_strtoupper ($aspirante->municipio)}}&nbsp;</td>
+			<td class="blanco" style="width: 10%; font-size: 8pt; text-align: center;">LOCALIDAD</td>
+			<td class="rosa" style="width: 40%;">{{mb_strtoupper ($aspirante->localidad) }}&nbsp;</td>
 		</tr>
 	</tbody>
 </table>
@@ -151,12 +151,18 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 30px; font-size: 7pt;">SEDE</td>
-			<td class="rosa" style="width: 70%;"></td>
-			<td class="blanco" style="width: 30px; font-size: 7pt;">FIJA</td>
-			<td class="rosa" style="width:  15%;"></td>
-            <td class="blanco" style="width: 50px; font-size: 7pt;">ALTERNA</td>
-			<td class="rosa" style="width:  15%;"></td>
+			<td class="blanco" style="width: 15%; font-size: 7pt; text-align: center;">SEDE</td>
+			<td class="rosa" style="width: 60%;">{{mb_strtoupper ($aspirante->sede)}}&nbsp;</td>
+			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">FIJA</td>
+			<td class="rosa" style="width:  10%;">
+			@if ($aspirante->tipo_sede=='Fija')
+                    <span style="font-weight: bold;">X</span>
+                 @endif</td>
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">ALTERNA</td>
+			<td class="rosa" style="width:  10%;">
+			@if ($aspirante->tipo_sede=='Alterna')
+                    <span style="font-weight: bold;">X</span>
+                    @endif</td>
 		</tr>
 	</tbody>
 </table>
@@ -164,10 +170,9 @@ table.saltopagina {
 <table class="final">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 110px; font-size: 7pt;">LA PERSONA ASPIRANTE</td>
-			<td class="rosa" style="width: 85%;"></td>
-			<td class="blanco" style="width: 200px; font-size: 7pt;">ENTREGÓ LA SIGUIENTE DOCUMENTACIÓN:</td>
-			<td class="rosa" style="width:  15%;"></td>
+			<td class="blanco" style="width: 20%; font-size: 7pt;">LA PERSONA ASPIRANTE</td>
+			<td class="rosa" style="width: 50%;">{{mb_strtoupper ($aspirante->nombre) }} {{mb_strtoupper ($aspirante->apellido1) }} {{mb_strtoupper ($aspirante->apellido2) }}</td>
+			<td class="blanco" style="width: 30%; font-size: 7pt;">ENTREGÓ LA SIGUIENTE DOCUMENTACIÓN:</td>
 		</tr>
 	</tbody>
 </table>
@@ -179,9 +184,9 @@ table.saltopagina {
 <table style="table-layout: fixed; width: 726px;">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 615px; font-size: 7pt;"></td>
-			<td class="blanco" style="width: 50%; text-align: center;">Mostró<br>original</td>
-			<td class="blanco" style="width: 50%; text-align: center;">Entregó<br>copia</td>
+			<td class="blanco" style="width: 80%; font-size: 7pt;"></td>
+			<td class="blanco" style="width: 10%; text-align: center;">Mostró<br>original</td>
+			<td class="blanco" style="width: 10%; text-align: center;">Entregó<br>copia</td>
         </tr>
 	</tbody>
 </table>
@@ -189,10 +194,10 @@ table.saltopagina {
 <table class="inicio">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 15px; font-size: 7pt;">1.</td>
-			<td class="rosa" style="width: 600px; text-align: left;">En su caso, Solicitud correctamente llenada y firmada.</td>
-			<td class="rosa" style="width: 50%;"></td>
-			<td class="rosa" style="width: 50%;"></td>
+			<td class="rosa" style="width: 5%; font-size: 7pt;">1.</td>
+			<td class="rosa" style="width: 75%; text-align: left;">En su caso, Solicitud correctamente llenada y firmada.</td>
+			<td class="rosa" style="width: 10%;"></td>
+			<td class="rosa" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -200,10 +205,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt;  text-align: center;">2.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Acta de nacimiento (original o copia certificada y copia simple), o en su caso, Carta de Naturalización.</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt;  text-align: center;">2.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Acta de nacimiento (original o copia certificada y copia simple), o en su caso, Carta de Naturalización.</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -211,10 +216,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 15px; font-size: 7pt;">3.</td>
-			<td class="rosa" style="width: 600px; text-align: left;">Credencial para Votar o comprobante de trámite.</td>
-			<td class="rosa" style="width: 50%;"></td>
-			<td class="rosa" style="width: 50%;"></td>
+			<td class="rosa" style="width: 5%; font-size: 7pt;">3.</td>
+			<td class="rosa" style="width: 75%; text-align: left;">Credencial para Votar o comprobante de trámite.</td>
+			<td class="rosa" style="width: 10%;"></td>
+			<td class="rosa" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -222,10 +227,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">4.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Comprobante de domicilio.</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">4.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Comprobante de domicilio.</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -233,10 +238,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 15px; font-size: 7pt;">5.</td>
-			<td class="rosa" style="width: 600px; text-align: left;">Constancia de estudios (no tira de materias).</td>
-			<td class="rosa" style="width: 50%;"></td>
-			<td class="rosa" style="width: 50%;"></td>
+			<td class="rosa" style="width: 5%; font-size: 7pt;">5.</td>
+			<td class="rosa" style="width: 75%; text-align: left;">Constancia de estudios (no tira de materias).</td>
+			<td class="rosa" style="width: 10%;"></td>
+			<td class="rosa" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -244,10 +249,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">6.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Declaratoria bajo protesta de decir la verdad(firmada).</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">6.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Declaratoria bajo protesta de decir la verdad(firmada).</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -263,10 +268,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">7.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Copia de la Clave Única del Registro de Población (CURP).</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">7.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Copia de la Clave Única del Registro de Población (CURP).</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -274,10 +279,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 15px; font-size: 7pt;">8.</td>
-			<td class="rosa" style="width: 600px; text-align: left;">Constancia del Registro Federal de Contribuyentes(RFC).</td>
-			<td class="rosa" style="width: 50%;"></td>
-			<td class="rosa" style="width: 50%;"></td>
+			<td class="rosa" style="width: 5%; font-size: 7pt;">8.</td>
+			<td class="rosa" style="width: 75%; text-align: left;">Constancia del Registro Federal de Contribuyentes(RFC).</td>
+			<td class="rosa" style="width: 10%;"></td>
+			<td class="rosa" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -285,10 +290,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">9.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Tres fotografías tamaño infantil a color o en blanco y negro*</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">9.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Tres fotografías tamaño infantil a color o en blanco y negro*</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -306,10 +311,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">10.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Carta que acredite su experiencia como docente, manejo o trato de grupos de personas (el no contar con ella no será causa de exclusión de la persona aspirante).</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">10.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Carta que acredite su experiencia como docente, manejo o trato de grupos de personas (el no contar con ella no será causa de exclusión de la persona aspirante).</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -317,10 +322,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 15px; font-size: 7pt;">11.</td>
-			<td class="rosa" style="width: 600px; text-align: left;">Constancia de participación en algún Proceso Electoral Concurrente, Federal o Local </td>
-			<td class="rosa" style="width: 50%;"></td>
-			<td class="rosa" style="width: 50%;"></td>
+			<td class="rosa" style="width: 5%; font-size: 7pt;">11.</td>
+			<td class="rosa" style="width: 75%; text-align: left;">Constancia de participación en algún Proceso Electoral Concurrente, Federal o Local </td>
+			<td class="rosa" style="width: 10%;"></td>
+			<td class="rosa" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -328,10 +333,10 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">12.</td>
-			<td class="blanco" style="width: 600px; text-align: left;">Licencia de manejo vigente (el no contar con ella no será causa de exclusión de la persona aspirante).</td>
-			<td class="blanco" style="width: 50%;"></td>
-			<td class="blanco" style="width: 50%;"></td>
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">12.</td>
+			<td class="blanco" style="width: 75%; text-align: left;">Licencia de manejo vigente (el no contar con ella no será causa de exclusión de la persona aspirante).</td>
+			<td class="blanco" style="width: 10%;"></td>
+			<td class="blanco" style="width: 10%;"></td>
 		</tr>
 	</tbody>
 </table>
@@ -344,10 +349,10 @@ table.saltopagina {
 	</tbody>
 </table>
 
-<table class="enmedio" style="height: 15pt;">
+<table style="height: 15pt; border: none; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;"></td>			
+			<td class="blanco" style="width: 100%; font-size: 7pt; text-align: center;"></td>			
 		</tr>
     </tbody>
 </table>
@@ -362,15 +367,15 @@ table.saltopagina {
 	</tbody>
 </table>
 
-<table class="enmedio" style="height: 30pt;">
+<table class="enmedio" style="height: 30pt; border: none; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center; vertical-align:bottom;">_____________________________________________________________________________</td>			
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center; vertical-align:bottom;">_____________ss________________________________________________________________</td>			
 		</tr>
     </tbody>
 </table>
 
-<table class="enmedio">
+<table style="border: none; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
 			<td class="blanco" style="width: 100%; font-size: 8pt; text-align: center; font-weight: bold;">ACUSE DE RECIBO</td>
@@ -378,45 +383,109 @@ table.saltopagina {
 	</tbody>
 </table>
 
-<table class="enmedio">
+<table style="border: 2pt solid #AD84C6; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 50px;">Del (la) C.</td>
-			<td class="rosa" style="width: 300px;"></td>
-			<td class="rosa" style="width: 140px; text-align: start;">,aspirante a ocupar el cardo de</td>
-			<td class="rosa" style="width: 100%;"></td>
+			<td class="rosa" style="width: 100%; font-size: 9pt; text-align: justify;">Del (la) C. <span><u>{{mb_strtoupper ($aspirante->nombre) }} {{mb_strtoupper ($aspirante->apellido1) }} {{mb_strtoupper ($aspirante->apellido2) }}</u>, aspirante a ocupar el cardo de Supervisor/a Electoral Local o Capacitador/a Asistente Electoral Local, inscrito(a) en el Órgano Local Electoral <u>1234</u> en el estado <u>Chiapas</u> con fecha {{date ("Y", strtotime($aspirante->created_at)) }}/{{date ("m", strtotime($aspirante->created_at)) }}/{{date ("d", strtotime($aspirante->created_at)) }}</span> se recibió la siguiente documentación.</td>
 		</tr>
 	</tbody>
 </table>
 
-<table class="enmedio">
+<table style="table-layout: fixed; width: 726px;">
 	<tbody>
 		<tr>
-			<td class="rosa" style="width: 450px; text-align: start;">Supervisor/a Electoral Local o Capacitador/a Asistente Electoral Local, inscrito (a) en el Órgano Local Electoral</td>
-			<td class="rosa" style="width: 30px;"></td>
-			<td class="rosa" style="width: 140px; text-align: start;">en el estado de <span style="text-decoration-line: underline;">CHIAPAS</span> con</td>
-		</tr>
-	</tbody>
-</table>
-
-<table class="enmedio">
-	<tbody>
-		<tr>
-			<td class="rosa" style="width: 500px; text-align: start;">fecha <span>&nbsp /</span> <span>&nbsp /</span> <span>&nbsp /</span>se recibió la siguiente documentación.</td>
-			<td class="rosa" style="width: 30px;"></td>
-			
-		</tr>
-	</tbody>
-</table>
-
-<table class="enmedio">
-	<tbody>
-		<tr>
-			<td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">Entregó</td>
-            <td class="blanco" style="width: 15px; font-size: 7pt; text-align: center;">Entregó</td>			
+		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: center;"></td>
+			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">Entregó</td>
+			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: center;"></td>
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">Entregó</td>			
 		</tr>
     </tbody>
 </table>
+
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+		<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">1. Copia del acta de nacimiento (original o copia certificada y copia simple) o, en su caso, Carta de Naturalización</td>
+			<td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
+			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">7. Copia del Registro Federal de Contribuyentes (RFC)</td>
+            <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>			
+		</tr>
+    </tbody>
+</table>
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">2.	Copia de la Credencial para Votar o comprobante de trámite</td>
+			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
+			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">3. Constancia de no inhabilitación del servicio público.</td>
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>			
+		</tr>
+    </tbody>
+</table>
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+		<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">3. Copia del comprobante de domicilio</td>
+			<td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
+			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">8. Tres fotografías tamaño infantil a color o blanco y negro*.</td>
+            <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>			
+		</tr>
+    </tbody>
+</table>
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">4.	Constancia de estudios (no tira de materias)</td>
+			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
+			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">9. Carta que acredita su experiencia como docente, manejo o trato con grupos de personas</td>
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>			
+		</tr>
+    </tbody>
+</table>
+<table class="blanco" style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+		<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">5. Original de la Declaratoria bajo protesta de decir verdad (firmada)</td>
+			<td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
+			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">Copia de la Constancia de participación en algún Proceso Electoral Federal o Local</td>
+            <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>			
+		</tr>
+    </tbody>
+</table>
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">6.	Copia de la Clave Única del Registro de Población (CURP)</td>
+			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
+			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">Copia de licencia de manejo vigente</td>
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>			
+		</tr>
+    </tbody>
+</table>
+
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+			<td class="morado" style="text-align: center;">Datos de quien recibe la documentación</td>
+		</tr>
+	</tbody>
+</table>
+<table style="table-layout: fixed; width: 726px; height: 50px;  background:#EEE6F3;">
+	<tbody>
+		<tr>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+			<td style="text-align: center; font-size: 8pt;">Nombre completo, firma y cargo de quien recibe la documentación. </td>
+		</tr>
+	</tbody>
+</table>
+
+
 
 <!--TERMINA SECCION 02 -->
 
@@ -432,8 +501,42 @@ table.saltopagina {
 <!-- SALTO DE PÁGINA -->
 <table class="saltopagina"></table>
 
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+			<td style="text-align: center; font-size: 9pt;">HE LEÍDO EL AVISO DE PRIVACIDAD Y ACEPTO LOS TÉRMINOS Y CONDICIONES</td>
+		</tr>
+	</tbody>
+</table>
+<table style="table-layout: fixed; height:200px; width:726px;">
+    <td valign="bottom" style="font-size: 9pt; text-align: center; vertical-align: bottom; height: 200px;"><span style="font-size: 9pt;"><u>{{mb_strtoupper ($aspirante->nombre) }} {{mb_strtoupper ($aspirante->apellido1) }} {{mb_strtoupper ($aspirante->apellido2) }}</u></span><br><span style="font-size: 8pt;">NOMBRE Y FIRMA DE LA PERSONA ASPIRANTE</span></td>
+</table>
+	<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+			<td class="gris" style="text-align: justify; font-size: 9pt;"><p>El procedimiento de reclutamiento, selección y contratación de las y los SE y CAE Locales se realizará sin discriminación alguna, por origen étnico, género, edad, discapacidades, condición social, condiciones de salud, religión, opiniones, identidad o preferencias sexuales, estado civil o cualquier otra que atente contra la dignidad humana y tenga por objeto anular o menoscabar los derechos y libertades de las personas.</p>
+		<p>La ciudadanía trans tiene derecho a participar en el proceso de selección. Ningún funcionario del OPL se podrá negar a recibir la documentación cuando no coincida la expresión de género, es decir, la apariencia de mujer u hombre, con la fotografía, el nombre o el sexo que aparecen en su Credencial para Votar.</p></td>
+		</tr>
+	</tbody>
+</table>
+<table style="table-layout: fixed; height:200px; width:726px;">
+    <td valign="bottom" style="font-size: 6pt; text-align: center; vertical-align: bottom; height: 200px;"><span style="font-size: 8pt;"><u>EN CASO DE PROGRAMARSE LA CÁPSULA DE INDUCCIÓN DE MANERA PRESENCIAL EN EL OPL, LLENAR EL SIGUIENTE APARTADO</u></span><br><br><span style="font-size: 8pt;">FAVOR DE PRESENTARSE A LA CÁPSULA DE INDUCCIÓN EL DÍA _____ DEL MES ___________ DEL 2024, A LAS ____: ______ HORAS</span></td>
+</table>
+
+<table style="table-layout: fixed; width: 726px;">
+	<tbody>
+		<tr>
+			<td style="text-align: center; font-size: 9pt; font-weight: 900;">AVISO DE PRIVACIDAD SIMPLIFICADO</td>
+		</tr>
+	</tbody>
+</table>
+
+<table style="table-layout: fixed; height:200px; width:726px;">
+    <td valign="bottom" style="font-size: 9pt; text-align: justify; vertical-align: bottom; height: 200px; width: 726px;"><span>
+El Instituto Nacional Electoral, con domicilio en: Viaducto Tlalpan #100, colonia Arenal Tepepan, Alcaldía Tlalpan, código postal 14610, Ciudad de México recaba sus datos personales y es responsable del tratamiento que les dé. Los datos personales reunidos serán utilizados para corroborar que la ciudadanía interesada en participar en el proceso de reclutamiento, selección y contratación de personal eventual que colaborará con el OPL durante el Proceso Electoral 2023-2024 como Supervisor/a Electoral Local o Capacitador/a-Asistente Electoral Local, cumpla con los requisitos legales y administrativos establecidos en la Convocatoria. Simultáneamente, los datos personales serán utilizados para que la autoridad electoral cuente con información respecto de los grupos en situación de vulnerabilidad en los que se sitúan las personas con autoadscripción indígena; pertenecientes a la población afromexicana; que viven con algún tipo de discapacidad; que se consideran parte de las personas LGBTTTIQ+ o si se trata de una persona mexicana migrante, con el fin de realizar análisis de datos y estadísticas como insumos para el ejercicio de sus atribuciones, para determinar lo conducente en futuros procesos electorales. Lo anterior de conformidad con el marco normativo electoral y con base en lo establecido en los artículos 6º Base A, fracciones II y III y 16, segundo párrafo de la Constitución Política de los Estados Unidos Mexicanos, así como los artículos 3º, fracción II y IX, 16, 17, 18, 19, 20, 21, 22, 23, 25,26, 27 y 28 de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica: DECEyEC-aviso-priv-simplificado-Listado-SE-CAE.pdf (ine.mx)</span>
+</td>
+</table>
 
 
-   
 </body>
 </html>

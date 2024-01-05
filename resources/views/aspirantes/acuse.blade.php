@@ -206,19 +206,19 @@ img{
                 <td class="grisp1"
                     style="width: 6%; text-align: center;  border-bottom: none;">
                     Sede*</td>
-                <td class="rosap1"
-                    style="width: 74%; text-align: center; text-align: center; border-bottom: none;">{{mb_strtoupper ($aspirante->sede)}}&nbsp;</td>
-                <td class="grisp1"
-                    style="width: 5%; text-align: center;   border-bottom: none;">Fija</td>
-                    
-                    <td class="rosap1" style="width: 5%; text-align: center; text-align: center;  border-bottom: none;" @if ($aspirante->tipo_sede=='Fija')
-                    <span style="font-weight: bold;">X</span> @endif
+                <td class="rosap1" style="width: 74%; text-align: center; text-align: center; border-bottom: none;">{{mb_strtoupper ($aspirante->sede)}}&nbsp;</td>
+                <td class="grisp1" style="width: 5%; text-align: center;   border-bottom: none;">Fija</td>
+                <td class="rosap1" style="width: 5%; text-align: center; text-align: center;  border-bottom: none;">
+                 @if ($aspirante->tipo_sede=='Fija')
+                    <span style="font-weight: bold;">X</span>
+                 @endif
                     </td>
                    
-                <td class="grisp1"
-                    style="width: 5%; text-align: center;   border-bottom: none;"> Alterna</td>
-                    <td class="rosap1" style="width: 5%; text-align: center; text-align: center;  border-bottom: none;" @if ($aspirante->tipo_sede=='Alterna')
-                    <span style="font-weight: bold;">X</span> @endif
+                <td class="grisp1" style="width: 5%; text-align: center;   border-bottom: none;"> Alterna</td>
+                    <td class="rosap1" style="width: 5%; text-align: center; text-align: center;  border-bottom: none;">
+                    @if ($aspirante->tipo_sede=='Alterna')
+                    <span style="font-weight: bold;">X</span>
+                    @endif
                     </td>
             </tr>
         </tbody>
