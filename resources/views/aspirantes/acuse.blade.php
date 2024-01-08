@@ -686,9 +686,9 @@ img{
                 </td>
 
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
-                    @if ($aspirante->ultimo_grado_estudio=='Secundaria Tercer grado')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
+                    @if ($aspirante->ultimo_grado_estudio=='Secundaria Tercero grado')
+                    <span style="font-weight: bold; font-size: 9pt;  width: 5%; position: absolute; text-align: center;">X</span>
+                            <span style="position: absolute;  width: 5%; text-align: center;">3&ordm;</span>
                     @else
                     <span>3&ordm;</span>
                     @endif

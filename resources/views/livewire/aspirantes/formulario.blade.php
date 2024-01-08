@@ -1089,10 +1089,20 @@
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <input type="time" class="form-control" wire:model.lazy="p13_tiempo_traslado"
-                                   id="p13_tiempo_traslado" name="p13_tiempo_traslado">
+                            <input type="text" id="timeInput" maxlength="5"  placeholder="00:00" class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                            id="p13_tiempo_traslado" name="p13_tiempo_traslado"> <span style="font-size: xsmall">Formato hrs:mins</span>
                         </div>
-                    </div>
+                        <script>
+                    const timeInput = document.getElementById("timeInput");
+                    timeInput.addEventListener("input", function () {
+                        const value = this.value.replace(/[^0-9]/g, "");
+                        if (value.length > 2) {
+                            this.value = value.slice(0, 2) + ":" + value.slice(2);
+                        }
+                    });
+                    </script>
+                </div>
+                    
                     <div class="col-12">
                         @error('p13_tiempo_traslado')
                             <span class="text-danger error h6">{{ $message }}</span>

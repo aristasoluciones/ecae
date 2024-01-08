@@ -227,7 +227,7 @@ class Formulario extends Component
         $this->p1_2_otra_forma = null;
     }
 
-
+    
     public function updatedMunicipio($value) {
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
