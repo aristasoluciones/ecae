@@ -952,6 +952,7 @@
                         @enderror
                     </div>
                 </div>
+                @if ($p11_habla_lindigena === 'Si')
                 {{-- Prgeunta numero 11.1 --}}
                 <div class="form-row justify-content-between mb-3 col-12">
                     <div class="col-12">
@@ -967,6 +968,7 @@
                         @enderror
                     </div>
                 </div>
+                @endif
                 {{-- Prgeunta numero 12 --}}
                 <div class="form-row col-12">
                     <div class="col-12">
