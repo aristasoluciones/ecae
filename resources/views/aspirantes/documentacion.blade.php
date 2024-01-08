@@ -107,7 +107,7 @@ table.saltopagina {
     <table style="table-layout: fixed; width: 726px; margin-bottom: 10pt;">
         <tbody>
             <tr border-collapse: collapse;>
-                <td style="width: 20% " rowspan="3"><img src="C:\laragon\www\ecae\public\imgs\LOGO_out.png" width="110px" height="80px" alt=""></td>
+                <td style="width: 20% " rowspan="3"><img src="../public/imgs/LOGO_out.png" width="110px" height="80px" alt=""></td>
                 <td style="width: 80%; text-align: center; font-size: 11pt; ">RELACIÓN DE DOCUMENTACIÓN ENTREGADA POR LA PERSONA ASPIRANTE</td>
             </tr>
             <tr>
@@ -194,9 +194,17 @@ table.saltopagina {
 <table class="inicio">
 	<tbody>
 		<tr>
+			
+			 @foreach ($aspirante->expediente->documento->En su caso, Solicitud correctamente llenada y firmada)
 			<td class="rosa" style="width: 5%; font-size: 7pt;">1.</td>
 			<td class="rosa" style="width: 75%; text-align: left;">En su caso, Solicitud correctamente llenada y firmada.</td>
-			<td class="rosa" style="width: 10%;"></td>
+			<td class="rosa" style="width: 10%;"> 
+			@if($aspirante->expediente->mostro_original=='1')
+				<span>x</span>
+			@endif
+			@endforeach
+					
+		</td>
 			<td class="rosa" style="width: 10%;"></td>
 		</tr>
 	</tbody>
@@ -370,7 +378,7 @@ table.saltopagina {
 <table class="enmedio" style="height: 30pt; border: none; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center; vertical-align:bottom;">_____________ss________________________________________________________________</td>			
+			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center; vertical-align:bottom;">_____________________________________________________________________________</td>			
 		</tr>
     </tbody>
 </table>
