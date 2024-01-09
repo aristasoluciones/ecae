@@ -2,9 +2,8 @@
 @section('content_header')
     <div class="container">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="xtitulox"><i class="fa fa-users text-secondary"> Registro
-                        de aspirantes</i></h1>
+            <div class="col-sm-12" style="text-align: justify">
+                <h1 class="xtitulox"><i class="fa fa-users text-secondary"> REGISTRO DE ASPIRANTES DE PERSONAS SUPERVISORAS ELECTORALES LOCALES O CAPACITADORAS ASISTENTES ELECTORALES LOCALES DURANTE EL PROCESO ELECTORAL LOCAL ORDINARIO 2024</i></h1>
             </div>
         </div>
     </div>
