@@ -294,7 +294,7 @@ class Formulario extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
-        if(isset($dataFill['email_confirmation']))
+        if(isset($dataFill['email']))
             unset($dataFill['email_confirmation']);
 
         $dataFill['numero_convocatoria'] = 1;

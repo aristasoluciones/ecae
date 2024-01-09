@@ -112,22 +112,40 @@
                             <input wire:model.lazy="email" id="email" name="email" type="email"
                                    aria-describedby="clave-elector-help-text"
                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
+                                   
                             @error('email')
                             <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
+                           
                         </div>
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                            <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label> 
                             <input wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                                    class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
-                            @error('email_confirmation')
-                                <span class="text-danger error h6">{{ $message }}</span>
-                            @enderror
-                        </div>
+                                  
+                                     @error('email_confirmation')
+                                     <span class="text-danger error h6">{{ $message }}</span>
+                                    @enderror
+                            </div>                            
                     </div>
                 </div>
+<script>
+    var email01, email02;
+
+email01 = document.getElementById('email');
+email02 = document.getElementById('email_confirmation');
+
+password.onchange = password2.onkeyup = passwordMatch;
+
+function passwordMatch() {
+    if(password.value !== password2.value)
+        password2.setCustomValidity('Los correos no coinciden');
+    else
+        password2.setCustomValidity('');
+}
+</script>
                 {{-- SECCION DOS --}}
                 <div class="form-row">
                     <div class="col-12 divider">
