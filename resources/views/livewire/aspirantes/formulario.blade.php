@@ -600,7 +600,7 @@ function passwordMatch() {
                     <div class="col-12">
                         <div class="callout callout-info">
                             <p>
-                                <sup class="text-bold">*</sup> <small class="text-bold text-justify"> LAS PREGUNTAS DE LA 11 A LA 15 SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
+                                <sup class="text-bold">*</sup> <small class="text-bold text-justify">LAS PREGUNTAS DE LA 11 A LA 15 SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
                             </p>
                             <p>
                                 <sup>**</sup><small class="text-justify"> En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.</small>
