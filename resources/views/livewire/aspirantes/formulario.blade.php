@@ -414,7 +414,7 @@ function passwordMatch() {
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Código
                                 Postal</label>
-                            <input wire:model.lazy="dom_postal" id="dom_postal" type="number"
+                            <input wire:model.lazy="dom_postal" id="dom_postal" type="text" maxlength="5" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" 
                                 class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}" />
                             @error('dom_postal')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -425,7 +425,7 @@ function passwordMatch() {
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 Teléfono fijo</label>
-                            <input wire:model.lazy="tel_fijo" id="tel_fijo" type="number"
+                            <input wire:model.lazy="tel_fijo" id="tel_fijo" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" 
                                 class="form-control {{ $errors->has('tel_fijo') ? 'is-invalid' : '' }}" />
                             @error('tel_fijo')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -436,7 +436,7 @@ function passwordMatch() {
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 Teléfono celular</label>
-                            <input wire:model.lazy="tel_celular" id="tel_celular" type="number"
+                            <input wire:model.lazy="tel_celular" id="tel_celular" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" 
                                 class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
                             @error('tel_celular')
                                 <span class="text-danger error h6">{{ $message }}</span>
