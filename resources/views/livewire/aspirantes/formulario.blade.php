@@ -581,8 +581,7 @@ function passwordMatch() {
                                                     wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.fin" />
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.telefono" />
+                                                <input class="form-control" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.telefono" />
                                             </td>
                                         </tr>
                                     @endforeach
