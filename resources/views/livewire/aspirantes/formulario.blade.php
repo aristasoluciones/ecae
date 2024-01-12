@@ -36,8 +36,7 @@
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>
-                                Municipio</label>
+                            <label class=""><span class="text-danger ">*</span>Municipio</label>
                             <select class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}"
                                 id="municipio" name="municipio" wire:model.lazy="municipio">
                                 <option value="">
@@ -129,22 +128,9 @@
                                     @enderror
                             </div>                            
                     </div>
-                </div>
-<script>
-    var email01, email02;
-
-email01 = document.getElementById('email');
-email02 = document.getElementById('email_confirmation');
-
-password.onchange = password2.onkeyup = passwordMatch;
-
-function passwordMatch() {
-    if(password.value !== password2.value)
-        password2.setCustomValidity('Los correos no coinciden');
-    else
-        password2.setCustomValidity('');
-}
-</script>
+                </div>                              
+                                    
+                                    
                 {{-- SECCION DOS --}}
                 <div class="form-row">
                     <div class="col-12 divider">
@@ -401,11 +387,17 @@ function passwordMatch() {
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>
-                                Localidad</label>
-                            <input wire:model.lazy="dom_localidad" id="dom_localidad" type="text"
-                                class="form-control {{ $errors->has('dom_localidad') ? 'is-invalid' : '' }}" />
-                            @error('dom_localidad')
+                            <label class=""><span class="text-danger ">*</span> Localidad</label>
+                            <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
+                                id="_dom_localidad" name="dom_localidad" wire:model.lazy="localidad">
+                                <option value="">
+                                    {{ __('adminlte::adminlte.please_select') }}
+                                </option>
+                                @foreach ($this->domLocalidadesFiltrado as $domloc)
+                                    <option value="{{ $domloc }}">{{ $domloc }}</option>
+                                @endforeach
+                            </select>
+                            @error('localidad')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>

@@ -100,6 +100,7 @@ class Formulario extends Component
     public $municipios;
     public $localidades;
     public $localidadesFiltrado;
+    public $domLocalidadesFiltrado;
     public $consejosMunicipales;
     public $consejosFiltrado;
 
@@ -146,6 +147,7 @@ class Formulario extends Component
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
             'email'    => 'nullable|email|confirmed',
+            'email_confirmation'    => 'nullable|email|confirmed',
             'acepto_aviso' => 'required|integer',
             'acepto_ser_contactado' => 'nullable',
             'acepto_declaratoria'   => 'nullable',
@@ -235,6 +237,13 @@ class Formulario extends Component
 
     }
 
+    public function updatedDomMunicipio($value) {
+
+        $this->domLocalidadesFiltrado = $this->localidades[$value] ?? [];
+        
+
+    }
+
     public function updatingEmail($value) {
 
         $this->email = mb_strtoupper($value);
@@ -256,7 +265,9 @@ class Formulario extends Component
         $this->municipios  =  config('constants.municipios');
         $this->paises      =  config('constants.paises');
         $this->localidades =  config('constants.localidades');
+
         $this->localidadesFiltrado     =  [];
+        $this->domLocalidadesFiltrado     =  [];
 
         $consejos = [];
         foreach($this->municipios as $mun) {
@@ -296,6 +307,8 @@ class Formulario extends Component
         $dataFill =  $data;
         if(isset($dataFill['email']))
             unset($dataFill['email_confirmation']);
+                if(isset($dataFill['email_confirmation']))
+                    unset($dataFill['email']);
 
         $dataFill['numero_convocatoria'] = 1;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
@@ -354,6 +367,7 @@ class Formulario extends Component
             'municipios',
             'localidades',
             'localidadesFiltrado',
+            'domLocalidadesFiltrado',
             'consejosMunicipales',
             'consejosFiltrado',
             'fecha_nacimiento',
