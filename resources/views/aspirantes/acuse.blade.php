@@ -233,6 +233,7 @@ img{
                 <tr>
                     <td class="blancop1" colspan="7" rowspan="2">Clave electoral o
                         FUAR:</td>
+                        @if ($aspirante->clave_elector)
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[0]) }}</td>
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[1]) }}</td>
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[2]) }}</td>
@@ -251,6 +252,7 @@ img{
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[15]) }}</td>
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[16]) }}</td>
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[17]) }}</td>
+                    @endif
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[0] }}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[1] }}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2] }}</td>
@@ -266,6 +268,7 @@ img{
         <tbody>
             <tr>
                 <td class="blancop1" align="center">RFC</td>
+                @if ($aspirante->rfc)
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[0]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[1]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[2]) }}</td>
@@ -276,10 +279,25 @@ img{
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[7]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[8]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[9]) }}</td>
+                    @else
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                @endif
+                @if ($aspirante->homoclave)
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[0]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[1]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]) }}</td>
+                @endif
                 <td class="blancop1" style="width: 5%" align="center">CURP</td>
+                @if ($aspirante->curp)
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[0]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[1]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[2]) }}</td>
@@ -298,6 +316,26 @@ img{
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[15]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[16]) }}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[17]) }}</td>
+                @else
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                    <td class="rosap1"></td>
+                @endif
             </tr>
         </tbody>
         </tbody>
