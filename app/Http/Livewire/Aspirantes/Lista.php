@@ -107,7 +107,7 @@ class Lista extends DataTableComponent
             Column::make('#Folio', 'id'),
             Column::make('Clave elector','clave_elector')->format(fn($value) => mb_strtoupper($value))->searchable(),
             Column::make('Nombre','nombre')->format(fn($value,$row) => mb_strtoupper($row->nombre." ".$row->apellido1." ".$row->apellido2))->searchable(),
-            Column::make('Genero', 'genero')->format(fn($value) => strtoupper($value))->searchable(),
+            Column::make('Género', 'genero')->format(fn($value) => strtoupper($value))->searchable(),
             Column::make('Edad', 'edad')->searchable(),
             Column::make('Sede', 'sede')->format(fn($value) => mb_strtoupper($value))->searchable(),
             Column::make('Estatus')

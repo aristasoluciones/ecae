@@ -36,8 +36,7 @@
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>
-                                Municipio</label>
+                            <label class=""><span class="text-danger ">*</span>Municipio</label>
                             <select class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}"
                                 id="municipio" name="municipio" wire:model.lazy="municipio">
                                 <option value="">
@@ -94,10 +93,7 @@
                                 de sede</label>
                             <select class="form-control {{ $errors->has('tipo_sede') ? 'is-invalid' : '' }}"
                                 id="tipo_sede" name="tipo_sede" wire:model.lazy="tipo_sede">
-                                <option value="">
-                                    {{ __('adminlte::adminlte.please_select') }}
-                                </option>
-                                <option value="Fija">FIJA</option>
+                                <option value="Fija" selected>FIJA</option>
                                 <option value="Alterna">ALTERNA</option>
                             </select>
                             @error('tipo_sede')
@@ -129,22 +125,9 @@
                                     @enderror
                             </div>                            
                     </div>
-                </div>
-<script>
-    var email01, email02;
-
-email01 = document.getElementById('email');
-email02 = document.getElementById('email_confirmation');
-
-password.onchange = password2.onkeyup = passwordMatch;
-
-function passwordMatch() {
-    if(password.value !== password2.value)
-        password2.setCustomValidity('Los correos no coinciden');
-    else
-        password2.setCustomValidity('');
-}
-</script>
+                </div>                              
+                                    
+                                    
                 {{-- SECCION DOS --}}
                 <div class="form-row">
                     <div class="col-12 divider">
@@ -401,10 +384,16 @@ function passwordMatch() {
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>
-                                Localidad</label>
-                            <input wire:model.lazy="dom_localidad" id="dom_localidad" type="text"
-                                class="form-control {{ $errors->has('dom_localidad') ? 'is-invalid' : '' }}" />
+                            <label class=""><span class="text-danger ">*</span> Localidad</label>
+                            <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
+                                id="_dom_localidad" name="dom_localidad" wire:model.lazy="dom_localidad">
+                                <option value="">
+                                    {{ __('adminlte::adminlte.please_select') }}
+                                </option>
+                                @foreach ($this->domLocalidadesFiltrado as $domloc)
+                                    <option value="{{ $domloc }}">{{ $domloc }}</option>
+                                @endforeach
+                            </select>
                             @error('dom_localidad')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -600,7 +589,7 @@ function passwordMatch() {
                     <div class="col-12">
                         <div class="callout callout-info">
                             <p>
-                                <sup class="text-bold">*</sup> <small class="text-bold text-justify"> LAS PREGUNTAS DE LA 11 A LA 15 SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
+                                <sup class="text-bold">*</sup> <small class="text-bold text-justify">LAS PREGUNTAS DE LA 11 A LA 15 SOLAMENTE SON INFORMATIVAS Y NO SON MOTIVO DE EXCLUSIÓN.</small>
                             </p>
                             <p>
                                 <sup>**</sup><small class="text-justify"> En cumplimiento al acuerdo INE/CG535/2023 por el que se emiten los Lineamientos en acatamiento a la sentencia dictada por la sala superior del TEPJF en el expediente SUP-RAP-04/2023 y acumulados, que establecen medidas preventivas para evitar la injerencia y/o participación de personas servidoras públicas que manejan programas sociales en el Proceso Electoral Federal y los Procesos Electorales Locales 2023-2024, en la Jornada Electoral.</small>
