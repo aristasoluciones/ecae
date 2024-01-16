@@ -234,29 +234,29 @@ img{
                     <td class="blancop1" colspan="7" rowspan="2">Clave electoral o
                         FUAR:</td>
                         @if ($aspirante->clave_elector)
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[0]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[1]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[2]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[3]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[4]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[5]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[6]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[7]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[8]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[9]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[10]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[11]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[12]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[13]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[14]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[15]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[16]) }}</td>
-                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[17]) }}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[0])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[1])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[2])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[3])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[4])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[5])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[6])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[7])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[8])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[9])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[10])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[11])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[12])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[13])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[14])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[15])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[16])?? ''}}</td>
+                    <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[17])?? ''}}</td>
                     @endif
-                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[0] }}</td>
-                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[1] }}</td>
-                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2] }}</td>
-                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[3] }}</td>
+                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[0]?? ''}}</td>
+                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[1]?? ''}}</td>
+                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2]?? ''}}</td>
+                    <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[3]?? ''}}</td>
                 <tr>
                     <td class="blancop1" align="center" colspan="8">Sección electoral</td>
                 </tr>
@@ -269,16 +269,16 @@ img{
             <tr>
                 <td class="blancop1" align="center">RFC</td>
                 @if ($aspirante->rfc)
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[0]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[1]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[2]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[3]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[4]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[5]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[6]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[7]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[8]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[9]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[0])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[1])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[2])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[3])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[4])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[5])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[6])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[7])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[8])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[9])?? ''}}</td>
                     @else
                     <td class="rosap1"></td>
                     <td class="rosap1"></td>
@@ -292,30 +292,30 @@ img{
                     <td class="rosap1"></td>
                 @endif
                 @if ($aspirante->homoclave)
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[0]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[1]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[0])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[1]?? '')}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]?? '')}}</td>
                 @endif
                 <td class="blancop1" style="width: 5%" align="center">CURP</td>
                 @if ($aspirante->curp)
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[0]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[1]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[2]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[3]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[4]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[5]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[6]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[7]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[8]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[9]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[10]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[11]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[12]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[13]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[14]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[15]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[16]) }}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[17]) }}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[0])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[1])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[2])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[3])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[4])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[5])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[6])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[7])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[8])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[9])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[10])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[11])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[12])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[13])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[14])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[15])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[16])?? ''}}</td>
+                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[17])?? ''}}</td>
                 @else
                     <td class="rosap1"></td>
                     <td class="rosap1"></td>
