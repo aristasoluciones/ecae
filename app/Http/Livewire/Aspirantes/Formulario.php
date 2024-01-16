@@ -147,7 +147,6 @@ class Formulario extends Component
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
             'email'    => 'nullable|email|confirmed',
-            'email_confirmation'    => 'nullable|email|confirmed',
             'acepto_aviso' => 'required|integer',
             'acepto_ser_contactado' => 'nullable',
             'acepto_declaratoria'   => 'nullable',

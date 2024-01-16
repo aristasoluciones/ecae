@@ -93,10 +93,7 @@
                                 de sede</label>
                             <select class="form-control {{ $errors->has('tipo_sede') ? 'is-invalid' : '' }}"
                                 id="tipo_sede" name="tipo_sede" wire:model.lazy="tipo_sede">
-                                <option value="">
-                                    {{ __('adminlte::adminlte.please_select') }}
-                                </option>
-                                <option value="Fija">FIJA</option>
+                                <option value="Fija" selected>FIJA</option>
                                 <option value="Alterna">ALTERNA</option>
                             </select>
                             @error('tipo_sede')
@@ -389,7 +386,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span> Localidad</label>
                             <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
-                                id="_dom_localidad" name="dom_localidad" wire:model.lazy="localidad">
+                                id="_dom_localidad" name="dom_localidad" wire:model.lazy="dom_localidad">
                                 <option value="">
                                     {{ __('adminlte::adminlte.please_select') }}
                                 </option>
@@ -397,7 +394,7 @@
                                     <option value="{{ $domloc }}">{{ $domloc }}</option>
                                 @endforeach
                             </select>
-                            @error('localidad')
+                            @error('dom_localidad')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
