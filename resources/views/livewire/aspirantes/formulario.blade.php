@@ -306,7 +306,7 @@
                             <div class="form-group {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>
                                     Especifique</label>
-                                <input wire:model.lazy="otro_lgbtttiq"
+                                <input style="text-transform: uppercase" wire:model.lazy="otro_lgbtttiq"
                                     class="form-control {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 @error('otro_lgbtttiq')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -463,7 +463,7 @@
                         <div class="col-4 col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
-                                <input wire:model.lazy="carrera"
+                                <input style="text-transform: uppercase" wire:model.lazy="carrera"
                                     class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 @error('carrera')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -668,7 +668,7 @@
                                 <div class="form-group">
                                     <label class="col-12"><span class="text-danger ">*</span>
                                         Especifique</label>
-                                    <input wire:model.lazy="p1_2_otra_forma"
+                                    <input style="text-transform: uppercase" wire:model.lazy="p1_2_otra_forma"
                                         class="form-control col-4 {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                     @error('p1_2_otra_forma')
                                         <span class="text-danger error h6">{{ $message }}</span>
@@ -1096,18 +1096,18 @@
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <input type="text" id="timeInput" maxlength="5"  placeholder="00:00" class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                            <input type="text" id="timeInput" maxlength="5"  placeholder="00:00" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false"  class="form-control" wire:model.lazy="p13_tiempo_traslado"
                             id="p13_tiempo_traslado" name="p13_tiempo_traslado"> <span style="font-size: xsmall">Formato hrs:mins</span>
                         </div>
                         <script>
-                    const timeInput = document.getElementById("timeInput");
-                    timeInput.addEventListener("input", function () {
+                        const timeInput = document.getElementById("timeInput");
+                        timeInput.addEventListener("input", function () {
                         const value = this.value.replace(/[^0-9]/g, "");
                         if (value.length > 2) {
                             this.value = value.slice(0, 2) + ":" + value.slice(2);
-                        }
-                    });
-                    </script>
+                                }
+                            });
+                        </script>
                 </div>
                     
                     <div class="col-12">
