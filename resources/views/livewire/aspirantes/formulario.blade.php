@@ -138,7 +138,7 @@
                             <div class="form-group">
                                 <label class=""><span class="text-danger ">*</span>
                                     Clave de elector o FUAR</label>
-                                <input wire:model.lazy="clave_elector" id="clave_elector" type="text"
+                                <input maxlength="18" wire:model.lazy="clave_elector" id="clave_elector" type="text"
                                     aria-describedby="clave-elector-help-text"
                                     class="form-control {{ $errors->has('clave_elector') ? 'is-invalid' : '' }}" />
                                 <small id="clave-elector-help-text" class="form-text text-muted">Ingrese la <strong
@@ -190,7 +190,7 @@
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><sup>1</sup> CURP</label>
-                            <input wire:model.lazy="curp" id="curp" name="curp" type="text"
+                            <input maxlength="18" wire:model.lazy="curp" id="curp" name="curp" type="text"
                                 class="form-control {{ $errors->has('curp') ? 'is-invalid' : '' }}" />
                             @error('curp')
                                 <span class="text-danger error h6">{{ $message }}</span>
