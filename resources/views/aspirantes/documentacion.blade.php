@@ -33,7 +33,7 @@
             bottom: 0cm;
             left: 0cm;
             right: 0cm;
-            height: 2cm;
+            height: 3cm;
             }
 
 table.inicio {
@@ -632,7 +632,8 @@ table.saltopagina {
 <footer>
     <table style="table-layout: fixed; width: 726px; margin-top: 50pt;">
         <tr>
-            <td style="text-align: center; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES Y CAPACITADORES/AS-ASISTENTES ELECTORALES | ANEXO 21.1 SOLICITUD 
+            <td style="text-align: right; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES LOCALES <br>Y CAPACITADORES/AS-ASISTENTES ELECTORALES LOCALES.<br>| ANEXO 21.4 RELACIÓN DE DOCUMENTACIÓN ENTREGADA POR LA PERSONA ASPIRANTE
+ 
         </td>
         </tr>
     </table>

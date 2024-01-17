@@ -274,7 +274,7 @@
                         <div class="col-4 col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('genero') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
-                                <input wire:model.lazy="otro_genero"
+                                <input style="text-transform: uppercase" wire:model.lazy="otro_genero"
                                     class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                                 @error('otro_genero')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -1222,7 +1222,7 @@
                         <div class="col-12">
                             <h5>15.2 Especifique:</h5>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12">
                             <input type="text" class="form-control" wire:model.lazy="p15_2_otradiscapacidad"
                                 id="p15_2_otradiscapacidad" name="p15_2_otradiscapacidad">
                         </div>
