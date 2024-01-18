@@ -30,11 +30,11 @@ Route::get('/home', function() {
 })->name('home')->middleware(['auth']);
 
 Route::get('/', function () {
-    return redirect('aspirante');
+    return redirect('registro');
 });
 
 Route::get('/aspirantes', [\App\Http\Controllers\AspiranteController::class, 'index'])->name('aspirantes')->middleware('auth');
-Route::get('/aspirante/{aspirante?}', \App\Http\Livewire\Aspirantes\Formulario::class)->name('aspirante');
+Route::get('/registro/{aspirante?}', \App\Http\Livewire\Aspirantes\Formulario::class)->name('registro');
 Route::get('/usuarios', \App\Http\Controllers\UsuarioController::class)->name('usuarios')->middleware('auth','permission:configuraciones.usuarios');
 Route::get('/solicitud/{aspirante}', \App\Http\Controllers\SolicitudController::class)->name('solicitud')->middleware('auth');
 Route::get('/estadistica', \App\Http\Controllers\EstadisticaController::class)->name('estadistica')->middleware('auth');
