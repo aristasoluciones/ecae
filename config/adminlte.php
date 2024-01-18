@@ -443,7 +443,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '/vendor/popper/esm/popper.min.js',
+                    'location' => '/vendor/popper/umd/popper.js',
                 ],
             ],
         ],
