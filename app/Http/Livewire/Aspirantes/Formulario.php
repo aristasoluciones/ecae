@@ -3,10 +3,12 @@
 namespace App\Http\Livewire\Aspirantes;
 
 
+use App\Mail\RegistroShipped;
 use Carbon\Carbon;
 use Carbon\Factory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Session\Store;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use App\Rules\ClaveElectorRule;
@@ -227,9 +229,9 @@ class Formulario extends Component
         $this->p1_2_forma = null;
         $this->p1_2_otra_forma = null;
     }
-
     
     public function updatingMunicipio($value) {
+
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
         $this->sede = $this->consejosMunicipales[$value] ?? [];
@@ -239,7 +241,7 @@ class Formulario extends Component
     public function updatingDomMunicipio($value) {
 
         $this->domLocalidadesFiltrado = $this->localidades[$value] ?? [];
-        
+
 
     }
 
@@ -315,6 +317,14 @@ class Formulario extends Component
 
         $this->candidato = Aspirante::create($dataFill);
 
+
+        if(strlen($this->candidato->email) > 0) {
+            $files = [
+                'SOLICITUD'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output(),
+                'DECLARATORIA_'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output()
+            ];
+            Mail::to($this->candidato->email)->send(new RegistroShipped($files));
+        }
         $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
     }
 
@@ -396,7 +406,7 @@ class Formulario extends Component
 
     public function generarFicha() {
 
-        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output();
         return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($this->candidato->clave_elector).'.PDF');
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Aspirantes;
 
 
 use App\Exports\AspirantesExport;
+use App\Mail\RegistroShipped;
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Facades\Excel;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -11,8 +12,8 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 use App\Models\Aspirante;
 use Barryvdh\DomPDF\Facade\Pdf;
-
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class Lista extends DataTableComponent
 {
@@ -37,7 +38,7 @@ class Lista extends DataTableComponent
         $this->setSearchVisibilityStatus(false);
         $this->setColumnSelectDisabled();
         $this->setPerPageAccepted([10, 25, 50, 100,500,1000,2000,3000]);
-        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede']);
+        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede','email']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'aspirantes.busqueda',
@@ -163,9 +164,39 @@ class Lista extends DataTableComponent
         return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($aspirante->clave_elector).'.PDF');
     }
 
+    public function enviarAcuses($id) {
+
+        try {
+            $aspirante =  Aspirante::findOrFail($id);
+            $aspirante->load('expedientes');
+
+            if(strlen($aspirante->email) > 0) {
+                $files = [
+                    'SOLICITUD'.strtoupper($aspirante->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $aspirante])->setPaper('letter')->output(),
+                    'DECLARATORIA_'.strtoupper($aspirante->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $aspirante])->setPaper('letter')->output(),
+                ];
+                if (count($aspirante->expedientes)>0)
+                    $files['DOCUMENTACION_'.strtoupper($aspirante->clave_elector)] = Pdf::loadView('aspirantes.documentacion', ['aspirante' => $aspirante])->setPaper('letter')->output();
+                Mail::to($aspirante->email)->send(new RegistroShipped($files));
+            }
+            $this->emit('swal:alert', [
+                'icon'    => 'success',
+                'title'   => 'Se han enviado los documentos.',
+                'timeout' => 5000
+            ]);
+        } catch(\Throwable $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'error',
+                'title'   => 'Ha ocurrido un error en el envío. '.$e->getMessage(),
+                'timeout' => 5000
+            ]);
+        }
+    }
+
     public function exportar() {
         $builder = $this->getBuilder();
         $rows =  $builder->get();
         return Excel::download(new AspirantesExport($rows), 'aspirantes_registrados.xlsx');
     }
+
 }
