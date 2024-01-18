@@ -269,6 +269,7 @@ class Formulario extends Component
 
         $this->localidadesFiltrado     =  [];
         $this->domLocalidadesFiltrado     =  [];
+        
 
         $consejos = [];
         foreach($this->municipios as $mun) {
@@ -297,6 +298,7 @@ class Formulario extends Component
 
     public function render()
     {
+        $this->tipo_sede = 'Fija';
         return view('livewire.aspirantes.formulario')
             ->extends('adminlte::public')
             ->section('content');
