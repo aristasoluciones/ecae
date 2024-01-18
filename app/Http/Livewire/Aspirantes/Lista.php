@@ -44,7 +44,7 @@ class Lista extends DataTableComponent
                 'aspirantes.busqueda',
                [
                    'type'    =>'button',
-                   'route'   =>'aspirante',
+                   'route'   =>'registro',
                    'theme'   => 'primary',
                    'position'=> 'justify-content-end',
                    'class'   => 'btn-circle',
