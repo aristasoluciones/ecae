@@ -179,14 +179,14 @@ class Formulario extends Component
         ];
     }
 
-    public function updated($field) {
-        return $this->validateOnly($field);
+    public function updated() {
+        return $this->validate();
     }
     public function messages() {
         return [
             '*.required' => 'Este campo es obligatorio.',
             '*.required_if' => 'Este campo es obligatorio.',
-            'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar corre electrónico deben coincidir.',
+            'email.email_confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
             'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.'
         ];
     }
@@ -195,7 +195,7 @@ class Formulario extends Component
         return $this->candidato?->id > 0;
     }
 
-    public function updatedClaveElector($value) {
+    public function updatingClaveElector($value) {
 
         if(strlen($value) <= 0) {
             $this->reset(['fecha_nacimiento','edad','genero']);
@@ -229,14 +229,14 @@ class Formulario extends Component
     }
 
     
-    public function updatedMunicipio($value) {
+    public function updatingMunicipio($value) {
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
         $this->sede = $this->consejosMunicipales[$value] ?? [];
 
     }
 
-    public function updatedDomMunicipio($value) {
+    public function updatingDomMunicipio($value) {
 
         $this->domLocalidadesFiltrado = $this->localidades[$value] ?? [];
         
