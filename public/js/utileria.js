@@ -33,11 +33,8 @@ const SwalAlert = (icon, title, timeout = 7000) => {
         toast: true,
         position: 'center-end',
         showConfirmButton: false,
-        timer: timeout,
-        onOpen: toast => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
+        showCloseButton: true,
+        timer: timeout
     })
 
     Toast.fire({

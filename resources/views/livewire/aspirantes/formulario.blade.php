@@ -36,8 +36,7 @@
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>
-                                Municipio</label>
+                            <label class=""><span class="text-danger ">*</span>Municipio</label>
                             <select class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}"
                                 id="municipio" name="municipio" wire:model.lazy="municipio">
                                 <option value="">
@@ -94,10 +93,7 @@
                                 de sede</label>
                             <select class="form-control {{ $errors->has('tipo_sede') ? 'is-invalid' : '' }}"
                                 id="tipo_sede" name="tipo_sede" wire:model.lazy="tipo_sede">
-                                <option value="">
-                                    {{ __('adminlte::adminlte.please_select') }}
-                                </option>
-                                <option value="Fija">FIJA</option>
+                                <option value="Fija" selected>FIJA</option>
                                 <option value="Alterna">ALTERNA</option>
                             </select>
                             @error('tipo_sede')
@@ -129,22 +125,9 @@
                                     @enderror
                             </div>                            
                     </div>
-                </div>
-<script>
-    var email01, email02;
-
-email01 = document.getElementById('email');
-email02 = document.getElementById('email_confirmation');
-
-password.onchange = password2.onkeyup = passwordMatch;
-
-function passwordMatch() {
-    if(password.value !== password2.value)
-        password2.setCustomValidity('Los correos no coinciden');
-    else
-        password2.setCustomValidity('');
-}
-</script>
+                </div>                              
+                                    
+                                    
                 {{-- SECCION DOS --}}
                 <div class="form-row">
                     <div class="col-12 divider">
@@ -155,7 +138,7 @@ function passwordMatch() {
                             <div class="form-group">
                                 <label class=""><span class="text-danger ">*</span>
                                     Clave de elector o FUAR</label>
-                                <input wire:model.lazy="clave_elector" id="clave_elector" type="text"
+                                <input maxlength="18" wire:model.lazy="clave_elector" id="clave_elector" type="text"
                                     aria-describedby="clave-elector-help-text"
                                     class="form-control {{ $errors->has('clave_elector') ? 'is-invalid' : '' }}" />
                                 <small id="clave-elector-help-text" class="form-text text-muted">Ingrese la <strong
@@ -207,7 +190,7 @@ function passwordMatch() {
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><sup>1</sup> CURP</label>
-                            <input wire:model.lazy="curp" id="curp" name="curp" type="text"
+                            <input maxlength="18" wire:model.lazy="curp" id="curp" name="curp" type="text"
                                 class="form-control {{ $errors->has('curp') ? 'is-invalid' : '' }}" />
                             @error('curp')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -291,7 +274,7 @@ function passwordMatch() {
                         <div class="col-4 col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('genero') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
-                                <input wire:model.lazy="otro_genero"
+                                <input style="text-transform: uppercase" wire:model.lazy="otro_genero"
                                     class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                                 @error('otro_genero')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -323,7 +306,7 @@ function passwordMatch() {
                             <div class="form-group {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>
                                     Especifique</label>
-                                <input wire:model.lazy="otro_lgbtttiq"
+                                <input style="text-transform: uppercase" wire:model.lazy="otro_lgbtttiq"
                                     class="form-control {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 @error('otro_lgbtttiq')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -401,10 +384,16 @@ function passwordMatch() {
                     </div>
                     <div class="col-4 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>
-                                Localidad</label>
-                            <input wire:model.lazy="dom_localidad" id="dom_localidad" type="text"
-                                class="form-control {{ $errors->has('dom_localidad') ? 'is-invalid' : '' }}" />
+                            <label class=""><span class="text-danger ">*</span> Localidad</label>
+                            <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
+                                id="_dom_localidad" name="dom_localidad" wire:model.lazy="dom_localidad">
+                                <option value="">
+                                    {{ __('adminlte::adminlte.please_select') }}
+                                </option>
+                                @foreach ($this->domLocalidadesFiltrado as $domloc)
+                                    <option value="{{ $domloc }}">{{ $domloc }}</option>
+                                @endforeach
+                            </select>
                             @error('dom_localidad')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -474,7 +463,7 @@ function passwordMatch() {
                         <div class="col-4 col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
-                                <input wire:model.lazy="carrera"
+                                <input style="text-transform: uppercase" wire:model.lazy="carrera"
                                     class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 @error('carrera')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -679,7 +668,7 @@ function passwordMatch() {
                                 <div class="form-group">
                                     <label class="col-12"><span class="text-danger ">*</span>
                                         Especifique</label>
-                                    <input wire:model.lazy="p1_2_otra_forma"
+                                    <input style="text-transform: uppercase" wire:model.lazy="p1_2_otra_forma"
                                         class="form-control col-4 {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                     @error('p1_2_otra_forma')
                                         <span class="text-danger error h6">{{ $message }}</span>
@@ -1107,18 +1096,18 @@ function passwordMatch() {
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <input type="text" id="timeInput" maxlength="5"  placeholder="00:00" class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                            <input type="text" id="timeInput" maxlength="5"  placeholder="00:00" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false"  class="form-control" wire:model.lazy="p13_tiempo_traslado"
                             id="p13_tiempo_traslado" name="p13_tiempo_traslado"> <span style="font-size: xsmall">Formato hrs:mins</span>
                         </div>
                         <script>
-                    const timeInput = document.getElementById("timeInput");
-                    timeInput.addEventListener("input", function () {
+                        const timeInput = document.getElementById("timeInput");
+                        timeInput.addEventListener("input", function () {
                         const value = this.value.replace(/[^0-9]/g, "");
                         if (value.length > 2) {
                             this.value = value.slice(0, 2) + ":" + value.slice(2);
-                        }
-                    });
-                    </script>
+                                }
+                            });
+                        </script>
                 </div>
                     
                     <div class="col-12">
@@ -1233,7 +1222,7 @@ function passwordMatch() {
                         <div class="col-12">
                             <h5>15.2 Especifique:</h5>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12">
                             <input type="text" class="form-control" wire:model.lazy="p15_2_otradiscapacidad"
                                 id="p15_2_otradiscapacidad" name="p15_2_otradiscapacidad">
                         </div>

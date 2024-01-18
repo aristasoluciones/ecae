@@ -3,10 +3,12 @@
 namespace App\Http\Livewire\Aspirantes;
 
 
+use App\Mail\RegistroShipped;
 use Carbon\Carbon;
 use Carbon\Factory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Session\Store;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use App\Rules\ClaveElectorRule;
@@ -100,6 +102,7 @@ class Formulario extends Component
     public $municipios;
     public $localidades;
     public $localidadesFiltrado;
+    public $domLocalidadesFiltrado;
     public $consejosMunicipales;
     public $consejosFiltrado;
 
@@ -178,14 +181,14 @@ class Formulario extends Component
         ];
     }
 
-    public function updated($field) {
-        return $this->validateOnly($field);
+    public function updated() {
+        return $this->validate();
     }
     public function messages() {
         return [
             '*.required' => 'Este campo es obligatorio.',
             '*.required_if' => 'Este campo es obligatorio.',
-            'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar corre electrónico deben coincidir.',
+            'email.email_confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
             'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.'
         ];
     }
@@ -194,7 +197,7 @@ class Formulario extends Component
         return $this->candidato?->id > 0;
     }
 
-    public function updatedClaveElector($value) {
+    public function updatingClaveElector($value) {
 
         if(strlen($value) <= 0) {
             $this->reset(['fecha_nacimiento','edad','genero']);
@@ -226,12 +229,19 @@ class Formulario extends Component
         $this->p1_2_forma = null;
         $this->p1_2_otra_forma = null;
     }
-
     
-    public function updatedMunicipio($value) {
+    public function updatingMunicipio($value) {
+
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
         $this->sede = $this->consejosMunicipales[$value] ?? [];
+
+    }
+
+    public function updatingDomMunicipio($value) {
+
+        $this->domLocalidadesFiltrado = $this->localidades[$value] ?? [];
+
 
     }
 
@@ -256,7 +266,9 @@ class Formulario extends Component
         $this->municipios  =  config('constants.municipios');
         $this->paises      =  config('constants.paises');
         $this->localidades =  config('constants.localidades');
+
         $this->localidadesFiltrado     =  [];
+        $this->domLocalidadesFiltrado     =  [];
 
         $consejos = [];
         foreach($this->municipios as $mun) {
@@ -296,6 +308,8 @@ class Formulario extends Component
         $dataFill =  $data;
         if(isset($dataFill['email']))
             unset($dataFill['email_confirmation']);
+                if(isset($dataFill['email_confirmation']))
+                    unset($dataFill['email']);
 
         $dataFill['numero_convocatoria'] = 1;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
@@ -303,6 +317,14 @@ class Formulario extends Component
 
         $this->candidato = Aspirante::create($dataFill);
 
+
+        if(strlen($this->candidato->email) > 0) {
+            $files = [
+                'SOLICITUD'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output(),
+                'DECLARATORIA_'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output()
+            ];
+            Mail::to($this->candidato->email)->send(new RegistroShipped($files));
+        }
         $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
     }
 
@@ -354,6 +376,7 @@ class Formulario extends Component
             'municipios',
             'localidades',
             'localidadesFiltrado',
+            'domLocalidadesFiltrado',
             'consejosMunicipales',
             'consejosFiltrado',
             'fecha_nacimiento',
@@ -383,7 +406,7 @@ class Formulario extends Component
 
     public function generarFicha() {
 
-        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('legal')->output();
+        $content = Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output();
         return response()->streamDownload(fn() => print($content), 'SOLICITUD-'.strtoupper($this->candidato->clave_elector).'.PDF');
     }
 

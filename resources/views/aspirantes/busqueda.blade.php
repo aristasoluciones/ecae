@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group">
-                            <label for="">Genero</label>
+                            <label for="">Género</label>
                             <select class="form-control"
                                     wire:model.defer="fGenero"
                                     name="fGenero"
