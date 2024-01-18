@@ -93,7 +93,10 @@
                                 de sede</label>
                             <select class="form-control {{ $errors->has('tipo_sede') ? 'is-invalid' : '' }}"
                                 id="tipo_sede" name="tipo_sede" wire:model.lazy="tipo_sede">
-                                <option value="Fija" selected>FIJA</option>
+                                <option value="">
+                                    {{ __('adminlte::adminlte.please_select') }}
+                                </option>
+                                <option value="Fija">FIJA</option>
                                 <option value="Alterna">ALTERNA</option>
                             </select>
                             @error('tipo_sede')
