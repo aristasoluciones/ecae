@@ -13,13 +13,10 @@
     input[type=time]::-webkit-datetime-edit-ampm-field {
         display: none;
     }
-    select,textarea,input[type="email"],input[type="text"] {
-         text-transform: uppercase;
-     }
     .otro-dato h5 {
         text-align: justify;
     }
-    
+
 </style>
 
 @endpush
@@ -35,7 +32,7 @@
                             <p><sup class="text-bold">1</sup> <small class="text-justify">No contar con estos documentos no será causa de exclusión en este momento. En caso de ser contratado/a será obligatorio.</small></p>
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Municipio</label>
                             <select class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}"
@@ -53,7 +50,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span> Localidad</label>
                             <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
@@ -70,7 +67,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Sede</label>
@@ -88,7 +85,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span> Tipo
                                 de sede</label>
@@ -105,44 +102,43 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger"></span> Correo electrónico</label>
-                            <input wire:model.lazy="email" id="email" name="email" type="email"
+                            <input autocomplete="off" wire:model.lazy="email" id="email" name="email" type="email"
                                    aria-describedby="clave-elector-help-text"
                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
-                                   
+
                             @error('email')
                             <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
-                           
+
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label> 
-                            <input wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
+                            <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                            <input autocomplete="off" wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                                    class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
-                                  
                                      @error('email_confirmation')
                                      <span class="text-danger error h6">{{ $message }}</span>
                                     @enderror
-                            </div>                            
+                            </div>
                     </div>
-                </div>                              
-                                    
-                                    
+                </div>
+
+
                 {{-- SECCION DOS --}}
                 <div class="form-row">
                     <div class="col-12 divider">
                         <h3 class="dropdown-divider"></h3>
                     </div>
                     <div class="row">
-                        <div class="col-4 col-md-4 col-sm-12">
+                        <div class=" col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label class=""><span class="text-danger ">*</span>
                                     Clave de elector o FUAR</label>
-                                <input maxlength="18" wire:model.lazy="clave_elector" id="clave_elector" type="text"
+                                <input maxlength="18" wire:model.lazy="clave_elector" id="clave_elector" type="text" autocomplete="off"
                                     aria-describedby="clave-elector-help-text"
                                     class="form-control {{ $errors->has('clave_elector') ? 'is-invalid' : '' }}" />
                                 <small id="clave-elector-help-text" class="form-text text-muted">Ingrese la <strong
@@ -159,7 +155,7 @@
                                 <label class=""><span class="text-danger ">*</span>Sección
                                     electoral</label>
                                 <input maxlength="4" wire:model.lazy="seccion_electoral" id="seccion_electoral"
-                                    type="text"
+                                    type="text" autocomplete="off"
                                     class="form-control  {{ $errors->has('seccion_electoral') ? 'is-invalid' : '' }}" />
                                 <small style="font-size:0.6em" id="clave-elector-help-text"
                                     class="form-text text-muted">Ingrese los 4
@@ -170,10 +166,10 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-4 col-md-4 col-sm-12">
+                        <div class=" col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label class=""><sup>1</sup> RFC</label>
-                                <input maxlength="10" wire:model.lazy="rfc" id="rfc" type="text"
+                                <input maxlength="10" wire:model.lazy="rfc" id="rfc" type="text" autocomplete="off"
                                     class="form-control {{ $errors->has('rfc') ? 'is-invalid' : '' }}" />
                                 @error('rfc')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -183,7 +179,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label class=""><sup>1</sup>Homoclave</label>
-                                <input maxlength="3" wire:model.lazy="homoclave" id="homoclave" type="text"
+                                <input maxlength="3" wire:model.lazy="homoclave" id="homoclave" type="text" autocomplete="off"
                                     class="form-control {{ $errors->has('rfc') ? 'is-invalid' : '' }}" />
                                 @error('homoclave')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -191,72 +187,72 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><sup>1</sup> CURP</label>
-                            <input maxlength="18" wire:model.lazy="curp" id="curp" name="curp" type="text"
+                            <input maxlength="18" wire:model.lazy="curp" id="curp" name="curp" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('curp') ? 'is-invalid' : '' }}" />
                             @error('curp')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Nombre(s)</label>
-                            <input wire:model.lazy="nombre" id="nombre" name="nombre" type="text"
+                            <input wire:model.lazy="nombre" id="nombre" name="nombre" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" />
                             @error('nombre')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Primer Apellido</label>
-                            <input wire:model.lazy="apellido1" id="apellido1" name="apellido1" type="text"
+                            <input wire:model.lazy="apellido1" id="apellido1" name="apellido1" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('apellido1') ? 'is-invalid' : '' }}" />
                             @error('apellido1')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Segundo Apellido</label>
-                            <input wire:model.lazy="apellido2" id="apellido2" name="apellido2" type="text"
+                            <input wire:model.lazy="apellido2" id="apellido2" name="apellido2" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('apellido2') ? 'is-invalid' : '' }}" />
                             @error('apellido2')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Fecha nacimiento</label>
                             <input wire:model.lazy="fecha_nacimiento" readonly id="fecha_nacimiento"
-                                name="fecha_nacimiento" type="text" class="form-control" />
+                                name="fecha_nacimiento" type="text" autocomplete="off" class="form-control" />
                             @error('fecha_nacimiento')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Edad</label>
-                            <input wire:model.lazy="edad" readonly id="edad" name="edad" type="text"
+                            <input wire:model.lazy="edad" readonly id="edad" name="edad" type="text" autocomplete="off"
                                 class="form-control" />
                             @error('edad')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Género</label>
                             <select wire:model.lazy="genero"
@@ -275,7 +271,7 @@
                         </div>
                     </div>
                     @if ($genero === 'Otro')
-                        <div class="col-4 col-md-4 col-sm-12">
+                        <div class=" col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('genero') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
                                 <input style="text-transform: uppercase" wire:model.lazy="otro_genero"
@@ -306,7 +302,7 @@
                         </div>
                     </div>
                     @if ($persona_lgbtttiq === 'Otro')
-                        <div class="col-4 col-md-4 col-sm-12">
+                        <div class=" col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>
                                     Especifique</label>
@@ -322,53 +318,53 @@
                         <h4 class="text-bold">Domicilio</h4>
                         <h3 class="dropdown-divider"></h3>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Calle</label>
-                            <input wire:model.lazy="dom_calle" id="dom_calle" name="dom_calle" type="text"
+                            <input wire:model.lazy="dom_calle" id="dom_calle" name="dom_calle" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_calle') ? 'is-invalid' : '' }}" />
                             @error('dom_calle')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Número exterior</label>
                             <input wire:model.lazy="dom_num_exterior" id="dom_num_exterior" name="dom_num_exterior"
-                                type="text"
+                                type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_num_exterior') ? 'is-invalid' : '' }}" />
                             @error('dom_num_exterior')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger"></span> Número
                                 interior</label>
                             <input wire:model.lazy="dom_num_interior" id="dom_num_interior" name="dom_num_interior"
-                                type="text"
+                                type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_num_interior') ? 'is-invalid' : '' }}" />
                             @error('dom_num_interior')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Colonia</label>
-                            <input wire:model.lazy="dom_colonia" id="dom_colonia" type="text"
+                            <input wire:model.lazy="dom_colonia" id="dom_colonia" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_colonia') ? 'is-invalid' : '' }}" />
                             @error('dom_colonia')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Municipio</label>
                             <select wire:model.lazy="dom_municipio"
@@ -386,7 +382,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span> Localidad</label>
                             <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
@@ -403,33 +399,33 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Código
                                 Postal</label>
-                            <input wire:model.lazy="dom_postal" id="dom_postal" type="text" maxlength="5" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" 
+                            <input wire:model.lazy="dom_postal" id="dom_postal" type="text" autocomplete="off" maxlength="5" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                 class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}" />
                             @error('dom_postal')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 Teléfono fijo</label>
-                            <input wire:model.lazy="tel_fijo" id="tel_fijo" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" 
+                            <input wire:model.lazy="tel_fijo" id="tel_fijo" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                 class="form-control {{ $errors->has('tel_fijo') ? 'is-invalid' : '' }}" />
                             @error('tel_fijo')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 Teléfono celular</label>
-                            <input wire:model.lazy="tel_celular" id="tel_celular" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" 
+                            <input wire:model.lazy="tel_celular" id="tel_celular" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                 class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
                             @error('tel_celular')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -442,7 +438,7 @@
 
                 <div class="form-row">
                     <div class="col-12 dropdown-divider"></div>
-                    <div class="col-4 col-md-4 col-sm-12">
+                    <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span> Último grado de
                                 estudios.</label>
@@ -464,7 +460,7 @@
                     </div>
 
                     @if ($ultimo_grado_estudio === 'Carrera (especifique)')
-                        <div class="col-4 col-md-4 col-sm-12">
+                        <div class=" col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
                                 <input style="text-transform: uppercase" wire:model.lazy="carrera"
@@ -481,7 +477,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 ¿Realiza estudios actualmente? Especifique:</label>
-                            <input wire:model.lazy="realiza_estudios" id="realiza_estudios" type="text"
+                            <input wire:model.lazy="realiza_estudios" id="realiza_estudios" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('realiza_estudios') ? 'is-invalid' : '' }}" />
                             @error('realiza_estudios')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -524,7 +520,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="form-row" wire:ignore>
                     <div class="col-12 table-responsive">
                         <table class="table table-borderless">
                             <thead>
@@ -556,34 +552,44 @@
                             <tbody>
                                 @if (count($experiencia_laboral) > 0)
                                     @foreach ($experiencia_laboral as $kexperiencia => $experiencia)
-                                        <tr>
+                                        <tr wire:ignore>
                                             <td>
-                                                <input class="form-control" type="text" 
+                                                <input class="form-control" type="text" autocomplete="off"
                                                     wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.nombre" />
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text"
+                                                <input class="form-control" type="text" autocomplete="off"
                                                     wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.puesto" />
                                             </td>
                                             <td>
-                                                <input style="text-align: center" class="form-control" type="text" name="date_inicio" 
-                                                onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.inicio" /><small style="text-align: center" class="form-text text-muted"><strong class="text-uppercase">Dia/Mes/Año</strong></small>
+                                                <input  class="form-control datepicker" wire:key="key_inicio_{{$kexperiencia}}"
+                                                        autocomplete="off"
+                                                        placeholder="dd/mm/yyyy"
+                                                        id="date_inicio_{{$kexperiencia}}"
+                                                        name="date_inicio"
+                                                        onchange="this.dispatchEvent(new InputEvent('input'))"
+                                                        wire:model.debounce.500ms="experiencia_laboral.{{ $kexperiencia }}.inicio"
+                                                />
                                             </td>
                                             <td>
-                                                <input class="form-control" style="text-align: center" type="text" name="date_fin" 
-                                                 onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.fin" /><small style="text-align: center" class="form-text text-muted"><strong class="text-uppercase">Dia/Mes/Año</strong></small>
+                                                <input
+                                                    class="form-control datepicker" wire:key="key_fin_{{$kexperiencia}}"
+                                                    autocomplete="off"
+                                                    placeholder="dd/mm/yyyy"
+                                                    id="date_fin_{{$kexperiencia}}"
+                                                    name="date_fin"
+                                                    onchange="this.dispatchEvent(new InputEvent('input'))"
+                                                    wire:model.debounce.500ms="experiencia_laboral.{{ $kexperiencia }}.fin" />
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.telefono" />
+                                                <input class="form-control" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.telefono" />
                                             </td>
                                         </tr>
                                     @endforeach
                                 @endif
                             </tbody>
                         </table>
-                        @error('experiencia_laboral')
+                        @error('experiencia_laboral.*')
                             <span class="text-danger error h6">{{ $message }}</span>
                         @enderror
                     </div>
@@ -633,8 +639,8 @@
                             {{-- Pregunta numero 1.1 --}}
                             <div class="form-row justify-content-between mb-3 col-12">
                                 <div class="col-12"><h5>1.1- ¿Cuál?</h5></div>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" wire:model.lazy="p1_1_cual"
+                                <div class="">
+                                    <input type="text" autocomplete="off" class="form-control" wire:model.lazy="p1_1_cual"
                                         id="p1_1_cual" name="p1_1_cual">
                                 </div>
                                 <div class="">
@@ -652,7 +658,7 @@
                         <div class="col-12"><label class=""><span class="text-danger ">*</span>1.2- ¿De qué forma?</label>
 
                                 <select wire:model.lazy="p1_2_forma"
-                                    class="form-control col-4 {{ $errors->has('p1_2_forma') ? 'is-invalid' : '' }}">
+                                    class="form-control  {{ $errors->has('p1_2_forma') ? 'is-invalid' : '' }}">
                                     <option value="">
                                         {{ __('adminlte::adminlte.please_select') }}
                                     </option>
@@ -675,7 +681,7 @@
                                     <label class="col-12"><span class="text-danger ">*</span>
                                         Especifique</label>
                                     <input style="text-transform: uppercase" wire:model.lazy="p1_2_otra_forma"
-                                        class="form-control col-4 {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
+                                        class="form-control  {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                     @error('p1_2_otra_forma')
                                         <span class="text-danger error h6">{{ $message }}</span>
                                     @enderror
@@ -691,7 +697,7 @@
                         <h5>2- ¿Tiene disponibilidad de tiempo para prestar sus
                             servicios en horario fuera de lo habitual?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p2_disponibilidad" id="p2_disponibilidad_si"
@@ -719,7 +725,7 @@
                         <h5>3. ¿Está dispuesta/o a prestar sus servicios en
                             fines de semana y días festivos?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p3_finsemana" id="p3_finsemana_si" name="p3_finsemana">
@@ -746,7 +752,7 @@
                             campo? (visitar a la ciudadanía casa por casa,
                             trasladarse grandes distancias, entre otras)</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si" wire:model.lazy="p4_campo"
                                 id="p4_campo_si" name="p4_campo">
@@ -773,7 +779,7 @@
                             política o ha participado activamente en alguna
                             campaña electoral en el último año?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p5_milita" id="p5_milita_si" name="p5_milita">
@@ -802,7 +808,7 @@
                             coalición en alguna elección realizada en los
                             últimos tres años?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p6_como_representante" id="p6_como_representante_si"
@@ -836,7 +842,7 @@
                             candidatas/os independientes que ya estén
                             registradas/os para el PE 2023-2024)?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p7_familiar" id="p7_familiar_si" name="p7_familiar">
@@ -868,7 +874,7 @@
                             último año previo a este registro para el PE
                             2023-2024? **</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p8_servidora" id="p8_servidora_si" name="p8_servidora">
@@ -894,7 +900,7 @@
                         <h5>9. ¿Cuenta con experiencia en manejo o trato con
                             grupos?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p9_experiencia" id="p9_experiencia_si" name="p9_experiencia">
@@ -919,7 +925,7 @@
                         <h5>10. ¿Ha impartido capacitación presencial o virtual?
                         </h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p10_impartido" id="p10_impartido_si" name="p10_impartido">
@@ -943,7 +949,7 @@
                     <div class="col-12">
                         <h5>11. ¿Habla alguna lengua indígena?</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p11_habla_lindigena" id="p11_habla_lindigena_si"
@@ -969,8 +975,8 @@
                     <div class="col-12">
                         <h5>11.1- Cual</h5>
                     </div>
-                    <div class="col-4">
-                        <input type="text" class="form-control" wire:model.lazy="p11_1_cual" id="p11_1_cual"
+                    <div class="col-6">
+                        <input type="text" autocomplete="off" class="form-control" wire:model.lazy="p11_1_cual" id="p11_1_cual"
                             name="p11_1_cual">
                     </div>
                     <div class="col-12">
@@ -985,7 +991,7 @@
                     <div class="col-12">
                         <h5>12. ¿Sabe conducir automóvil? *</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p12_conducir" id="p12_conducir_si" name="p12_conducir">
@@ -1009,7 +1015,7 @@
                         <div class="col-12">
                             <h5>12.1. ¿Cuenta con licencia de manejo? *</h5>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" value="Si"
                                     wire:model.lazy="p12_1_licencia" id="p12_1_licencia_si" name="p12_1_licencia">
@@ -1032,7 +1038,7 @@
                         <div class="col-12">
                             <h5>12.2. ¿Cuenta con vehículo propio? *</h5>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" value="Si"
                                     wire:model.lazy="p12_2_vehiculo" id="p12_2_vehiculo_si" name="p12_2_vehiculo">
@@ -1057,7 +1063,7 @@
                                 <h5>12.3. Anote marca y modelo*.</h5>
                             </div>
                             <div class="col-4">
-                                <input type="text" class="form-control" wire:model.lazy="p12_3_marca"
+                                <input type="text" autocomplete="off" class="form-control" wire:model.lazy="p12_3_marca"
                                     id="p12_3_marca" name="p12_3_marca">
                             </div>
                             <div class="col-12">
@@ -1073,7 +1079,7 @@
                                     para sus actividades si el OPL le brinda un apoyo
                                     económico para combustible? *</h5>
                             </div>
-                            <div class="col-4">
+                            <div class="col-12">
                                 <div class="form-check">
                                     <input type="radio" class="form-check-input" value="Si"
                                         wire:model.lazy="p12_4_prestar" id="p12_4_prestar_si" name="p12_4_prestar">
@@ -1100,9 +1106,9 @@
                         <h5>13. ¿Cuánto tiempo le lleva trasladarse de su
                             domicilio al OPL? *</h5>
                     </div>
-                    <div class="col-4">
+                    <div class=" col-4">
                         <div class="form-group">
-                            <input type="text" id="timeInput" maxlength="5"  placeholder="00:00" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false"  class="form-control" wire:model.lazy="p13_tiempo_traslado"
+                            <input type="text" autocomplete="off" id="timeInput" maxlength="5"  placeholder="00:00" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false"  class="form-control" wire:model.lazy="p13_tiempo_traslado"
                             id="p13_tiempo_traslado" name="p13_tiempo_traslado"> <span style="font-size: xsmall">Formato hrs:mins</span>
                         </div>
                         <script>
@@ -1115,7 +1121,7 @@
                             });
                         </script>
                 </div>
-                    
+
                     <div class="col-12">
                         @error('p13_tiempo_traslado')
                             <span class="text-danger error h6">{{ $message }}</span>
@@ -1129,7 +1135,7 @@
                     <div class="col-12">
                         <h5>14. ¿Cuenta con acceso a Internet en su casa? *</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p14_acceso_internet" id="p14_acceso_internet_si"
@@ -1156,7 +1162,7 @@
                     <div class="col-12">
                         <h5>15. ¿Tiene alguna discapacidad? *</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p15_discapacidad" id="p15_discapacidad_si" name="p15_discapacidad">
@@ -1181,7 +1187,7 @@
                             <h5>15.1 En caso de haber señalado “Sí” en la pregunta
                                 15, selección una opción.</h5>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" value="fisica_motora"
                                     wire:model.lazy="p15_1_tipodiscapacidad" id="p15_1_tipodiscapacidad_1"
@@ -1229,7 +1235,7 @@
                             <h5>15.2 Especifique:</h5>
                         </div>
                         <div class="col-12">
-                            <input type="text" class="form-control" wire:model.lazy="p15_2_otradiscapacidad"
+                            <input type="text" autocomplete="off" class="form-control" wire:model.lazy="p15_2_otradiscapacidad"
                                 id="p15_2_otradiscapacidad" name="p15_2_otradiscapacidad">
                         </div>
                         <div class="col-12">
@@ -1244,7 +1250,7 @@
                     <div class="col-12">
                         <h5>16. ¿Sabe utilizar el teléfono celular? *</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" value="Si"
                                 wire:model.lazy="p16_utilizar_celular" id="p16_utilizar_celular_si"
@@ -1387,19 +1393,62 @@
                     }
                 })
             });
-            $('input[name="date_inicio"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
-                autoApply: true,
-                minYear: 1901,
-            });
-            $('input[name="date_fin"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
-                autoApply: true,
-                minYear: 1901,
-            });
-            
+
         })
-            </script>
+        document.addEventListener('livewire:load', ()=> {
+
+            let elements = document.querySelectorAll('.datepicker');
+            elements.forEach((le) => {
+                $('#'+le.id).daterangepicker({
+                    singleDatePicker:true,
+                    linkedCalendars: false,
+                    autoUpdateInput: true,
+                    showDropdowns: true,
+                    placeholder:'Select a range',
+                    locale: {
+                        format: "DD/MM/YYYY",
+                        cancelLabel: 'Cancelar',
+                        applyLabel: 'Aceptar',
+                        daysOfWeek: [
+                            "Dom",
+                            "Lun",
+                            "Mar",
+                            "Mir",
+                            "Jue",
+                            "Vie",
+                            "Sab"
+                        ],
+                        monthNames: [
+                            "Enero",
+                            "Febrero",
+                            "Marzo",
+                            "Abril",
+                            "Mayo",
+                            "Junio",
+                            "Julio",
+                            "Augosto",
+                            "Septiembre",
+                            "Octubre",
+                            "Noviembre",
+                            "Diciembre"
+                        ],
+                    }
+                });
+
+                $('#'+le.id).on('cancel.daterangepicker', function(ev, picker) {
+                    $(this).val('');
+                });
+                $('#'+le.id).val('');
+            })
+
+            var forceInputUppercase = function(e) {
+                let el = e.target;
+                el.value = el.value.toUpperCase();
+            };
+
+            document.querySelectorAll("input[type=text], input[type=email], textarea").forEach(function(current) {
+                current.addEventListener("keyup", forceInputUppercase);
+            });
+        })
+    </script>
 @endsection

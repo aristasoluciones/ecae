@@ -447,8 +447,7 @@ return [
                 ],
             ],
         ],
-
-           'daterangepicker' => [
+        'daterangepicker' => [
             'active' => true,
             'files' => [
                 [
@@ -461,7 +460,7 @@ return [
                     'asset' => true,
                     'location' => '/vendor/daterangepicker/daterangepicker.js',
                 ],
-                
+
                 [
                     'type' => 'css',
                     'asset' => true,
@@ -469,7 +468,6 @@ return [
                 ],
             ],
         ],
-
         'Highcharts' => [
             'active' => true,
             'files' => [
