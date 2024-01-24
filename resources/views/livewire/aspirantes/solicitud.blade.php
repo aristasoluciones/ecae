@@ -615,12 +615,28 @@
                                            wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.puesto" />
                                 </td>
                                 <td>
-                                    <input class="form-control" type="date"
-                                           wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.inicio" />
+                                    <input  class="form-control datepicker  {{ $editar ? 'd-block' : 'd-none' }}" wire:key="key_inicio_{{$kexperiencia}}"
+                                            autocomplete="off"
+                                            placeholder="dd/mm/yyyy"
+                                            id="date_inicio_{{$kexperiencia}}"
+                                            name="date_inicio"
+                                            onchange="this.dispatchEvent(new InputEvent('input'))"
+                                            wire:model.debounce.500ms="experiencia_laboral.{{ $kexperiencia }}.inicio"
+                                    />
+                                    <input class="form-control {{ $editar ? 'd-none' : 'd-block' }}"
+                                           value ="{{ $experiencia_laboral[$kexperiencia]['inicio'] }}" />
                                 </td>
                                 <td>
-                                    <input class="form-control" type="date"
-                                           wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.fin" />
+                                    <input  class="form-control datepicker  {{ $editar ? 'd-block' : 'd-none' }}" wire:key="key_fin_{{$kexperiencia}}"
+                                            autocomplete="off"
+                                            placeholder="dd/mm/yyyy"
+                                            id="key_fin_{{$kexperiencia}}"
+                                            name="date_fin"
+                                            onchange="this.dispatchEvent(new InputEvent('input'))"
+                                            wire:model.debounce.500ms="experiencia_laboral.{{ $kexperiencia }}.fin"
+                                    />
+                                    <input class="form-control {{ $editar ? 'd-none' : 'd-block' }}"
+                                           value ="{{ $experiencia_laboral[$kexperiencia]['fin'] }}" />
                                 </td>
                                 <td>
                                     <input class="form-control" type="text"
@@ -1434,3 +1450,63 @@
         </div>
     </div>
 </div>
+
+@section('js')
+    <script type="text/javascript">
+        document.addEventListener('livewire:load', ()=> {
+
+            let elements = document.querySelectorAll('.datepicker');
+            elements.forEach((le) => {
+                $('#'+le.id).daterangepicker({
+                    singleDatePicker:true,
+                    linkedCalendars: false,
+                    autoUpdateInput: true,
+                    showDropdowns: true,
+                    placeholder:'Select a range',
+                    locale: {
+                        format: "DD/MM/YYYY",
+                        cancelLabel: 'Cancelar',
+                        applyLabel: 'Aceptar',
+                        daysOfWeek: [
+                            "Dom",
+                            "Lun",
+                            "Mar",
+                            "Mir",
+                            "Jue",
+                            "Vie",
+                            "Sab"
+                        ],
+                        monthNames: [
+                            "Enero",
+                            "Febrero",
+                            "Marzo",
+                            "Abril",
+                            "Mayo",
+                            "Junio",
+                            "Julio",
+                            "Augosto",
+                            "Septiembre",
+                            "Octubre",
+                            "Noviembre",
+                            "Diciembre"
+                        ],
+                    }
+                });
+
+                $('#'+le.id).on('cancel.daterangepicker', function(ev, picker) {
+                    $(this).val('');
+                });
+                $('#'+le.id).val('');
+            })
+
+            var forceInputUppercase = function(e) {
+                let el = e.target;
+                el.value = el.value.toUpperCase();
+            };
+
+            document.querySelectorAll("input[type=text], input[type=email], textarea").forEach(function(current) {
+                current.addEventListener("keyup", forceInputUppercase);
+            });
+        })
+    </script>
+@endsection

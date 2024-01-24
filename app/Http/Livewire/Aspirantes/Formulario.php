@@ -149,6 +149,7 @@ class Formulario extends Component
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
             'email'    => 'nullable|email|confirmed',
+            'email_confirmation'    => 'nullable|email|same:email',
             'acepto_aviso' => 'required|integer',
             'acepto_ser_contactado' => 'nullable',
             'acepto_declaratoria'   => 'nullable',
@@ -181,15 +182,17 @@ class Formulario extends Component
         ];
     }
 
-    public function updated() {
-        return $this->validate();
+    public function updated($field) {
+        return $this->validateOnly($field);
     }
     public function messages() {
         return [
             '*.required' => 'Este campo es obligatorio.',
             '*.required_if' => 'Este campo es obligatorio.',
-            'email.email_confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
-            'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.'
+            'email.confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
+            'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.',
+            'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
+            'email_confirmation.email' => 'El campo  Confirmar correo electrónico debe ser una dirección de correo válida.'
         ];
     }
 
@@ -197,9 +200,9 @@ class Formulario extends Component
         return $this->candidato?->id > 0;
     }
 
-    public function updatingClaveElector($value) {
+    public function updatedClaveElector($value) {
 
-        if(strlen($value) <= 0) {
+        if(strlen($value) != 18) {
             $this->reset(['fecha_nacimiento','edad','genero']);
             return;
         }
@@ -229,32 +232,25 @@ class Formulario extends Component
         $this->p1_2_forma = null;
         $this->p1_2_otra_forma = null;
     }
-    
-    public function updatingMunicipio($value) {
 
-
+    public function updatedMunicipio($value) {
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
         $this->sede = $this->consejosMunicipales[$value] ?? [];
 
     }
 
-    public function updatingDomMunicipio($value) {
-
+    public function updatedDomMunicipio($value) {
         $this->domLocalidadesFiltrado = $this->localidades[$value] ?? [];
-
-
     }
 
-    public function updatingEmail($value) {
-
-        $this->email = mb_strtoupper($value);
-
+    public function updatedEmail($value) {
+        $this->email =  mb_strtoupper($value);
+        $this->validate(['email_confirmation' => 'nullable|email|same:email']);
     }
 
-    public function updatingEmailConfirmation($value) {
-
-        $this->email_confirmation = mb_strtoupper($value);
-
+    public function updatedEmailConfirmation($value) {
+        $this->email_confirmation =  mb_strtoupper($value);
+        $this->validate(['email' => 'nullable|email|confirmed']);
     }
 
     public function mount(Aspirante $candidato) {
@@ -269,7 +265,7 @@ class Formulario extends Component
 
         $this->localidadesFiltrado     =  [];
         $this->domLocalidadesFiltrado     =  [];
-        
+
 
         $consejos = [];
         foreach($this->municipios as $mun) {
@@ -308,26 +304,31 @@ class Formulario extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
-        if(isset($dataFill['email']))
+        if(isset($dataFill['email_confirmation']))
             unset($dataFill['email_confirmation']);
-                if(isset($dataFill['email_confirmation']))
-                    unset($dataFill['email']);
 
         $dataFill['numero_convocatoria'] = 1;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
         $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
-
         $this->candidato = Aspirante::create($dataFill);
 
-
-        if(strlen($this->candidato->email) > 0) {
-            $files = [
-                'SOLICITUD'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output(),
-                'DECLARATORIA_'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output()
-            ];
-            Mail::to($this->candidato->email)->send(new RegistroShipped($files));
+        try {
+            if(strlen($this->candidato->email) > 0) {
+                $files = [
+                    'SOLICITUD'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output(),
+                    'DECLARATORIA_'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output()
+                ];
+                Mail::to($this->candidato->email)->send(new RegistroShipped($files));
+            }
+            $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+        } catch (\Exception $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'success',
+                'title'   => 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>',
+                'timeout' => 5000
+            ]);
         }
-        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+
     }
 
     public function handlerSave() {
@@ -399,7 +400,7 @@ class Formulario extends Component
                 'puesto' => '',
                 'inicio' => '',
                 'fin' => '',
-                'telefono' => ''
+                'telefono' => '',
             ];
         }
 
