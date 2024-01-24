@@ -13,6 +13,7 @@
     input[type=time]::-webkit-datetime-edit-ampm-field {
         display: none;
     }
+
     .otro-dato h5 {
         text-align: justify;
     }
@@ -1375,6 +1376,10 @@
 
 @section('js')
     <script type="text/javascript">
+        var forceInputUppercase = function(e) {
+            let el = e.target;
+            el.value = el.value.toUpperCase();
+        };
         document.addEventListener('DOMContentLoaded', () => {
             @this.on('confirmar', params => {
                 Swal.fire({
@@ -1441,14 +1446,14 @@
                 $('#'+le.id).val('');
             })
 
-            var forceInputUppercase = function(e) {
-                let el = e.target;
-                el.value = el.value.toUpperCase();
-            };
-
-            document.querySelectorAll("input[type=text], input[type=email], textarea").forEach(function(current) {
+            document.querySelectorAll("input[type=text], input[type=email], textarea ,#p11_1_cual").forEach(function(current) {
                 current.addEventListener("keyup", forceInputUppercase);
             });
+            this.livewire.hook('message.processed', () => {
+                document.querySelectorAll("input[type=text], input[type=email], textarea ,#p11_1_cual").forEach(function(current) {
+                    current.addEventListener("keyup", forceInputUppercase);
+                });
+            })
         })
     </script>
 @endsection

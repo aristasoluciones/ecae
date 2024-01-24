@@ -304,27 +304,31 @@ class Formulario extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
-        if(isset($dataFill['email']))
-            unset($dataFill['email_confirmation']);
-
         if(isset($dataFill['email_confirmation']))
-            unset($dataFill['email']);
+            unset($dataFill['email_confirmation']);
 
         $dataFill['numero_convocatoria'] = 1;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
         $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
-
         $this->candidato = Aspirante::create($dataFill);
 
-
-        if(strlen($this->candidato->email) > 0) {
-            $files = [
-                'SOLICITUD'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output(),
-                'DECLARATORIA_'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output()
-            ];
-            Mail::to($this->candidato->email)->send(new RegistroShipped($files));
+        try {
+            if(strlen($this->candidato->email) > 0) {
+                $files = [
+                    'SOLICITUD'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.acuse', ['aspirante' => $this->candidato])->setPaper('letter')->output(),
+                    'DECLARATORIA_'.strtoupper($this->candidato->clave_elector) => Pdf::loadView('aspirantes.declaratoria', ['aspirante' => $this->candidato])->setPaper('letter')->output()
+                ];
+                Mail::to($this->candidato->email)->send(new RegistroShipped($files));
+            }
+            $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+        } catch (\Exception $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'success',
+                'title'   => 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>',
+                'timeout' => 5000
+            ]);
         }
-        $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+
     }
 
     public function handlerSave() {
