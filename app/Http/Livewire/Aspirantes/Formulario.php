@@ -199,7 +199,7 @@ class Formulario extends Component
 
     public function updatingClaveElector($value) {
 
-        if(strlen($value) <= 0) {
+        if(strlen($value) != 18) {
             $this->reset(['fecha_nacimiento','edad','genero']);
             return;
         }
@@ -399,7 +399,7 @@ class Formulario extends Component
                 'puesto' => '',
                 'inicio' => '',
                 'fin' => '',
-                'telefono' => ''
+                'telefono' => '',
             ];
         }
 

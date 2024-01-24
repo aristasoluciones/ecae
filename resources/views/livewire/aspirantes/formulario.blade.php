@@ -19,8 +19,9 @@
     .otro-dato h5 {
         text-align: justify;
     }
-
+    
 </style>
+
 @endpush
 <div class="container">
     @if (!$this->registrado)
@@ -557,7 +558,7 @@
                                     @foreach ($experiencia_laboral as $kexperiencia => $experiencia)
                                         <tr>
                                             <td>
-                                                <input class="form-control" type="text"
+                                                <input class="form-control" type="text" 
                                                     wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.nombre" />
                                             </td>
                                             <td>
@@ -565,12 +566,14 @@
                                                     wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.puesto" />
                                             </td>
                                             <td>
-                                                <input class="form-control" type="date"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.inicio" />
+                                                <input style="text-align: center" class="form-control" type="text" name="date_inicio" 
+                                                onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10"
+                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.inicio" /><small style="text-align: center" class="form-text text-muted"><strong class="text-uppercase">Dia/Mes/Año</strong></small>
                                             </td>
                                             <td>
-                                                <input class="form-control" type="date"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.fin" />
+                                                <input class="form-control" style="text-align: center" type="text" name="date_fin" 
+                                                 onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10"
+                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.fin" /><small style="text-align: center" class="form-text text-muted"><strong class="text-uppercase">Dia/Mes/Año</strong></small>
                                             </td>
                                             <td>
                                                 <input class="form-control" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.telefono" />
@@ -1383,7 +1386,20 @@
                         @this.call(params.method)
                     }
                 })
-            })
+            });
+            $('input[name="date_inicio"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                autoApply: true,
+                minYear: 1901,
+            });
+            $('input[name="date_fin"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                autoApply: true,
+                minYear: 1901,
+            });
+            
         })
-    </script>
+            </script>
 @endsection
