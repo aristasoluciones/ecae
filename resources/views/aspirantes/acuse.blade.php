@@ -982,7 +982,7 @@ img{
             <tr>
                 <td class="rosap1" colspan="2"
                     style="width: 20%; text-align: left;">¿Realiza estudios actualmente?<br>Especifique:&nbsp;</td>
-                <td class="rosap1" style="width: 30%; text-align: center;">&nbsp;</td>
+                <td class="rosap1" style="width: 30%; text-align: center;">{{ mb_strtoupper ($aspirante->realiza_estudios)}}</td>
                 <td class="rosap1" style="width: 50%; text-align: center;">&nbsp;</td>
             </tr>
         </tbody>
