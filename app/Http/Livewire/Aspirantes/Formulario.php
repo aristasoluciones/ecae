@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 use Livewire\Component;
 use App\Rules\ClaveElectorRule;
 
@@ -304,9 +305,8 @@ class Formulario extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
-        if(isset($dataFill['email_confirmation']))
-            unset($dataFill['email_confirmation']);
 
+        unset($dataFill['email_confirmation']);
         $dataFill['numero_convocatoria'] = 1;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
         $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
@@ -333,6 +333,15 @@ class Formulario extends Component
 
     public function handlerSave() {
 
+        $this->withValidator(function (Validator $validator) {
+            $validator->after(function ($validator) {
+                $this->emit('swal:alert', [
+                    'icon'    => 'error',
+                    'title'   => 'Revise los campos marcados del formulario',
+                    'timeout' => 5000
+                ]);
+            });
+        })->validate();
 
        $this->emit('confirmar', [
             'icon'    => 'question',

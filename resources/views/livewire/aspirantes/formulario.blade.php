@@ -106,7 +106,7 @@
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger"></span> Correo electrónico</label>
-                            <input autocomplete="off" wire:model.lazy="email" id="email" name="email" type="email"
+                            <input autocomplete="off" wire:model="email" id="email" name="email" type="email"
                                    aria-describedby="clave-elector-help-text"
                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
 
@@ -119,7 +119,7 @@
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
-                            <input autocomplete="off" wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
+                            <input autocomplete="off" wire:model="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                                    class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
                                      @error('email_confirmation')
                                      <span class="text-danger error h6">{{ $message }}</span>
@@ -1359,6 +1359,11 @@
                             </a>
                         </div>
                     </div>
+                    @if(strlen($this->candidato->email) >0)
+                    <div class="col-12 text-center pt-5">
+                        <p class="text-bold">Se ha enviado una copia de su acuse al correo electrónico proporcionado, en caso de no visualizarlo favor de revisar la carperta de SPAM </p>
+                    </div>
+                    @endif
                 </div>
 
             </div>
@@ -1368,8 +1373,6 @@
     @if($errors->any())
         <script wire:key="{{ rand() }}">
             let firstInvalidInput = document.querySelector(".is-invalid");
-            if(firstInvalidInput)
-                firstInvalidInput.focus({preventScroll:false});
         </script>
     @endif
 </div>
