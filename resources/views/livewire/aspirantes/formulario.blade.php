@@ -1379,10 +1379,6 @@
 
 @section('js')
     <script type="text/javascript">
-        var forceInputUppercase = function(e) {
-            let el = e.target;
-            el.value = el.value.toUpperCase();
-        };
         document.addEventListener('DOMContentLoaded', () => {
             @this.on('confirmar', params => {
                 Swal.fire({
@@ -1450,11 +1446,17 @@
             })
 
             document.querySelectorAll("input[type=text], input[type=email], textarea ,#p11_1_cual").forEach(function(current) {
-                current.addEventListener("keyup", forceInputUppercase);
+                current.addEventListener("keyup", (event) => {
+                    event.preventDefault()
+                    current.value = current.value.toUpperCase()
+                });
             });
             this.livewire.hook('message.processed', () => {
                 document.querySelectorAll("input[type=text], input[type=email], textarea ,#p11_1_cual").forEach(function(current) {
-                    current.addEventListener("keyup", forceInputUppercase);
+                    current.addEventListener("keyup", (event) => {
+                        event.preventDefault()
+                        current.value = current.value.toUpperCase()
+                    });
                 });
             })
         })
