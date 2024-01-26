@@ -106,7 +106,7 @@
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger"></span> Correo electrónico</label>
-                            <input autocomplete="off" wire:model="email" id="email" name="email" type="email"
+                            <input autocomplete="off" wire:model.debounce.500ms="email" id="email" name="email" type="email"
                                    aria-describedby="clave-elector-help-text"
                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
 
@@ -119,7 +119,7 @@
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
-                            <input autocomplete="off" wire:model="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
+                            <input autocomplete="off" wire:model.debounce.500ms="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                                    class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
                                      @error('email_confirmation')
                                      <span class="text-danger error h6">{{ $message }}</span>
