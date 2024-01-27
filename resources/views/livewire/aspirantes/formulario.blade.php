@@ -1369,6 +1369,43 @@
             </div>
         </div>
     @endif
+            <div id="modal-confirmar" wire:ignore.self class="modal fade" role="dialog" data-backdrop="static"
+                 data-keyboard="false">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-gradient-info">
+                            <h4 class="modal-title">Confirmar y enviar información</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 text-justify">
+                                    <p>¿Esta seguro de enviar sus datos?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group-toggle" wire:loading.remove wire.target="guardar">
+                                <button type="button"
+                                        class="btn btn-danger close-btn mr-2"
+                                        data-dismiss="modal">Cancelar
+                                </button>
+                                <button type="button"
+                                        class="btn btn-primary"
+                                        wire:click="guardar">Confirmar y enviar
+                                </button>
+                            </div>
+                            <button type="button"
+                                    class="btn btn-primary"
+                                    wire:loading wire.target="guardar">
+                                <span>Enviando información <i class="fas fa-spinner"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     @if($errors->any())
         <script wire:key="{{ rand() }}">

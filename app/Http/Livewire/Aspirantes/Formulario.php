@@ -320,7 +320,8 @@ class Formulario extends Component
                 ];
                 Mail::to($this->candidato->email)->send(new RegistroShipped($files));
             }
-            $this->notificar('success', 'Se ha registrado correctamente con el folio <strong>'.$this->candidato->id.'</strong>');
+            $this->emit('modal:hide', '#modal-confirmar');
+
         } catch (\Exception $e) {
             $this->emit('swal:alert', [
                 'icon'    => 'success',
@@ -334,22 +335,16 @@ class Formulario extends Component
     public function handlerSave() {
 
         $this->withValidator(function (Validator $validator) {
-            $validator->after(function ($validator) {
+            if($validator->fails()) {
                 $this->emit('swal:alert', [
                     'icon'    => 'error',
                     'title'   => 'Revise los campos marcados del formulario',
                     'timeout' => 5000
                 ]);
-            });
+            }
         })->validate();
 
-       $this->emit('confirmar', [
-            'icon'    => 'question',
-            'title'   => 'Confirmar información',
-            'text'    => '¿Esta seguro de enviar sus datos?',
-            'confirmText' => $this->aspirante_id > 0 ? 'Actualizar' : 'Guardar',
-            'method'  => $this->aspirante_id > 0 ? "actualizar" : "guardar",
-        ]);
+        $this->emit('modal:show', '#modal-confirmar');
     }
     public function actualizar() {
 
