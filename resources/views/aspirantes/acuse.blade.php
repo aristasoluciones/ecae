@@ -1336,16 +1336,16 @@ img{
                 <td class="grisp2" style="width: 40%; text-align: left;">15. ¿Tiene alguna discapacidad? *</td>
                 <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_discapacidad=='Si')
-                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
-                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 6; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
                 <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_discapacidad=='No')
-                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
-                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 6; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1383,32 +1383,32 @@ img{
             <tr>
                 <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                 @if ($aspirante->p15_1_tipodiscapacidad=='fisica_motora')
-                <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
-                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">A) Física o motora</span>
+                <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 8; bottom: 0; margin: auto;">A) Física o motora</span>
                     @else
                         <span>A) Física o motora</span>
                     @endif
                 </td>
                 <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_1_tipodiscapacidad=='intelectual')
-                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
-                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">B) Intelectual</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 8; bottom: 0; margin: auto;">B) Intelectual</span>
                     @else
                         <span>B) Intelectual</span>
                     @endif
                 </td>
                 <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_1_tipodiscapacidad=='mental_psicosocial')
-                    <span style="font-weight: bold; font-size: 15pt; position: absolute; width: 10%; text-align: center;">X</span>
-                        <span style="position: absolute; width: 10%; text-align: center;">C) Mental o <br>psicosocial</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 6; bottom: 0; margin: auto;">C) Mental o <br>psicosocial</span>
                     @else
                         <span>C) Mental o psicosocial</span>
                     @endif
                 </td>
                 <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_1_tipodiscapacidad=='sensorial')
-                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
-                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">D) Sensorial</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 8; bottom: 0; margin: auto;">D) Sensorial</span>
                     @else
                         <span>D) Sensorial</span>
                     @endif
