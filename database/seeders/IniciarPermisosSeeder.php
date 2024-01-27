@@ -28,7 +28,7 @@ class IniciarPermisosSeeder extends Seeder
         DB::table('roles')->truncate();
         Schema::enableForeignKeyConstraints();
 
-        $roles =  ['superadministrador','administrador','representante','consejero'];
+        $roles =  ['superadministrador','administrador','odes','consejero'];
 
         $permisos = [
             'configuraciones' => [
