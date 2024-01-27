@@ -273,7 +273,7 @@
                     </div>
                     @if ($genero === 'Otro')
                         <div class=" col-md-4 col-sm-12">
-                            <div class="form-group {{ $errors->has('genero') ? 'is-invalid' : '' }}">
+                            <div class="form-group {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
                                 <input style="text-transform: uppercase" wire:model.lazy="otro_genero"
                                     class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
@@ -1387,9 +1387,6 @@
                     <div class="modal-content">
                         <div class="modal-header bg-gradient-info">
                             <h4 class="modal-title">Confirmar y enviar información</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
