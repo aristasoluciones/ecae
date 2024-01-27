@@ -297,45 +297,11 @@ img{
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]?? '')}}</td>
                 @endif
                 <td class="blancop1" style="width: 5%" align="center">CURP</td>
-                @if ($aspirante->curp)
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[0])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[1])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[2])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[3])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[4])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[5])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[6])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[7])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[8])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[9])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[10])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[11])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[12])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[13])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[14])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[15])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[16])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[17])?? ''}}</td>
-                @else
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                @endif
+                
+                @for ($i = 0; $i <= 17; $i++)
+                @if (isset($aspirante->curp[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
+                @endfor
+                
             </tr>
         </tbody>
         </tbody>
@@ -1026,12 +992,7 @@ img{
                 <td class="grisp1" style="width: 20%; text-align: center;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['fin']}}</td>
-                <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['telefono']}}</td>
-                  
-                
-                 
-               
-                
+                <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['telefono']}}</td> 
             </tr>
             @endforeach
         </tbody>
