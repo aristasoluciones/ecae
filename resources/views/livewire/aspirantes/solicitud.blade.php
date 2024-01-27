@@ -559,6 +559,18 @@
                     @enderror
                 </div>
             </div>
+            @if ($medio_convocatoria === 'L. Otro')
+                <div class="col-md-4 col-sm-12">
+                    <div class="form-group {{ $errors->has('otro_medio_convocatoria') ? 'is-invalid' : '' }}">
+                        <label class=""><span class="text-danger ">*</span> Especifique:</label>
+                        <input style="text-transform: uppercase" wire:model.lazy="otro_medio_convocatoria"
+                               class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
+                        @error('otro_medio_convocatoria')
+                        <span class="text-danger error h6">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+            @endif
 
             <div class="col-md-8 col-sm-12">
                 <div class="form-group">
