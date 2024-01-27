@@ -900,7 +900,7 @@ img{
                 <td class="rosap1" style="width: 15%; text-align: left;">Carrera(Especifique)</td>
                 <td class="rosap1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspirante->carrera)}}</td>
                 <td class="grisp1" style="width: 8.4%; text-align: center;">Especifique</td>
-                <td class="rosap1" style="width: 41.6%; text-align: center;">{{ $aspirante->otro_medio_convocatoria}}</td>
+                <td class="rosap1" style="width: 41.6%; text-align: center;">{{mb_strtoupper ($aspirante->otro_medio_convocatoria)}}</td>
             </tr>
         </tbody>
         </tbody>
