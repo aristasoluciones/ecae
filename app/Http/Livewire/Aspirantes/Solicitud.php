@@ -143,6 +143,7 @@ class Solicitud extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
+            'otro_medio_convocatoria'  => 'required_if:medio_convocatoria,"L. Otro"|string',
             'email'    => 'nullable|email',
             'email_confirmation'    => 'nullable|email|same:email',
             'p1_proceso_electoral'  => 'required|string',

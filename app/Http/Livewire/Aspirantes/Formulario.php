@@ -60,6 +60,7 @@ class Formulario extends Component
     public $realiza_estudios;
     public $motivo_secae;
     public $medio_convocatoria;
+    public $otro_medio_convocatoria;
     public $email;
     public $email_confirmation;
     public $acepto_aviso;
@@ -149,6 +150,7 @@ class Formulario extends Component
             'experiencia_laboral.*.telefono'   => 'nullable|string',
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
+            'otro_medio_convocatoria'  => 'required_if:medio_convocatoria,"L. Otro"|string',
             'email'    => 'nullable|email|confirmed',
             'email_confirmation'    => 'nullable|email|same:email',
             'acepto_aviso' => 'required|integer',
