@@ -381,6 +381,8 @@ img{
                     @if ($aspirante->genero=='Otro')
                     <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
                     <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
+                    @else
+                    <td class="rosap1"></td>
                     @endif  
                 </td>
 
