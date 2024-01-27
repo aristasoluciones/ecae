@@ -331,7 +331,7 @@
             </div>
             @if ($genero === 'Otro')
                 <div class="col-4 col-md-4 col-sm-12">
-                    <div class="form-group {{ $errors->has('genero') ? 'is-invalid' : '' }}">
+                    <div class="form-group {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                         <label class=""><span class="text-danger ">*</span>Especifique:</label>
                         <input wire:model.lazy="otro_genero"
                                class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
