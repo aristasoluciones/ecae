@@ -371,20 +371,23 @@ img{
                     @endif
                 </td>
 
-                <td class="rosap1" style="width: 10%; text-align: center;">Otro
-                    (especifica)</td>
-                <td class="rosap1" style="width: 10%; text-align: center;">@if ($aspirante->genero=='Otro')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">{{$aspirante->sexos}}&nbsp;</span>
-                    elseif
-                    <span>&nbsp;</span>
-                    @endif</td>
-                <td class="rosap1" style="width: 10%; text-align: center;">
+                <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
+                @if ($aspirante->genero=='Otro')
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto; font-size: 10pt; font-weight: bold;">X</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Otro (especifica)</span>
+                    @else
+                    <span>Otro (especifica)</span>
+                    @endif
+                    @if ($aspirante->genero=='Otro')
+                    <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
+                    <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
+                    @endif  
+                </td>
+
+                <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
                     @if ($aspirante->genero=='Prefiero no decir')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 10%; text-align: center;">X</span>
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Prefiero no decir</span>
-                    
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto; font-size: 10pt;">X</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Prefiero no decir</span>
                     @else
                         <span>Prefiero no decir</span>
                     @endif</td>
@@ -406,43 +409,48 @@ img{
                 <td class="rosap1" rowspan="2"
                     style="width: 10%; text-align: center; font-size: 6pt;">¿Se identifica como persona LGBTTTIQ+?<br>(marca con una X)</td>
                     
-                <td class="rosap1" rowspan="2"
-                    style="width: 10%; text-align: center;">
+                <td class="rosap1" rowspan="2" style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">
                     @if ($aspirante->persona_lgbtttiq=='Si')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 10%; text-align: center; padding: 4px;">X</span>
-                    <span style="position: absolute; width: 10%; padding: 4px; text-align: center;">Si</span>
+                    <span style="position: absolute; right: 0; left: 0; top: 10; bottom: 0; margin: auto; font-size: 10pt;">X</span>
+                    <span style="position: absolute; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif</td>
 
-                <td class="rosap1" rowspan="2"
-                    style="width: 10%; text-align: center;">
+                <td class="rosap1" rowspan="2" style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">
                     @if ($aspirante->persona_lgbtttiq=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 10%; text-align: center; padding: 4px;">X</span>
-                    <span style="position: absolute; width: 10%; padding: 4px; text-align: center;">No</span>
+                    <span style="position: absolute; right: 0; left: 0; top: 10; bottom: 0; margin: auto; font-size: 10pt;">X</span>
+                    <span style="position: absolute; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
-                    @endif</td>
-
-                <td class="rosap1" rowspan="2"
-                    style="width: 10%; text-align: center;">Otro (especifica)
-                </td>
-                <td class="rosap1" rowspan="2"
-                    style="width: 10%; text-align: center;">@if ($aspirante->otro_lgbtttiq)
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">{{$aspirante->otro_lgbtttiq}}&nbsp;</span>
-                    @else
-                    <span>&nbsp;</span>
                     @endif
                 </td>
+
+                <td class="rosap1" rowspan="2" style="width: 10%; text-align: center; position: relative;">
+                    @if ($aspirante->persona_lgbtttiq=='Otro')
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto; font-size: 10pt; font-weight: bold;">X</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Otro (especifica)</span>
+                    @else
+                    <span>Otro (especifica)</span>
+                    @endif
+                    @if ($aspirante->persona_lgbtttiq=='Otro')
+                    <td class="rosap1" rowspan="2" style="width: 10%; text-align: center; position: relative;">
+                    <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_lgbtttiq}}</span></td>
+                    @else
+                    <td class="rosap1" rowspan="2" ></td>
+                    @endif  
+                </td>
+
                 <td class="rosap1" rowspan="2"
-                    style="width: 10%; text-align: center;">
+                    style="width: 10%; text-align: center; position: relative;">
                     @if ($aspirante->persona_lgbtttiq=='Prefiero no decir')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Prefiero no decir</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto; font-size: 10pt; font-weight: bold;">X</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">Prefiero no decir</span>
                     @else
                     <span>Prefiero no decir</span>
-                    @endif</td></td>
+                    @endif</td>
+                </td>
+            
             <tr>
                 <td class="blancop1" colspan="3" style="text-align: center;">Fecha de nacimiento</td>
                 <td class="blancop1" style="text-align: center;">Edad</td>
@@ -579,60 +587,60 @@ img{
                 
                 <td class="rosap1" style="width: 15%; text-align: left;">Primaria</td>
 
-                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
+                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Primer grado')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">1&ordm;</span>
                         @else
-                            <span>1&ordm;</span>
+                            <span>1</span>
                         @endif
                     </td>
                    
 
-                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
+                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Segundo grado')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
+                            <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">2&ordm;</span>
                         @else
                             <span>2&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
+                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Tercer grado')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
+                            <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">3&ordm;</span>
                         @else
                             <span>3&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
+                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Cuarto grado')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">4&ordm;</span>
+                            <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">4&ordm;</span>
                         @else
                             <span>4&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
+                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Quinto grado')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">5&ordm;</span>
+                            <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">5&ordm;</span>
                         @else
                             <span>5&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center;">
+                    <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Sexto grado')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">6&ordm;</span>
+                            <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">6&ordm;</span>
                             @else
                             <span>6&ordm;</span>
                         @endif
@@ -671,28 +679,28 @@ img{
             <tr>
                 <td class="grisp1" style="width: 15%; text-align: left;">Secundaria</td>
                 
-                <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
+                <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Primer grado')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">1&ordm;</span>
                     @else
                     <span>1&ordm;</span>
                     @endif
                 </td>
 
-                <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
+                <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Segundo grado')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">2&ordm;</span>
                     @else
                     <span>2&ordm;</span>
                     @endif
                 </td>
 
-                <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
+                <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Tercero grado')
-                    <span style="font-weight: bold; font-size: 9pt;  width: 5%; position: absolute; text-align: center;">X</span>
-                            <span style="position: absolute;  width: 5%; text-align: center;">3&ordm;</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">3&ordm;</span>
                     @else
                     <span>3&ordm;</span>
                     @endif
@@ -731,28 +739,28 @@ img{
             <tr>
                 <td class="rosap1" style="width: 15%; text-align: left; font-size: 6pt;">Bachillerato o carrera técnica</td>
                 
-                <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
+                <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Primer grado')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">1&ordm;</span>
                     @else
                     <span>1&ordm;</span>
                     @endif
                 </td>
 
-                <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
+                <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Segundo grado')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">2&ordm;</span>
                     @else
                     <span>2&ordm;</span>
                     @endif
                 </td>
 
-                <td class="grisp1" style="width: 5.833333333333333%; text-align: center;">
+                <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Tercero grado')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">3&ordm;</span>
                     @else
                     <span>3&ordm;</span>
                     @endif
@@ -792,68 +800,68 @@ img{
        
             <tr>
                 <td class="grisp1" style="width: 15%; text-align: left;">Licenciatura</td>
-                    <td class="rosap1" style="width: 5%; text-align: center;">
+                    <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Primer año')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">1&ordm;</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">1&ordm;</span>
                         @else
                             <span>1&ordm;</span>
                         @endif
                     </td>
                    
 
-                    <td class="rosap1" style="width: 5%; text-align: center;">
+                    <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Segundo año')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">2&ordm;</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">2&ordm;</span>
                         @else
                             <span>2&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5%; text-align: center;">
+                    <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Tercero año')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">3&ordm;</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">3&ordm;</span>
                         @else
                             <span>3&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5%; text-align: center;">
+                    <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Cuarto año')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">4&ordm;</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">4&ordm;</span>
                         @else
                             <span>4&ordm;</span>
                         @endif
                     </td>
                     
 
-                    <td class="rosap1" style="width: 5%; text-align: center;">
+                    <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Quinto año')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">5&ordm;</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">5&ordm;</span>
                         @else
                             <span>5&ordm;</span>
                         @endif
                     </td>
 
-                    <td class="rosap1" style="width: 5%; text-align: center; font-size: 5pt;">
+                    <td class="rosap1" style="width: 5%; text-align: center; font-size: 5pt; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura concluida')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Concluida</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 5pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Concluida</span>
                         @else
                             <span>Concluida</span>
                         @endif
                     </td>
 
-                    <td class="rosap1" style="width: 5%; text-align: center; font-size: 5pt;">
+                    <td class="rosap1" style="width: 5%; text-align: center; font-size: 5pt; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura titulado')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Titulado</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Titulado</span>
                         @else
                             <span>Titulado</span>
                         @endif
@@ -892,7 +900,7 @@ img{
                 <td class="rosap1" style="width: 15%; text-align: left;">Carrera(Especifique)</td>
                 <td class="rosap1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspirante->carrera)}}</td>
                 <td class="grisp1" style="width: 8.4%; text-align: center;">Especifique</td>
-                <td class="rosap1" style="width: 41.6%; text-align: center;">{{ $aspirante->medio_convocatoria=='L. Otro' }}</td>
+                <td class="rosap1" style="width: 41.6%; text-align: center;">{{mb_strtoupper ($aspirante->otro_medio_convocatoria)}}</td>
             </tr>
         </tbody>
         </tbody>
@@ -1032,18 +1040,18 @@ img{
         <tbody>
             <tr>
             <td class="rosap2" style="width: 40%; text-align: left;">1. ¿Ha participado en algún proceso electoral?</td>
-            <td class="rosap2" style="width: 5%; text-align: center">
+            <td class="rosap2" style="width: 5%; position: relative;">
                         @if ($aspirante->p1_proceso_electoral=='Si')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                            <span style="font-size: 9pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                             @else
                             <span>Si</span>
                         @endif
                     </td>
-                    <td class="rosap2" style="width: 5%; text-align: center;">
+                    <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p1_proceso_electoral=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 9pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                         @else
                         <span>No</span>
                         @endif
@@ -1051,18 +1059,18 @@ img{
 
 
                 <td class="rosap2" style="width: 40%; text-align: left;">12. ¿Sabe conducir automóvil?*</td>
-                    <td class="rosap2" style="width: 5%; text-align: center;">
+                    <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->p12_conducir=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 9pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                             @else
                             <span>Si</span>
                         @endif
                     </td>
-                    <td class="rosap2" style="width: 5%; text-align: center;">
+                    <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_conducir=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                         @else
                         <span>No</span>
                         @endif
@@ -1078,18 +1086,18 @@ img{
                 <td class="grisp2" style="width: 15%; text-align: left;">1.1.¿Cuál?</td>
                 <td class="grisp2" style="width: 35%; text-align: center; font-weight: bold;">{{$aspirante->p1_1_cual}}</td>
                 <td class="grisp2" style="width: 40%; text-align: left;">12.1.¿Cuenta con licencia de manejo? *</td>
-                    <td class="rosap2" style="width: 5%; text-align: center;">
+                    <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                             @if ($aspirante->p12_1_licencia=='Si')
-                            <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                            <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                                 @else
                                 <span>Si</span>
                             @endif
                         </td>
-                        <td class="rosap2" style="width: 5%; text-align: center;">
+                        <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->p12_1_licencia=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                             @else
                             <span>No</span>
                             @endif
@@ -1102,29 +1110,29 @@ img{
         <tbody>
             <tr>
                 <td class="rosap2" style="width: 10; text-align: left;">1.2 ¿De qué forma</td>
-                <td class="rosap2" style="width: 3%; text-align: left;">
+                <td class="rosap2" style="width: 3%; text-align: left; position: relative;">
                     @if ($aspirante->p1_2_forma=='SE')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">SE</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">SE</span>
                     @else
                         <span>SE</span>
                     @endif
                 </td>
 
-                <td class="rosap2" style="width: 4%; text-align: left;">
+                <td class="rosap2" style="width: 4%; text-align: left; position: relative;">
                     @if ($aspirante->p1_2_forma=='CAE')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 4%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 4%; text-align: center;">CAE</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">CAE</span>
                     @else
                         <span>CAE</span>
                     @endif
                 </td>
 
                 
-                <td class="rosap2" style="width: 4%; text-align: center;">
+                <td class="rosap2" style="width: 4%; text-align: center; position: relative;">
                     @if ($aspirante->p1_2_forma=='Otro')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 4%; text-align: center;">X</span>
-                        <span style="position: absolute; width: 4%; text-align: center;">Otro</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Otro</span>
                     @endif
                 </td>
                 
@@ -1132,18 +1140,18 @@ img{
 
                 <td class="rosap2" style="width: 40%; text-align: left;">12.2. ¿Cuenta con vehículo propio?*</td>
 
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_2_vehiculo=='Si')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_2_vehiculo=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1156,24 +1164,24 @@ img{
         <tbody>
             <tr>
                 <td class="grisp2" style="width: 40%; text-align: left;">2. ¿Tienedisponibilidad de tiempo para prestar sus servicios en horario fuera de lo habitual?</td>
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p2_disponibilidad=='Si')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
 
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p2_disponibilidad=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
                 </td>
-                <td class="grisp2" style="width: 40; text-align: left;">12.3.Anote marca y modelo*.</td>
+                <td class="grisp2" style="width: 40; text-align: left; position: relative;">12.3.Anote marca y modelo*.</td>
                 <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt;">{{mb_strtoupper ($aspirante->p12_3_marca)}}</td>
             </tr>
         </tbody>
@@ -1184,18 +1192,18 @@ img{
             <tr>
                 <td class="rosap2" style="width: 40%; text-align: left;">3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y  días festivos?</td>
 
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p3_finsemana=='Si')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p3_finsemana=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1203,18 +1211,18 @@ img{
 
                 <td class="rosap2" style="width: 40%; text-align: left;">12.4. ¿Está usted dispuesta/ o utilizar su vehículo para sus actividades si el OPL le brinda un apoyo económico para combustible? *</td>
 
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_4_prestar=='Si')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_4_prestar=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1229,18 +1237,18 @@ img{
             <tr>
                 <td class="grisp2" style="width: 40%; text-align: left;">4. ¿Está dispuesta/o a realizar actividades de campo? (visitar a la ciudadanía casa por casa, trasladarse grandes distancias, entre otras)</td>
 
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p4_campo=='Si')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p4_campo=='No')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1262,18 +1270,18 @@ img{
             <tr>
                 <td class="rosap2" style="width: 40%; text-align: left;">5.¿Milita en algún partido político u organización política o ha participado activamente en alguna campaña electoral en el último año?</td>
 
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p5_milita=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p5_milita=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1281,18 +1289,18 @@ img{
 
                 <td class="rosap2" style="width: 40%; text-align: left;">14.¿Cuenta con acceso a Internet en su casa?*</td>
 
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p14_acceso_internet=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p14_acceso_internet=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1307,37 +1315,37 @@ img{
                 <td class="grisp2" style="width: 40%; text-align: left;">6. ¿Haparticipado como representante de partido
                     político con registro vigente, candidatura independiente registrada en el PE 2023-2024 o coalición en alguna elección realizada en los últimos tres años?</td>
 
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p6_como_representante=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
 
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p6_como_representante=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
                 </td>
 
                 <td class="grisp2" style="width: 40%; text-align: left;">15. ¿Tiene alguna discapacidad? *</td>
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_discapacidad=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 6; bottom: 0; margin: auto;">Si</span>
                     @else
                     <span>Si</span>
                     @endif
                 </td>
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_discapacidad=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 6; bottom: 0; margin: auto;">No</span>
                     @else
                     <span>No</span>
                     @endif
@@ -1352,19 +1360,19 @@ img{
                 <td class="rosap2" rowspan="2"
                     style="width: 40%; text-align: left;">7. ¿Es familiar consanguíneo o por afinidad, hasta el 4° grado, de alguna persona que ostente el cargo de Vocal de la Junta Local o Distrital Ejecutiva o del Consejo Local o Distrital INE o de órganos ejecutivos y directivos del OPL (Consejeras/os y representantes de partido político o, en su
                     caso, candidatas/os independientes que ya estén registradas/os para el PE 2023-2024)?</td>
-                <td class="rosap2" rowspan="2" style="width: 5%; text-align: center;">
+                <td class="rosap2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p7_familiar=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 20; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 20; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
 
-                <td class="rosap2" rowspan="2" style="width: 5%; text-align: center;">
+                <td class="rosap2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p7_familiar=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 20; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 20; bottom: 0; margin: auto;">No</span>
                     @else
                         <span>No</span>
                     @endif
@@ -1373,34 +1381,34 @@ img{
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: center;">15.1 En caso dehaber señalado “Sí” en la pregunta 15, marque con una “X” *</td>
             </tr>
             <tr>
-                <td class="rosap2" style="width: 12.5%; text-align: center;">
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                 @if ($aspirante->p15_1_tipodiscapacidad=='fisica_motora')
-                <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                        <span style="position: absolute; width: 5%; text-align: center;">A) Física o motora</span>
+                <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 8; bottom: 0; margin: auto;">A) Física o motora</span>
                     @else
                         <span>A) Física o motora</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 12.5%; text-align: center;">
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_1_tipodiscapacidad=='intelectual')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                        <span style="position: absolute; width: 5%; text-align: center;">B) Intelectual</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 8; bottom: 0; margin: auto;">B) Intelectual</span>
                     @else
                         <span>B) Intelectual</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 12.5%; text-align: center;">
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_1_tipodiscapacidad=='mental_psicosocial')
-                    <span style="font-weight: bold; font-size: 15pt; position: absolute; width: 10%; text-align: center;">X</span>
-                        <span style="position: absolute; width: 10%; text-align: center;">C) Mental o <br>psicosocial</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 6; bottom: 0; margin: auto;">C) Mental o <br>psicosocial</span>
                     @else
                         <span>C) Mental o psicosocial</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 12.5%; text-align: center;">
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                     @if ($aspirante->p15_1_tipodiscapacidad=='sensorial')
-                    <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                        <span style="position: absolute; width: 5%; text-align: center;">D) Sensorial</span>
+                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
+                        <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 8; bottom: 0; margin: auto;">D) Sensorial</span>
                     @else
                         <span>D) Sensorial</span>
                     @endif
@@ -1416,19 +1424,19 @@ img{
                 <td class="grisp2" rowspan="2"
                     style="width: 40%; text-align: left;">8. ¿Es o ha sido persona servidora pública vinculada con programas sociales
                     en el gobierno municipal, estatal o federal, persona operadora de programas sociales y actividades institucionales, cualquiera que sea su denominación, persona servidora de la nación o ha ostentado alguno de estos cargos en el último año previo a este registro para el PE 2023-2024? **</td>
-                <td class="grisp2" rowspan="2" style="width: 5%; text-align: center;">
+                <td class="grisp2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p8_servidora=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 30; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 30; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
 
-                <td class="grisp2" rowspan="2" style="width: 5%; text-align: center;">
+                <td class="grisp2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p8_servidora=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 30; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 30; bottom: 0; margin: auto;">No</span>
                     @else
                         <span>No</span>
                     @endif
@@ -1452,35 +1460,35 @@ img{
         <tbody>
             <tr>
                 <td class="rosap2" style="width: 40%; text-align: left;">9. ¿Cuenta con experiencia en manejo o trato con grupos?</td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p9_experiencia=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p9_experiencia=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                     @else
                         <span>No</span>
                     @endif
                 </td>
                 <td class="grisp2" style="width: 40%; text-align: left;">16. ¿Sabe utilizar el teléfono celular? *</td>
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p16_utilizar_celular=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
-                <td class="grisp2" style="width: 5%; text-align: center;">
+                <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p16_utilizar_celular=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                     @else
                         <span>No</span>
                     @endif
@@ -1494,18 +1502,18 @@ img{
         <tbody>
             <tr>
                 <td class="rosap2" style="width: 40%; text-align: left;">10. ¿Ha impartido capacitación presencial o virtual?</td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p10_impartido=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif
                 </td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p10_impartido=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                     @else
                         <span>No</span>
                     @endif
@@ -1519,17 +1527,17 @@ img{
         <tbody>
             <tr>s
                 <td class="rosap2" style="width: 40%; text-align: left;">11. ¿Habla alguna lengua indígena?</td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p11_habla_lindigena=='Si')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">Si</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Si</span>
                     @else
                         <span>Si</span>
                     @endif</td>
-                <td class="rosap2" style="width: 5%; text-align: center;">
+                <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p11_habla_lindigena=='No')
-                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 5%; text-align: center;">X</span>
-                            <span style="position: absolute; width: 5%; text-align: center;">No</span>
+                        <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                            <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">No</span>
                     @else
                         <span>No</span>
                     @endif</td>
