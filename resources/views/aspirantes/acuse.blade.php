@@ -715,10 +715,10 @@ img{
                             <span style="font-weight: bold;">X</span>
                         @endif                        
                     </td>
-                <td class="grisp1" style="width: 51px; text-align: center;">F.Bolsa de<br>trabajo</br></td>
+                <td class="grisp1" style="width: 51px; text-align: center;">F. Bolsa de<br>trabajo</br></td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
-                        @if ($aspirante->medio_convocatoria=='F.Bolsa de trabajo')
-                            <span style="font-weight: bold;">X</span>
+                    @if ($aspirante->medio_convocatoria=='F. Bolsa de trabajo')
+                    <span style="font-weight: bold;">X</span>
                         @endif                        
                     </td>
             </tr>
@@ -1120,13 +1120,15 @@ img{
                     @endif
                 </td>
 
-                <td class="rosap2" style="width: 4%; text-align: center;">Otro</td>
-
-                <td class="rosap2" style="width: 25%; text-align: left;">Especifique
-                    @if ($aspirante->p1_1_cual=='Otro')
-                        <span style="font-weight: bold; text-decoration: underline; text-decoration-thickness: 3px; font-size: 5pt">{{$aspirante->p1_2_otra_forma}}</span>
+                
+                <td class="rosap2" style="width: 4%; text-align: center;">
+                    @if ($aspirante->p1_2_forma=='Otro')
+                        <span style="font-weight: bold; font-size: 9pt; position: absolute; width: 4%; text-align: center;">X</span>
+                        <span style="position: absolute; width: 4%; text-align: center;">Otro</span>
                     @endif
                 </td>
+                
+                <td class="rosap2" style="width: 25%; text-align: left;">Especifique: {{$aspirante->p1_2_otra_forma}}</td>
 
                 <td class="rosap2" style="width: 40%; text-align: left;">12.2. ¿Cuenta con vehículo propio?*</td>
 
@@ -1441,10 +1443,7 @@ img{
                 </td>
             </tr>
             <tr>
-                <td colspan="4" class="rosap2"
-                    style="width: 50%; text-align: left;">15.2 Especifique*:
-                    <br>________________________________</br>
-                </td>
+                <td colspan="4" class="rosap2" style="width: 50%; text-align: left;">15.2 Especifique*: {{$aspirante->p15_2_otradiscapacidad}}</td>
             </tr>
         </tbody>
         </tbody>
