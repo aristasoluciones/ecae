@@ -347,7 +347,7 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[9]}} {{ $aspirante->fecha_nacimiento[8]}}</td>
+                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[8]}} {{ $aspirante->fecha_nacimiento[9]}}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[5]}} {{ $aspirante->fecha_nacimiento[6]}}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[0]}}{{ $aspirante->fecha_nacimiento[1]}}{{ $aspirante->fecha_nacimiento[2]}}{{ $aspirante->fecha_nacimiento[3]}}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->edad }}</td>
