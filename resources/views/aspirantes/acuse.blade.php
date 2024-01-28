@@ -347,7 +347,7 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[9]}} {{ $aspirante->fecha_nacimiento[8]}}</td>
+                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[8]}} {{ $aspirante->fecha_nacimiento[9]}}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[5]}} {{ $aspirante->fecha_nacimiento[6]}}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[0]}}{{ $aspirante->fecha_nacimiento[1]}}{{ $aspirante->fecha_nacimiento[2]}}{{ $aspirante->fecha_nacimiento[3]}}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->edad }}</td>
@@ -381,6 +381,8 @@ img{
                     @if ($aspirante->genero=='Otro')
                     <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
                     <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
+                    @else
+                    <td class="rosap1"></td>
                     @endif  
                 </td>
 
