@@ -162,8 +162,7 @@ img{
                 <td class="grisp1" style="width:18.3%;">
                     Fecha de recepción</td>
                                         
-                <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}&nbsp;
-                </td>
+                <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">
                     Número de convocatoria</td>
                 <td class="rosap1" style="width: 23%; text-align: center;">{{mb_strtoupper ($aspirante->numero_convocatoria)}}
@@ -1123,7 +1122,7 @@ img{
 
                 <td class="rosap2" style="width: 4%; text-align: left; position: relative;">
                     @if ($aspirante->p1_2_forma=='CAE')
-                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                    <span style="font-size: 9pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
                             <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">CAE</span>
                     @else
                         <span>CAE</span>
@@ -1135,6 +1134,8 @@ img{
                     @if ($aspirante->p1_2_forma=='Otro')
                         <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
                         <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Otro</span>
+                        @else
+                        <span>Otro</span>
                     @endif
                 </td>
                 
