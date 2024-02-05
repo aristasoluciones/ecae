@@ -406,6 +406,7 @@ class Formulario extends Component
                 'puesto' => '',
                 'inicio' => '',
                 'fin' => '',
+                'actual' => 0,
                 'telefono' => '',
             ];
         }
