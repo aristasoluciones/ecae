@@ -1476,7 +1476,7 @@
                             "Mayo",
                             "Junio",
                             "Julio",
-                            "Augosto",
+                            "Agosto",
                             "Septiembre",
                             "Octubre",
                             "Noviembre",
