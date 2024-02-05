@@ -693,7 +693,7 @@
                                 <div class="form-group">
                                     <label class="col-12"><span class="text-danger ">*</span>
                                         Especifique</label>
-                                    <input style="text-transform: uppercase" wire:model.lazy="p1_2_otra_forma"
+                                    <input maxlength="25" style="text-transform: uppercase" wire:model.lazy="p1_2_otra_forma"
                                         class="form-control  {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                     @error('p1_2_otra_forma')
                                         <span class="text-danger error h6">{{ $message }}</span>

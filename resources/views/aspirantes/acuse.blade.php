@@ -1161,7 +1161,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="grisp2" style="width: 40%; text-align: left;">2. ¿Tiene disponibilidad de tiempo para prestar sus servicios en horario fuera de lo habitual?</td>
+                <td class="grisp2" style="width: 40%; text-align: justify;">2. ¿Tiene disponibilidad de tiempo para prestar sus servicios en horario fuera de lo habitual?</td>
                 <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p2_disponibilidad=='Si')
                     <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
@@ -1188,7 +1188,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="rosap2" style="width: 40%; text-align: left;">3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y  días festivos?</td>
+                <td class="rosap2" style="width: 40%; text-align: justify;">3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y  días festivos?</td>
 
                 <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p3_finsemana=='Si')
@@ -1207,7 +1207,7 @@ img{
                     @endif
                 </td>
 
-                <td class="rosap2" style="width: 40%; text-align: left;">12.4. ¿Está usted dispuesta/ o utilizar su vehículo para sus actividades si el OPL le brinda un apoyo económico para combustible? *</td>
+                <td class="rosap2" style="width: 40%; text-align: justify;">12.4. ¿Está usted dispuesta/ o utilizar su vehículo para sus actividades si el OPL le brinda un apoyo económico para combustible? *</td>
 
                 <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_4_prestar=='Si')
@@ -1266,7 +1266,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="rosap2" style="width: 40%; text-align: left;">5.¿Milita en algún partido político u organización política o ha participado activamente en alguna campaña electoral en el último año?</td>
+                <td class="rosap2" style="width: 40%; text-align: justify;">5.¿Milita en algún partido político u organización política o ha participado activamente en alguna campaña electoral en el último año?</td>
 
                 <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p5_milita=='Si')
@@ -1310,7 +1310,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="grisp2" style="width: 40%; text-align: left;">6. ¿Ha participado como representante de partido
+                <td class="grisp2" style="width: 40%; text-align: justify;">6. ¿Ha participado como representante de partido
                     político con registro vigente, candidatura independiente registrada en el PE 2023-2024 o coalición en alguna elección realizada en los últimos tres años?</td>
 
                 <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
@@ -1356,8 +1356,7 @@ img{
         <tbody>
             <tr>
                 <td class="rosap2" rowspan="2"
-                    style="width: 40%; text-align: left;">7. ¿Es familiar consanguíneo o por afinidad, hasta el 4° grado, de alguna persona que ostente el cargo de Vocal de la Junta Local o Distrital Ejecutiva o del Consejo Local o Distrital INE o de órganos ejecutivos y directivos del OPL (Consejeras/os y representantes de partido político o, en su
-                    caso, candidatas/os independientes que ya estén registradas/os para el PE 2023-2024)?</td>
+                    style="width: 40%; text-align: justify;">7. ¿Es familiar consanguíneo o por afinidad, hasta el 4° grado, de alguna persona que ostente el cargo de Vocal de la Junta Local o Distrital Ejecutiva o del Consejo Local o Distrital INE o de órganos ejecutivos y directivos del OPL (Consejeras/os y representantes de partido político o, en su caso, candidatas/os independientes que ya estén registradas/os para el PE 2023-2024)?</td>
                 <td class="rosap2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p7_familiar=='Si')
                         <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 20; bottom: 0; margin: auto;">X</span>
@@ -1420,7 +1419,7 @@ img{
         <tbody>
             <tr>
                 <td class="grisp2" rowspan="2"
-                    style="width: 40%; text-align: left;">8. ¿Es o ha sido persona servidora pública vinculada con programas sociales
+                    style="width: 40%; text-align: justify;">8. ¿Es o ha sido persona servidora pública vinculada con programas sociales
                     en el gobierno municipal, estatal o federal, persona operadora de programas sociales y actividades institucionales, cualquiera que sea su denominación, persona servidora de la nación o ha ostentado alguno de estos cargos en el último año previo a este registro para el PE 2023-2024? **</td>
                 <td class="grisp2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p8_servidora=='Si')
