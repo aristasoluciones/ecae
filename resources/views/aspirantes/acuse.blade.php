@@ -162,8 +162,7 @@ img{
                 <td class="grisp1" style="width:18.3%;">
                     Fecha de recepción</td>
                                         
-                <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}&nbsp;
-                </td>
+                <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">
                     Número de convocatoria</td>
                 <td class="rosap1" style="width: 23%; text-align: center;">{{mb_strtoupper ($aspirante->numero_convocatoria)}}
@@ -347,9 +346,9 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[9]}} {{ $aspirante->fecha_nacimiento[8]}}</td>
-                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[5]}} {{ $aspirante->fecha_nacimiento[6]}}</td>
-                <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->fecha_nacimiento[0]}}{{ $aspirante->fecha_nacimiento[1]}}{{ $aspirante->fecha_nacimiento[2]}}{{ $aspirante->fecha_nacimiento[3]}}</td>
+                <td class="rosap1" style="width: 10%; text-align: center;">{{date ("d", strtotime($aspirante->fecha_nacimiento)) }}</td>
+                <td class="rosap1" style="width: 10%; text-align: center;">{{date ("m", strtotime($aspirante->fecha_nacimiento)) }}</td>
+                <td class="rosap1" style="width: 10%; text-align: center;">{{date ("Y", strtotime($aspirante->fecha_nacimiento)) }}</td>
                 <td class="rosap1" style="width: 10%; text-align: center;">{{ $aspirante->edad }}</td>
                 <td class="rosap1" style="width: 10%; text-align: center; font-size: 6pt;">Género
                     <br>(marca con una X)</td>
@@ -381,6 +380,8 @@ img{
                     @if ($aspirante->genero=='Otro')
                     <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
                     <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
+                    @else
+                    <td class="rosap1"></td>
                     @endif  
                 </td>
 
@@ -483,7 +484,13 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 65%; text-align: center;">{{mb_strtoupper ($aspirante->dom_calle)}}, <span>NO. EXTERIOR {{mb_strtoupper ($aspirante->dom_num_exterior)}},</span> <span>NO. INTERIOR {{mb_strtoupper ($aspirante->dom_num_interior)}}</span>&nbsp;
+                <td class="rosap1" style="width: 65%; text-align: center;">{{mb_strtoupper ($aspirante->dom_calle)}}
+                @if ($aspirante->dom_num_exterior)
+                <span>NO. EXTERIOR {{mb_strtoupper ($aspirante->dom_num_exterior)}}</span>
+                @else <span></span> @endif
+                @if ($aspirante->dom_num_interior)
+                <span>NO. INTERIOR {{mb_strtoupper ($aspirante->dom_num_interior)}}</span>
+                @else <span></span> @endif
                 </td>
                 <td class="rosap1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspirante->dom_colonia)}}&nbsp;
                 </td>
@@ -915,12 +922,12 @@ img{
                         <span style="font-weight: bold;">X</span>
                     @endif
                     </td>
-                <td class="blancop1" style="width: 50%; text-align: center;">¿Cuáles el motivo por el que quiere participar como SE o CAE Local?</td>
+                <td class="blancop1" style="width: 50%; text-align: center;">¿Cuál es el motivo por el que quiere participar como SE o CAE Local?</td>
             </tr>
         </tbody>
         </tbody>
     </table>
-    <table class="enmedio">
+    <table style="table-layout: fixed; height: 25px;" class="final" >
         <tbody>
         <tbody>
             <tr>
@@ -930,14 +937,8 @@ img{
                         <span style="font-weight: bold;">X</span>
                     @endif
                     </td>
-                <td class="rosap1" style="width: 50%; text-align: center;">{{ mb_strtoupper ($aspirante->motivo_secae)}}&nbsp;</td>
+                <td class="rosap1" rowspan="3" style="width: 55%; text-align: justify;" VALIGN="top">{{ mb_strtoupper ($aspirante->motivo_secae)}}</td>
             </tr>
-        </tbody>
-        </tbody>
-    </table>
-    <table class="enmedio">
-        <tbody>
-        <tbody>
             <tr>
                 <td class="grisp1" style="width: 15%; text-align: left;">Doctorado</td>
                 <td class="rosap1" style="width: 35%; text-align: center;">
@@ -945,23 +946,18 @@ img{
                         <span style="font-weight: bold;">X</span>
                     @endif
                     </td>
-                <td class="rosap1" style="width: 50%; text-align: center;">&nbsp;</td>
             </tr>
-        </tbody>
-        </tbody>
-    </table>
-    <table class="final">
-        <tbody>
-        <tbody>
             <tr>
-                <td class="rosap1" colspan="2"
+                <td class="rosap1" 
                     style="width: 20%; text-align: left;">¿Realiza estudios actualmente?<br>Especifique:&nbsp;</td>
                 <td class="rosap1" style="width: 30%; text-align: center;">{{ mb_strtoupper ($aspirante->realiza_estudios)}}</td>
-                <td class="rosap1" style="width: 50%; text-align: center;">&nbsp;</td>
+                
             </tr>
         </tbody>
         </tbody>
     </table>
+    
+    
     <!-- TERMINA SECCION 03 -->
     <!-- INICIA SECCION 04 -->
     <table class="inicio">
@@ -970,7 +966,7 @@ img{
             <tr>
                 <td class="blancop1" colspan="2"
                     style="width: 100; text-align: center;">
-                    EXPERIENCIA<br>(Señale los tres últimos empleoso prestaciones de servicios. El no contar con experiencia no será causa de exclusión)
+                    EXPERIENCIA<br>(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)
                     </br></td>
             </tr>
         </tbody>
@@ -1121,7 +1117,7 @@ img{
 
                 <td class="rosap2" style="width: 4%; text-align: left; position: relative;">
                     @if ($aspirante->p1_2_forma=='CAE')
-                    <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
+                    <span style="font-size: 9pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
                             <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">CAE</span>
                     @else
                         <span>CAE</span>
@@ -1133,6 +1129,8 @@ img{
                     @if ($aspirante->p1_2_forma=='Otro')
                         <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
                         <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Otro</span>
+                        @else
+                        <span>Otro</span>
                     @endif
                 </td>
                 
@@ -1163,7 +1161,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="grisp2" style="width: 40%; text-align: left;">2. ¿Tienedisponibilidad de tiempo para prestar sus servicios en horario fuera de lo habitual?</td>
+                <td class="grisp2" style="width: 40%; text-align: justify;">2. ¿Tiene disponibilidad de tiempo para prestar sus servicios en horario fuera de lo habitual?</td>
                 <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p2_disponibilidad=='Si')
                     <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
@@ -1190,7 +1188,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="rosap2" style="width: 40%; text-align: left;">3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y  días festivos?</td>
+                <td class="rosap2" style="width: 40%; text-align: justify;">3. ¿Está dispuesta/o a prestar sus servicios en fines de semana y  días festivos?</td>
 
                 <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p3_finsemana=='Si')
@@ -1209,7 +1207,7 @@ img{
                     @endif
                 </td>
 
-                <td class="rosap2" style="width: 40%; text-align: left;">12.4. ¿Está usted dispuesta/ o utilizar su vehículo para sus actividades si el OPL le brinda un apoyo económico para combustible? *</td>
+                <td class="rosap2" style="width: 40%; text-align: justify;">12.4. ¿Está usted dispuesta/ o utilizar su vehículo para sus actividades si el OPL le brinda un apoyo económico para combustible? *</td>
 
                 <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p12_4_prestar=='Si')
@@ -1268,7 +1266,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="rosap2" style="width: 40%; text-align: left;">5.¿Milita en algún partido político u organización política o ha participado activamente en alguna campaña electoral en el último año?</td>
+                <td class="rosap2" style="width: 40%; text-align: justify;">5.¿Milita en algún partido político u organización política o ha participado activamente en alguna campaña electoral en el último año?</td>
 
                 <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p5_milita=='Si')
@@ -1312,7 +1310,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="grisp2" style="width: 40%; text-align: left;">6. ¿Haparticipado como representante de partido
+                <td class="grisp2" style="width: 40%; text-align: justify;">6. ¿Ha participado como representante de partido
                     político con registro vigente, candidatura independiente registrada en el PE 2023-2024 o coalición en alguna elección realizada en los últimos tres años?</td>
 
                 <td class="grisp2" style="width: 5%; text-align: center; position: relative;">
@@ -1358,8 +1356,7 @@ img{
         <tbody>
             <tr>
                 <td class="rosap2" rowspan="2"
-                    style="width: 40%; text-align: left;">7. ¿Es familiar consanguíneo o por afinidad, hasta el 4° grado, de alguna persona que ostente el cargo de Vocal de la Junta Local o Distrital Ejecutiva o del Consejo Local o Distrital INE o de órganos ejecutivos y directivos del OPL (Consejeras/os y representantes de partido político o, en su
-                    caso, candidatas/os independientes que ya estén registradas/os para el PE 2023-2024)?</td>
+                    style="width: 40%; text-align: justify;">7. ¿Es familiar consanguíneo o por afinidad, hasta el 4° grado, de alguna persona que ostente el cargo de Vocal de la Junta Local o Distrital Ejecutiva o del Consejo Local o Distrital INE o de órganos ejecutivos y directivos del OPL (Consejeras/os y representantes de partido político o, en su caso, candidatas/os independientes que ya estén registradas/os para el PE 2023-2024)?</td>
                 <td class="rosap2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p7_familiar=='Si')
                         <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 20; bottom: 0; margin: auto;">X</span>
@@ -1378,7 +1375,7 @@ img{
                     @endif
                 </td>
 
-                <td colspan="4" class="rosap2" style="width: 50%; text-align: center;">15.1 En caso dehaber señalado “Sí” en la pregunta 15, marque con una “X” *</td>
+                <td colspan="4" class="rosap2" style="width: 50%; text-align: center;">15.1 En caso de haber señalado “Sí” en la pregunta 15, marque con una “X” *</td>
             </tr>
             <tr>
                 <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
@@ -1422,7 +1419,7 @@ img{
         <tbody>
             <tr>
                 <td class="grisp2" rowspan="2"
-                    style="width: 40%; text-align: left;">8. ¿Es o ha sido persona servidora pública vinculada con programas sociales
+                    style="width: 40%; text-align: justify;">8. ¿Es o ha sido persona servidora pública vinculada con programas sociales
                     en el gobierno municipal, estatal o federal, persona operadora de programas sociales y actividades institucionales, cualquiera que sea su denominación, persona servidora de la nación o ha ostentado alguno de estos cargos en el último año previo a este registro para el PE 2023-2024? **</td>
                 <td class="grisp2" rowspan="2" style="width: 5%; text-align: center; position: relative;">
                     @if ($aspirante->p8_servidora=='Si')
