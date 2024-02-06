@@ -35,7 +35,7 @@
                     </div>
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span>Municipio</label>
+                            <label class=""><span class="text-danger ">* </span>Municipio</label>
                             <select class="form-control {{ $errors->has('municipio') ? 'is-invalid' : '' }}"
                                 id="municipio" name="municipio" wire:model.lazy="municipio">
                                 <option value="">
@@ -53,7 +53,7 @@
                     </div>
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger ">*</span> Localidad</label>
+                            <label class=""><span class="text-danger ">* </span>Localidad</label>
                             <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
                                 id="localidad" name="localidad" wire:model.lazy="localidad">
                                 <option value="">
@@ -105,7 +105,7 @@
                     </div>
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger"></span> Correo electrónico</label>
+                            <label class=""><span class="text-danger">* </span>Correo electrónico</label>
                             <input autocomplete="off" wire:model.debounce.500ms="email" id="email" name="email" type="email"
                                    aria-describedby="clave-elector-help-text"
                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
@@ -118,7 +118,7 @@
                     </div>
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                            <label class=""><span class="text-danger">* </span>Confirmar correo electrónico</label>
                             <input autocomplete="off" wire:model.debounce.500ms="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                                    class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
                                      @error('email_confirmation')
@@ -152,7 +152,7 @@
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label class=""><span class="text-danger ">*</span>Sección
+                                <label class=""><span class="text-danger ">* </span>Sección
                                     electoral</label>
                                 <input maxlength="4" wire:model.lazy="seccion_electoral" id="seccion_electoral"
                                     type="text" autocomplete="off"
@@ -425,8 +425,7 @@
                     </div>
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger "></span>
-                                Teléfono celular</label>
+                            <label class=""><span class="text-danger ">* </span>Teléfono celular</label>
                             <input wire:model.lazy="tel_celular" id="tel_celular" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                 class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
                             @error('tel_celular')
@@ -1361,7 +1360,7 @@
                     <div class="col-12 text-center pt-5">
                         <p>Para registrar una nueva solicitud haga click en el siguiente boton</p>
                         <div class="btn-group-toggle">
-                            <a class="btn btn-info btn-lg" href="/aspirante" wire:loading.remove>
+                            <a class="btn btn-info btn-lg" href="/registro" wire:loading.remove>
                                 <i class="fa fa-plus-circle"></i> Nuevo registro
                             </a>
                         </div>

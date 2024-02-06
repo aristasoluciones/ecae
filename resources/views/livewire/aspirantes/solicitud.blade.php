@@ -167,7 +167,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger"></span> Correo electrónico</label>
+                    <label class=""><span class="text-danger">* </span>Correo electrónico</label>
                     <input wire:model.lazy="email" id="email" name="email" type="email"
                            aria-describedby="clave-elector-help-text"
                            class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
@@ -178,7 +178,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                    <label class=""><span class="text-danger">* </span>Confirmar correo electrónico</label>
                     <input wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                            class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
                     @error('email_confirmation')
@@ -479,8 +479,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger "></span>
-                        Teléfono celular</label>
+                    <label class=""><span class="text-danger ">* </span>Teléfono celular</label>
                     <input wire:model.lazy="tel_celular" id="tel_celular" type="number"
                            class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
                     @error('tel_celular')
