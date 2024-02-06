@@ -167,7 +167,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger"></span> Correo electrónico</label>
+                    <label class=""><span class="text-danger">* </span>Correo electrónico</label>
                     <input wire:model.lazy="email" id="email" name="email" type="email"
                            aria-describedby="clave-elector-help-text"
                            class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" />
@@ -178,7 +178,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger "></span> Confirmar correo electrónico</label>
+                    <label class=""><span class="text-danger">* </span>Confirmar correo electrónico</label>
                     <input wire:model.lazy="email_confirmation" id="email_confirmation" name="email_confirmation" type="email"
                            class="form-control {{ $errors->has('email_confirmation') ? 'is-invalid' : '' }}" />
                     @error('email_confirmation')
@@ -334,6 +334,7 @@
                     <div class="form-group {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                         <label class=""><span class="text-danger ">*</span>Especifique:</label>
                         <input wire:model.lazy="otro_genero"
+                               type="text"
                                class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                         @error('otro_genero')
                         <span class="text-danger error h6">{{ $message }}</span>
@@ -365,7 +366,9 @@
                     <div class="form-group {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                         <label class=""><span class="text-danger ">*</span>
                             Especifique</label>
-                        <input wire:model.lazy="otro_lgbtttiq"
+                        <input
+                               type="text"
+                               wire:model.lazy="otro_lgbtttiq"
                                class="form-control {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                         @error('otro_lgbtttiq')
                         <span class="text-danger error h6">{{ $message }}</span>
@@ -476,8 +479,7 @@
             </div>
             <div class="col-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger "></span>
-                        Teléfono celular</label>
+                    <label class=""><span class="text-danger ">* </span>Teléfono celular</label>
                     <input wire:model.lazy="tel_celular" id="tel_celular" type="number"
                            class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
                     @error('tel_celular')
@@ -747,7 +749,8 @@
                             <div class="form-group">
                                 <label class="col-12"><span class="text-danger">*</span>
                                     Especifique</label>
-                                <input wire:model.lazy="p1_2_otra_forma"
+                                <input type="text"
+                                       wire:model.lazy="p1_2_otra_forma"
                                        class="form-control col-4 {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                 @error('p1_2_otra_forma')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -1036,12 +1039,16 @@
                 </div>
             </div>
             {{-- Prgeunta numero 11.1 --}}
+            @if($p11_habla_lindigena === 'Si')
             <div class="form-row justify-content-between mb-3 col-12">
                 <div class="col-12">
                     <h5>11.1- Cual</h5>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" wire:model.lazy="p11_1_cual" id="p11_1_cual"
+                    <input type="text"
+                           maxlength="200"
+                           class="form-control"
+                           wire:model.lazy="p11_1_cual" id="p11_1_cual"
                            name="p11_1_cual">
                 </div>
                 <div class="col-12">
@@ -1050,6 +1057,7 @@
                     @enderror
                 </div>
             </div>
+            @endif
             {{-- Prgeunta numero 12 --}}
             <div class="form-row col-12">
                 <div class="col-12">

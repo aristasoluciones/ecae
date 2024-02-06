@@ -138,7 +138,7 @@ class Formulario extends Component
             'dom_localidad'    => 'required|string',
             'dom_postal'    => 'required|string|size:5',
             'tel_fijo'         => 'nullable|string|size:10',
-            'tel_celular'      => 'nullable|string|size:10',
+            'tel_celular'      => 'required|string|size:10',
             'ultimo_grado_estudio' => 'required|string',
             'carrera' => 'required_if:ultimo_grado_estudio,"Carrera (especifique)"',
             'realiza_estudios' => 'nullable|string',
@@ -151,8 +151,8 @@ class Formulario extends Component
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
             'otro_medio_convocatoria'  => 'required_if:medio_convocatoria,"L. Otro"',
-            'email'    => 'nullable|email|confirmed',
-            'email_confirmation'    => 'nullable|email|same:email',
+            'email'    => 'required|email|confirmed',
+            'email_confirmation'    => 'required|email|same:email',
             'acepto_aviso' => 'required|integer',
             'acepto_ser_contactado' => 'nullable',
             'acepto_declaratoria'   => 'nullable',
@@ -180,7 +180,7 @@ class Formulario extends Component
             'p14_acceso_internet'   => 'required|string',
             'p15_discapacidad'      => 'required|string',
             'p15_1_tipodiscapacidad'=> 'required_if:p15_discapacidad,=,Si',
-            'p15_2_otradiscapacidad'=> 'required_if:p15_1_tipodiscapacidad,=,Otro',
+            'p15_2_otradiscapacidad'=> 'required_if:p15_1_tipodiscapacidad,=,otro',
             'p16_utilizar_celular'  => 'required|string',
         ];
     }
@@ -406,6 +406,7 @@ class Formulario extends Component
                 'puesto' => '',
                 'inicio' => '',
                 'fin' => '',
+                'actual' => 0,
                 'telefono' => '',
             ];
         }
