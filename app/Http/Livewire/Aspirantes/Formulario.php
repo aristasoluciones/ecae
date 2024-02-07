@@ -347,7 +347,7 @@ class Formulario extends Component
             'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.',
             'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
             'email_confirmation.email' => 'El campo  Confirmar correo electrónico debe ser una dirección de correo válida.',
-            '*.after_or_equal' => 'El campo fecha final debe ser una fecha posterior o igual a la fecha inicial',
+            '*.after_or_equal' => 'El campo fecha final debe ser una fecha posterior o igual a la fecha inicio',
             '*.before_or_equal' => 'El campo fecha inicio debe ser una fecha anterior o igual a la fecha final',
         ], $addRules);
     }
