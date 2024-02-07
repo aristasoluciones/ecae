@@ -324,7 +324,6 @@ class Formulario extends Component
             'p16_utilizar_celular'  => 'required|string',
         ];
     }
-
     public function updated($field) {
         return $this->validateOnly($field);
     }
@@ -415,18 +414,56 @@ class Formulario extends Component
         else
             $this->experiencia_1_actual =  0;
 
+        $this->validate([
+            'experiencia_1_fin' => [
+                Rule::requiredIf(fn() => (
+                !$this->experiencia_1_actual
+                && (strlen($this->experiencia_1_nombre)
+                    || strlen($this->experiencia_1_puesto)
+                    || strlen($this->experiencia_1_inicio)
+                    || strlen($this->experiencia_1_telefono))
+            )
+            ),strlen($this->experiencia_1_fin) && strlen($this->experiencia_1_inicio) ? 'after_or_equal:experiencia_1_inicio' : 'nullable'
+            ],
+        ]);
     }
     public function updatedExperiencia2Actual($value) {
         if($value == 1)
             $this->experiencia_2_fin = null;
         else
-            $this->experiencia_1_actual =  0;
+            $this->experiencia_2_actual =  0;
+
+        $this->validate([
+            'experiencia_2_fin' => [
+                Rule::requiredIf(fn() => (
+                    !$this->experiencia_2_actual
+                    && (strlen($this->experiencia_2_nombre)
+                        || strlen($this->experiencia_2_puesto)
+                        || strlen($this->experiencia_2_inicio)
+                        || strlen($this->experiencia_2_telefono))
+                )
+                ),strlen($this->experiencia_2_fin) && strlen($this->experiencia_2_inicio) ? 'after_or_equal:experiencia_2_inicio' : 'nullable'
+            ],
+        ]);
     }
     public function updatedExperiencia3Actual($value) {;
         if($value == 1)
             $this->experiencia_3_fin = null;
         else
             $this->experiencia_3_actual =  0;
+
+        $this->validate([
+            'experiencia_3_fin' => [
+                Rule::requiredIf(fn() => (
+                    !$this->experiencia_3_actual
+                    && (strlen($this->experiencia_3_nombre)
+                        || strlen($this->experiencia_3_puesto)
+                        || strlen($this->experiencia_3_inicio)
+                        || strlen($this->experiencia_3_telefono))
+                )
+                ),strlen($this->experiencia_3_fin) && strlen($this->experiencia_3_inicio) ? 'after_or_equal:experiencia_3_inicio' : 'nullable'
+            ],
+        ]);
     }
 
     public function mount(Aspirante $candidato) {
