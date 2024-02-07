@@ -225,7 +225,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Nombre(s)</label>
-                            <input wire:model.lazy="nombre" id="nombre" name="nombre" type="text" autocomplete="off"
+                            <input maxlength="60" wire:model.lazy="nombre" id="nombre" name="nombre" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" />
                             @error('nombre')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -236,7 +236,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Primer Apellido</label>
-                            <input wire:model.lazy="apellido1" id="apellido1" name="apellido1" type="text" autocomplete="off"
+                            <input maxlength="60" wire:model.lazy="apellido1" id="apellido1" name="apellido1" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('apellido1') ? 'is-invalid' : '' }}" />
                             @error('apellido1')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -247,7 +247,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Segundo Apellido</label>
-                            <input wire:model.lazy="apellido2" id="apellido2" name="apellido2" type="text" autocomplete="off"
+                            <input maxlength="60" wire:model.lazy="apellido2" id="apellido2" name="apellido2" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('apellido2') ? 'is-invalid' : '' }}" />
                             @error('apellido2')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -589,7 +589,7 @@
                         <div class="col-md-2 col-sm-12">
                             <div class="form-group mb-0 floating">
                                 <input type="text"
-                                       max="60"
+                                       maxlength="60"
                                        wire:model="experiencia_1_puesto"
                                        id="experiencia_1_puesto"
                                        class="form-control floating {{ $errors->has('experiencia_1_puesto') ? 'is-invalid':'' }}"

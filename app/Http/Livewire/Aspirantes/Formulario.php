@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Aspirantes;
 
 
 use App\Mail\RegistroShipped;
+use App\Rules\FechaMenorIgualRule;
 use Carbon\Carbon;
 use Carbon\Factory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -165,12 +166,6 @@ class Formulario extends Component
             'ultimo_grado_estudio' => 'required|string',
             'carrera' => 'required_if:ultimo_grado_estudio,"Carrera (especifique)"',
             'realiza_estudios' => 'nullable|string',
-            'experiencia_laboral'   => 'nullable|array',
-            'experiencia_laboral.*.nombre'   => 'nullable|string',
-            'experiencia_laboral.*.puesto'   => 'nullable|string',
-            'experiencia_laboral.*.inicio'   => 'nullable|string',
-            'experiencia_laboral.*.fin'   => 'nullable|string',
-            'experiencia_laboral.*.telefono'   => 'nullable|string',
             //EXPERIENCIA1
             'experiencia_1_nombre' =>  [Rule::requiredIf(fn() => (
                 $this->experiencia_1_actual
@@ -193,17 +188,17 @@ class Formulario extends Component
                 || strlen($this->experiencia_1_puesto)
                 || strlen($this->experiencia_1_fin)
                 || strlen($this->experiencia_1_telefono))
-            )],
-            'experiencia_1_fin'    => [Rule::requiredIf(fn() => (
+            ), strlen($this->experiencia_1_inicio) && strlen($this->experiencia_1_fin) ? 'before_or_equal:experiencia_1_fin' : 'nullable'],
+            'experiencia_1_fin' => [Rule::requiredIf(fn() => (
                     !$this->experiencia_1_actual
                     && (strlen($this->experiencia_1_nombre)
                     || strlen($this->experiencia_1_puesto)
                     || strlen($this->experiencia_1_inicio)
                     || strlen($this->experiencia_1_telefono))
                     )
-                )
+                ),strlen($this->experiencia_1_fin) && strlen($this->experiencia_1_inicio) ? 'after_or_equal:experiencia_1_inicio' : 'nullable'
             ],
-            'experiencia_1_actual' => 'nullable|integer',
+            'experiencia_1_actual' => 'nullable',
             'experiencia_1_telefono' =>  [Rule::requiredIf(fn() => (
                 $this->experiencia_1_actual
                 || strlen($this->experiencia_1_nombre)
@@ -244,7 +239,7 @@ class Formulario extends Component
             )
             )
             ],
-            'experiencia_2_actual' => 'nullable|integer',
+            'experiencia_2_actual' => 'nullable',
             'experiencia_2_telefono' =>  [Rule::requiredIf(fn() => (
                 $this->experiencia_2_actual
                 || strlen($this->experiencia_2_nombre)
@@ -285,7 +280,7 @@ class Formulario extends Component
             )
             )
             ],
-            'experiencia_3_actual' => 'nullable|integer',
+            'experiencia_3_actual' => 'nullable',
             'experiencia_3_telefono' =>  [Rule::requiredIf(fn() => (
                 $this->experiencia_3_actual
                 || strlen($this->experiencia_3_nombre)
@@ -418,20 +413,20 @@ class Formulario extends Component
         if($value == 1)
             $this->experiencia_1_fin = null;
         else
-            $this->experiencia_1_actual =  null;
+            $this->experiencia_1_actual =  0;
 
     }
     public function updatedExperiencia2Actual($value) {
         if($value == 1)
             $this->experiencia_2_fin = null;
         else
-            $this->experiencia_2_actual =  null;
+            $this->experiencia_1_actual =  0;
     }
     public function updatedExperiencia3Actual($value) {;
         if($value == 1)
             $this->experiencia_3_fin = null;
         else
-            $this->experiencia_3_actual =  null;
+            $this->experiencia_3_actual =  0;
     }
 
     public function mount(Aspirante $candidato) {
@@ -547,6 +542,7 @@ class Formulario extends Component
 
         $this->withValidator(function (Validator $validator) {
             if($validator->fails()) {
+                \Log::info($validator->errors());
                 $this->emit('swal:alert', [
                     'icon'    => 'error',
                     'title'   => 'Revise los campos marcados del formulario',
