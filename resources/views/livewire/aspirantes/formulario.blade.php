@@ -18,6 +18,30 @@
         text-align: justify;
     }
 
+    .form-group.floating>label {
+        bottom: 38px;
+        left: 8px;
+        position: relative;
+        background-color: white;
+        padding: 0px 5px 0px 5px;
+        font-size: .90em;
+        transition: 0.1s;
+        pointer-events: none;
+        font-weight: 500 !important;
+        transform-origin: bottom left;
+    }
+
+    .form-control.floating:focus~label{
+        transform: translate(1px,-85%) scale(0.80);
+        opacity: .8;
+        color: #005ebf;
+    }
+
+    .form-control.floating:valid~label{
+        transform-origin: bottom left;
+        transform: translate(1px,-85%) scale(0.80);
+        opacity: .8;
+    }
 </style>
 
 @endpush
@@ -276,6 +300,7 @@
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
                                 <input
                                     type="text"
+                                    maxlength="50"
                                     wire:model.lazy="otro_genero"
                                     class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                                 @error('otro_genero')
@@ -308,6 +333,7 @@
                             <div class="form-group {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span> Especifique</label>
                                 <input type="text"
+                                       maxlength="30"
                                        wire:model.lazy="otro_lgbtttiq"
                                        class="form-control {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                                 @error('otro_lgbtttiq')
@@ -324,7 +350,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Calle</label>
-                            <input wire:model.lazy="dom_calle" id="dom_calle" name="dom_calle" type="text" autocomplete="off"
+                            <input wire:model.lazy="dom_calle" maxlength="100" id="dom_calle" name="dom_calle" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_calle') ? 'is-invalid' : '' }}" />
                             @error('dom_calle')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -335,7 +361,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Número exterior</label>
-                            <input wire:model.lazy="dom_num_exterior" id="dom_num_exterior" name="dom_num_exterior"
+                            <input wire:model.lazy="dom_num_exterior" maxlength="25" id="dom_num_exterior" name="dom_num_exterior"
                                 type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_num_exterior') ? 'is-invalid' : '' }}" />
                             @error('dom_num_exterior')
@@ -347,7 +373,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger"></span> Número
                                 interior</label>
-                            <input wire:model.lazy="dom_num_interior" id="dom_num_interior" name="dom_num_interior"
+                            <input wire:model.lazy="dom_num_interior" maxlength="25" id="dom_num_interior" name="dom_num_interior"
                                 type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_num_interior') ? 'is-invalid' : '' }}" />
                             @error('dom_num_interior')
@@ -359,7 +385,7 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Colonia</label>
-                            <input wire:model.lazy="dom_colonia" id="dom_colonia" type="text" autocomplete="off"
+                            <input wire:model.lazy="dom_colonia" maxlength="100" id="dom_colonia" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_colonia') ? 'is-invalid' : '' }}" />
                             @error('dom_colonia')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -463,7 +489,10 @@
                         <div class=" col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span> Especifique:</label>
-                                <input style="text-transform: uppercase" wire:model.lazy="carrera"
+                                <input
+                                    type="text"
+                                    maxlength="50"
+                                    wire:model.lazy="carrera"
                                     class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 @error('carrera')
                                     <span class="text-danger error h6">{{ $message }}</span>
@@ -477,7 +506,11 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 ¿Realiza estudios actualmente? Especifique:</label>
-                            <input wire:model.lazy="realiza_estudios" id="realiza_estudios" type="text" autocomplete="off"
+                            <input wire:model.lazy="realiza_estudios"
+                                   maxlength="50"
+                                   id="realiza_estudios"
+                                   type="text"
+                                   autocomplete="off"
                                 class="form-control {{ $errors->has('realiza_estudios') ? 'is-invalid' : '' }}" />
                             @error('realiza_estudios')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -510,7 +543,9 @@
                         <div class=" col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('otro_medio_convocatoria') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span> Especifique:</label>
-                                <input style="text-transform: uppercase" wire:model.lazy="otro_medio_convocatoria"
+                                <input type="text"
+                                       maxlength="50"
+                                       wire:model.lazy="otro_medio_convocatoria"
                                        class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 @error('otro_medio_convocatoria')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -524,7 +559,7 @@
                             <label class=""><span class="text-danger "></span> ¿Cual
                                 es el motivo por el que quiere participar como SE o
                                 CAE Local? Especifique:</label>
-                            <textarea maxlength="250" wire:model.lazy="motivo_secae" rows="2" id="motivo_secae"
+                            <textarea maxlength="200" wire:model.lazy="motivo_secae" rows="2" id="motivo_secae"
                                 class="form-control {{ $errors->has('motivo_secae') ? 'is-invalid' : '' }}"></textarea>
                             @error('motivo_secae')
                                 <span class="text-danger error h6">{{ $message }}</span>
@@ -533,81 +568,256 @@
                     </div>
                 </div>
 
-                <div class="form-row" wire:ignore>
-                    <div class="col-12 table-responsive">
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th colspan="5" class="text-center"><span
-                                            class="text-danger"></span>Experiencia
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th colspan="5" class="text-center text-gray">
-                                        (Señale los tres últimos empleos o
-                                        prestaciones de servicios. El no contar con
-                                        experiencia no será causa de exclusión)</th>
-                                </tr>
-                                <tr>
-                                    <th>Nombre de la empresa o institución</th>
-                                    <th>Puesto</th>
-                                    <th colspan="2">
-                                        <div class="row">
-                                            <div class="col-12">Periodo en que
-                                                laboró</div>
-                                            <div class="col-6">Fecha inicio</div>
-                                            <div class="col-6">Fecha final</div>
-                                        </div>
-                                    </th>
-                                    <th>Teléfono</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (count($experiencia_laboral) > 0)
-                                    @foreach ($experiencia_laboral as $kexperiencia => $experiencia)
-                                        <tr wire:ignore>
-                                            <td>
-                                                <input class="form-control" type="text" autocomplete="off"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.nombre" />
-                                            </td>
-                                            <td>
-                                                <input class="form-control" type="text" autocomplete="off"
-                                                    wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.puesto" />
-                                            </td>
-                                            <td>
-                                                <input  class="form-control datepicker" wire:key="key_inicio_{{$kexperiencia}}"
-                                                        autocomplete="off"
-                                                        placeholder="dd/mm/yyyy"
-                                                        id="date_inicio_{{$kexperiencia}}"
-                                                        name="date_inicio"
-                                                        onchange="this.dispatchEvent(new InputEvent('input'))"
-                                                        wire:model.debounce.500ms="experiencia_laboral.{{ $kexperiencia }}.inicio"
-                                                />
-                                            </td>
-                                            <td>
-                                                <input
-                                                    class="form-control datepicker" wire:key="key_fin_{{$kexperiencia}}"
-                                                    autocomplete="off"
-                                                    placeholder="dd/mm/yyyy"
-                                                    id="date_fin_{{$kexperiencia}}"
-                                                    name="date_fin"
-                                                    onchange="this.dispatchEvent(new InputEvent('input'))"
-                                                    wire:model.debounce.500ms="experiencia_laboral.{{ $kexperiencia }}.fin" />
-                                            </td>
-                                            <td>
-                                                <input class="form-control" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  wire:model.lazy="experiencia_laboral.{{ $kexperiencia }}.telefono" />
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                        @error('experiencia_laboral.*')
-                            <span class="text-danger error h6">{{ $message }}</span>
-                        @enderror
+                <div class="row">
+                    <div class="col-md-12 pb-2">
+                        <h5 class="text-center text-bold">Experiencia</h5>
+                        <p class="text-center">(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)</p>
+                    </div>
+                    <div class="col-md-12 form-row">
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       maxlength="100"
+                                       wire:model="experiencia_1_nombre"
+                                       id="experiencia_1_nombre"
+                                       class="form-control floating {{ $errors->has('experiencia_1_nombre') ? 'is-invalid':'' }}"
+                                >
+                                <label for="experiencia_1_nombre">Nombre de la empresa o institución</label>
+                            </div>
+                            @error('experiencia_1_nombre')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       max="60"
+                                       wire:model="experiencia_1_puesto"
+                                       id="experiencia_1_puesto"
+                                       class="form-control floating {{ $errors->has('experiencia_1_puesto') ? 'is-invalid':'' }}"
+                                >
+                                <label for="experiencia_1_puesto">Puesto</label>
+                            </div>
+                            @error('experiencia_1_puesto')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       wire:model="experiencia_1_inicio"
+                                       class="form-control datepicker floating {{ $errors->has('experiencia_1_inicio') ? 'is-invalid':'' }}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_1_inicio"
+                                       name="experiencia_1_inicio"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                >
+                                <label for="experiencia_1_inicio">Fecha inicio</label>
+                            </div>
+                            @error('experiencia_1_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       wire:model="experiencia_1_fin"
+                                       class="form-control datepicker floating {{ $errors->has('experiencia_1_fin') ? 'is-invalid':'' }}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_1_fin"
+                                       name="experiencia_1_fin"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                       @if($experiencia_1_actual == 1) disabled @endif
+                                >
+                                @if($experiencia_1_actual != 1) <label for="experiencia_1_fin">Fecha final</label> @endif
+                            </div>
+                            @error('experiencia_1_fin')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-1 col-sm-12 text-center">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" wire:model="experiencia_1_actual"
+                                       value="1"
+                                       class="custom-control-input custom-control-input-success checkbox-2x"
+                                       id="experiencia_1_actual">
+                                <label class="custom-control-label" for="experiencia_1_actual"></label>
+                            </div>
+                            <small style="font-size: .65em; top:-10px; position: relative">Trabajo actual</small>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       maxlength="10"
+                                       wire:model="experiencia_1_telefono"
+                                       id="experiencia_1_telefono"
+                                       class="form-control floating {{ $errors->has('experiencia_1_telefono') ? 'is-invalid':'' }}"
+                                >
+                                <label for="experiencia_1_telefono">Teléfono</label>
+                            </div>
+                            @error('experiencia_1_telefono')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-12 dropdown-divider position-relative" style="top:-25px"></div>
+                    </div>
+
+                    <div class="col-md-12 form-row">
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       maxlength="100"
+                                       id="experiencia_2_nombre"
+                                       wire:model="experiencia_2_nombre"
+                                       class="form-control floating {{ $errors->has('experiencia_2_nombre') ? 'is-invalid':'' }}"
+                                >
+                                <label for="experiencia_2_nombre">Nombre de la empresa o institución</label>
+                            </div>
+                            @error('experiencia_2_nombre')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       maxlength="60"
+                                       id="experiencia_2_puesto"
+                                       wire:model="experiencia_2_puesto"
+                                       class="form-control floating {{ $errors->has('experiencia_2_puesto') ? 'is-invalid':'' }}"
+                                >
+                                <label for="experiencia_2_puesto">Puesto</label>
+                            </div>
+                            @error('experiencia_2_puesto')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating m-0">
+                                <input type="text"
+                                       wire:model="experiencia_2_inicio"
+                                       class="form-control datepicker floating {{ $errors->has('experiencia_2_inicio') ? 'is-invalid':''}}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_2_inicio"
+                                       name="experiencia_2_inicio"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                >
+                                <label for="experiencia_2_inicio">Fecha inicio</label>
+                            </div>
+                            @error('experiencia_2_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating m-0">
+                                <input type="text"
+                                       wire:model="experiencia_2_fin"
+                                       class="form-control datepicker floating {{ $errors->has('experiencia_2_fin') ? 'is-invalid':''}}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_2_fin"
+                                       name="experiencia_2_fin"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                       @if($experiencia_2_actual == 1) disabled @endif
+                                >
+                                @if($experiencia_2_actual != 1) <label for="experiencia_2_fin">Fecha final</label> @endif
+                            </div>
+                            @error('experiencia_2_fin')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-1 col-sm-12 text-center">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox"
+                                       wire:model="experiencia_2_actual"
+                                       value="1"
+                                       class="custom-control-input custom-control-input-success checkbox-2x"
+                                       id="experiencia_2_actual">
+                                <label class="custom-control-label" for="experiencia_2_actual"></label>
+                            </div>
+                            <small style="font-size: .65em; top:-10px;position:relative">Trabajo actual</small>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group mb-0 floating m-0">
+                                <input type="text"
+                                       maxlength="10"
+                                       id="experiencia_2_telefono"
+                                       wire:model="experiencia_2_telefono"
+                                       id="experiencia_2_telefono"
+                                       class="form-control floating {{ $errors->has('experiencia_2_telefono') ? 'is-invalid':''}}"
+                                >
+                                <label for="experiencia_2_telefono">Teléfono</label>
+                            </div>
+                            @error('experiencia_2_telefono')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-12 dropdown-divider position-relative" style="top:-25px"></div>
+                    </div>
+
+                    <div class="col-md-12 form-row">
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group floating m-0">
+                                <input type="text"
+                                       maxlength="100"
+                                       wire:model="experiencia_3_nombre"
+                                       id="experiencia_3_nombre"
+                                       class="form-control floating {{ $errors->has('experiencia_3_nombre') ? 'is-invalid':''}}"
+                                >
+                                <label for="experiencia_3_nombre">Nombre de la empresa o institución</label>
+                            </div>
+                            @error('experiencia_3_nombre')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group floating m-0">
+                                <input type="text"
+                                       maxlength="60"
+                                       wire:model="experiencia_3_puesto"
+                                       id="experiencia_3_puesto"
+                                       class="form-control floating {{ $errors->has('experiencia_3_puesto') ? 'is-invalid':''}}"
+                                >
+                                <label for="experiencia_3_puesto">Puesto</label>
+                            </div>
+                            @error('experiencia_3_puesto')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group floating m-0">
+                                <input type="text"
+                                       wire:model="experiencia_3_inicio"
+                                       class="form-control datepicker floating {{ $errors->has('experiencia_3_inicio') ? 'is-invalid':''}}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_3_inicio"
+                                       name="experiencia_3_inicio"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                >
+                                <label for="experiencia_3_inicio">Fecha inicio</label>
+                            </div>
+                            @error('experiencia_3_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group floating m-0">
+                                <input type="text"
+                                       wire:model="experiencia_3_fin"
+                                       class="form-control datepicker floating {{ $errors->has('experiencia_3_fin') ? 'is-invalid':''}}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_3_fin"
+                                       name="experiencia_3_fin"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                       @if($experiencia_3_actual == 1) disabled @endif
+                                >
+                                @if($experiencia_3_actual != 1) <label for="experiencia_3_fin">Fecha final</label> @endif
+                            </div>
+                            @error('experiencia_3_fin')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="col-md-1 col-sm-12 text-center">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox"
+                                       wire:model="experiencia_3_actual"
+                                       value="1"
+                                       class="custom-control-input custom-control-input-success checkbox-2x"
+                                       id="experiencia_3_actual">
+                                <label class="custom-control-label" for="experiencia_3_actual"></label>
+                            </div>
+                            <small style="font-size: .65em; top:-10px;position:relative">Trabajo actual</small>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group floating m-0">
+                                <input type="text"
+                                       maxlength="10"
+                                       wire:model="experiencia_3_telefono"
+                                       id="experiencia_3_telefono"
+                                       class="form-control floating {{ $errors->has('experiencia_3_telefono') ? 'is-invalid':''}}"
+                                >
+                                <label for="experiencia_3_telefono">Teléfono</label>
+                            </div>
+                            @error('experiencia_3_telefono')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
+                        </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-12 dropdown-divider"></div>
                     <div class="col-md-12"><h3 class="text-bold">Otros datos</h3></div>
@@ -652,7 +862,7 @@
                                     <h5><span class="text-danger">*</span> 1.1- ¿Cuál?</h5>
                                     <div class="form-group ml-3">
                                         <input type="text"
-                                               maxlength="50"
+                                               maxlength="30"
                                                autocomplete="off"
                                                class="form-control {{ $errors->has('p1_1_cual') ? 'is-invalid' : '' }}"
                                                wire:model.lazy="p1_1_cual"
@@ -689,6 +899,7 @@
                                         <h5><span class="text-danger">*</span> Especifique</h5>
                                         <div class="form-group ml-3">
                                             <input type="text"
+                                                   maxlength="30"
                                                    wire:model.lazy="p1_2_otra_forma"
                                                    class="form-control  {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
                                             @error('p1_2_otra_forma')
@@ -982,7 +1193,7 @@
                                                class="form-control {{ $errors->has('p11_1_cual') ? 'is-invalid' : '' }}"
                                                wire:model.lazy="p11_1_cual"
                                                id="p11_1_cual"
-                                               maxlength="50"
+                                               maxlength="30"
                                                name="p11_1_cual"/>
                                         @error('p11_1_cual')
                                         <span class="text-danger error h6">{{ $message }}</span>
@@ -1063,6 +1274,7 @@
                                         <h5>12.3. Anote marca y modelo <sup class="text-bold">*</sup></h5>
                                         <div class="form-group">
                                             <input type="text"
+                                                   maxlength="30"
                                                    autocomplete="off"
                                                    class="form-control {{ $errors->has('p12_3_marca') ? 'is-invalid' : '' }}"
                                                    wire:model.lazy="p12_3_marca"
@@ -1236,7 +1448,7 @@
                                         <h5><span class="text-danger">*</span> 15.2 Especifique:</h5>
                                         <div class="form-group ml-3">
                                             <input type="text"
-                                                   maxlength="100"
+                                                   maxlength="60"
                                                    autocomplete="off"
                                                    class="form-control {{ $errors->has('p15_2_otradiscapacidad') ? 'is-invalid' : '' }}"
                                                    wire:model.lazy="p15_2_otradiscapacidad"
@@ -1450,7 +1662,7 @@
                     showDropdowns: true,
                     placeholder:'Select a range',
                     locale: {
-                        format: "DD/MM/YYYY",
+                        format: "YYYY-MM-DD",
                         cancelLabel: 'Cancelar',
                         applyLabel: 'Aceptar',
                         daysOfWeek: [
@@ -1480,9 +1692,10 @@
                 });
 
                 $('#'+le.id).on('cancel.daterangepicker', function(ev, picker) {
-                    $(this).val('');
+                    $(this).val(null);
+                    @this.set(le.id, null);
                 });
-                $('#'+le.id).val('');
+                $('#'+le.id).val(null);
             })
 
             document.querySelectorAll("input[type=text], input[type=email], textarea ,#p11_1_cual").forEach(function(current) {
