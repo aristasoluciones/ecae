@@ -229,15 +229,14 @@ class Formulario extends Component
                 || strlen($this->experiencia_2_puesto)
                 || strlen($this->experiencia_2_fin)
                 || strlen($this->experiencia_2_telefono))
-            )],
+            ),strlen($this->experiencia_2_inicio) && strlen($this->experiencia_2_fin) ? 'before_or_equal:experiencia_2_fin' : 'nullable'],
             'experiencia_2_fin'    => [Rule::requiredIf(fn() => (
                 !$this->experiencia_2_actual
                 && (strlen($this->experiencia_2_nombre)
                     || strlen($this->experiencia_2_puesto)
                     || strlen($this->experiencia_2_inicio)
-                    || strlen($this->experiencia_2_telefono))
-            )
-            )
+                    || strlen($this->experiencia_2_telefono)))
+            ),strlen($this->experiencia_2_fin) && strlen($this->experiencia_2_inicio) ? 'after_or_equal:experiencia_2_inicio' : 'nullable'
             ],
             'experiencia_2_actual' => 'nullable',
             'experiencia_2_telefono' =>  [Rule::requiredIf(fn() => (
@@ -270,7 +269,7 @@ class Formulario extends Component
                 || strlen($this->experiencia_3_nombre)
                 || strlen($this->experiencia_3_puesto)
                 || strlen($this->experiencia_3_telefono))
-            )],
+            ),strlen($this->experiencia_3_inicio) && strlen($this->experiencia_3_fin) ? 'before_or_equal:experiencia_3_fin' : 'nullable'],
             'experiencia_3_fin'    => [Rule::requiredIf(fn() => (
                 !$this->experiencia_3_actual
                 && (strlen($this->experiencia_3_nombre)
@@ -278,7 +277,7 @@ class Formulario extends Component
                     || strlen($this->experiencia_3_inicio)
                     || strlen($this->experiencia_3_telefono))
             )
-            )
+            ),strlen($this->experiencia_3_fin) && strlen($this->experiencia_3_inicio) ? 'after_or_equal:experiencia_3_inicio' : 'nullable'
             ],
             'experiencia_3_actual' => 'nullable',
             'experiencia_3_telefono' =>  [Rule::requiredIf(fn() => (
@@ -347,8 +346,9 @@ class Formulario extends Component
             'email.confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
             'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.',
             'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
-            'email_confirmation.email' => 'El campo  Confirmar correo electrónico debe ser una dirección de correo válida.'
-
+            'email_confirmation.email' => 'El campo  Confirmar correo electrónico debe ser una dirección de correo válida.',
+            '*.after_or_equal' => 'El campo fecha final debe ser una fecha posterior o igual a la fecha inicial',
+            '*.before_or_equal' => 'El campo fecha inicio debe ser una fecha anterior o igual a la fecha final',
         ], $addRules);
     }
 
