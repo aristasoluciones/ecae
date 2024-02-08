@@ -67,21 +67,21 @@
 /** Definimos reglas de columnas en la pagina 01 **/
         td.grisp1{
             background:#F2F2F2;
-            font-size: 8pt;
+            font-size: 7pt;
             border-collapse: separate;
             border: white 1px solid;
             }
 
         td.blancop1{
             background:#ffffff;
-            font-size: 8pt;
+            font-size: 7pt;
             border-collapse: separate;
             border: white 1px solid;
             }
 
         td.rosap1{
             background:#EEE6F3;
-            font-size: 8pt;
+            font-size: 7pt;
             border-collapse: separate;
             border: white 1px solid;
             text-align: center;
@@ -321,9 +321,9 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 33.33%;">{{mb_strtoupper ($aspirante->apellido1) }}</td>
-                <td class="rosap1" style="width: 33.33%;">{{mb_strtoupper ($aspirante->apellido2) }}</td>
-                <td class="rosap1" style="width: 33.33%;">{{mb_strtoupper ($aspirante->nombre) }}</td>
+                <td class="rosap1" style="width: 33.33%; word-wrap: break-word;">{{mb_strtoupper ($aspirante->apellido1) }}</td>
+                <td class="rosap1" style="width: 33.33%; word-wrap: break-word;">{{mb_strtoupper ($aspirante->apellido2) }}</td>
+                <td class="rosap1" style="width: 33.33%; word-wrap: break-word;">{{mb_strtoupper ($aspirante->nombre) }}</td>
             </tr>
         </tbody>
         </tbody>
@@ -378,7 +378,7 @@ img{
                     <span>Otro (especifica)</span>
                     @endif
                     @if ($aspirante->genero=='Otro')
-                    <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
+                    <td class="rosap1" style="width: 10%; text-align: center; position: relative; word-wrap: break-word;">
                     <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
                     @else
                     <td class="rosap1"></td>
@@ -435,7 +435,7 @@ img{
                     <span>Otro (especifica)</span>
                     @endif
                     @if ($aspirante->persona_lgbtttiq=='Otro')
-                    <td class="rosap1" rowspan="2" style="width: 10%; text-align: center; position: relative;">
+                    <td class="rosap1" rowspan="2" style="width: 10%; text-align: center; position: relative; word-wrap: break-word;">
                     <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_lgbtttiq}}</span></td>
                     @else
                     <td class="rosap1" rowspan="2" ></td>
@@ -484,7 +484,7 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="rosap1" style="width: 65%; text-align: center;">{{mb_strtoupper ($aspirante->dom_calle)}}
+                <td class="rosap1" style="width: 65%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspirante->dom_calle)}}
                 @if ($aspirante->dom_num_exterior)
                 <span>NO. EXTERIOR {{mb_strtoupper ($aspirante->dom_num_exterior)}}</span>
                 @else <span></span> @endif
@@ -492,7 +492,7 @@ img{
                 <span>NO. INTERIOR {{mb_strtoupper ($aspirante->dom_num_interior)}}</span>
                 @else <span></span> @endif
                 </td>
-                <td class="rosap1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspirante->dom_colonia)}}&nbsp;
+                <td class="rosap1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspirante->dom_colonia)}}&nbsp;
                 </td>
             </tr>
         </tbody>
@@ -905,9 +905,9 @@ img{
         <tbody>
             <tr>
                 <td class="rosap1" style="width: 15%; text-align: left;">Carrera(Especifique)</td>
-                <td class="rosap1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspirante->carrera)}}</td>
+                <td class="rosap1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspirante->carrera)}}</td>
                 <td class="grisp1" style="width: 8.4%; text-align: center;">Especifique</td>
-                <td class="rosap1" style="width: 41.6%; text-align: center;">{{mb_strtoupper ($aspirante->otro_medio_convocatoria)}}</td>
+                <td class="rosap1" style="width: 41.6%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspirante->otro_medio_convocatoria)}}</td>
             </tr>
         </tbody>
         </tbody>
@@ -937,7 +937,7 @@ img{
                         <span style="font-weight: bold;">X</span>
                     @endif
                     </td>
-                <td class="rosap1" rowspan="3" style="width: 55%; text-align: justify;" VALIGN="top">{{ mb_strtoupper ($aspirante->motivo_secae)}}</td>
+                <td class="rosap1" rowspan="3" style="width: 55%; text-align: justify; word-wrap: break-word;" VALIGN="top">{{ mb_strtoupper ($aspirante->motivo_secae)}}</td>
             </tr>
             <tr>
                 <td class="grisp1" style="width: 15%; text-align: left;">Doctorado</td>
@@ -949,8 +949,8 @@ img{
             </tr>
             <tr>
                 <td class="rosap1" 
-                    style="width: 20%; text-align: left;">¿Realiza estudios actualmente?<br>Especifique:&nbsp;</td>
-                <td class="rosap1" style="width: 30%; text-align: center;">{{ mb_strtoupper ($aspirante->realiza_estudios)}}</td>
+                    style="width: 20%; text-align: left; word-wrap: break-word;">¿Realiza estudios actualmente?<br>Especifique: </td>
+                <td class="rosap1" style="width: 30%; text-align: center; word-wrap: break-word;">{{ mb_strtoupper ($aspirante->realiza_estudios)}}</td>
                 
             </tr>
         </tbody>
@@ -975,8 +975,7 @@ img{
     <table class="enmedio">
         <tbody>
             <tr>
-                <td class="rosap1" rowspan="2"
-                    style="width: 40%; text-align: center;">Nombre de la empresa o Institución</td>
+                <td class="rosap1" rowspan="2" style="width: 40%; text-align: center;">Nombre de la empresa o Institución</td>
                 <td class="rosap1" rowspan="2" style="width: 20%; text-align: center;">Puesto</td>
                 <td class="rosap1" colspan="2" style="width: 20%; text-align: center;">Periodo en que laboró</td>
                 <td class="rosap1" rowspan="2" style="width: 10%; text-align: center;">Teléfono</td>
@@ -992,10 +991,14 @@ img{
         @foreach($aspirante['experiencia_laboral'] as $key => $aspi)
             <tr>
                 <td class="blancop1" style="width: 5%; text-align: center;">{{$key+1}}</td>
-                <td class="grisp1" style="width: 35%; text-align: center;">{{mb_strtoupper ($aspi['nombre'])}}</td>
-                <td class="grisp1" style="width: 20%; text-align: center;">{{mb_strtoupper ($aspi['puesto'])}}</td>
+                <td class="grisp1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['nombre'])}}</td>
+                <td class="grisp1" style="width: 20%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
+                @if (isset($aspi['actual']))
+                <td class="grisp1" style="width: 10%; text-align: center;">actualmente</td>
+                @else
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['fin']}}</td>
+                @endif
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['telefono']}}</td> 
             </tr>
             @endforeach
@@ -1080,7 +1083,7 @@ img{
         <tbody>
             <tr>
                 <td class="grisp2" style="width: 15%; text-align: left;">1.1.¿Cuál?</td>
-                <td class="grisp2" style="width: 35%; text-align: center; font-weight: bold;">{{$aspirante->p1_1_cual}}</td>
+                <td class="grisp2" style="width: 35%; text-align: center; font-weight: bold; word-wrap: break-word;">{{$aspirante->p1_1_cual}}</td>
                 <td class="grisp2" style="width: 40%; text-align: left;">12.1.¿Cuenta con licencia de manejo? *</td>
                     <td class="rosap2" style="width: 5%; text-align: center; position: relative;">
                             @if ($aspirante->p12_1_licencia=='Si')
@@ -1134,7 +1137,7 @@ img{
                     @endif
                 </td>
                 
-                <td class="rosap2" style="width: 25%; text-align: left;">Especifique: {{$aspirante->p1_2_otra_forma}}</td>
+                <td class="rosap2" style="width: 25%; text-align: left; word-wrap: break-word;">Especifique: {{$aspirante->p1_2_otra_forma}}</td>
 
                 <td class="rosap2" style="width: 40%; text-align: left;">12.2. ¿Cuenta con vehículo propio?*</td>
 
@@ -1180,7 +1183,7 @@ img{
                     @endif
                 </td>
                 <td class="grisp2" style="width: 40; text-align: left; position: relative;">12.3.Anote marca y modelo*.</td>
-                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt;">{{mb_strtoupper ($aspirante->p12_3_marca)}}</td>
+                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt; word-wrap: break-word;">{{mb_strtoupper ($aspirante->p12_3_marca)}}</td>
             </tr>
         </tbody>
     </table>
@@ -1448,7 +1451,7 @@ img{
                 </td>
             </tr>
             <tr>
-                <td colspan="4" class="rosap2" style="width: 50%; text-align: left;">15.2 Especifique*: {{$aspirante->p15_2_otradiscapacidad}}</td>
+                <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: {{$aspirante->p15_2_otradiscapacidad}}</td>
             </tr>
         </tbody>
         </tbody>
@@ -1548,7 +1551,7 @@ img{
         <tbody>
             <tr>
                 <td class="rosap2" style="width: 20%; text-align: left;" colspan="2">11.1 ¿Cuál?</td>
-                <td class="rosap2" style="width: 30%; text-align: center;font-weight: bold; text-decoration: underline; text-decoration-thickness: 3px;">{{mb_strtoupper ($aspirante->p11_1_cual)}}</td>
+                <td class="rosap2" style="width: 30%; text-align: center;font-weight: bold; text-decoration: underline; text-decoration-thickness: 3px; word-wrap: break-word;">{{mb_strtoupper ($aspirante->p11_1_cual)}}</td>
                 <td class="grisp2" style="width: 50%; text-align: left;">&nbsp;</td>
             </tr>
         </tbody>
