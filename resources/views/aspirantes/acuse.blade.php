@@ -995,7 +995,7 @@ img{
                 <td class="grisp1" style="width: 20%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
                 @if (isset($aspi['actual']))
-                <td class="grisp1" style="width: 10%; text-align: center;">actualmente</td>
+                <td class="grisp1" style="width: 10%; text-align: center;">ACTUALMENTE</td>
                 @else
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['fin']}}</td>
                 @endif
