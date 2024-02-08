@@ -6,6 +6,7 @@ namespace App\Http\Livewire\Aspirantes;
 use Carbon\Carbon;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use App\Rules\ClaveElectorRule;
 
@@ -41,6 +42,29 @@ class Solicitud extends Component
     public $persona_lgbtttiq;
     public $otro_lgbtttiq;
     public $experiencia_laboral;
+
+    // experiencia
+    public $experiencia_1_nombre;
+    public $experiencia_1_puesto;
+    public $experiencia_1_inicio;
+    public $experiencia_1_fin;
+    public $experiencia_1_actual;
+    public $experiencia_1_telefono;
+
+    public $experiencia_2_nombre;
+    public $experiencia_2_puesto;
+    public $experiencia_2_inicio;
+    public $experiencia_2_fin;
+    public $experiencia_2_actual;
+    public $experiencia_2_telefono;
+
+    public $experiencia_3_nombre;
+    public $experiencia_3_puesto;
+    public $experiencia_3_inicio;
+    public $experiencia_3_fin;
+    public $experiencia_3_actual;
+    public $experiencia_3_telefono;
+
     public $dom_calle;
     public $dom_num_exterior;
     public $dom_num_interior;
@@ -104,7 +128,7 @@ class Solicitud extends Component
     protected function rules() {
 
         return [
-            'numero_convocatoria'         => 'required|string',
+            'numero_convocatoria'  => 'required|string',
             'municipio'         => 'required|string',
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
@@ -135,12 +159,129 @@ class Solicitud extends Component
             'ultimo_grado_estudio' => 'required|string',
             'carrera' => 'required_if:ultimo_grado_estudio,"Carrera (especifique)"',
             'realiza_estudios' => 'nullable|string',
-            'experiencia_laboral'   => 'nullable|array',
-            'experiencia_laboral.*.nombre'   => 'nullable|string',
-            'experiencia_laboral.*.puesto'   => 'nullable|string',
-            'experiencia_laboral.*.inicio'   => 'nullable|string',
-            'experiencia_laboral.*.fin'   => 'nullable|string',
-            'experiencia_laboral.*.telefono'   => 'nullable|string',
+
+            //EXPERIENCIA1
+            'experiencia_1_nombre' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_1_actual
+                || strlen($this->experiencia_1_puesto)
+                || strlen($this->experiencia_1_inicio)
+                || strlen($this->experiencia_1_fin)
+                || strlen($this->experiencia_1_telefono))
+            ),'max:100'
+            ],
+            'experiencia_1_puesto' => [Rule::requiredIf(fn() => (
+                $this->experiencia_1_actual
+                || strlen($this->experiencia_1_nombre)
+                || strlen($this->experiencia_1_inicio)
+                || strlen($this->experiencia_1_fin)
+                || strlen($this->experiencia_1_telefono))
+            ),'max:100'],
+            'experiencia_1_inicio' => [Rule::requiredIf(fn() => (
+                $this->experiencia_1_actual
+                || strlen($this->experiencia_1_nombre)
+                || strlen($this->experiencia_1_puesto)
+                || strlen($this->experiencia_1_fin)
+                || strlen($this->experiencia_1_telefono))
+            ), strlen($this->experiencia_1_inicio) && strlen($this->experiencia_1_fin) ? 'before_or_equal:experiencia_1_fin' : 'nullable'],
+            'experiencia_1_fin' => [Rule::requiredIf(fn() => (
+                !$this->experiencia_1_actual
+                && (strlen($this->experiencia_1_nombre)
+                    || strlen($this->experiencia_1_puesto)
+                    || strlen($this->experiencia_1_inicio)
+                    || strlen($this->experiencia_1_telefono))
+            )
+            ),strlen($this->experiencia_1_fin) && strlen($this->experiencia_1_inicio) ? 'after_or_equal:experiencia_1_inicio' : 'nullable'
+            ],
+            'experiencia_1_actual' => 'nullable',
+            'experiencia_1_telefono' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_1_actual
+                || strlen($this->experiencia_1_nombre)
+                || strlen($this->experiencia_1_puesto)
+                || strlen($this->experiencia_1_inicio)
+                || strlen($this->experiencia_1_fin))
+            ),'max:10'],
+
+            //EXPERIENCIA 2
+            'experiencia_2_nombre' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_2_actual
+                || strlen($this->experiencia_2_puesto)
+                || strlen($this->experiencia_2_inicio)
+                || strlen($this->experiencia_2_fin)
+                || strlen($this->experiencia_2_telefono))
+            ),'max:100'
+            ],
+            'experiencia_2_puesto' => [Rule::requiredIf(fn() => (
+                $this->experiencia_2_actual
+                || strlen($this->experiencia_2_nombre)
+                || strlen($this->experiencia_2_inicio)
+                || strlen($this->experiencia_2_fin)
+                || strlen($this->experiencia_2_telefono))
+            ),'max:100'],
+            'experiencia_2_inicio' => [Rule::requiredIf(fn() => (
+                $this->experiencia_2_actual
+                || strlen($this->experiencia_2_nombre)
+                || strlen($this->experiencia_2_puesto)
+                || strlen($this->experiencia_2_fin)
+                || strlen($this->experiencia_2_telefono))
+            ),strlen($this->experiencia_2_inicio) && strlen($this->experiencia_2_fin) ? 'before_or_equal:experiencia_2_fin' : 'nullable'],
+            'experiencia_2_fin'    => [Rule::requiredIf(fn() => (
+                !$this->experiencia_2_actual
+                && (strlen($this->experiencia_2_nombre)
+                    || strlen($this->experiencia_2_puesto)
+                    || strlen($this->experiencia_2_inicio)
+                    || strlen($this->experiencia_2_telefono)))
+            ),strlen($this->experiencia_2_fin) && strlen($this->experiencia_2_inicio) ? 'after_or_equal:experiencia_2_inicio' : 'nullable'
+            ],
+            'experiencia_2_actual' => 'nullable',
+            'experiencia_2_telefono' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_2_actual
+                || strlen($this->experiencia_2_nombre)
+                || strlen($this->experiencia_2_puesto)
+                || strlen($this->experiencia_2_inicio)
+                || strlen($this->experiencia_2_fin))
+            ),'max:10'],
+
+
+            //EXPERIENCIA 3
+            'experiencia_3_nombre' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_3_actual
+                || strlen($this->experiencia_3_puesto)
+                || strlen($this->experiencia_3_inicio)
+                || strlen($this->experiencia_3_fin)
+                || strlen($this->experiencia_3_telefono))
+            ),'max:100'
+            ],
+            'experiencia_3_puesto' => [Rule::requiredIf(fn() => (
+                $this->experiencia_3_actual
+                || strlen($this->experiencia_3_nombre)
+                || strlen($this->experiencia_3_inicio)
+                || strlen($this->experiencia_3_fin)
+                || strlen($this->experiencia_3_telefono))
+            ),'max:100'],
+            'experiencia_3_inicio' => [Rule::requiredIf(fn() => (
+                $this->experiencia_3_actual
+                || strlen($this->experiencia_3_nombre)
+                || strlen($this->experiencia_3_puesto)
+                || strlen($this->experiencia_3_telefono))
+            ),strlen($this->experiencia_3_inicio) && strlen($this->experiencia_3_fin) ? 'before_or_equal:experiencia_3_fin' : 'nullable'],
+            'experiencia_3_fin'    => [Rule::requiredIf(fn() => (
+                !$this->experiencia_3_actual
+                && (strlen($this->experiencia_3_nombre)
+                    || strlen($this->experiencia_3_puesto)
+                    || strlen($this->experiencia_3_inicio)
+                    || strlen($this->experiencia_3_telefono))
+            )
+            ),strlen($this->experiencia_3_fin) && strlen($this->experiencia_3_inicio) ? 'after_or_equal:experiencia_3_inicio' : 'nullable'
+            ],
+            'experiencia_3_actual' => 'nullable',
+            'experiencia_3_telefono' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_3_actual
+                || strlen($this->experiencia_3_nombre)
+                || strlen($this->experiencia_3_puesto)
+                || strlen($this->experiencia_3_inicio)
+                || strlen($this->experiencia_3_fin))
+            ),'max:10'],
+
             'motivo_secae'   => 'nullable|string',
             'medio_convocatoria'    => 'required|string',
             'otro_medio_convocatoria'  => 'required_if:medio_convocatoria,"L. Otro"',
@@ -170,8 +311,93 @@ class Solicitud extends Component
             'p14_acceso_internet'   => 'required|string',
             'p15_discapacidad'      => 'required|string',
             'p15_1_tipodiscapacidad'=> 'required_if:p15_discapacidad,=,Si',
-            'p15_2_otradiscapacidad'=> 'required_if:p15_1_tipodiscapacidad,=,Otro',
+            'p15_2_otradiscapacidad'=> 'required_if:p15_1_tipodiscapacidad,=,otro',
             'p16_utilizar_celular'  => 'required|string',
+        ];
+    }
+
+    public function rulesExperiencia1() {
+        return [
+            'inicio' => [Rule::requiredIf(fn() => (
+                $this->experiencia_1_actual
+                || strlen($this->experiencia_1_nombre)
+                || strlen($this->experiencia_1_puesto)
+                || strlen($this->experiencia_1_fin)
+                || strlen($this->experiencia_1_telefono))
+            ), strlen($this->experiencia_1_inicio) && strlen($this->experiencia_1_fin) ? 'before_or_equal:experiencia_1_fin' : 'nullable'],
+            'fin' => [Rule::requiredIf(fn() => (
+                !$this->experiencia_1_actual
+                && (strlen($this->experiencia_1_nombre)
+                    || strlen($this->experiencia_1_puesto)
+                    || strlen($this->experiencia_1_inicio)
+                    || strlen($this->experiencia_1_telefono))
+            )
+            ),strlen($this->experiencia_1_fin) && strlen($this->experiencia_1_inicio) ? 'after_or_equal:experiencia_1_inicio' : 'nullable'
+            ],
+            'actual' => 'nullable',
+            'telefono' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_1_actual
+                || strlen($this->experiencia_1_nombre)
+                || strlen($this->experiencia_1_puesto)
+                || strlen($this->experiencia_1_inicio)
+                || strlen($this->experiencia_1_fin))
+            ),'max:10'],
+        ];
+    }
+
+    public function rulesExperiencia2() {
+        return [
+            'inicio' => [Rule::requiredIf(fn() => (
+                $this->experiencia_2_actual
+                || strlen($this->experiencia_2_nombre)
+                || strlen($this->experiencia_2_puesto)
+                || strlen($this->experiencia_2_fin)
+                || strlen($this->experiencia_2_telefono))
+            ),strlen($this->experiencia_2_inicio) && strlen($this->experiencia_2_fin) ? 'before_or_equal:experiencia_2_fin' : 'nullable'],
+            'fin'    => [Rule::requiredIf(fn() => (
+                !$this->experiencia_2_actual
+                && (strlen($this->experiencia_2_nombre)
+                    || strlen($this->experiencia_2_puesto)
+                    || strlen($this->experiencia_2_inicio)
+                    || strlen($this->experiencia_2_telefono)))
+            ),strlen($this->experiencia_2_fin) && strlen($this->experiencia_2_inicio) ? 'after_or_equal:experiencia_2_inicio' : 'nullable'
+            ],
+            'actual' => 'nullable',
+            'telefono' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_2_actual
+                || strlen($this->experiencia_2_nombre)
+                || strlen($this->experiencia_2_puesto)
+                || strlen($this->experiencia_2_inicio)
+                || strlen($this->experiencia_2_fin))
+            ),'max:10'],
+        ];
+    }
+
+    public function rulesExperiencia3() {
+        return [
+            'inicio' => [Rule::requiredIf(fn() => (
+                $this->experiencia_3_actual
+                || strlen($this->experiencia_3_nombre)
+                || strlen($this->experiencia_3_puesto)
+                || strlen($this->experiencia_3_telefono))
+            ),strlen($this->experiencia_3_inicio) && strlen($this->experiencia_3_fin) ? 'before_or_equal:experiencia_3_fin' : 'nullable'],
+            'fin'    => [Rule::requiredIf(fn() => (
+                !$this->experiencia_3_actual
+                && (strlen($this->experiencia_3_nombre)
+                    || strlen($this->experiencia_3_puesto)
+                    || strlen($this->experiencia_3_inicio)
+                    || strlen($this->experiencia_3_telefono))
+            )
+            ),strlen($this->experiencia_3_fin) && strlen($this->experiencia_3_inicio) ? 'after_or_equal:experiencia_3_inicio' : 'nullable'
+            ],
+            'actual' => 'nullable',
+            'telefono' =>  [Rule::requiredIf(fn() => (
+                $this->experiencia_3_actual
+                || strlen($this->experiencia_3_nombre)
+                || strlen($this->experiencia_3_puesto)
+                || strlen($this->experiencia_3_inicio)
+                || strlen($this->experiencia_3_fin))
+            ),'max:10']
         ];
     }
 
@@ -179,10 +405,27 @@ class Solicitud extends Component
         return $this->validateOnly($field);
     }
     public function messages() {
-        return [
-            '*.required' => 'Este campo es obligatorio',
-            '*.required_if' => 'Este campo es obligatorio'
-        ];
+
+        $addRules = [];
+        for ($ii=1; $ii<=3; $ii++) {
+            $addRules[ "experiencia_".$ii."_nombre.required_with"] = 'Este campo es obligatorio';
+            $addRules[ "experiencia_".$ii."_puesto.required_with"] = 'Este campo es obligatorio';
+            $addRules[ "experiencia_".$ii."_inicio.required_with"] = 'Este campo es obligatorio';
+            $addRules[ "experiencia_".$ii."_fin.required_with"] = 'Este campo es obligatorio';
+            $addRules[ "experiencia_".$ii."_actual.required_with"] = 'Este campo es obligatorio';
+            $addRules[ "experiencia_".$ii."_telefono.required_with"] = 'Este campo es obligatorio';
+        }
+
+        return array_merge([
+            '*.required' => 'Este campo es obligatorio.',
+            '*.required_if' => 'Este campo es obligatorio.',
+            'email.confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
+            'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.',
+            'email_confirmation.same' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
+            'email_confirmation.email' => 'El campo  Confirmar correo electrónico debe ser una dirección de correo válida.',
+            '*.after_or_equal' => 'El campo fecha final debe ser una fecha posterior o igual a la fecha inicio',
+            '*.before_or_equal' => 'El campo fecha inicio debe ser una fecha anterior o igual a la fecha final',
+        ], $addRules);
     }
 
     public function getRegistradoProperty() {
@@ -225,6 +468,92 @@ class Solicitud extends Component
 
     }
 
+    public function updatedDomMunicipio($value) {
+        $this->domLocalidadesFiltrado = $this->localidades[$value] ?? [];
+    }
+
+    public function updatedEmail($value) {
+        $this->email =  mb_strtoupper($value);
+        $this->validate(['email_confirmation' => 'nullable|email|same:email']);
+    }
+
+    public function updatedEmailConfirmation($value) {
+        $this->email_confirmation =  mb_strtoupper($value);
+        $this->validate(['email' => 'nullable|email|confirmed']);
+    }
+
+    public function updatedExperiencia1Inicio($value) {
+
+        $this->validate([
+            'experiencia_1_fin' => $this->rulesExperiencia1()['fin']
+        ]);
+    }
+
+    public function updatedExperiencia1Fin($value) {
+
+        $this->validate([
+            'experiencia_1_inicio' => $this->rulesExperiencia1()['inicio']
+        ]);
+    }
+    public function updatedExperiencia1Actual($value) {
+        if($value == 1)
+            $this->experiencia_1_fin = null;
+        else
+            $this->experiencia_1_actual =  0;
+
+        $this->validate([
+            'experiencia_1_fin' =>  $this->rulesExperiencia1()['fin']
+        ]);
+    }
+
+    public function updatedExperiencia2Inicio($value) {
+
+        $this->validate([
+            'experiencia_2_fin' => $this->rulesExperiencia2()['fin']
+        ]);
+    }
+
+    public function updatedExperiencia2Fin($value) {
+
+        $this->validate([
+            'experiencia_2_inicio' => $this->rulesExperiencia2()['inicio']
+        ]);
+    }
+
+    public function updatedExperiencia2Actual($value) {
+        if($value == 1)
+            $this->experiencia_2_fin = null;
+        else
+            $this->experiencia_2_actual =  0;
+
+        $this->validate([
+            'experiencia_2_fin' =>  $this->rulesExperiencia2()['fin']
+        ]);
+    }
+
+    public function updatedExperiencia3Inicio($value) {
+
+        $this->validate([
+            'experiencia_3_fin' => $this->rulesExperiencia3()['fin']
+        ]);
+    }
+    public function updatedExperiencia3Fin($value) {
+
+        $this->validate([
+            'experiencia_3_inicio' => $this->rulesExperiencia3()['inicio']
+        ]);
+    }
+    public function updatedExperiencia3Actual($value) {;
+        if($value == 1)
+            $this->experiencia_3_fin = null;
+        else
+            $this->experiencia_3_actual =  0;
+
+        $this->validate([
+            'experiencia_3_fin' =>  $this->rulesExperiencia3()['fin']
+        ]);
+    }
+
     public function mount(Aspirante $aspirante) {
 
         $this->grados      =  config('constants.grados');
@@ -261,9 +590,8 @@ class Solicitud extends Component
         $this->email_confirmation   = $this->email;
         $this->localidadesFiltrado  =  $this->localidades[$this->municipio] ?? [];
 
-        $this->fill([
-            'experiencia_laboral' => $this->construirExperiencias($this->experiencia_laboral ?? []),
-        ]);
+        $this->iniciarExperiencias($this->experiencia_laboral ?? []);
+
     }
 
     public function render()
@@ -290,9 +618,38 @@ class Solicitud extends Component
 
         $data     = $this->validate();
         $dataFill =  $data;
-        if(isset($dataFill['email_confirmation']))
-            unset($dataFill['email_confirmation']);
 
+        unset($dataFill['email_confirmation']);
+        $experiencias = [];
+        for ($ii=1; $ii<=3; $ii++) {
+            $cad = [];
+            $atributo = "experiencia_".$ii."_nombre";
+            $cad['nombre'] =  $dataFill[$atributo];
+            unset($dataFill[$atributo]);
+
+            $atributo = "experiencia_".$ii."_puesto";
+            $cad['puesto'] =  $dataFill[$atributo];
+            unset($dataFill[$atributo]);
+
+            $atributo = "experiencia_".$ii."_inicio";
+            $cad['inicio'] =  $dataFill[$atributo];
+            unset($dataFill[$atributo]);
+
+            $atributo = "experiencia_".$ii."_fin";
+            $cad['fin'] =  $dataFill[$atributo];
+            unset($dataFill[$atributo]);
+
+            $atributo = "experiencia_".$ii."_actual";
+            $cad['actual'] =  $dataFill[$atributo];
+            unset($dataFill[$atributo]);
+
+            $atributo = "experiencia_".$ii."_telefono";
+            $cad['telefono'] =  $dataFill[$atributo];
+            unset($dataFill[$atributo]);
+            $experiencias[] =  $cad;
+        }
+
+        $dataFill['experiencia_laboral'] =  $experiencias;
         $this->aspirante->update($dataFill);
 
         $this->aspirante->refresh();
@@ -360,21 +717,32 @@ class Solicitud extends Component
         ]);
     }
 
-    public function construirExperiencias(array $experiencias) {
+    public function iniciarExperiencias(array $experiencias) {
 
-        $formaciones = [];
+        foreach ($experiencias as $kk => $experiencia) {
 
-        for ($ii = 0; $ii < 3; $ii++) {
-            $formaciones[] = [
-                'nombre' => '',
-                'puesto' => '',
-                'inicio' => '',
-                'fin' => '',
-                'telefono' => ''
-            ];
+            $atributo = 'experiencia_'.($kk +1).'_nombre';
+            $this->{$atributo} = $experiencia['nombre'] ?? null;
+
+            $atributo = 'experiencia_'.($kk +1).'_puesto';
+            $this->{$atributo} = $experiencia['puesto'] ?? null;
+
+            $atributo = 'experiencia_'.($kk +1).'_inicio';
+            $this->{$atributo} = $experiencia['inicio'] ?? null;
+
+            $atributo = 'experiencia_'.($kk +1).'_fin';
+            $this->{$atributo} = $experiencia['fin'] ?? null;
+
+            $atributo = 'experiencia_'.($kk +1).'_actual';
+            $this->{$atributo} = $experiencia['actual'] ?? null;
+
+            $atributo = 'experiencia_'.($kk +1).'_telefono';
+            $this->{$atributo} = $experiencia['telefono'] ?? null;
+
         }
-
-        return array_merge_recursive_distinct($formaciones, $experiencias);
+        \Log::info($this->experiencia_1_nombre);
+        \Log::info($this->experiencia_2_nombre);
+        \Log::info($this->experiencia_3_nombre);
     }
 
     public function generarFicha() {
