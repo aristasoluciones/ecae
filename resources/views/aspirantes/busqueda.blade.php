@@ -1,6 +1,6 @@
 <div class="d-flex flex-row justify-content-end {{$position}} mb-2">
     <a class="btn btn-{{$theme}} {{$class}}"
-       @isset($route) href="{{ route($route) }}" @endisset
+       @isset($route) href="{{ route($route) }}" target="_blank" @endisset
        @isset($evento) wire:click="{{$evento}}" @endisset
        title="{{$title}}">
         @isset($label) {{ $label }} @endisset
@@ -15,7 +15,7 @@
                 <a class="d-block w-100" href="#filtro" aria-expanded="true" data-toggle="collapse">Filtro de busqueda</a>
             </h4>
         </div>
-        <div id="filtro" class="collapse" data-parent="#acordion">
+        <div id="filtro" class="collapse show" data-parent="#acordion">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">

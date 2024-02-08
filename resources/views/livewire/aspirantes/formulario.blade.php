@@ -669,6 +669,7 @@
                                        maxlength="10"
                                        wire:model="experiencia_1_telefono"
                                        id="experiencia_1_telefono"
+                                       onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                        class="form-control floating {{ $errors->has('experiencia_1_telefono') ? 'is-invalid':'' }}"
                                 >
                                 <label for="experiencia_1_telefono">Teléfono</label>
@@ -752,6 +753,7 @@
                                        id="experiencia_2_telefono"
                                        wire:model="experiencia_2_telefono"
                                        id="experiencia_2_telefono"
+                                       onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                        class="form-control floating {{ $errors->has('experiencia_2_telefono') ? 'is-invalid':''}}"
                                 >
                                 <label for="experiencia_2_telefono">Teléfono</label>
@@ -834,6 +836,7 @@
                                        maxlength="10"
                                        wire:model="experiencia_3_telefono"
                                        id="experiencia_3_telefono"
+                                       onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                        class="form-control floating {{ $errors->has('experiencia_3_telefono') ? 'is-invalid':''}}"
                                 >
                                 <label for="experiencia_3_telefono">Teléfono</label>
