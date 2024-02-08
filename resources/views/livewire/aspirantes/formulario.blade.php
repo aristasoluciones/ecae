@@ -300,9 +300,10 @@
                                 <label class=""><span class="text-danger ">*</span>Especifique:</label>
                                 <input
                                     type="text"
-                                    maxlength="50"
+                                    maxlength="30"
                                     wire:model.lazy="otro_genero"
                                     class="form-control {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
+                                <small class="form-text text-muted">Maximo 30 caracteres(incluyendo espacios).</small>
                                 @error('otro_genero')
                                     <span class="text-danger error h6">{{ $message }}</span>
                                 @enderror
@@ -336,6 +337,7 @@
                                        maxlength="30"
                                        wire:model.lazy="otro_lgbtttiq"
                                        class="form-control {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
+                                <small class="form-text text-muted">Maximo 30 caracteres(Incluyendo espacios).</small>
                                 @error('otro_lgbtttiq')
                                     <span class="text-danger error h6">{{ $message }}</span>
                                 @enderror
@@ -352,6 +354,7 @@
                                 Calle</label>
                             <input wire:model.lazy="dom_calle" maxlength="100" id="dom_calle" name="dom_calle" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_calle') ? 'is-invalid' : '' }}" />
+                            <small class="form-text text-muted">Maximo 100 caracteres(Incluyendo espacios).</small>
                             @error('dom_calle')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -364,6 +367,7 @@
                             <input wire:model.lazy="dom_num_exterior" maxlength="25" id="dom_num_exterior" name="dom_num_exterior"
                                 type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_num_exterior') ? 'is-invalid' : '' }}" />
+                            <small class="form-text text-muted">Maximo 25 caracteres(Incluyendo espacios).</small>
                             @error('dom_num_exterior')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -376,6 +380,7 @@
                             <input wire:model.lazy="dom_num_interior" maxlength="25" id="dom_num_interior" name="dom_num_interior"
                                 type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_num_interior') ? 'is-invalid' : '' }}" />
+                            <small class="form-text text-muted">Maximo 25 caracteres(Incluyendo espacios).</small>
                             @error('dom_num_interior')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -387,6 +392,7 @@
                                 Colonia</label>
                             <input wire:model.lazy="dom_colonia" maxlength="100" id="dom_colonia" type="text" autocomplete="off"
                                 class="form-control {{ $errors->has('dom_colonia') ? 'is-invalid' : '' }}" />
+                            <small class="form-text text-muted">Maximo 100 caracteres(Incluyendo espacios).</small>
                             @error('dom_colonia')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -431,8 +437,13 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>Código
                                 Postal</label>
-                            <input wire:model.lazy="dom_postal" id="dom_postal" type="text" autocomplete="off" maxlength="5" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
-                                class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}" />
+                            <input wire:model.lazy="dom_postal"
+                                   id="dom_postal"
+                                   type="text"
+                                   autocomplete="off"
+                                   maxlength="5"
+                                   onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                   class="form-control {{ $errors->has('dom_postal') ? 'is-invalid' : '' }}" />
                             @error('dom_postal')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -442,8 +453,13 @@
                         <div class="form-group">
                             <label class=""><span class="text-danger "></span>
                                 Teléfono fijo</label>
-                            <input wire:model.lazy="tel_fijo" id="tel_fijo" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
-                                class="form-control {{ $errors->has('tel_fijo') ? 'is-invalid' : '' }}" />
+                            <input wire:model.lazy="tel_fijo"
+                                   id="tel_fijo"
+                                   type="text"
+                                   autocomplete="off"
+                                   maxlength="10"
+                                   onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                   class="form-control {{ $errors->has('tel_fijo') ? 'is-invalid' : '' }}" />
                             @error('tel_fijo')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -452,8 +468,13 @@
                     <div class=" col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">* </span>Teléfono celular</label>
-                            <input wire:model.lazy="tel_celular" id="tel_celular" type="text" autocomplete="off" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
-                                class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
+                            <input wire:model.lazy="tel_celular"
+                                   id="tel_celular"
+                                   type="text"
+                                   autocomplete="off"
+                                   maxlength="10"
+                                   onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                   class="form-control {{ $errors->has('tel_celular') ? 'is-invalid' : '' }}" />
                             @error('tel_celular')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -489,11 +510,11 @@
                         <div class=" col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span> Especifique:</label>
-                                <input
-                                    type="text"
-                                    maxlength="50"
-                                    wire:model.lazy="carrera"
-                                    class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
+                                <input type="text"
+                                       maxlength="50"
+                                       wire:model.lazy="carrera"
+                                       class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
+                                <small class="form-text text-muted">Maximo 50 caracteres(Incluyendo espacios).</small>
                                 @error('carrera')
                                     <span class="text-danger error h6">{{ $message }}</span>
                                 @enderror
@@ -504,7 +525,7 @@
 
                     <div class="col-6 col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger "></span>
+                            <label class=""><span class="text-danger"></span>
                                 ¿Realiza estudios actualmente? Especifique:</label>
                             <input wire:model.lazy="realiza_estudios"
                                    maxlength="50"
@@ -512,6 +533,7 @@
                                    type="text"
                                    autocomplete="off"
                                 class="form-control {{ $errors->has('realiza_estudios') ? 'is-invalid' : '' }}" />
+                            <small class="form-text text-muted">Maximo 50 caracteres(Incluyendo espacios).</small>
                             @error('realiza_estudios')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -547,6 +569,7 @@
                                        maxlength="50"
                                        wire:model.lazy="otro_medio_convocatoria"
                                        class="form-control {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
+                                <small class="form-text text-muted">Maximo 50 caracteres(Incluyendo espacios).</small>
                                 @error('otro_medio_convocatoria')
                                 <span class="text-danger error h6">{{ $message }}</span>
                                 @enderror
@@ -559,8 +582,9 @@
                             <label class=""><span class="text-danger "></span> ¿Cual
                                 es el motivo por el que quiere participar como SE o
                                 CAE Local? Especifique:</label>
-                            <textarea maxlength="200" wire:model.lazy="motivo_secae" rows="2" id="motivo_secae"
+                            <textarea maxlength="250" wire:model.lazy="motivo_secae" rows="2" id="motivo_secae"
                                 class="form-control {{ $errors->has('motivo_secae') ? 'is-invalid' : '' }}"></textarea>
+                            <small class="form-text text-muted">Maximo 250 caracteres(Incluyendo espacios).</small>
                             @error('motivo_secae')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
@@ -868,6 +892,7 @@
                                                wire:model.lazy="p1_1_cual"
                                                id="p1_1_cual"
                                                name="p1_1_cual">
+                                        <small class="form-text text-muted">Maximo 30 caracteres(Incluyendo espacios).</small>
                                         @error('p1_1_cual')
                                         <span class="text-danger error h6">{{ $message }}</span>
                                         @enderror
@@ -902,6 +927,7 @@
                                                    maxlength="30"
                                                    wire:model.lazy="p1_2_otra_forma"
                                                    class="form-control  {{ $errors->has('p1_2_otra_forma') ? 'is-invalid' : '' }}">
+                                            <small class="form-text text-muted">Maximo 30 caracteres(Incluyendo espacios).</small>
                                             @error('p1_2_otra_forma')
                                             <span class="text-danger error h6">{{ $message }}</span>
                                             @enderror
@@ -1195,6 +1221,7 @@
                                                id="p11_1_cual"
                                                maxlength="30"
                                                name="p11_1_cual"/>
+                                        <small class="form-text text-muted">Maximo 30 caracteres(Incluyendo espacios).</small>
                                         @error('p11_1_cual')
                                         <span class="text-danger error h6">{{ $message }}</span>
                                         @enderror
@@ -1279,6 +1306,7 @@
                                                    class="form-control {{ $errors->has('p12_3_marca') ? 'is-invalid' : '' }}"
                                                    wire:model.lazy="p12_3_marca"
                                                    id="p12_3_marca" name="p12_3_marca">
+                                            <small class="form-text text-muted">Maximo 30 caracteres(Incluyendo espacios).</small>
                                             @error('p12_3_marca')
                                             <span class="text-danger error h6">{{ $message }}</span>
                                             @enderror
@@ -1631,26 +1659,7 @@
 
 @section('js')
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', () => {
-            @this.on('confirmar', params => {
-                Swal.fire({
-                    icon: params.icon,
-                    title: params.title,
-                    html: params.text,
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: params
-                        .confirmText,
-                    reverseButtons: true,
-                }).then(result => {
-                    if (result.value) {
-                        @this.call(params.method)
-                    }
-                })
-            });
 
-        })
         document.addEventListener('livewire:load', ()=> {
 
             let elements = document.querySelectorAll('.datepicker');
@@ -1658,7 +1667,8 @@
                 $('#'+le.id).daterangepicker({
                     singleDatePicker:true,
                     linkedCalendars: false,
-                    autoUpdateInput: true,
+                    autoApply: false,
+                    autoUpdateInput: false,
                     showDropdowns: true,
                     placeholder:'Select a range',
                     locale: {
@@ -1691,11 +1701,15 @@
                     }
                 });
 
+                $('#'+le.id).on('apply.daterangepicker', function(ev, picker) {
+                    $(this).val(picker.startDate.format('YYYY-MM-DD'));
+                    @this.set(le.id, picker.startDate.format('YYYY-MM-DD'));
+                });
                 $('#'+le.id).on('cancel.daterangepicker', function(ev, picker) {
                     $(this).val(null);
                     @this.set(le.id, null);
                 });
-                $('#'+le.id).val(null);
+
             })
 
             document.querySelectorAll("input[type=text], input[type=email], textarea ,#p11_1_cual").forEach(function(current) {
