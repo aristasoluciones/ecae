@@ -282,8 +282,8 @@ class Solicitud extends Component
                 || strlen($this->experiencia_3_fin))
             ),'max:10'],
 
-            'motivo_secae'   => 'nullable|string',
-            'medio_convocatoria'    => 'required|string',
+            'motivo_secae'   => 'required|string|max:250',
+            'medio_convocatoria'    => 'required|string:max:50',
             'otro_medio_convocatoria'  => 'required_if:medio_convocatoria,"L. Otro"',
             'email'    => 'required|email|confirmed',
             'email_confirmation'    => 'required|email|same:email',
@@ -496,13 +496,23 @@ class Solicitud extends Component
         ]);
     }
     public function updatedExperiencia1Actual($value) {
-        if($value == 1)
+        if($value == 1) {
             $this->experiencia_1_fin = null;
+        }
         else
             $this->experiencia_1_actual =  0;
 
+        $this->emit('actualizarPickers');
+
         $this->validate([
             'experiencia_1_fin' =>  $this->rulesExperiencia1()['fin']
+        ]);
+
+    }
+    public function updatedExperiencia1Telefono() {
+
+        $this->validate([
+            'experiencia_1_telefono' => $this->rulesExperiencia1()['telefono']
         ]);
     }
 
@@ -526,8 +536,17 @@ class Solicitud extends Component
         else
             $this->experiencia_2_actual =  0;
 
+        $this->emit('actualizarPickers');
+
         $this->validate([
             'experiencia_2_fin' =>  $this->rulesExperiencia2()['fin']
+        ]);
+    }
+
+    public function updatedExperiencia2Telefono() {
+
+        $this->validate([
+            'experiencia_2_telefono' => $this->rulesExperiencia2()['telefono']
         ]);
     }
 
@@ -549,8 +568,17 @@ class Solicitud extends Component
         else
             $this->experiencia_3_actual =  0;
 
+        $this->emit('actualizarPickers');
+
         $this->validate([
             'experiencia_3_fin' =>  $this->rulesExperiencia3()['fin']
+        ]);
+    }
+
+    public function updatedExperiencia3Telefono() {
+
+        $this->validate([
+            'experiencia_3_telefono' => $this->rulesExperiencia3()['telefono']
         ]);
     }
 
@@ -706,6 +734,7 @@ class Solicitud extends Component
             'municipios',
             'localidades',
             'localidadesFiltrado',
+            'domLocalidadesFiltrado',
             'consejosMunicipales',
             'consejosFiltrado',
             'fecha_nacimiento',
@@ -738,11 +767,8 @@ class Solicitud extends Component
 
             $atributo = 'experiencia_'.($kk +1).'_telefono';
             $this->{$atributo} = $experiencia['telefono'] ?? null;
-
         }
-        \Log::info($this->experiencia_1_nombre);
-        \Log::info($this->experiencia_2_nombre);
-        \Log::info($this->experiencia_3_nombre);
+
     }
 
     public function generarFicha() {
@@ -758,5 +784,15 @@ class Solicitud extends Component
     }
     public function toggleEditar() {
         $this->editar =  !$this->editar;
+        if(!$this->editar) {
+            foreach($this->aspirante->toArray() as $key => $cad) {
+                $this->{$key} = $cad;
+            }
+
+            $this->email_confirmation   = $this->email;
+            $this->localidadesFiltrado  =  $this->localidades[$this->municipio] ?? [];
+
+            $this->iniciarExperiencias($this->experiencia_laboral ?? []);
+        }
     }
 }

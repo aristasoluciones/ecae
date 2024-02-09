@@ -37,7 +37,7 @@
 
     </style>
 @endpush
-<div class="card" id="solicitud-aspirante">
+<div class="card" id="solicitud-aspirante" wire:key="solicitud-aspirante">
     <div class="card-header">
         <div class="row">
             <div class="col-12">
@@ -641,7 +641,7 @@
 
             <div class="col-md-8 col-sm-12">
                 <div class="form-group">
-                    <label class=""><span class="text-danger "></span> ¿Cual
+                    <label class=""><span class="text-danger ">* </span>¿Cual
                         es el motivo por el que quiere participar como SE o
                         CAE Local? Especifique:</label>
                     <textarea maxlength="250" wire:model.lazy="motivo_secae" rows="2" id="motivo_secae"
@@ -708,19 +708,31 @@
                     @error('experiencia_1_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                 </div>
                 <div class="col-md-2 col-sm-12">
-                    <div class="form-group mb-0 floating {{ $editar ? 'd-block' : 'd-none' }}">
-                        <input type="text"
-                               wire:model.debounce.500ms="experiencia_1_fin"
-                               class="form-control datepicker floating {{ $errors->has('experiencia_1_fin') ? 'is-invalid':'' }}"
-                               autocomplete="off"
-                               placeholder="yyyy-mm-dd"
-                               id="experiencia_1_fin"
-                               name="experiencia_1_fin"
-                               onchange="this.dispatchEvent(new InputEvent('input'))"
-                               @if($experiencia_1_actual == 1) disabled @endif
-                        >
-                        @if($experiencia_1_actual != 1) <label for="experiencia_1_fin">Fecha final</label> @endif
-                    </div>
+                    @if($editar)
+                        @if($experiencia_1_actual != '1')
+                            <div class="form-group mb-0 floating">
+                            <input type="text"
+                                   wire:model.debounce.500ms="experiencia_1_fin"
+                                   class="form-control datepicker floating {{ $errors->has('experiencia_1_fin') ? 'is-invalid':'' }}"
+                                   autocomplete="off"
+                                   placeholder="yyyy-mm-dd"
+                                   id="experiencia_1_fin"
+                                   name="experiencia_1_fin"
+                                   onchange="this.dispatchEvent(new InputEvent('input'))"
+                            >
+                            <label for="experiencia_1_fin">Fecha final</label>
+                            </div>
+                        @else
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       class="form-control"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       readonly
+                                >
+                            </div>
+                        @endif
+                    @endif
                     <div class="form-group {{ $editar ? 'd-none' : 'd-block' }}">
                         <input type="text" id="tmp_experiencia_1_fin"  class="form-control" value="{{ $experiencia_1_fin }}"/>
                     </div>
@@ -804,19 +816,31 @@
                     @error('experiencia_2_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                 </div>
                 <div class="col-md-2 col-sm-12">
-                    <div class="form-group mb-0 floating m-0 {{ $editar ? 'd-block' : 'd-none' }}">
-                        <input type="text"
-                               wire:model="experiencia_2_fin"
-                               class="form-control datepicker floating {{ $errors->has('experiencia_2_fin') ? 'is-invalid':''}}"
-                               autocomplete="off"
-                               placeholder="yyyy-mm-dd"
-                               id="experiencia_2_fin"
-                               name="experiencia_2_fin"
-                               onchange="this.dispatchEvent(new InputEvent('input'))"
-                               @if($experiencia_2_actual == 1) disabled @endif
-                        >
-                        @if($experiencia_2_actual != 1) <label for="experiencia_2_fin">Fecha final</label> @endif
-                    </div>
+                    @if($editar)
+                        @if($experiencia_2_actual != '1')
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       wire:model.debounce.500ms="experiencia_2_fin"
+                                       class="form-control  datepicker floating {{ $errors->has('experiencia_2_fin') ? 'is-invalid':'' }}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_2_fin"
+                                       name="experiencia_2_fin"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                >
+                                <label for="experiencia_2_fin">Fecha final</label>
+                            </div>
+                        @else
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       class="form-control"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       readonly
+                                >
+                            </div>
+                        @endif
+                    @endif
                     <div class="form-group {{ $editar ? 'd-none' : 'd-block' }}">
                         <input type="text" class="form-control" value="{{ $experiencia_2_fin }}"/>
                     </div>
@@ -902,19 +926,32 @@
                     @error('experiencia_3_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                 </div>
                 <div class="col-md-2 col-sm-12">
-                    <div class="form-group floating m-0 {{ $editar ? 'd-block' : 'd-none' }}">
-                        <input type="text"
-                               wire:model="experiencia_3_fin"
-                               class="form-control datepicker floating {{ $errors->has('experiencia_3_fin') ? 'is-invalid':''}}"
-                               autocomplete="off"
-                               placeholder="yyyy-mm-dd"
-                               id="experiencia_3_fin"
-                               name="experiencia_3_fin"
-                               onchange="this.dispatchEvent(new InputEvent('input'))"
-                               @if($experiencia_3_actual == 1) disabled @endif
-                        >
-                        @if($experiencia_3_actual != 1) <label for="experiencia_3_fin">Fecha final</label> @endif
-                    </div>
+                    @if($editar)
+                        @if($experiencia_3_actual != '1')
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       wire:model.debounce.500ms="experiencia_3_fin"
+                                       class="form-control @if($experiencia_3_actual != '1') datepicker @endif floating {{ $errors->has('experiencia_3_fin') ? 'is-invalid':'' }}"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       id="experiencia_3_fin"
+                                       name="experiencia_3_fin"
+                                       onchange="this.dispatchEvent(new InputEvent('input'))"
+                                       @if($this->experiencia_3_actual == '1') readonly @endif
+                                >
+                               <label for="experiencia_3_fin">Fecha final</label>
+                            </div>
+                        @else
+                            <div class="form-group mb-0 floating">
+                                <input type="text"
+                                       class="form-control"
+                                       autocomplete="off"
+                                       placeholder="yyyy-mm-dd"
+                                       readonly
+                                >
+                            </div>
+                        @endif
+                    @endif
                     <div class="form-group {{ $editar ? 'd-none' : 'd-block' }}">
                         <input type="text" class="form-control" value="{{ $experiencia_3_fin }}"/>
                     </div>
@@ -1640,12 +1677,12 @@
     @endif
     @if(!$editar)
         <script wire:key="{{ rand() }}">
-            let elements = document.querySelectorAll('div#solicitud-aspirante input,select,textarea');
+            let elements = document.querySelectorAll('div#solicitud-aspirante input:not([class="datepicker"]),select,textarea');
             elements.forEach(element => element.setAttribute('disabled', 'disabled') );
         </script>
     @else
         <script wire:key="{{ rand() }}">
-            let elements = document.querySelectorAll('div#solicitud-aspirante input,select,textarea');
+            let elements = document.querySelectorAll('div#solicitud-aspirante input:not([class="datepicker"]),select,textarea');
             elements.forEach(element => element.removeAttribute('disabled') );
         </script>
     @endif
@@ -1766,18 +1803,20 @@
 @section('js')
     <script type="text/javascript">
 
-        document.addEventListener('livewire:load', () => {
-
+        function cargarDatePickers() {
+            let doc = document.getElementById("solicitud-aspirante");
+            let componente = this.livewire.find(doc.getAttribute("wire:id"));
             let elements = document.querySelectorAll('.datepicker');
+
             elements.forEach((le) => {
-                $('#'+le.id).daterangepicker({
-                    singleDatePicker:true,
+                $('#' + le.id).daterangepicker({
+                    singleDatePicker: true,
                     linkedCalendars: false,
                     autoApply: false,
                     autoUpdateInput: false,
                     showDropdowns: true,
                     locale: {
-                        format:"YYYY-MM-DD",
+                        format: "YYYY-MM-DD",
                         cancelLabel: 'Cancelar',
                         applyLabel: 'Aceptar',
                         daysOfWeek: [
@@ -1806,17 +1845,27 @@
                     }
                 })
 
-                $('#'+le.id).on('apply.daterangepicker', function(ev, picker) {
+                $('#' + le.id).on('apply.daterangepicker', function (ev, picker) {
                     $(this).val(picker.startDate.format('YYYY-MM-DD'));
+                    componente.set(le.id, picker.startDate.format('YYYY-MM-DD'))
                 });
-                $('#'+le.id).on('cancel.daterangepicker', function () {
+                $('#' + le.id).on('cancel.daterangepicker', function () {
                     $(this).val(null);
+                    componente.set(le.id, null)
                 });
-
             });
-        });
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
+
+            cargarDatePickers()
+
+            this.livewire.on('actualizarPickers', () => {
+                cargarDatePickers()
+            })
+            this.livewire.hook('message.processed', () => {
+                cargarDatePickers()
+            })
 
             var forceInputUppercase = function(e) {
                 let el = e.target;
