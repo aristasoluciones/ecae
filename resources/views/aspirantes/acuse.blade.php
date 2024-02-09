@@ -994,11 +994,12 @@ img{
                 <td class="grisp1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['nombre'])}}</td>
                 <td class="grisp1" style="width: 20%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
-                @if ($aspi['actual']=='1')
+                
+                @unless (empty($aspi['actual']))
                 <td class="grisp1" style="width: 10%; text-align: center;">ACTUALMENTE</td>
                 @else
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['fin']}}</td>
-                @endif
+                @endunless
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['telefono']}}</td> 
             </tr>
             @endforeach
@@ -1183,7 +1184,12 @@ img{
                     @endif
                 </td>
                 <td class="grisp2" style="width: 40; text-align: left; position: relative;">12.3.Anote marca y modelo*.</td>
-                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt; word-wrap: break-word;">{{mb_strtoupper ($aspirante->p12_3_marca)}}</td>
+                @if($aspirante->p12_2_vehiculo=='Si'){
+                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt; word-wrap: break-word;">{{mb_strtoupper ($aspirante->p12_3_marca)}}</td>}
+                @endif
+                @if($aspirante->p12_2_vehiculo=='No'){
+                <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt; word-wrap: break-word;"></td>}
+                @endif                
             </tr>
         </tbody>
     </table>
