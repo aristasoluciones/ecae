@@ -579,7 +579,7 @@
 
                     <div class="col-md-8 col-sm-12">
                         <div class="form-group">
-                            <label class=""><span class="text-danger "></span> ¿Cual
+                            <label class=""><span class="text-danger">* </span>¿Cual
                                 es el motivo por el que quiere participar como SE o
                                 CAE Local? Especifique:</label>
                             <textarea maxlength="250" wire:model.lazy="motivo_secae" rows="2" id="motivo_secae"

@@ -288,8 +288,8 @@ class Formulario extends Component
                 || strlen($this->experiencia_3_fin))
             ),'max:10'],
 
-            'motivo_secae'   => 'nullable|string',
-            'medio_convocatoria'    => 'required|string',
+            'motivo_secae'   => 'required|string|max:250',
+            'medio_convocatoria'    => 'required|string:max:50',
             'otro_medio_convocatoria'  => 'required_if:medio_convocatoria,"L. Otro"',
             'email'    => 'required|email|confirmed',
             'email_confirmation'    => 'required|email|same:email',
@@ -739,22 +739,22 @@ class Formulario extends Component
 
         foreach ($experiencias as $kk => $experiencia) {
 
-            $atributo = 'experiencia_'.($kk +1).'nombre';
+            $atributo = 'experiencia_'.($kk +1).'_nombre';
             $this->{$atributo} = $experiencia['nombre'] ?? null;
 
-            $atributo = 'experiencia_'.($kk +1).'puesto';
+            $atributo = 'experiencia_'.($kk +1).'_puesto';
             $this->{$atributo} = $experiencia['puesto'] ?? null;
 
-            $atributo = 'experiencia_'.($kk +1).'inicio';
+            $atributo = 'experiencia_'.($kk +1).'_inicio';
             $this->{$atributo} = $experiencia['inicio'] ?? null;
 
-            $atributo = 'experiencia_'.($kk +1).'fin';
+            $atributo = 'experiencia_'.($kk +1).'_fin';
             $this->{$atributo} = $experiencia['fin'] ?? null;
 
-            $atributo = 'experiencia_'.($kk +1).'actual';
+            $atributo = 'experiencia_'.($kk +1).'_actual';
             $this->{$atributo} = $experiencia['actual'] ?? null;
 
-            $atributo = 'experiencia_'.($kk +1).'telefono';
+            $atributo = 'experiencia_'.($kk +1).'_telefono';
             $this->{$atributo} = $experiencia['telefono'] ?? null;
         }
 

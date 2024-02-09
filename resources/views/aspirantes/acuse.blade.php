@@ -373,13 +373,13 @@ img{
                 <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
                 @if ($aspirante->genero=='Otro')
                     <span style="position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto; font-size: 10pt; font-weight: bold;">X</span>
-                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">Otro (especifica)</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Otro (especifica)</span>
                     @else
                     <span>Otro (especifica)</span>
                     @endif
                     @if ($aspirante->genero=='Otro')
                     <td class="rosap1" style="width: 10%; text-align: center; position: relative; word-wrap: break-word;">
-                    <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
+                    <span style="font-size: 7pt; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
                     @else
                     <td class="rosap1"></td>
                     @endif  
@@ -430,13 +430,13 @@ img{
                 <td class="rosap1" rowspan="2" style="width: 10%; text-align: center; position: relative;">
                     @if ($aspirante->persona_lgbtttiq=='Otro')
                     <span style="position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto; font-size: 10pt; font-weight: bold;">X</span>
-                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 5; bottom: 0; margin: auto;">Otro (especifica)</span>
+                    <span style="position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">Otro (especifica)</span>
                     @else
                     <span>Otro (especifica)</span>
                     @endif
                     @if ($aspirante->persona_lgbtttiq=='Otro')
                     <td class="rosap1" rowspan="2" style="width: 10%; text-align: center; position: relative; word-wrap: break-word;">
-                    <span style="font-size: 7pt; position: absolute; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_lgbtttiq}}</span></td>
+                    <span style="font-size: 7pt; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_lgbtttiq}}</span></td>
                     @else
                     <td class="rosap1" rowspan="2" ></td>
                     @endif  
