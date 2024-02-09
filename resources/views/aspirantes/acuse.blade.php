@@ -1381,6 +1381,7 @@ img{
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: center;">15.1 En caso de haber señalado “Sí” en la pregunta 15, marque con una “X” *</td>
             </tr>
             <tr>
+                @if($aspirante->p15_discapacidad=='Si'){
                 <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;">
                 @if ($aspirante->p15_1_tipodiscapacidad=='fisica_motora')
                 <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 7; bottom: 0; margin: auto;">X</span>
@@ -1413,6 +1414,14 @@ img{
                         <span>D) Sensorial</span>
                     @endif
                 </td>
+                }
+                @endif
+                @if($aspirante->p15_discapacidad=='No')
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;"><span>A) Física o motora</span></td>
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;"><span>B) Intelectual</span></td>
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;"><span>C) Mental o psicosocial</span></td>
+                <td class="rosap2" style="width: 12.5%; text-align: center; position: relative;"><span>D) Sensorial</span></td>
+                @endif
             </tr>
         </tbody>
     </table>
@@ -1451,7 +1460,20 @@ img{
                 </td>
             </tr>
             <tr>
-                <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: {{$aspirante->p15_2_otradiscapacidad}}</td>
+                @if($aspirante->p15_discapacidad=='Si'){
+                    
+                <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">
+                @if($aspirante->p15_1_tipodiscapacidad=='otro')
+                <span>15.2 Especifique*: {{$aspirante->p15_2_otradiscapacidad}}</span></td>
+                @else
+                <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>@endif
+                }
+                @endif
+                
+                @if($aspirante->p15_discapacidad=='No')
+                <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>
+                @endif
+                
             </tr>
         </tbody>
         </tbody>
