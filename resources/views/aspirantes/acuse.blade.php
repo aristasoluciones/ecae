@@ -994,7 +994,7 @@ img{
                 <td class="grisp1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['nombre'])}}</td>
                 <td class="grisp1" style="width: 20%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
-                @if (isset($aspi['actual']))
+                @if ($aspi['actual']=='1')
                 <td class="grisp1" style="width: 10%; text-align: center;">ACTUALMENTE</td>
                 @else
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['fin']}}</td>
@@ -1468,8 +1468,7 @@ img{
                 @else
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>@endif
                 }
-                @endif
-                
+                @endif                
                 @if($aspirante->p15_discapacidad=='No')
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>
                 @endif
