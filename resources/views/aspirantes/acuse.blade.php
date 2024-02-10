@@ -1466,11 +1466,11 @@ img{
                 </td>
             </tr>
             <tr>
-                @if($aspirante->p15_discapacidad=='Si'){
-                    
+                @if($aspirante->p15_discapacidad=='Si'){ 
+                    @if($aspirante->p15_1_tipodiscapacidad=='otro')                   
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">
-                @if($aspirante->p15_1_tipodiscapacidad=='otro')
-                <span>15.2 Especifique*: {{$aspirante->p15_2_otradiscapacidad}}</span></td>
+                
+                <span>15.2 Especifique*: {{mb_strtoupper($aspirante->p15_2_otradiscapacidad)}}</span></td>
                 @else
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>@endif
                 }
