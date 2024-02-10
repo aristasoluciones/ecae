@@ -33,7 +33,7 @@
 
     .form-control.floating:focus~label{
         transform: translate(1px,-85%) scale(0.80);
-        opacity: .8;
+        opacity: .9;
         color: #005ebf;
     }
 
@@ -593,7 +593,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12 pb-2">
+                    <div class="col-md-12 mb-5">
                         <h5 class="text-center text-bold">Experiencia</h5>
                         <p class="text-center">(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)</p>
                     </div>
@@ -633,7 +633,7 @@
                                        name="experiencia_1_inicio"
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
-                                <label for="experiencia_1_inicio">Fecha inicio</label>
+                                <label for="experiencia_1_inicio">Periodo inicial en que laboró</label>
                             </div>
                             @error('experiencia_1_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                         </div>
@@ -649,7 +649,7 @@
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                        @if($experiencia_1_actual == 1) disabled @endif
                                 >
-                                @if($experiencia_1_actual != 1) <label for="experiencia_1_fin">Fecha final</label> @endif
+                                @if($experiencia_1_actual != 1) <label for="experiencia_1_fin">Periodo final en que laboró</label> @endif
                             </div>
                             @error('experiencia_1_fin')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                         </div>
@@ -715,7 +715,7 @@
                                        name="experiencia_2_inicio"
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
-                                <label for="experiencia_2_inicio">Fecha inicio</label>
+                                <label for="experiencia_2_inicio">Periodo inicial en que laboró</label>
                             </div>
                             @error('experiencia_2_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                         </div>
@@ -731,7 +731,7 @@
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                        @if($experiencia_2_actual == 1) disabled @endif
                                 >
-                                @if($experiencia_2_actual != 1) <label for="experiencia_2_fin">Fecha final</label> @endif
+                                @if($experiencia_2_actual != 1) <label for="experiencia_2_fin">Periodo final en que laboró</label> @endif
                             </div>
                             @error('experiencia_2_fin')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                         </div>
@@ -799,7 +799,7 @@
                                        name="experiencia_3_inicio"
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
-                                <label for="experiencia_3_inicio">Fecha inicio</label>
+                                <label for="experiencia_3_inicio">Periodo inicial en que laboró</label>
                             </div>
                             @error('experiencia_3_inicio')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                         </div>
@@ -815,7 +815,7 @@
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                        @if($experiencia_3_actual == 1) disabled @endif
                                 >
-                                @if($experiencia_3_actual != 1) <label for="experiencia_3_fin">Fecha final</label> @endif
+                                @if($experiencia_3_actual != 1) <label for="experiencia_3_fin">Periodo final en que laboró</label> @endif
                             </div>
                             @error('experiencia_3_fin')<span class="text-danger fs-15" style="position: relative; top:-34px">{{ $message }}</span>@enderror
                         </div>

@@ -700,7 +700,7 @@
                                name="experiencia_1_inicio"
                                onchange="this.dispatchEvent(new InputEvent('input'))"
                         >
-                        <label for="experiencia_1_inicio">Fecha inicio</label>
+                        <label for="experiencia_1_inicio">Periodo inicial en que laboró</label>
                     </div>
                     <div class="form-group {{ $editar ? 'd-none' : 'd-block' }}">
                         <input type="text"  id="tmp_experiencia_1_inicio" class="form-control" value="{{ $experiencia_1_inicio }}"/>
@@ -720,7 +720,7 @@
                                    name="experiencia_1_fin"
                                    onchange="this.dispatchEvent(new InputEvent('input'))"
                             >
-                            <label for="experiencia_1_fin">Fecha final</label>
+                            <label for="experiencia_1_fin">Periodo final en que laboró</label>
                             </div>
                         @else
                             <div class="form-group mb-0 floating">
@@ -808,7 +808,7 @@
                                name="experiencia_2_inicio"
                                onchange="this.dispatchEvent(new InputEvent('input'))"
                         >
-                        <label for="experiencia_2_inicio">Fecha inicio</label>
+                        <label for="experiencia_2_inicio">Periodo inicial en que laboró</label>
                     </div>
                     <div class="form-group {{ $editar ? 'd-none' : 'd-block' }}">
                         <input type="text" class="form-control" value="{{ $experiencia_2_inicio }}"/>
@@ -828,7 +828,7 @@
                                        name="experiencia_2_fin"
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
-                                <label for="experiencia_2_fin">Fecha final</label>
+                                <label for="experiencia_2_fin">Periodo Final en que laboró</label>
                             </div>
                         @else
                             <div class="form-group mb-0 floating">
@@ -918,7 +918,7 @@
                                name="experiencia_3_inicio"
                                onchange="this.dispatchEvent(new InputEvent('input'))"
                         >
-                        <label for="experiencia_3_inicio">Fecha inicio</label>
+                        <label for="experiencia_3_inicio">Periodo inicial en que laboró</label>
                     </div>
                     <div class="form-group {{ $editar ? 'd-none' : 'd-block' }}">
                         <input type="text" class="form-control" value="{{ $experiencia_3_inicio}}"/>
@@ -939,7 +939,7 @@
                                        onchange="this.dispatchEvent(new InputEvent('input'))"
                                        @if($this->experiencia_3_actual == '1') readonly @endif
                                 >
-                               <label for="experiencia_3_fin">Fecha final</label>
+                               <label for="experiencia_3_fin">Periodo final en que laboró</label>
                             </div>
                         @else
                             <div class="form-group mb-0 floating">
