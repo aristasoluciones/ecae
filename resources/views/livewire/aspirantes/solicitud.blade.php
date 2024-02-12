@@ -659,8 +659,8 @@
                 <p class="text-center">(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)</p>
                 <ul class="list-unstyled ">
                     <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Nombre de la empresa o institución: </strong> Maximo 100 caracteres(Incluyendo espacios).</small></li>
-                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Puesto: </strong> Maximo 60 caracteres(Incluyendo espacios).</small></li>
-                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Telefono: </strong> Maximo 10 caracteres(Unicamente caracteres numericos).</small></li>
+                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Puesto: </strong> Maximo 100 caracteres(Incluyendo espacios).</small></li>
+                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Teléfono: </strong> Maximo 10 caracteres(Unicamente caracteres numericos).</small></li>
                 </ul>
             </div>
             <div class="col-md-12 form-row">
@@ -682,7 +682,7 @@
                 <div class="col-md-2 col-sm-12">
                     <div class="form-group mb-0 floating {{ $editar ? 'd-block' : 'd-none' }}">
                         <input type="text"
-                               maxlength="60"
+                               maxlength="100"
                                wire:model="experiencia_1_puesto"
                                id="experiencia_1_puesto"
                                class="form-control floating {{ $errors->has('experiencia_1_puesto') ? 'is-invalid':'' }}"
@@ -790,7 +790,7 @@
                 <div class="col-md-2 col-sm-12">
                     <div class="form-group mb-0 floating {{ $editar ? 'd-block' : 'd-none' }}">
                         <input type="text"
-                               maxlength="60"
+                               maxlength="100"
                                id="experiencia_2_puesto"
                                wire:model="experiencia_2_puesto"
                                class="form-control floating {{ $errors->has('experiencia_2_puesto') ? 'is-invalid':'' }}"
@@ -900,7 +900,7 @@
                 <div class="col-md-2 col-sm-12">
                     <div class="form-group floating m-0 {{ $editar ? 'd-block' : 'd-none' }}">
                         <input type="text"
-                               maxlength="60"
+                               maxlength="100"
                                wire:model="experiencia_3_puesto"
                                id="experiencia_3_puesto"
                                class="form-control floating {{ $errors->has('experiencia_3_puesto') ? 'is-invalid':''}}"
@@ -1011,7 +1011,7 @@
             {{-- Pregunta numero 1 --}}
 
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
-                <div class="col-12"><h5>1- ¿Has participado en algún proceso electoral?</h5></div>
+                <div class="col-12"><h5 class="text-justify">1- ¿Has participado en algún proceso electoral?</h5></div>
                 <div class="col-12">
                     <div class="form-check">
                         <input type="radio" class="form-check-input" value="Si"
@@ -1092,7 +1092,7 @@
             {{-- Pregunta numero 2 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>2- ¿Tiene disponibilidad de tiempo para prestar sus
+                    <h5 class="text-justify">2- ¿Tiene disponibilidad de tiempo para prestar sus
                         servicios en horario fuera de lo habitual?</h5>
                 </div>
                 <div class="col-12">
@@ -1119,7 +1119,7 @@
             {{-- Pregunta numero 3 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>3. ¿Está dispuesta/o a prestar sus servicios en
+                    <h5 class="text-justify">3. ¿Está dispuesta/o a prestar sus servicios en
                         fines de semana y días festivos?</h5>
                 </div>
                 <div class="col-12">
@@ -1170,7 +1170,7 @@
             {{-- Pregunta numero 5 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>5. ¿Milita en algún partido político u organización
+                    <h5 class="text-justify">5. ¿Milita en algún partido político u organización
                         política o ha participado activamente en alguna
                         campaña electoral en el último año?</h5>
                 </div>
@@ -1196,7 +1196,7 @@
             {{-- Prgeunta numero 6 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>6. ¿Ha participado como representante de partido
+                    <h5 class="text-justify">6. ¿Ha participado como representante de partido
                         político con registro vigente, candidatura
                         independiente registrada en el PE 2023-2024 o
                         coalición en alguna elección realizada en los
@@ -1288,7 +1288,7 @@
             {{-- Prgeunta numero 9 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>9. ¿Cuenta con experiencia en manejo o trato con
+                    <h5 class="text-justify">9. ¿Cuenta con experiencia en manejo o trato con
                         grupos?</h5>
                 </div>
                 <div class="col-12">
@@ -1313,7 +1313,7 @@
             {{-- Prgeunta numero 10 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>10. ¿Ha impartido capacitación presencial o virtual?
+                    <h5 class="text-justify">10. ¿Ha impartido capacitación presencial o virtual?
                     </h5>
                 </div>
                 <div class="col-12">
@@ -1338,7 +1338,7 @@
             {{-- Prgeunta numero 11 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>11. ¿Habla alguna lengua indígena? <sup class="text-bold">*</sup></h5>
+                    <h5 class="text-justify">11. ¿Habla alguna lengua indígena? <sup class="text-bold">*</sup></h5>
                 </div>
                 <div class="col-md-12">
                     <div class="form-check">
@@ -1466,7 +1466,7 @@
                         {{-- Prgeunta numero 12.4 --}}
                         <div class="col-md-12 form-row">
                             <div class="col-md-12">
-                                <h5>12.4. ¿Está usted dispuesta/ o utilizar su vehículo
+                                <h5 class="text-justify">12.4. ¿Está usted dispuesta/ o utilizar su vehículo
                                     para sus actividades si el OPL le brinda un apoyo
                                     económico para combustible? <sup class="text-bold">*</sup></h5>
                                 <div class="form-check">
@@ -1494,7 +1494,7 @@
             {{-- Prgeunta numero 13 --}}
             <div class="form-row justify-content-between col-12 mb-3 border rounded p-1">
                 <div class="col-md-12">
-                    <h5>13. ¿Cuánto tiempo le lleva trasladarse de su domicilio al OPL? *</h5>
+                    <h5 class="text-justify">13. ¿Cuánto tiempo le lleva trasladarse de su domicilio al OPL? *</h5>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
@@ -1525,7 +1525,7 @@
             {{-- Prgeunta numero 14 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>14. ¿Cuenta con acceso a Internet en su casa? *</h5>
+                    <h5 class="text-justify">14. ¿Cuenta con acceso a Internet en su casa? *</h5>
                 </div>
                 <div class="col-12">
                     <div class="form-check">
@@ -1551,7 +1551,7 @@
             {{-- Prgeunta numero 15 --}}
             <div class="form-row justify-content-between mb-3 col-12 border rounded p-1">
                 <div class="col-12">
-                    <h5>15. ¿Tiene alguna discapacidad? *</h5>
+                    <h5 class="text-justify">15. ¿Tiene alguna discapacidad? *</h5>
                 </div>
                 <div class="col-12">
                     <div class="form-check">
@@ -1574,7 +1574,7 @@
                     {{-- Pregunta numero 15.1 --}}
                     <div class="col-md-12 form-row">
                         <div class="col-md-12">
-                            <h5><span class="text-danger">*</span> 15.1 En caso de haber señalado “Sí” en la pregunta 15, seleccióne una opción.</h5>
+                            <h5 class="text-justify"><span class="text-danger">*</span> 15.1 En caso de haber señalado “Sí” en la pregunta 15, seleccióne una opción.</h5>
                         </div>
                         <div class="col-md-6 ml-3">
                             <div class="form-check">
