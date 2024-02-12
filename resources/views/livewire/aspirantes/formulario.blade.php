@@ -316,7 +316,7 @@
                             </div>
                         </div>
                     @endif
-                    <div class="col-6 col-md-4 col-sm-12">
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span> ¿Se identifica como una persona LGBTTTIQ+?</label>
                             <select wire:model.lazy="persona_lgbtttiq"
@@ -529,7 +529,7 @@
                     @endif
 
 
-                    <div class="col-6 col-md-4 col-sm-12">
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger"></span>
                                 ¿Realiza estudios actualmente? Especifique:</label>
@@ -546,7 +546,7 @@
                         </div>
                     </div>
 
-                    <div class="col-6 col-md-4 col-sm-12">
+                    <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label class=""><span class="text-danger ">*</span>
                                 Medio por el que se enteró de la
@@ -568,7 +568,7 @@
                         </div>
                     </div>
                     @if ($medio_convocatoria === 'L. Otro')
-                        <div class=" col-md-4 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <div class="form-group {{ $errors->has('otro_medio_convocatoria') ? 'is-invalid' : '' }}">
                                 <label class=""><span class="text-danger ">*</span> Especifique:</label>
                                 <input type="text"
