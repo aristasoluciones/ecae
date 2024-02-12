@@ -76,7 +76,7 @@
     <div class="card-body">
         <div class="row">
             @if($editar)
-                <div class="col-12">
+                <div class="col-sm-12">
                     <div class="callout callout-info">
                         <p><sup class="text-bold text-danger">*</sup> <small class="text-justify">Los campos son obligatorios</small></p>
                         <p><sup class="text-bold">1</sup> <small class="text-justify">No contar con estos documentos no será causa de exclusión en este momento. En caso de ser contratado/a será obligatorio.</small></p>
@@ -84,17 +84,17 @@
                 </div>
                 <div class="col-12 dropdown-divider"></div>
             @endif
-            <div class="col-4">
+            <div class="col-md-4 col-sm-12">
                 <h6><strong>FECHA DE RECEPCIÓN: </strong><div class="badge bg-gradient-indigo badge-btn">
                         <span class="text-bold"> {{ $aspirante->created_at }}</span>
                     </div></h6>
             </div>
-            <div class="col-4">
+            <div class="col-md-4 col-sm-12">
                 <h6><strong>FOLIO: </strong><div class="badge bg-gradient-indigo badge-btn">
                         <span class="text-bold"> {{ $aspirante->id }}</span>
                     </div></h6>
             </div>
-            <div class="col-4">
+            <div class="col-md-4 col-sm-12">
                 <h6><strong>NO. CONVOCATORIA: </strong>
                     @if(!$editar)
                         <div class="badge bg-gradient-indigo badge-btn">
@@ -115,7 +115,7 @@
         </div>
         {{-- SECCION UNO --}}
         <div class="form-row">
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Municipio</label>
@@ -136,7 +136,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span> Localidad</label>
                     <select class="form-control {{ $errors->has('localidad') ? 'is-invalid' : '' }}"
@@ -155,7 +155,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Sede</label>
@@ -173,7 +173,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span> Tipo
                         de sede</label>
@@ -190,7 +190,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger">* </span>Correo electrónico</label>
                     <input wire:model.debounce.500ms="email"
@@ -204,7 +204,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger">* </span>Confirmar correo electrónico</label>
                     <input wire:model.lazy="email_confirmation"
@@ -257,7 +257,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4 col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> RFC</label>
                         <input maxlength="10" wire:model.lazy="rfc" id="rfc" type="text"
@@ -267,7 +267,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4 col-md-2 col-sm-12">
+                <div class="col-md-2 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> Homoclave</label>
                         <input maxlength="3" wire:model.lazy="homoclave" id="homoclave" type="text"
@@ -278,7 +278,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><sup>1</sup> CURP</label>
                     <input wire:model.lazy="curp" id="curp" name="curp" type="text"
@@ -288,7 +288,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Nombre(s)</label>
@@ -299,7 +299,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Primer Apellido</label>
@@ -310,7 +310,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Segundo Apellido</label>
@@ -321,7 +321,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Fecha nacimiento</label>
@@ -332,7 +332,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Edad</label>
@@ -343,7 +343,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span> Género</label>
                     <select wire:model.lazy="genero"
@@ -362,7 +362,7 @@
                 </div>
             </div>
             @if ($genero === 'Otro')
-                <div class="col-4 col-md-4 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <div class="form-group {{ $errors->has('otro_genero') ? 'is-invalid' : '' }}">
                         <label class=""><span class="text-danger ">*</span>Especifique:</label>
                         <input type="text"
@@ -396,7 +396,7 @@
                 </div>
             </div>
             @if ($persona_lgbtttiq === 'Otro')
-                <div class="col-4 col-md-4 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <div class="form-group {{ $errors->has('otro_lgbtttiq') ? 'is-invalid' : '' }}">
                         <label class=""><span class="text-danger ">*</span>
                             Especifique</label>
@@ -415,7 +415,7 @@
                 <h4 class="text-bold">Domicilio</h4>
                 <h3 class="dropdown-divider"></h3>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Calle</label>
@@ -427,7 +427,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger "></span>
                         Número exterior</label>
@@ -440,7 +440,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger"></span> Número
                         interior</label>
@@ -453,7 +453,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Colonia</label>
@@ -465,7 +465,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span> Municipio</label>
                     <select wire:model.lazy="dom_municipio"
@@ -483,7 +483,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Localidad</label>
@@ -494,7 +494,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span> Código
                         Postal</label>
@@ -510,7 +510,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger "></span>
                         Teléfono fijo</label>
@@ -526,7 +526,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">* </span>Teléfono celular</label>
                     <input wire:model.lazy="tel_celular"
@@ -547,7 +547,7 @@
 
         <div class="form-row">
             <div class="col-12 dropdown-divider"></div>
-            <div class="col-4 col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>Último grado de
                         estudios.</label>
@@ -569,7 +569,7 @@
             </div>
 
             @if ($ultimo_grado_estudio === 'Carrera (especifique)')
-                <div class="col-4 col-md-4 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <div class="form-group {{ $errors->has('carrera') ? 'is-invalid' : '' }}">
                         <label class=""><span class="text-danger ">*</span>Especifique:</label>
                         <input type="text"
