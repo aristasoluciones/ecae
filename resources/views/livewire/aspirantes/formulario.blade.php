@@ -604,7 +604,7 @@
                         <p class="text-center">(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)</p>
                         <ul class="list-unstyled">
                             <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Nombre de la empresa o institución: </strong> Maximo 100 caracteres(Incluyendo espacios).</small></li>
-                            <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Puesto: </strong> Maximo 60 caracteres(Incluyendo espacios).</small></li>
+                            <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Puesto: </strong> Maximo 100 caracteres(Incluyendo espacios).</small></li>
                             <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Teléfono: </strong> Maximo 10 caracteres(Unicamente caracteres numericos).</small></li>
                         </ul>
                     </div>
@@ -624,7 +624,7 @@
                         <div class="col-md-2 col-sm-12">
                             <div class="form-group mb-0 floating">
                                 <input type="text"
-                                       maxlength="60"
+                                       maxlength="100"
                                        wire:model="experiencia_1_puesto"
                                        id="experiencia_1_puesto"
                                        class="form-control floating {{ $errors->has('experiencia_1_puesto') ? 'is-invalid':'' }}"
@@ -706,7 +706,7 @@
                         <div class="col-md-2 col-sm-12">
                             <div class="form-group mb-0 floating">
                                 <input type="text"
-                                       maxlength="60"
+                                       maxlength="100"
                                        id="experiencia_2_puesto"
                                        wire:model="experiencia_2_puesto"
                                        class="form-control floating {{ $errors->has('experiencia_2_puesto') ? 'is-invalid':'' }}"
@@ -790,7 +790,7 @@
                         <div class="col-md-2 col-sm-12">
                             <div class="form-group floating m-0">
                                 <input type="text"
-                                       maxlength="60"
+                                       maxlength="100"
                                        wire:model="experiencia_3_puesto"
                                        id="experiencia_3_puesto"
                                        class="form-control floating {{ $errors->has('experiencia_3_puesto') ? 'is-invalid':''}}"
