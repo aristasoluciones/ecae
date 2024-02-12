@@ -657,6 +657,11 @@
             <div class="col-md-12 pb-2">
                 <h5 class="text-center text-bold">Experiencia</h5>
                 <p class="text-center">(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)</p>
+                <ul class="list-unstyled ">
+                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Nombre de la empresa o institución: </strong> Maximo 100 caracteres(Incluyendo espacios).</small></li>
+                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Puesto: </strong> Maximo 60 caracteres(Incluyendo espacios).</small></li>
+                    <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Telefono: </strong> Maximo 10 caracteres(Unicamente caracteres numericos).</small></li>
+                </ul>
             </div>
             <div class="col-md-12 form-row">
                 <div class="col-md-3 col-sm-12">
