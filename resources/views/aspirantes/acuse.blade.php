@@ -991,8 +991,8 @@ img{
         @foreach($aspirante['experiencia_laboral'] as $key => $aspi)
             <tr>
                 <td class="blancop1" style="width: 5%; text-align: center;">{{$key+1}}</td>
-                <td class="grisp1" style="width: 35%; text-align: justify; word-wrap: break-word;">{{mb_strtoupper ($aspi['nombre'])}}</td>
-                <td class="grisp1" style="width: 20%; text-align: justify; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
+                <td class="grisp1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['nombre'])}}</td>
+                <td class="grisp1" style="width: 20%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
                 
                 @unless (empty($aspi['actual']))
