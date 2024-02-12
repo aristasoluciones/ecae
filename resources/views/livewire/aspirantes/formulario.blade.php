@@ -3,11 +3,11 @@
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-12" style="text-align: justify">
-                <h1 class="xtitulox"><i class="fa fa-users text-secondary"> REGISTRO DE ASPIRANTES DE PERSONAS SUPERVISORAS ELECTORALES LOCALES O CAPACITADORAS ASISTENTES ELECTORALES LOCALES DURANTE EL PROCESO ELECTORAL LOCAL ORDINARIO 2024</i></h1>
+                <h1 class="xtitulox"></h1>
             </div>
         </div>
     </div>
-@stop
+@endsection
 @push('css')
 <style>
     input[type=time]::-webkit-datetime-edit-ampm-field {
@@ -47,7 +47,13 @@
 @endpush
 <div class="container">
     @if (!$this->registrado)
-        <div class="card card-secondary">
+        <div class="card card-pink">
+            <div class="card-header">
+                <h5 class="card-title text-justify text-bold">
+                    <i class="fa fa-users"></i>
+                    REGISTRO DE ASPIRANTES DE PERSONAS SUPERVISORAS ELECTORALES LOCALES O CAPACITADORAS ASISTENTES ELECTORALES LOCALES DURANTE EL PROCESO ELECTORAL LOCAL ORDINARIO 2024
+                </h5>
+            </div>
             <div class="card-body p-5">
                 {{-- SECCION UNO --}}
                 <div class="form-row">
@@ -596,6 +602,11 @@
                     <div class="col-md-12 mb-5">
                         <h5 class="text-center text-bold">Experiencia</h5>
                         <p class="text-center">(Señale los tres últimos empleos o prestaciones de servicios. El no contar con experiencia no será causa de exclusión)</p>
+                        <ul class="list-unstyled">
+                            <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Nombre de la empresa o institución: </strong> Maximo 100 caracteres(Incluyendo espacios).</small></li>
+                            <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Puesto: </strong> Maximo 60 caracteres(Incluyendo espacios).</small></li>
+                            <li><small class="form-text text-muted"><i class="fa fa-info-circle text-pink"></i> <strong>Telefono: </strong> Maximo 10 caracteres(Unicamente caracteres numericos).</small></li>
+                        </ul>
                     </div>
                     <div class="col-md-12 form-row">
                         <div class="col-md-3 col-sm-12">
@@ -1485,6 +1496,7 @@
                                                    wire:model.lazy="p15_2_otradiscapacidad"
                                                    id="p15_2_otradiscapacidad"
                                                    name="p15_2_otradiscapacidad">
+                                            <small class="form-text text-muted">Maximo 60 caracteres(Incluyendo espacios).</small>
                                             @error('p15_2_otradiscapacidad')
                                             <span class="text-danger error h6">{{ $message }}</span>
                                             @enderror
