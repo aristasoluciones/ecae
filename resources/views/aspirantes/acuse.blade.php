@@ -230,9 +230,8 @@ img{
         <tbody>
             
                 <tr>
-                    <td class="blancop1" colspan="7" rowspan="2">Clave electoral o
-                        FUAR:</td>
-                        @if ($aspirante->clave_elector)
+                    <td class="blancop1" colspan="7" rowspan="2" style="font-size: 9pt;">Clave electoral o FUAR:</td>
+                    @if ($aspirante->clave_elector)
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[0])?? ''}}</td>
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[1])?? ''}}</td>
                     <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[2])?? ''}}</td>
@@ -267,34 +266,15 @@ img{
         <tbody>
             <tr>
                 <td class="blancop1" style="width: 5%; text-aling: left;">RFC<sup style="font-size:5pt">1</sup></td>
-                @if ($aspirante->rfc)
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[0])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[1])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[2])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[3])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[4])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[5])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[6])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[7])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[8])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[9])?? ''}}</td>
-                    @else
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                    <td class="rosap1"></td>
-                @endif
-                @if ($aspirante->homoclave)
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[0])?? ''}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[1]?? '')}}</td>
-                <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]?? '')}}</td>
-                @endif
+                
+                @for ($i = 0; $i <= 9; $i++)
+                @if (isset($aspirante->rfc[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
+                @endfor
+
+                @for ($i = 0; $i <= 2; $i++)
+                @if (isset($aspirante->homoclave[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
+                @endfor
+
                 <td class="blancop1" style="width: 5%; text-aling: left;">CURP<sup style="font-size:5pt">1</sup></td>
                 
                 @for ($i = 0; $i <= 17; $i++)
