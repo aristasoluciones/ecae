@@ -225,17 +225,36 @@
                 <h3 class="dropdown-divider"></h3>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                         <label class=""><span class="text-danger ">*</span>
-                            Clave de elector o FUAR</label>
-                        <input wire:model.lazy="clave_elector" id="clave_elector" type="text"
+                            Tipo de clave</label>
+                        <select
+                            autocomplete="off"
+                            wire:model.lazy = "tipo_clave"
+                            class="form-control {{ $errors->has('tipo_clave') ? 'is-invalid' : '' }}">
+                            <option value="">
+                                {{ __('adminlte::adminlte.please_select') }}
+                            </option>
+                            <option value="Clave de elector">Clave de elector</option>
+                            <option value="FUAR">FUAR</option>
+                        </select>
+                        @error('tipo_clave')
+                        <span class="text-danger error h6">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label class=""><span class="text-danger ">*</span>
+                            {{$tipo_clave}}</label>
+                        <input maxlength="18" wire:model.lazy="clave_elector" id="clave_elector" type="text"
                                aria-describedby="clave-elector-help-text"
                                class="form-control {{ $errors->has('clave_elector') ? 'is-invalid' : '' }}" />
-                        <small id="clave-elector-help-text" class="form-text text-muted">Ingrese la <strong
-                                class="text-uppercase">clave de
-                                elector</strong> tal como aparece en su INE
-                            sin espacios y sin guiones</small>
+                            @if($tipo_clave === 'Clave de elector')
+                                <small class="form-text text-muted">Ingrese la <strong class="text-uppercase">clave de elector</strong> tal como aparece en su INE sin espacios y sin guiones</small>
+                            @endif
                         @error('clave_elector')
                         <span class="text-danger error h6">{{ $message }}</span>
                         @enderror
@@ -267,7 +286,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                         <label class=""><sup>1</sup> Homoclave</label>
                         <input maxlength="3" wire:model.lazy="homoclave" id="homoclave" type="text"
@@ -325,8 +344,15 @@
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Fecha nacimiento</label>
-                    <input wire:model.lazy="fecha_nacimiento" readonly id="fecha_nacimiento"
-                           name="fecha_nacimiento" type="text" class="form-control" />
+                    <input type="text"
+                           autocomplete="off"
+                           class="form-control datepicker {{ $errors->has('fecha_nacimiento') ? 'is-invalid':'' }}"
+                           placeholder="yyyy-mm-dd"
+                           onchange="this.dispatchEvent(new InputEvent('input'))"
+                           wire:model="fecha_nacimiento"
+                           @if($tipo_clave === 'Clave de elector') disabled = "disabled" @endif
+                           id="fecha_nacimiento"
+                           name="fecha_nacimiento"  />
                     @error('fecha_nacimiento')
                     <span class="text-danger error h6">{{ $message }}</span>
                     @enderror
@@ -336,8 +362,14 @@
                 <div class="form-group">
                     <label class=""><span class="text-danger ">*</span>
                         Edad</label>
-                    <input wire:model.lazy="edad" readonly id="edad" name="edad" type="text"
-                           class="form-control" />
+                    <input wire:model="edad"
+                           maxlength="4"
+                           @if($tipo_clave === 'Clave de elector') disabled = "disabled" @endif id="edad"
+                           name="edad"
+                           type="text"
+                           autocomplete="off"
+                           onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                           class="form-control {{ $errors->has('edad') ? 'is-invalid':'' }}" />
                     @error('edad')
                     <span class="text-danger error h6">{{ $message }}</span>
                     @enderror

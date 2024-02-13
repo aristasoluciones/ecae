@@ -27,6 +27,7 @@ class Solicitud extends Component
     public $localidad;
     public $sede;
     public $tipo_sede;
+    public $tipo_clave;
     public $clave_elector;
     public $seccion_electoral;
     public $rfc;
@@ -133,7 +134,7 @@ class Solicitud extends Component
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
             'tipo_sede'         => 'required|string',
-            'clave_elector'     => ['required','string','size:18', new ClaveElectorRule],
+            'clave_elector'     => ['required',$this->tipo_clave === 'Clave de elector' ? 'size:18' : 'max:18', $this->tipo_clave === 'Clave de elector'  ? new ClaveElectorRule : 'string'],
             'seccion_electoral' => 'required|string|size:4',
             'rfc'              =>  'nullable|string|size:10',
             'homoclave'              =>  'nullable|string|size:3',
@@ -434,6 +435,9 @@ class Solicitud extends Component
 
     public function updatedClaveElector($value) {
 
+        if($this->tipo_clave != 'Clave de elector')
+            return;
+
         if(strlen($value) <= 0)
             return;
 
@@ -452,6 +456,19 @@ class Solicitud extends Component
         $this->fecha_nacimiento = $nacimiento;
         $this->edad = Carbon::parse(config('constants.fecha_eleccion'))->diffInYears($nacimiento);
         $this->genero = $sexos[substr($value, 14,1)] ?? '';
+        $this->validate([
+            'fecha_nacimiento'    => 'required|date',
+            'edad'    => 'required|integer',
+            'genero'    => 'required|string',
+        ]);
+    }
+
+    public function updatedTipoClave($value) {
+
+        $this->reset(['clave_elector']);
+        if($value != 'Clave de elector') {
+            $this->reset(['fecha_nacimiento','edad','genero']);
+        }
     }
 
     public function updatedP1ProcesoElectoral() {

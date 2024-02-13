@@ -29,8 +29,9 @@ class ClaveElectorRule implements Rule
         $nacAnio = substr($value,6,2);
         $nacMes  = substr($value,8,2);
         $nacDia  = substr($value,10,2);
+        $genero  = substr($value, 14,1);
 
-        if(!is_numeric($nacAnio) || !is_numeric($nacMes) || !is_numeric($nacDia))
+        if(!is_numeric($nacAnio) || !is_numeric($nacMes) || !is_numeric($nacDia) || is_numeric($genero))
             return false;
 
         $anio = (int)$nacAnio + 1900;
