@@ -309,10 +309,8 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="blancop1" align="center; font-size: 6pt;">No contar con estos documentos
-                    no será causa de exclusión en este
-                    momento. En caso de ser
-                    contratado/a será obligatorio.</td>
+                <td class="blancop1" align="center; font-size: 6pt;"><sup style="font-size:5pt">1</sup>No contar con estos documentos
+                    no será causa de exclusión en este momento. En caso de ser contratado/a será obligatorio.</td>
             </tr>
         </tbody>
         </tbody>
