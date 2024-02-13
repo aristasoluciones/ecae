@@ -253,7 +253,7 @@
                                aria-describedby="clave-elector-help-text"
                                class="form-control {{ $errors->has('clave_elector') ? 'is-invalid' : '' }}" />
                             @if($tipo_clave === 'Clave de elector')
-                                <small class="form-text text-muted">Ingrese la <strong class="text-uppercase">clave de elector</strong> tal como aparece en su INE sin espacios y sin guiones</small>
+                                <small class="form-text text-muted text-justify">Ingrese la <strong class="text-uppercase">clave de elector</strong> tal como aparece en su INE sin espacios y sin guiones</small>
                             @endif
                         @error('clave_elector')
                         <span class="text-danger error h6">{{ $message }}</span>
@@ -268,7 +268,7 @@
                                type="text"
                                class="form-control  {{ $errors->has('seccion_electoral') ? 'is-invalid' : '' }}" />
                         <small style="font-size:0.6em" id="clave-elector-help-text"
-                               class="form-text text-muted">Ingrese los 4
+                               class="form-text text-muted text-justify">Ingrese los 4
                             digitos de la <strong>SECCION</strong> tal como
                             aparece en su INE</small>
                         @error('seccion_electoral')
