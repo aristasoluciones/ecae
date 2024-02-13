@@ -134,6 +134,7 @@ class Solicitud extends Component
             'localidad'         => 'required|string',
             'sede'              => 'required|string',
             'tipo_sede'         => 'required|string',
+            'tipo_clave'        => 'required|string',
             'clave_elector'     => ['required',$this->tipo_clave === 'Clave de elector' ? 'size:18' : 'max:18', $this->tipo_clave === 'Clave de elector'  ? new ClaveElectorRule : 'string'],
             'seccion_electoral' => 'required|string|size:4',
             'rfc'              =>  'nullable|string|size:10',
