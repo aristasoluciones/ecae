@@ -266,7 +266,7 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="blancop1" align="center">RFC</td>
+                <td class="blancop1" style="width: 5%; text-aling: left;">RFC<sup style="font-size:5pt">1</sup></td>
                 @if ($aspirante->rfc)
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[0])?? ''}}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[1])?? ''}}</td>
@@ -295,7 +295,7 @@ img{
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[1]?? '')}}</td>
                 <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[2]?? '')}}</td>
                 @endif
-                <td class="blancop1" style="width: 5%" align="center">CURP</td>
+                <td class="blancop1" style="width: 5%; text-aling: left;">CURP<sup style="font-size:5pt">1</sup></td>
                 
                 @for ($i = 0; $i <= 17; $i++)
                 @if (isset($aspirante->curp[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
