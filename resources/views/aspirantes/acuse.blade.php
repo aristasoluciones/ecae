@@ -231,25 +231,9 @@ img{
             
                 <tr>
                     <td class="blancop1" colspan="7" rowspan="2" style="font-size: 9pt;">Clave electoral o FUAR:</td>
-                    @if (isset($aspirante->clave_elector[0])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[0])?? ''}}</td> @else <td class="rosap1" rowspan="2""></td> @endif
-                        @if (isset($aspirante->clave_elector[1])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[1])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[2])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[2])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[3])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[3])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[4])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[4])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[5])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[5])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[6])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[6])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[7])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[7])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[8])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[8])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[9])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[9])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[10])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[10])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[11])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[11])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[12])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[12])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[13])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[13])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[14])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[14])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[15])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[15])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[16])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[16])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-                        @if (isset($aspirante->clave_elector[17])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[17])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
-
+                        @for ($a = 0; $a <= 17; $a++)
+                            @if (isset($aspirante->clave_elector[$a])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[$a])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
+                        @endfor
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[0]?? ''}}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[1]?? ''}}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2]?? ''}}</td>
