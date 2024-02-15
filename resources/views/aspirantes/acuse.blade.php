@@ -132,15 +132,17 @@ img{
     <table style="table-layout: fixed; width: 726px; margin-bottom: 5pt;">
         <tbody>
             <tr border-collapse: collapse;>
-                <td style="width: 20% " rowspan="3"><img src="../public/imgs/LOGO_out.png" width="110px" height="80px" alt=""></td>
-                <td style="width: 80%; text-align: center; font-size: 14pt; letter-spacing: 10px;">SOLICITUD</td>
+                <td style="width: 20% " rowspan="3"><img  src="../public/imgs/logoEAE2024.png" width="110px" height="80px" alt=""></td>
+                <td style="width: 60%; text-align: center; font-size: 14pt; letter-spacing: 10px;">SOLICITUD</td>
+                <td style="width: 20% " rowspan="3"><img style="text-align: right;" src="../public/imgs/logoIEPC.png" width="150px" height="80px" alt=""></td>
             </tr>
             <tr>
-                <td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
+                <td style="width: 60%; text-align: center; font-size: 10pt; color: #808080;">SUPERVISORA/OR ELECTORAL LOCAL O CAPACITADORA/OR ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
             </tr>
             <tr>
-                <td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
+                <td style="width: 60%; text-align: center; font-size: 10pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
             </tr>
+            
         </tbody>
     </table>
 </header>
@@ -163,14 +165,14 @@ img{
                     Fecha de recepción</td>
                                         
                 <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}</td>
-                <td class="grisp1" style="width: 10%; text-align: center;">
+                <td class="grisp1" style="width: 15%; text-align: center;">
                     Número de convocatoria</td>
                 <td class="rosap1" style="width: 23%; text-align: center;">{{mb_strtoupper ($aspirante->numero_convocatoria)}}
                     &nbsp;
                 </td>
-                <td class="grisp1" style="width: 13%; text-align: center;">
+                <td class="grisp1" style="width: 20%; text-align: center;">
                     Folio de la persona aspirante</td>
-                <td class="rosap1" style="width: 20%; text-align: center;">{{mb_strtoupper ($aspirante->id)}}
+                <td class="rosap1" style="width: 13%; text-align: center;">{{mb_strtoupper ($aspirante->id)}}
                     &nbsp;</td>
             </tr>
         </tbody>
@@ -234,6 +236,7 @@ img{
                         @for ($a = 0; $a <= 17; $a++)
                             @if (isset($aspirante->clave_elector[$a])) <td class="rosap1" rowspan="2">{{ mb_strtoupper ($aspirante->clave_elector[$a])?? ''}}</td> @else <td class="rosap1" rowspan="2"></td> @endif
                         @endfor
+
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[0]?? ''}}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[1]?? ''}}</td>
                     <td class="grisp1" colspan="2" style="text-align: center;">{{ $aspirante->seccion_electoral[2]?? ''}}</td>
@@ -1575,29 +1578,13 @@ img{
                 <td class="rosap2" style="width: 50%; text-align: left; font-size: 5pt;">
     <p style="text-align: center;">AVISO DE PRIVACIDAD
         SIMPLIFICADO</p>
-    <p style="text-align: justify;">El Organismo Público Local en el estado de Chiapas, con
-        domicilio en: Periferico Sur Poniente #2185, Colonia Penipak; Tuxtla Gutiérrez, Chiapas. C.P. 29060, reciba sus datos personales y es responsable del tratamiento que les dé. Los
-        datos personales reunidos s serán utilizados para corroborar que la ciudadanía interesada en participar en el proceso de reclutamiento, selección y contratación de personal eventual que colaborará con el OPL como Supervisora/or Electoral Local o Capacitadora/or-Asistente Electoral Local, cumpla con los requisitos legales y administrativos establecidos en la Convocatoria. Simultáneamente, los datos personales serán utilizados para que la autoridad electoral cuente con información respecto de los grupos en situación de vulnerabilidad en los que se sitúan las personas con autoadscripción indígena; pertenecientes a la población afromexicana; que viven con algún tipo de discapacidad; que se consideran parte de las personas LGBTTTIQ+ o si se trata de una persona mexicana migrante, con el fin de realizar análisis de datos y estadísticas como insumos para el ejercicio de sus atribuciones, para determinar lo conducente en futuros procesos electorales. Lo anterior, de conformidad con el marco normativo electoral y con base en lo establecido en los artículos 6º Base A, fracciones II y III y 16, segundo párrafo de la Constitución Política de los Estados Unidos Mexicanos, así como los artículos 3º, fracción II y IX, 16, 17, 18, 19, 20, 21, 22, 23, 25,26, 27 y 28 de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica: https://shorturl.at/qzADJ
+    <p style="text-align: justify;">El Instituto de Elecciones podrá utilizar sus datos personales para elaborar informes; generar las constancias respectivas; establecer comunicación para dar seguimiento a la conclusión de las fases del proceso de selección y designación de las personas Supervisoras y Capacitadoras Asistentes Electorales del Instituto de Elecciones, durante el Proceso Electoral Local Ordinario 2024; difundir en medios de comunicación el seguimiento a las fases del mismo; utilizar la imagen, voz, video y/o entrevista de las personas aspirantes en plataformas digitales del Instituto; elaborar estadísticas, teniendo la certeza que es información fidedigna; aclarar dudas sobre sus datos, ya sea por error o imprecisión; notificar la cancelación o cambio de horario, fecha o sede; llevar a cabo la promoción y difusión de las actividades que el Instituto organiza en ejercicio de sus atribuciones y como parte de las actividades relativas a la construcción de la ciudadanía y el fortalecimiento de la Democracia en la entidad; en su caso, realizada la designación/contratación, vigilar y verificar el cumplimiento de las obligaciones derivadas de las disposiciones legales, reglamentos, lineamientos, manuales y diversa normatividad vigentes que regulen el funcionamiento del Instituto; dar seguimiento a las declaraciones de situación patrimonial y de intereses que deben presentar las personas servidoras públicas; así como dar seguimiento a los actos administrativos de entrega y recepción de los recursos que le fueron asignados para el desempeño de sus funciones, en los términos que establezca la normatividad aplicable. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica: https://www.iepc-chiapas.org.mx/avisos-de-privacidad
     </p>
 </td>
                 <td class="rosap2" style="width: 40%; text-align: center; font-size: 6pt;">DECLARO
                     <br>
-                    <p style="text-align: justify;">Que de comprobarse que
-                        alguno de los datos asentados en esta Solicitud
-                        resultara falso, el OPL puede dejar sin efecto la
-                        presente solicitud o, en su caso, el compromiso que
-                        estableciera para contar con mis servicios, sin que el
-                        OPL incurra en responsabilidad alguna sobre el
-                        particular. </p>
-                    <p style="text-align: justify;">De la misma manera
-                        manifiesto mantener en estricta reserva y no revelar
-                        ningún tipo de información sobre el contenido del Examen
-                        de conocimientos, habilidades y aptitudes, así como de
-                        la Entrevista para el proceso de selección de
-                        Supervisoras/es Electorales Locales y
-                        Capacitadoras/es-Asistentes Electorales Locales
-                        correspondiente al Proceso Electoral 2023-2024, en caso
-                        de acceder a ella.</p><br>
+                    <p style="text-align: justify;">Que de comprobarse que alguno de los datos asentados en esta Solicitud resultara falso, el IEPC puede dejar sin efecto la presente solicitud o, en su caso, el compromiso que estableciera para contar con mis servicios, sin que el IEPC incurra en responsabilidad alguna sobre el particular.</p>
+                    <p style="text-align: justify;">De la misma manera manifiesto mantener en estricta reserva y no revelar ningún tipo de información sobre el contenido del Examen de conocimientos, habilidades y aptitudes, así como de la Entrevista para el proceso de selección de Supervisoras/es Electorales Locales y Capacitadoras/es-Asistentes Electorales Locales correspondiente al Proceso Electoral 2023-2024, en caso de acceder a ella.</p><br>
                 </td>
             </tr>
         </tbody>
