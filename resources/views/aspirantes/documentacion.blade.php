@@ -107,14 +107,15 @@ table.saltopagina {
     <table style="table-layout: fixed; width: 726px; margin-bottom: 10pt;">
         <tbody>
             <tr border-collapse: collapse;>
-                <td style="width: 20% " rowspan="3"><img src="../public/imgs/LOGO_out.png" width="110px" height="80px" alt=""></td>
-                <td style="width: 80%; text-align: center; font-size: 11pt; ">RELACIÓN DE DOCUMENTACIÓN ENTREGADA POR LA PERSONA ASPIRANTE</td>
+			<td style="width: 20% " rowspan="3"><img  src="../public/imgs/logoEAE2024.png" width="110px" height="80px" alt=""></td>
+                <td style="width: 70%; text-align: center; font-size: 10pt; letter-spacing: -1px;">RELACIÓN DE DOCUMENTACIÓN ENTREGADA POR LA PERSONA ASPIRANTE</td>
+				<td style="width: 20% " rowspan="3"><img style="text-align: right;" src="../public/imgs/logoIEPC.png" width="150px" height="80px" alt=""></td>
             </tr>
             <tr>
-                <td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
+                <td style="width: 60%; text-align: center; font-size: 9pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
             </tr>
             <tr>
-                <td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
+                <td style="width: 60%; text-align: center; font-size: 8pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
             </tr>
         </tbody>
     </table>
@@ -674,7 +675,7 @@ table.saltopagina {
 
 <table style="table-layout: fixed; height:200px; width:726px;">
     <td valign="bottom" style="font-size: 9pt; text-align: justify; vertical-align: bottom; height: 200px; width: 726px;"><span>
-El Instituto Nacional Electoral, con domicilio en: Viaducto Tlalpan #100, colonia Arenal Tepepan, Alcaldía Tlalpan, código postal 14610, Ciudad de México recaba sus datos personales y es responsable del tratamiento que les dé. Los datos personales reunidos serán utilizados para corroborar que la ciudadanía interesada en participar en el proceso de reclutamiento, selección y contratación de personal eventual que colaborará con el OPL durante el Proceso Electoral 2023-2024 como Supervisor/a Electoral Local o Capacitador/a-Asistente Electoral Local, cumpla con los requisitos legales y administrativos establecidos en la Convocatoria. Simultáneamente, los datos personales serán utilizados para que la autoridad electoral cuente con información respecto de los grupos en situación de vulnerabilidad en los que se sitúan las personas con autoadscripción indígena; pertenecientes a la población afromexicana; que viven con algún tipo de discapacidad; que se consideran parte de las personas LGBTTTIQ+ o si se trata de una persona mexicana migrante, con el fin de realizar análisis de datos y estadísticas como insumos para el ejercicio de sus atribuciones, para determinar lo conducente en futuros procesos electorales. Lo anterior de conformidad con el marco normativo electoral y con base en lo establecido en los artículos 6º Base A, fracciones II y III y 16, segundo párrafo de la Constitución Política de los Estados Unidos Mexicanos, así como los artículos 3º, fracción II y IX, 16, 17, 18, 19, 20, 21, 22, 23, 25,26, 27 y 28 de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica: DECEyEC-aviso-priv-simplificado-Listado-SE-CAE.pdf (ine.mx)</span>
+	El Instituto de Elecciones podrá utilizar sus datos personales para elaborar informes; generar las constancias respectivas; establecer comunicación para dar seguimiento a la conclusión de las fases del proceso de selección y designación de las personas Supervisoras y Capacitadoras Asistentes Electorales del Instituto de Elecciones, durante el Proceso Electoral Local Ordinario 2024; difundir en medios de comunicación el seguimiento a las fases del mismo; utilizar la imagen, voz, video y/o entrevista de las personas aspirantes en plataformas digitales del Instituto; elaborar estadísticas, teniendo la certeza que es información fidedigna; aclarar dudas sobre sus datos, ya sea por error o imprecisión; notificar la cancelación o cambio de horario, fecha o sede; llevar a cabo la promoción y difusión de las actividades que el Instituto organiza en ejercicio de sus atribuciones y como parte de las actividades relativas a la construcción de la ciudadanía y el fortalecimiento de la Democracia en la entidad; en su caso, realizada la designación/contratación, vigilar y verificar el cumplimiento de las obligaciones derivadas de las disposiciones legales, reglamentos, lineamientos, manuales y diversa normatividad vigentes que regulen el funcionamiento del Instituto; dar seguimiento a las declaraciones de situación patrimonial y de intereses que deben presentar las personas servidoras públicas; así como dar seguimiento a los actos administrativos de entrega y recepción de los recursos que le fueron asignados para el desempeño de sus funciones, en los términos que establezca la normatividad aplicable. Si desea conocer nuestro aviso de privacidad integral consulte la siguiente dirección electrónica: https://www.iepc-chiapas.org.mx/avisos-de-privacidad</span>
 </td>
 </table>
 
