@@ -37,15 +37,18 @@ footer {
 <table style="table-layout: fixed; width: 726px;">
 	<tbody>
 		<tr border-collapse: collapse;>
-			<td style="width: 20% " rowspan="3"><img src="../public/imgs/LOGO_out.png" width="110px" height="80px" alt=""></td>
-			<td style="width: 80%; text-align: center; font-size: 14pt;">DECLARATORIA BAJO PROTESTA DE DECIR VERDAD</td>
+        <td style="width: 20% " rowspan="3"><img  src="../public/imgs/logoEAE2024.png" width="110px" height="80px" alt=""></td>
+                <td style="width: 60%; text-align: center; font-size: 12pt;">DECLARATORIA BAJO PROTESTA DE DECIR VERDAD</td>
+                <td style="width: 20% " rowspan="3"><img style="text-align: right;" src="../public/imgs/logoIEPC.png" width="150px" height="80px" alt=""></td>
 		</tr>
 		<tr>
-			<td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
+			<td style="width: 60%; text-align: center; font-size: 8pt; color: #808080;">SUPERVISORA/O ELECTORAL LOCAL O CAPACITADORA/O ASISTENTE ELECTORAL LOCAL(HONORARIOS)</td>
 		</tr>
         <tr>
-			<td style="width: 80%; text-align: center; font-size: 8pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
+			<td style="width: 60%; text-align: center; font-size: 8pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
 		</tr>
+
+        
 	</tbody>
 </table>
 		</header>
