@@ -61,13 +61,13 @@ footer {
 			<td>C. MARÍA MAGDALENA VILA DOMÍNGUEZ</td>
 		</tr>
 		<tr>
-			<td>REPRESENTANTE DEL ORGANISMO PÚBLICO LOCAL</td>
+			<td>CONSEJERA PRESIDENTA PROVISIONAL DEL INSTITUTO</td>
 		</tr>
 		<tr>
-			<td>EN EL ESTADO DE CHIAPAS</td>
+			<td>DE ELECCIONES Y PARTICIPACIÓN CIUDADANA DE CHIAPAS</td>
 		</tr>
 		<tr>
-			<td>PRESENTE</td>
+			<td>P R E S E N T E</td>
 		</tr>
 	</tbody>
 </table>
@@ -98,8 +98,7 @@ footer {
                 <ul type="square">
                     <li>Ser ciudadano (a) mexicano (a) y estar en pleno goce y ejercicio de mis derechos políticos y civiles.</li>
                     <li>Tener <u>{{ $aspirante->edad }}</u> edad.</li>
-                    <li>Ser ciudadano (a) mexicano (a) y estar en pleno goce y ejercicio de mis derechos políticos y civiles.</li>
-                    <li> Mi domicilio se encuentra en:  Calle <u>{{mb_strtoupper ($aspirante->dom_calle)}},</u> <span>No. exterior <u>{{mb_strtoupper ($aspirante->dom_num_exterior)}},</span> <span>No. interior <u>{{mb_strtoupper ($aspirante->dom_num_interior)}},</u></span> Colonia <u>{{mb_strtoupper ($aspirante->dom_colonia)}}<</u> municipio <u>{{mb_strtoupper ($aspirante->dom_municipio)}}</u> Estado <u>CHIAPAS</u> código postal <u>{{mb_strtoupper ($aspirante->dom_postal)}}</u>. Tel. casa <u>{{ $aspirante->tel_fijo }}</u> Tel. celular <u>{{ $aspirante->tel_celular }}</u>.</li>
+                    <li> Mi domicilio se encuentra en:  Calle <u>{{mb_strtoupper ($aspirante->dom_calle)}}</u>, @if($aspirante->dom_num_exterior)<span>No. exterior <u>{{mb_strtoupper ($aspirante->dom_num_exterior)}}</u>,</span> @else<span></span>@endif @if ($aspirante->dom_num_interior)<span>No. interior <u>{{mb_strtoupper ($aspirante->dom_num_interior)}}</u>,</span>@else <span></span>@endif<span> Colonia <u>{{mb_strtoupper ($aspirante->dom_colonia)}}</u>, municipio <u>{{mb_strtoupper($aspirante->dom_municipio)}}</u>, Estado <u>CHIAPAS</u>, código postal <u>{{mb_strtoupper ($aspirante->dom_postal)}}</u>. @if($aspirante->tel_fijo)<span>Tel. casa <u>{{$aspirante->tel_fijo}}</u>,</span> @else<span></span>@endif Tel. celular <u><span>{{ $aspirante->tel_celular}}</span></u>.</li>
                     <li> Estar de acuerdo en sujetarme a las evaluaciones que determinen las autoridades del Organismo Público Local.</li>
                     <li><b>Tener disposición para dedicarme a las actividades para las que se me contrate, de tiempo completo para cubrirlas a cabalidad en las condiciones en que se requiera</b>; por lo que me obligo a cumplir completamente y de manera prioritaria los servicios y actividades objeto de la contratación, dedicando el tiempo necesario para llevarlos a cabo, <u><b>siendo incompatible cualquier otro empleo dentro del periodo y tiempo destinado para la realización de éstos.</b></u> En su caso, apoyar en las actividades que se realicen durante el cómputo local y demás relacionadas en el contrato de prestación de servicios.</li>
                     <li>Devolver las prendas de identificación, el material y/o los instrumentos de trabajo proporcionados por el Organismo Público Local, una vez concluido el periodo de contratación.</li>
