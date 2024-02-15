@@ -101,7 +101,7 @@ class Lista extends DataTableComponent
         if($this->fConsejo)
             $query->whereRaw('sede LIKE ?', ['%'.$this->fConsejo.'%']);
 
-        $query->whereHas('roles', fn ($query2) => $query2->whereNotIn('name',config('constants.roles_especiales')));
+        $query->whereDoesntHave('roles', fn ($query2) => $query2->where('name',config('constants.roles_especiales')));
 
         return $query;
     }
