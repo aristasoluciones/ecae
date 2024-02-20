@@ -45,7 +45,9 @@ class Expediente extends Component
     protected function messages() {
         return [
             '*.required' => 'Este campo es obligatorio',
-            '*.required_if' => 'Este campo es obligatorio'
+            '*.required_if' => 'Este campo es obligatorio',
+            'documentacion.mimes' => 'El archivo debe ser de tipo PDF',
+            'documentacion.max' => 'El archivo no debe pesar más de 7MB.'
         ];
     }
 

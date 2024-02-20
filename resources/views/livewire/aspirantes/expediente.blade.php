@@ -60,7 +60,7 @@
                             <progress max="100" x-bind:value="progress"></progress>
                         </div>
                     </div>
-                <small class="text-muted text-justify d-block">(Archivo en formato PDF, con tamaño máximo de 5MB)</small>
+                <small class="text-muted text-justify d-block">(Archivo en formato PDF, con tamaño máximo de 7MB)</small>
                 @error('documentacion')
                     <span class="text-danger error h6">{{ $message }}</span>
                 @enderror
