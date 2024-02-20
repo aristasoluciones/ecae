@@ -1,11 +1,11 @@
 <table>
     <thead>
         <tr>
-            <th colspan="21" style="background: #0c84ff; color: #ffffff; font-weight: bold;">REPORTE DE ASPIRANTES REGISTRADOS</th>
+            <th colspan="27" style="background: #0c84ff; color: #ffffff; font-weight: bold;">REPORTE DE ASPIRANTES REGISTRADOS</th>
         </tr>
         <tr>
             <!--col01--> <th style="background: #0c84ff; color: #ffffff; font-weight: bold;">ID</th>
-            <!--col02--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">FECHA DE RECEPPCIÓN</th>
+            <!--col02--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">FECHA DE RECEPCIÓN</th>
             <!--col03--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">CLAVE DE ELECTOR</th>
             <!--col04--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">SECCION ELECTORAL</th>
             <!--col05--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">APELLIDO PATERNO</th>
@@ -49,7 +49,7 @@
             <!--col11--><td>{{ mb_strtoupper($row->genero) }}</td>
             <!--col12--><td>{{ mb_strtoupper($row->persona_lgbtttiq) }}</td>
             <!--col13--><td>{{ mb_strtoupper($row->p15_discapacidad) }}</td>
-            <!--col14--><td>{{ mb_strtoupper($row->p15_1_tipodiscapacidad) }}</td>
+            <!--col14-->@if($row->p15_1_tipodiscapacidad == "otro")<td>{{ mb_strtoupper(str_replace("_"," O ",$row->p15_2_otradiscapacidad)) }}</td> @else <td>{{ mb_strtoupper(str_replace("_"," O ",$row->p15_1_tipodiscapacidad)) }}</td>@endif
             <!--col15--><td>{{ mb_strtoupper($row->p11_habla_lindigena) }}</td>
             <!--col16--><td>{{ mb_strtoupper($row->p11_1_cual) }}</td>
             <!--col17--><td>{{ mb_strtoupper($row->edad) }}</td>
