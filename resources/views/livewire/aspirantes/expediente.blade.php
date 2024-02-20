@@ -42,6 +42,114 @@
             @endforeach
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-md-12 dropdown-divider"></div>
+            <div class="col-md-8 col-sm-12">
+                    <div
+                        x-data="{ isUploading: false, progress: 0 }"
+                        x-on:livewire-upload-start="isUploading = true"
+                        x-on:livewire-upload-finish="isUploading = false"
+                        x-on:livewire-upload-error="isUploading = false"
+                        x-on:livewire-upload-progress="progress = $event.detail.progress"
+                    >
+                        <button type="button" class="btn btn-primary btn-file">
+                            <span>Adjuntar evidencia de la documentación cotejada</span>
+                        <input wire:model='documentacion' accept="application/pdf" type="file" name="documentacion">
+                        </button>
+                        <div x-show="isUploading">
+                            <progress max="100" x-bind:value="progress"></progress>
+                        </div>
+                    </div>
+                <small class="text-muted text-justify d-block">(Archivo en formato PDF, con tamaño máximo de 5MB)</small>
+                @error('documentacion')
+                    <span class="text-danger error h6">{{ $message }}</span>
+                @enderror
+            </div>
+            @if($aspirante->documentacion)
+                <div class="col-md-4 col-sm-12">
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        wire:click="handlerEliminar">
+                        Eliminar evidencia
+                    </button>
+                </div>
+                <div class="col-sm-12">
+                    <iframe style="width:100%; height: 100vh" src="data:application/pdf;base64, {{ $documentacionBase64 }}"
+                           type="application/pdf"
+                            allowfullscreen></iframe>
+                </div>
+            @endif
+        </div>
+
+    </div>
+    <div id="modal-confirmar-evidencia" wire:ignore.self class="modal fade" role="dialog" data-backdrop="static"
+         data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-info">
+                    <h4 class="modal-title">Confirmar y guardar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 text-justify">
+                            <p>¿Esta seguro de subir la información?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group-toggle" wire:loading.remove wire.target="guardarEvidencia">
+                        <button type="button"
+                                class="btn btn-danger close-btn mr-2"
+                                data-dismiss="modal">Cancelar
+                        </button>
+                        <button type="button"
+                                class="btn btn-primary"
+                                wire:click="guardarEvidencia">Si
+                        </button>
+                    </div>
+                    <button type="button"
+                            class="btn btn-primary"
+                            wire:loading wire.target="guardarEvidencia">
+                        <span>Procesando información <i class="fas fa-spinner"></i></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-confirmar-eliminar-evidencia" wire:ignore.self class="modal fade" role="dialog" data-backdrop="static"
+         data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h4 class="modal-title">Confirmar y eliminar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 text-justify">
+                            <p>¿Esta seguro de eliminar la evidencia actual?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group-toggle" wire:loading.remove wire.target="eliminarEvidencia">
+                        <button type="button"
+                                class="btn btn-danger close-btn mr-2"
+                                data-dismiss="modal">Cancelar
+                        </button>
+                        <button type="button"
+                                class="btn btn-primary"
+                                wire:click="eliminarEvidencia">Si
+                        </button>
+                    </div>
+                    <button type="button"
+                            class="btn btn-primary"
+                            wire:loading wire.target="eliminarEvidencia">
+                        <span>Procesando información <i class="fas fa-spinner"></i></span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

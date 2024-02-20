@@ -199,21 +199,21 @@ table.saltopagina {
 <table class="inicio">
 	<tbody>
 		<tr>
-					 
+
 			<td class="rosa" style="width: 5%; font-size: 7pt; text-align: center;">1.</td>
 			<td class="rosa" style="width: 75%; text-align: left;">En su caso, Solicitud correctamente llenada y firmada</td>
-			<td class="rosa" style="width: 10%;">		
-			@if ($aspirante->expedientes[0]->mostro_original)	
+			<td class="rosa" style="width: 10%;">
+			@if ($aspirante->expedientes[0]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="rosa" style="width: 10%;">
-			@if ($aspirante->expedientes[0]->entrego_copia)	
+			@if ($aspirante->expedientes[0]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
 		</tr>
-		
+
 	</tbody>
 </table>
 
@@ -222,13 +222,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt;  text-align: center;">2.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Acta de nacimiento (original o copia certificada y copia simple), o en su caso, Carta de Naturalización.</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[1]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[1]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[1]->entrego_copia)	
+			@if ($aspirante->expedientes[1]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -241,13 +241,13 @@ table.saltopagina {
 		<tr>
 			<td class="rosa" style="width: 5%; font-size: 7pt; text-align: center;">3.</td>
 			<td class="rosa" style="width: 75%; text-align: left;">Credencial para Votar o comprobante de trámite.</td>
-			<td class="rosa" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[2]->mostro_original)	
+			<td class="rosa" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[2]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="rosa" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[2]->entrego_copia)	
+			@if ($aspirante->expedientes[2]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -260,13 +260,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">4.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Comprobante de domicilio.</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[3]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[3]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[3]->entrego_copia)	
+			@if ($aspirante->expedientes[3]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -279,13 +279,13 @@ table.saltopagina {
 		<tr>
 			<td class="rosa" style="width: 5%; font-size: 7pt;">5.</td>
 			<td class="rosa" style="width: 75%; text-align: left;">Constancia de estudios (no tira de materias).</td>
-			<td class="rosa" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[4]->mostro_original)	
+			<td class="rosa" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[4]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="rosa" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[4]->entrego_copia)	
+			@if ($aspirante->expedientes[4]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -298,13 +298,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">6.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Declaratoria bajo protesta de decir la verdad(firmada).</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[5]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[5]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[5]->entrego_copia)	
+			@if ($aspirante->expedientes[5]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -325,13 +325,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">7.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Copia de la Clave Única del Registro de Población (CURP).</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[6]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[6]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[6]->entrego_copia)	
+			@if ($aspirante->expedientes[6]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -344,13 +344,13 @@ table.saltopagina {
 		<tr>
 			<td class="rosa" style="width: 5%; font-size: 7pt;">8.</td>
 			<td class="rosa" style="width: 75%; text-align: left;">Constancia del Registro Federal de Contribuyentes(RFC).</td>
-			<td class="rosa" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[7]->mostro_original)	
+			<td class="rosa" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[7]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="rosa" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[7]->entrego_copia)	
+			@if ($aspirante->expedientes[7]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -363,13 +363,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">9.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Tres fotografías tamaño infantil a color o en blanco y negro*</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[8]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[8]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[8]->entrego_copia)	
+			@if ($aspirante->expedientes[8]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -380,7 +380,7 @@ table.saltopagina {
 <table class="enmedio">
 	<tbody>
 		<tr>
-			<td class="morado">Documentos opcionales complementarios <br> 
+			<td class="morado">Documentos opcionales complementarios <br>
                 (el no contar con ellos no será causa de exclusión de la persona aspirante)
                 </td>
 		</tr>
@@ -392,13 +392,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">10.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Carta que acredite su experiencia como docente, manejo o trato de grupos de personas (el no contar con ella no será causa de exclusión de la persona aspirante).</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[9]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[9]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[9]->entrego_copia)	
+			@if ($aspirante->expedientes[9]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -411,13 +411,13 @@ table.saltopagina {
 		<tr>
 			<td class="rosa" style="width: 5%; font-size: 7pt;">11.</td>
 			<td class="rosa" style="width: 75%; text-align: left;">Constancia de participación en algún Proceso Electoral Concurrente, Federal o Local </td>
-			<td class="rosa" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[10]->mostro_original)	
+			<td class="rosa" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[10]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="rosa" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[10]->entrego_copia)	
+			@if ($aspirante->expedientes[10]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -430,13 +430,13 @@ table.saltopagina {
 		<tr>
 			<td class="blanco" style="width: 5%; font-size: 7pt; text-align: center;">12.</td>
 			<td class="blanco" style="width: 75%; text-align: left;">Licencia de manejo vigente (el no contar con ella no será causa de exclusión de la persona aspirante).</td>
-			<td class="blanco" style="width: 10%; text-align: center;">		
-			@if ($aspirante->expedientes[11]->mostro_original)	
+			<td class="blanco" style="width: 10%; text-align: center;">
+			@if ($aspirante->expedientes[11]->mostro_original)
 			<span>x</span>
-			@endif						
+			@endif
 			</td>
 			<td class="blanco" style="width: 10%; text-align: center;">
-			@if ($aspirante->expedientes[11]->entrego_copia)	
+			@if ($aspirante->expedientes[11]->entrego_copia)
 			<span>x</span>
 			@endif
 			</td>
@@ -455,7 +455,7 @@ table.saltopagina {
 <table style="height: 15pt; border: none; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 100%; font-size: 7pt; text-align: center;"></td>			
+			<td class="blanco" style="width: 100%; font-size: 7pt; text-align: center;"></td>
 		</tr>
     </tbody>
 </table>
@@ -464,7 +464,7 @@ table.saltopagina {
 	<tbody>
 		<tr>
 			<td class="rosa" style="text-align: center; font-weight: bold;">Nombre completo, firma y <br>
-                Cargo de quien recibe la documentación 
+                Cargo de quien recibe la documentación
             </td>
         </tr>
 	</tbody>
@@ -473,7 +473,7 @@ table.saltopagina {
 <table class="enmedio" style="height: 30pt; border: none; table-layout: fixed;  width: 726px;">
 	<tbody>
 		<tr>
-			<td class="blanco" style="width: 726px; height: 50px; font-size: 7pt; text-align: center; vertical-align:bottom;">_____________________________________________________________________________</td>			
+			<td class="blanco" style="width: 726px; height: 50px; font-size: 7pt; text-align: center; vertical-align:bottom;">_____________________________________________________________________________</td>
 		</tr>
     </tbody>
 </table>
@@ -500,7 +500,7 @@ table.saltopagina {
 		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: center;"></td>
 			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">Entregó</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: center;"></td>
-            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">Entregó</td>			
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center;">Entregó</td>
 		</tr>
     </tbody>
 </table>
@@ -518,7 +518,7 @@ table.saltopagina {
             <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
 			@if ($aspirante->expedientes[7]->entrego_copia)
 			<span>X</span>
-			@endif</td>			
+			@endif</td>
 		</tr>
     </tbody>
 </table>
@@ -534,7 +534,7 @@ table.saltopagina {
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
 			@if ($aspirante->expedientes[8]->entrego_copia)
 			<span>X</span>
-		@endif</td>			
+		@endif</td>
 		</tr>
     </tbody>
 </table>
@@ -550,7 +550,7 @@ table.saltopagina {
             <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
 			@if ($aspirante->expedientes[9]->entrego_copia)
 			<span>X</span>
-		@endif</td>			
+		@endif</td>
 		</tr>
     </tbody>
 </table>
@@ -566,7 +566,7 @@ table.saltopagina {
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
 			@if ($aspirante->expedientes[10]->entrego_copia)
 			<span>X</span>
-		@endif</td>			
+		@endif</td>
 		</tr>
     </tbody>
 </table>
@@ -583,7 +583,7 @@ table.saltopagina {
 			@if ($aspirante->expedientes[11]->entrego_copia)
 			<span>X</span>
 		@endif
-		</td>			
+		</td>
 		</tr>
     </tbody>
 </table>
@@ -599,7 +599,7 @@ table.saltopagina {
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
 			@if ($aspirante->expedientes[8]->entrego_copia)
 			<span>X</span>
-		@endif</td>			
+		@endif</td>
 		</tr>
     </tbody>
 </table>
@@ -634,7 +634,7 @@ table.saltopagina {
     <table style="table-layout: fixed; width: 726px; margin-top: 50pt;">
         <tr>
             <td style="text-align: right; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES LOCALES <br>Y CAPACITADORES/AS-ASISTENTES ELECTORALES LOCALES.<br>| ANEXO 21.4 RELACIÓN DE DOCUMENTACIÓN ENTREGADA POR LA PERSONA ASPIRANTE
- 
+
         </td>
         </tr>
     </table>
