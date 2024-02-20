@@ -42,9 +42,9 @@
             @endforeach
             </tbody>
         </table>
-        <div class="row">
-            <div class="col-md-12 dropdown-divider"></div>
-            <div class="col-md-8 col-sm-12">
+        <div class="row mt-3">
+            <div class="col-md-12 dropdown-divider pb-3"></div>
+            <div class="col-md-6 col-sm-12">
                     <div
                         x-data="{ isUploading: false, progress: 0 }"
                         x-on:livewire-upload-start="isUploading = true"
@@ -65,8 +65,16 @@
                     <span class="text-danger error h6">{{ $message }}</span>
                 @enderror
             </div>
-            @if($aspirante->documentacion)
-                <div class="col-md-4 col-sm-12">
+            @if($documentacionBase64 != null)
+                <div class="col-md-3 col-sm-12">
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        wire:click="descargarEvidencia">
+                        Descargar evidencia
+                    </button>
+                </div>
+                <div class="col-md-3 col-sm-12">
                     <button
                         type="button"
                         class="btn btn-danger"
@@ -74,7 +82,7 @@
                         Eliminar evidencia
                     </button>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12 mt-2">
                     <iframe style="width:100%; height: 100vh" src="data:application/pdf;base64, {{ $documentacionBase64 }}"
                            type="application/pdf"
                             allowfullscreen></iframe>
