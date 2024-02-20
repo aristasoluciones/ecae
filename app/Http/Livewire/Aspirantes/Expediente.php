@@ -55,9 +55,11 @@ class Expediente extends Component
     public function mount(Aspirante $aspirante) {
 
         $this->aspirante = $aspirante;
-        if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
-            $this->documentacionBase64 =  base64_encode(file_get_contents(storage_path('app/'.$this->aspirante->documentacion)));
-        }
+        $this->documentacionBase64 =
+        File::isFile(storage_path('app/'.$this->aspirante->documentacion))
+        ? base64_encode(file_get_contents(storage_path('app/'.$this->aspirante->documentacion)))
+        : null;
+
 
         $this->cargarExpedientes();
     }
@@ -134,16 +136,24 @@ class Expediente extends Component
     public function eliminarEvidencia() {
 
         try {
-            if(File::delete(storage_path('app/'.$this->aspirante->documentacion))) {
-                $this->aspirante->documentacion = null;
-                $this->aspirante->save();
-                $this->documentacionBase64 = null;
+            if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
+                if(File::delete(storage_path('app/'.$this->aspirante->documentacion))) {
+                    $this->aspirante->documentacion = null;
+                    $this->aspirante->save();
+                    $this->documentacionBase64 = null;
+                    $typeMsg  = 'success';
+                    $msg = 'Archivo eliminado';
+                }
+            } else {
+                $typeMsg = "error";
+                $msg = 'Archivo no encontrado';
+
             }
 
             $this->emit('modal:hide', '#modal-confirmar-eliminar-evidencia');
             $this->emit('swal:alert', [
-                'icon'    => 'success',
-                'title'   => 'Archivo eliminado',
+                'icon'    => $typeMsg,
+                'title'   =>  $msg,
                 'timeout' => 5000
             ]);
 
@@ -151,6 +161,33 @@ class Expediente extends Component
             $this->emit('swal:alert', [
                 'icon'    => 'error',
                 'title'   => 'Ocurrio un error al tratar de eliminar el archivo',
+                'timeout' => 5000
+            ]);
+        }
+    }
+
+    public function descargarEvidencia() {
+
+        try {
+            if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
+                $name = implode('_', [
+                    $this->aspirante->id,
+                    str_replace(' ', '_', $this->aspirante->municipio),
+                    str_replace(' ', '_', $this->aspirante->apellido1."_".$this->aspirante->apellido2."_".$this->aspirante->nombre),
+                ]);
+                $name = htmlspecialchars(mb_strtoupper($name)).".PDF";
+                return response()->download(storage_path('app/'.$this->aspirante->documentacion), $name);
+            } else {
+                $this->emit('swal:alert', [
+                    'icon'    => 'error',
+                    'title'   => 'Ocurrio un error al descargar',
+                    'timeout' => 5000
+                ]);
+            }
+        } catch (\Throwable $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'error',
+                'title'   => 'Ocurrio un error al descargar',
                 'timeout' => 5000
             ]);
         }
