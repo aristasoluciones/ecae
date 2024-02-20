@@ -11,10 +11,12 @@ use App\Models\Aspirante;
 use App\Models\Documento;
 use App\Models\Expediente as ExpedienteModel;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\File;
 
 class Expediente extends Component
 {
-    use AuthorizesRequests;
+    use AuthorizesRequests, WithFileUploads;
 
     public $aspirante;
 
@@ -22,13 +24,30 @@ class Expediente extends Component
 
     protected $documentos;
 
+    public $documentacion;
+
+    public $documentacionBase64;
+
     public function updated($field) {
         return $this->validateOnly($field);
     }
-    public function messages() {
+
+    public function updatedDocumentacion($value) {
+
+        $this->emit('modal:show', '#modal-confirmar-evidencia');
+    }
+
+    protected function rules() {
+        return [
+            'documentacion' => 'nullable|file|mimes:pdf|max:7000',
+        ];
+    }
+    protected function messages() {
         return [
             '*.required' => 'Este campo es obligatorio',
-            '*.required_if' => 'Este campo es obligatorio'
+            '*.required_if' => 'Este campo es obligatorio',
+            'documentacion.mimes' => 'El archivo debe ser de tipo PDF',
+            'documentacion.max' => 'El archivo no debe pesar más de 7MB.'
         ];
     }
 
@@ -36,6 +55,12 @@ class Expediente extends Component
     public function mount(Aspirante $aspirante) {
 
         $this->aspirante = $aspirante;
+        $this->documentacionBase64 =
+        File::isFile(storage_path('app/'.$this->aspirante->documentacion))
+        ? base64_encode(file_get_contents(storage_path('app/'.$this->aspirante->documentacion)))
+        : null;
+
+
         $this->cargarExpedientes();
     }
     public function cargarExpedientes() {
@@ -70,7 +95,6 @@ class Expediente extends Component
 
     public function handlerSave() {
 
-
        $this->emit('confirmar', [
             'icon'    => 'question',
             'title'   => 'Confirmar información',
@@ -78,6 +102,95 @@ class Expediente extends Component
             'confirmText' => $this->aspirante_id > 0 ? 'Actualizar' : 'Guardar',
             'method'  => $this->aspirante_id > 0 ? "actualizar" : "guardar",
         ]);
+    }
+
+
+    public function guardarEvidencia() {
+
+        $nameFile = strtoupper("EVIDENCIA-".$this->aspirante->id."-".$this->aspirante->clave_elector).".PDF";
+        if($this->documentacion->storeAs('evidencias', $nameFile)) {
+            $this->aspirante->documentacion = 'evidencias/'.$nameFile;
+            $this->aspirante->save();
+            if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
+                $this->documentacionBase64 =  base64_encode(file_get_contents(storage_path('app/'.$this->aspirante->documentacion)));
+            }
+            $this->emit('swal:alert', [
+                'icon'    => 'success',
+                'title'   => 'Archivo guardado correctamente',
+                'timeout' => 5000
+            ]);
+        } else {
+            $this->emit('swal:alert', [
+                'icon'    => 'error',
+                'title'   => 'Ocurrio un error al guardar archivo',
+                'timeout' => 5000
+            ]);
+        }
+        $this->emit('modal:hide', '#modal-confirmar-evidencia');
+
+    }
+
+    public function handlerEliminar() {
+        $this->emit('modal:show', '#modal-confirmar-eliminar-evidencia');
+    }
+    public function eliminarEvidencia() {
+
+        try {
+            if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
+                if(File::delete(storage_path('app/'.$this->aspirante->documentacion))) {
+                    $this->aspirante->documentacion = null;
+                    $this->aspirante->save();
+                    $this->documentacionBase64 = null;
+                    $typeMsg  = 'success';
+                    $msg = 'Archivo eliminado';
+                }
+            } else {
+                $typeMsg = "error";
+                $msg = 'Archivo no encontrado';
+
+            }
+
+            $this->emit('modal:hide', '#modal-confirmar-eliminar-evidencia');
+            $this->emit('swal:alert', [
+                'icon'    => $typeMsg,
+                'title'   =>  $msg,
+                'timeout' => 5000
+            ]);
+
+        } catch (\Throwable $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'error',
+                'title'   => 'Ocurrio un error al tratar de eliminar el archivo',
+                'timeout' => 5000
+            ]);
+        }
+    }
+
+    public function descargarEvidencia() {
+
+        try {
+            if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
+                $name = implode('_', [
+                    $this->aspirante->id,
+                    str_replace(' ', '_', $this->aspirante->municipio),
+                    str_replace(' ', '_', $this->aspirante->apellido1."_".$this->aspirante->apellido2."_".$this->aspirante->nombre),
+                ]);
+                $name = htmlspecialchars(mb_strtoupper($name)).".PDF";
+                return response()->download(storage_path('app/'.$this->aspirante->documentacion), $name);
+            } else {
+                $this->emit('swal:alert', [
+                    'icon'    => 'error',
+                    'title'   => 'Ocurrio un error al descargar',
+                    'timeout' => 5000
+                ]);
+            }
+        } catch (\Throwable $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'error',
+                'title'   => 'Ocurrio un error al descargar',
+                'timeout' => 5000
+            ]);
+        }
     }
 
     public function notificar($type, $titulo) {
