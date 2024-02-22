@@ -17,6 +17,12 @@ class UserSeeder extends Seeder
     {
 
         User::create([
+            'name' => 'superadministrador',
+            'email' => 'superadministrador',
+            'password' => Hash::make('Democracia2024'),
+        ]);
+
+        User::create([
             'name' => 'Administrador',
             'email' => 'registros-selycael2024@iepc-chiapas.org.mx',
             'password' => Hash::make('Democracia2024'),
