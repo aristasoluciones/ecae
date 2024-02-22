@@ -39,3 +39,4 @@ Route::get('/usuarios', \App\Http\Controllers\UsuarioController::class)->name('u
 Route::get('/solicitud/{aspirante}', \App\Http\Controllers\SolicitudController::class)->name('solicitud')->middleware('auth');
 Route::get('/estadistica', \App\Http\Controllers\EstadisticaController::class)->name('estadistica')->middleware('auth');
 Route::get('/roles', \App\Http\Controllers\RoleController::class)->name('roles')->middleware('auth');
+Route::get('/perfil', \App\Http\Controllers\PerfilController::class)->name('perfil')->middleware(['auth']);
