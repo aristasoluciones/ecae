@@ -66,7 +66,7 @@ class IniciarPermisosSeeder extends Seeder
             }
         }
 
-        $user =  User::where('email', 'demo')->first();
+        $user =  User::where('email', 'registros-selycael2024@iepc-chiapas.org.mx')->first();
         if($user)
             $user->syncRoles(['superadministrador']);
     }
