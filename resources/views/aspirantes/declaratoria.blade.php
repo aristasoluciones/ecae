@@ -80,7 +80,7 @@ footer {
 	<tbody>
 		<tr>
 			<td>
-                Con fundamento en el artículo 303, numeral 3 de la Ley General de Instituciones y Procedimientos Electorales, con el objeto de cumplir con los requisitos legales que me permitan aspirar a participar en el Organismo Público Local como Supervisor/a Electoral Local o Capacitador/a-Asistente Electoral Local durante el Proceso Electoral 2023-2024, en el Organismo Público Local
+            Con fundamento en el artículo 303, numeral 3 de la Ley General de Instituciones y Procedimientos Electorales, con el objeto de cumplir con los requisitos legales que me permitan aspirar a participar en el IEPC como Supervisor/a Electoral Local o Capacitador/a-Asistente Electoral Local durante el Proceso Electoral Local Ordinario 2024, en el Organismo Público Local.
             </td>
 		</tr>
 		<tr>
