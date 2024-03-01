@@ -318,7 +318,7 @@ class Formulario extends Component
             'p12_2_vehiculo'        => 'required_if:p12_conducir,=,Si',
             'p12_3_marca'           => 'required_if:p12_2_vehiculo,=,Si',
             'p12_4_prestar'         => 'required_if:p12_2_vehiculo,=,Si',
-            'p13_tiempo_traslado'   => 'required|string',
+            'p13_tiempo_traslado'   => ['required','string','regex:/^([01][0-9]|2[0-3]):[0-5][0-9]$/'],
             'p14_acceso_internet'   => 'required|string',
             'p15_discapacidad'      => 'required|string',
             'p15_1_tipodiscapacidad'=> 'required_if:p15_discapacidad,=,Si',
@@ -427,6 +427,7 @@ class Formulario extends Component
 
         return array_merge([
             '*.required' => 'Este campo es obligatorio.',
+            'p13_tiempo_traslado.regex' => 'El formato del campo es invalido.',
             '*.required_if' => 'Este campo es obligatorio.',
             'email.confirmation' => 'Los campos Correo electrónico y Confirmar correo electrónico deben coincidir.',
             'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.',
