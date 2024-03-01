@@ -1394,7 +1394,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" autocomplete="off"
+                                <input type="tel" autocomplete="off"
                                        id="timeInput" maxlength="5"
                                        placeholder="00:00" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false"
                                        class="form-control {{ $errors->has('p13_tiempo_traslado') ? 'is-invalid' : '' }}"
