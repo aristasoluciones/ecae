@@ -30,7 +30,7 @@ return [
         'G. Pláticas informativas',
         'H. Radio',
         'I. Contacto personal',
-        'J. Página del INE',
+        'J. Página del IEPC',
         'K. Red Social',
         'L. Otro',
 
@@ -12634,7 +12634,7 @@ return [
             'Zaquila',
             'Zaquilumil',
             'Zaragoza',
-            
+
         ],
 
         'Ocotepec' => [
@@ -13427,7 +13427,7 @@ return [
             'Yucatán',
             'Yuricenia',
             'Zacate Largo',
-            'Zapote Colorado',            
+            'Zapote Colorado',
         ],
 
         'Ostuacán' => [
@@ -14438,7 +14438,7 @@ return [
             'Yaxha',
             'Zapatero',
             'Zaragoza (Los Cerrillos)',
-            'Úrsulo Galván',            
+            'Úrsulo Galván',
         ],
 
         'Pantelhó' =>[
@@ -16461,7 +16461,7 @@ return [
             'Río Trapiche',
             'San Cayetano',
             'San José Buenavista',
-            
+
         ],
 
         'Santiago el Pinar' =>[
@@ -16484,7 +16484,7 @@ return [
             'Tsak Osil',
             'Xchuch',
             'Yolonchen',
-            
+
         ],
 
         'Siltepec' =>[
@@ -16589,7 +16589,7 @@ return [
             'Vega del Rosario',
             'Vicente Guerrero',
             'Villa Hermosa',
-            'Villa Hermosa Getzemaní',            
+            'Villa Hermosa Getzemaní',
         ],
 
         'Simojovel' =>[
@@ -16712,7 +16712,7 @@ return [
             'Vinoté',
             'Virginia',
             'Yuquín',
-            'Zacatón Santa Teresa',            
+            'Zacatón Santa Teresa',
         ],
 
         'Sitalá' =>[
@@ -16846,7 +16846,7 @@ return [
             'Vergel',
             'Villa las Rosas',
             'Villaflores',
-            'Vistahermosa',            
+            'Vistahermosa',
         ],
 
         'Socoltenango' =>[
@@ -16963,7 +16963,7 @@ return [
             'Unión Campesina',
             'Unión Guadalupe',
             'Vistahermosa Shoctic (Las Águilas)',
-            'Zacatera',            
+            'Zacatera',
         ],
 
         'Solosuchiapa' =>[
@@ -17034,7 +17034,7 @@ return [
             'Villa Santa Fe',
             'Villaflores',
             'Álvaro Obregón',
-            'Úrsulo Galván',            
+            'Úrsulo Galván',
         ],
 
         'Soyaló' =>[
@@ -17197,7 +17197,7 @@ return [
             'Soledad del Carmen (San Rafael)',
             'Tejejumbo Arenal',
             'Tierra Blanca',
-            'Tía Dina',            
+            'Tía Dina',
         ],
 
         'Suchiate' =>[
@@ -17381,7 +17381,7 @@ return [
             'Tres Hermanos 1ra. Sección',
             'Tres Hermanos San Isidro',
             'Wendy',
-            'Yunnuen (El Jab)',            
+            'Yunnuen (El Jab)',
         ],
 
         'Sunuapa' =>[
@@ -17398,7 +17398,7 @@ return [
             'Santa Cruz 1ra. Sección',
             'Santa Cruz 2da. Sección',
             'Santa Cruz 3ra. Sección',
-            'Santa Elena',            
+            'Santa Elena',
         ],
 
         'Tapachula' =>[
@@ -17928,7 +17928,7 @@ return [
             'Violetas',
             'Viva México',
             'Zapopan',
-            'Zaragoza',            
+            'Zaragoza',
         ],
 
         'Tapalapa' =>[
@@ -18010,7 +18010,7 @@ return [
             'Videme (2da. Sección)',
             'Videme 3ra. Sección',
             'Videme de Ocampo 1ra. Sección',
-            'Zaquínguez',            
+            'Zaquínguez',
         ],
 
         'Tecpatán' =>[
@@ -18257,7 +18257,7 @@ return [
             'Yumina',
             'Zacalapa Portaceli',
             'Zazatec',
-            'Álvaro Sánchez Sánchez',            
+            'Álvaro Sánchez Sánchez',
         ],
 
         'Tenejapa' =>[
@@ -18327,7 +18327,7 @@ return [
             'Yaalchuch',
             'Yanch´En',
             'Yashanal',
-            'Yetzucum',            
+            'Yetzucum',
         ],
 
         'Teopisca' =>[
@@ -18457,7 +18457,7 @@ return [
             'Vida Nueva',
             'Vistahermosa',
             'Yashlumilja',
-            'Zaragoza Vieja',            
+            'Zaragoza Vieja',
         ],
 
         'Tila' =>[
@@ -18616,7 +18616,7 @@ return [
             'Wowoslumil',
             'Yok Pokitiok',
             'Zaquitel Ojo de Agua',
-            'Álvaro Obregón',            
+            'Álvaro Obregón',
         ],
 
         'Tonalá' =>[
@@ -19238,7 +19238,7 @@ return [
             'Vistahermosa',
             'Yameri',
             'Yolanda Cigarroa',
-            'Álvaro Vázquez',            
+            'Álvaro Vázquez',
         ],
 
         'Totolapa' =>[
@@ -19273,7 +19273,7 @@ return [
             'San Ramón',
             'San Vicente',
             'Santa Cecilia',
-            'Villa de Guadalupe',            
+            'Villa de Guadalupe',
         ],
 
         'Tumbalá' =>[
@@ -19402,7 +19402,7 @@ return [
             'Yevalchén',
             'Yevalchén Planada',
             'Yevalchén Planada 2da.',
-            'Álvaro Obregón (Planada)',            
+            'Álvaro Obregón (Planada)',
         ],
 
         'Tuxtla Chico' =>[
@@ -19461,7 +19461,7 @@ return [
             'Silvano Gatica',
             'Talismán',
             'Vicente Guerrero',
-            'Villa Lucita',            
+            'Villa Lucita',
         ],
 
         'Tuxtla Gutiérrez' =>[
@@ -19606,7 +19606,7 @@ return [
             'Villa Acacia',
             'Villa Candox',
             'Yúquiz',
-            'Zona de Tolerancia [Zona Galáctica]',            
+            'Zona de Tolerancia [Zona Galáctica]',
         ],
 
         'Tuzantán' =>[
@@ -19737,7 +19737,7 @@ return [
             'Vado Ancho',
             'Veintinueve de Diciembre',
             'Villa Hidalgo',
-            'Xochiltepec',            
+            'Xochiltepec',
         ],
 
         'Tzimol' =>[
@@ -19858,7 +19858,7 @@ return [
             'Tsomanotik',
             'Verapaz',
             'Verapaz Puerta Dorada',
-            'Zapote Negro',            
+            'Zapote Negro',
         ],
 
         'Unión Juárez' =>[
@@ -19901,7 +19901,7 @@ return [
             'Talquián',
             'Talquián Viejo',
             'Trinidad',
-            'Vista Alegre',            
+            'Vista Alegre',
         ],
 
         'Venustiano Carranza' =>[
@@ -20281,7 +20281,7 @@ return [
             'Vista Hermosa',
             'Víctor Gordillo',
             'Waleschic',
-            'Yas Chen de los Pobres',            
+            'Yas Chen de los Pobres',
         ],
 
         'Villa Comaltitlán' =>[
@@ -20434,7 +20434,7 @@ return [
             'Xochicalco',
             'Zacualpa',
             'Zapaluta',
-            'Zapote Mocho',            
+            'Zapote Mocho',
         ],
 
         'Villa Corzo' =>[
@@ -21484,7 +21484,7 @@ return [
             'Yerbasanta',
             'Yilber Morales',
             'Yucatán',
-            'Zamora',   
+            'Zamora',
         ],
 
         'Villaflores' =>[
@@ -22498,7 +22498,7 @@ return [
             'Zaragoza',
             'Zitácuaro',
             'Zitácuaro (Las Carmelitas)',
-            'Úrsulo Galván',   
+            'Úrsulo Galván',
         ],
 
         'Yajalón' =>[
@@ -22729,7 +22729,7 @@ return [
             'Uluzas',
             'Venecia',
             'Venecia Seco',
-            'Vistahermosa (Esquipulas)',            
+            'Vistahermosa (Esquipulas)',
         ],
 
         'Zinacantán' =>[
@@ -22797,7 +22797,7 @@ return [
             'Zequentic',
             'Zequentic Alto',
             'Zequentic Bajo',
-            'Zequentic Centro',            
+            'Zequentic Centro',
         ],
 
     ],
