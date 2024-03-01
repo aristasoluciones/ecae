@@ -37,7 +37,7 @@
             }
 
         table.inicio {
-            
+
             border: 1pt solid #AD84C6;
             border-bottom: none;
             border-collapse: collapse;
@@ -46,7 +46,7 @@
             }
 
         table.enmedio {
-           
+
             border: 1pt solid #AD84C6;
             border-top: none;
             border-bottom: none;
@@ -56,7 +56,7 @@
             }
 
         table.final {
-            
+
             border: 1pt solid #AD84C6;
             border-top: none;
             border-collapse: collapse;
@@ -142,7 +142,7 @@ img{
             <tr>
                 <td style="width: 60%; text-align: center; font-size: 10pt; color: #808080;">PROCESO ELECTORAL 2023-2024</td>
             </tr>
-            
+
         </tbody>
     </table>
 </header>
@@ -163,7 +163,7 @@ img{
             <tr>
                 <td class="grisp1" style="width:18.3%;">
                     Fecha de recepción</td>
-                                        
+
                 <td class="rosap1" style="width: 23%; text-align: center;">{{date ("Y-m-d", strtotime($aspirante->created_at)) }}</td>
                 <td class="grisp1" style="width: 15%; text-align: center;">
                     Número de convocatoria</td>
@@ -214,7 +214,7 @@ img{
                     <span style="font-weight: bold;">X</span>
                  @endif
                     </td>
-                   
+
                 <td class="grisp1" style="width: 5%; text-align: center;   border-bottom: none;"> Alterna</td>
                     <td class="rosap1" style="width: 5%; text-align: center; text-align: center;  border-bottom: none;">
                     @if ($aspirante->tipo_sede=='Alterna')
@@ -230,7 +230,7 @@ img{
     <!--INICIA SECCION 2-->
     <table class="inicio">
         <tbody>
-            
+
                 <tr>
                     <td class="blancop1" colspan="7" rowspan="2" style="font-size: 9pt;">Clave electoral o FUAR:</td>
                         @for ($a = 0; $a <= 17; $a++)
@@ -244,7 +244,7 @@ img{
                 <tr>
                     <td class="blancop1" align="center" colspan="8">Sección electoral</td>
                 </tr>
-            
+
         </tbody>
     </table>
     <table class="enmedio">
@@ -252,7 +252,7 @@ img{
         <tbody>
             <tr>
                 <td class="blancop1" style="width: 5%; text-aling: left;">RFC<sup style="font-size:5pt">1</sup></td>
-                
+
                 @for ($i = 0; $i <= 9; $i++)
                 @if (isset($aspirante->rfc[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
                 @endfor
@@ -262,11 +262,11 @@ img{
                 @endfor
 
                 <td class="blancop1" style="width: 5%; text-aling: left;">CURP<sup style="font-size:5pt">1</sup></td>
-                
+
                 @for ($i = 0; $i <= 17; $i++)
                 @if (isset($aspirante->curp[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
                 @endfor
-                
+
             </tr>
         </tbody>
         </tbody>
@@ -346,7 +346,7 @@ img{
                     <span style="font-size: 7pt; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_genero}}</span></td>
                     @else
                     <td class="rosap1"></td>
-                    @endif  
+                    @endif
                 </td>
 
                 <td class="rosap1" style="width: 10%; text-align: center; position: relative;">
@@ -373,7 +373,7 @@ img{
                 <td style="width: 10%; text-align: center;"></td>
                 <td class="rosap1" rowspan="2"
                     style="width: 10%; text-align: center; font-size: 6pt;">¿Se identifica como persona LGBTTTIQ+?<br>(marca con una X)</td>
-                    
+
                 <td class="rosap1" rowspan="2" style="position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">
                     @if ($aspirante->persona_lgbtttiq=='Si')
                     <span style="position: absolute; right: 0; left: 0; top: 10; bottom: 0; margin: auto; font-size: 10pt;">X</span>
@@ -403,7 +403,7 @@ img{
                     <span style="font-size: 7pt; text-align: center; right: 0; left: 0; top: 10; bottom: 0; margin: auto;">{{$aspirante->otro_lgbtttiq}}</span></td>
                     @else
                     <td class="rosap1" rowspan="2" ></td>
-                    @endif  
+                    @endif
                 </td>
 
                 <td class="rosap1" rowspan="2"
@@ -415,7 +415,7 @@ img{
                     <span>Prefiero no decir</span>
                     @endif</td>
                 </td>
-            
+
             <tr>
                 <td class="blancop1" colspan="3" style="text-align: center;">Fecha de nacimiento</td>
                 <td class="blancop1" style="text-align: center;">Edad</td>
@@ -535,7 +535,7 @@ img{
     <!-- INICIA SECCION 03-->
     <table class="inicio">
         <tbody>
-            
+
                 <tr>
                     <td class="rosap1" style="width: 50%; text-align: center;">Marque con una “X”
                         su último grado
@@ -547,15 +547,15 @@ img{
                         <br>(Maque con una “X”)</br>
                     </td>
                 </tr>
-            
+
         </tbody>
     </table>
 
     <table class="enmedio">
         <tbody>
-        
+
             <tr>
-                
+
                 <td class="rosap1" style="width: 15%; text-align: left;">Primaria</td>
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
@@ -566,7 +566,7 @@ img{
                             <span>1</span>
                         @endif
                     </td>
-                   
+
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Segundo grado')
@@ -576,7 +576,7 @@ img{
                             <span>2&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Tercer grado')
@@ -586,7 +586,7 @@ img{
                             <span>3&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Cuarto grado')
@@ -596,7 +596,7 @@ img{
                             <span>4&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Quinto grado')
@@ -606,7 +606,7 @@ img{
                             <span>5&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Primaria Sexto grado')
@@ -616,14 +616,14 @@ img{
                             <span>6&ordm;</span>
                         @endif
                     </td>
-                    
-                
+
+
                 <td class="grisp1" style="width: 51px; text-align: center;">A. Cartel</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='A. Cartel')
                             <span style="font-weight: bold;">X</span>
                         @endif
-                        
+
                     </td>
 
                 <td class="grisp1" style="width: 51px; text-align: center;">B. Volante</td>
@@ -631,7 +631,7 @@ img{
                         @if ($aspirante->medio_convocatoria=='B. Volante')
                         <span style="font-weight: bold;">X</span>
                         @endif
-                        
+
                     </td>
 
                 <td class="grisp1" style="width: 51px; text-align: center;">C. Televisión</td>
@@ -639,17 +639,17 @@ img{
                         @if ($aspirante->medio_convocatoria=='C. Televisión')
                         <span style="font-weight: bold;">X</span>
                         @endif
-                        
+
                     </td>
             </tr>
-        
+
         </tbody>
     </table>
     <table class="enmedio">
         <tbody>
             <tr>
                 <td class="grisp1" style="width: 15%; text-align: left;">Secundaria</td>
-                
+
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Secundaria Primer grado')
                     <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
@@ -685,20 +685,20 @@ img{
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='D. Prensa')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                     </td>
 
                 <td class="grisp1" style="width: 51px; text-align: center;">E. Perifoneo</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='E. Perifoneo')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                     </td>
                 <td class="grisp1" style="width: 51px; text-align: center;">F. Bolsa de<br>trabajo</br></td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                     @if ($aspirante->medio_convocatoria=='F. Bolsa de trabajo')
                     <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                     </td>
             </tr>
         </tbody>
@@ -709,7 +709,7 @@ img{
         <tbody>
             <tr>
                 <td class="rosap1" style="width: 15%; text-align: left; font-size: 6pt;">Bachillerato o carrera técnica</td>
-                
+
                 <td class="grisp1" style="width: 5.833333333333333%; text-align: center; position: relative;">
                     @if ($aspirante->ultimo_grado_estudio=='Bachillerato/preparatoria Primer grado')
                     <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 3; bottom: 0; margin: auto;">X</span>
@@ -745,21 +745,21 @@ img{
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='G. Pláticas informativas')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                     </td>
 
                 <td class="grisp1" style="width: 51px; text-align: center;">H. Radio</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='H. Radio')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                     </td>
 
                 <td class="grisp1" style="width: 51px; text-align: center;">I. Contacto <br>personal</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='I. Contacto personal')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                     </td>
 
             </tr>
@@ -768,7 +768,7 @@ img{
     </table>
     <table class="enmedio">
         <tbody>
-       
+
             <tr>
                 <td class="grisp1" style="width: 15%; text-align: left;">Licenciatura</td>
                     <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
@@ -779,7 +779,7 @@ img{
                             <span>1&ordm;</span>
                         @endif
                     </td>
-                   
+
 
                     <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Segundo año')
@@ -789,7 +789,7 @@ img{
                             <span>2&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Tercero año')
@@ -799,7 +799,7 @@ img{
                             <span>3&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Cuarto año')
@@ -809,7 +809,7 @@ img{
                             <span>4&ordm;</span>
                         @endif
                     </td>
-                    
+
 
                     <td class="rosap1" style="width: 5%; text-align: center; position: relative;">
                         @if ($aspirante->ultimo_grado_estudio=='Licenciatura Quinto año')
@@ -838,29 +838,29 @@ img{
                         @endif
                     </td>
 
-                
-                <td class="grisp1" style="width: 51px; text-align: center;">J. Página del INE</td>
+
+                <td class="grisp1" style="width: 51px; text-align: center;">J. Página del IEPC</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
-                        @if ($aspirante->medio_convocatoria=='J. Página del INE')
+                        @if ($aspirante->medio_convocatoria=='J. Página del IEPC')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                 </td>
                 <td class="grisp1" style="width: 51px; text-align: center;">K. Red Social</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='K. Red Social')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                 </td>
                 <td class="grisp1" style="width: 51px; text-align: center;">L. Otro</br></td>
                     <td class="rosap1" style="width: 51px; text-align: center;">
                         @if ($aspirante->medio_convocatoria=='L. Otro')
                             <span style="font-weight: bold;">X</span>
-                        @endif                        
+                        @endif
                 </td>
                 </td>
-                
+
             </tr>
-        
+
         </tbody>
     </table>
 
@@ -912,16 +912,16 @@ img{
                     </td>
             </tr>
             <tr>
-                <td class="rosap1" 
+                <td class="rosap1"
                     style="width: 20%; text-align: left; word-wrap: break-word;">¿Realiza estudios actualmente?<br>Especifique: </td>
                 <td class="rosap1" style="width: 30%; text-align: center; word-wrap: break-word;">{{ mb_strtoupper ($aspirante->realiza_estudios)}}</td>
-                
+
             </tr>
         </tbody>
         </tbody>
     </table>
-    
-    
+
+
     <!-- TERMINA SECCION 03 -->
     <!-- INICIA SECCION 04 -->
     <table class="inicio">
@@ -958,35 +958,35 @@ img{
                 <td class="grisp1" style="width: 35%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['nombre'])}}</td>
                 <td class="grisp1" style="width: 20%; text-align: center; word-wrap: break-word;">{{mb_strtoupper ($aspi['puesto'])}}</td>
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['inicio']}}</td>
-                
+
                 @unless (empty($aspi['actual']))
                 <td class="grisp1" style="width: 10%; text-align: center;">ACTUALMENTE</td>
                 @else
                 <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['fin']}}</td>
                 @endunless
-                <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['telefono']}}</td> 
+                <td class="grisp1" style="width: 10%; text-align: center;">{{$aspi['telefono']}}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    
+
     <!-- TERMINA SECCION 04 -->
     <footer>
     <table style="table-layout: fixed; width: 726px; margin-top: 50pt;">
         <tr>
-            <td style="text-align: center; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES Y CAPACITADORES/AS-ASISTENTES ELECTORALES | ANEXO 21.1 SOLICITUD 
+            <td style="text-align: center; font-size: 6pt;"> LINEAMIENTO PARA EL RECLUTAMIENTO, SELECCIÓN Y CONTRATACIÓN DE SUPERVISORES/AS ELECTORALES Y CAPACITADORES/AS-ASISTENTES ELECTORALES | ANEXO 21.1 SOLICITUD
         </td>
         </tr>
     </table>
 </footer>
-    
+
     <!-- TERMINA PÁGINA 01 -->
 
     <table class="saltopagina"></table>
 
     <!-- INICIA PÁGINA 02 -->
 
-    
+
     <!-- INICIA SECCIÓN 01 -->
     <table class="inicio">
         <tbody>
@@ -1092,7 +1092,7 @@ img{
                     @endif
                 </td>
 
-                
+
                 <td class="rosap2" style="width: 4%; text-align: center; position: relative;">
                     @if ($aspirante->p1_2_forma=='Otro')
                         <span style="font-size: 10pt; font-weight: bold; position: absolute; text-align: center; right: 0; left: 0; top: 0; bottom: 0; margin: auto;">X</span>
@@ -1101,7 +1101,7 @@ img{
                         <span>Otro</span>
                     @endif
                 </td>
-                
+
                 <td class="rosap2" style="width: 25%; text-align: left; word-wrap: break-word;">Especifique: {{$aspirante->p1_2_otra_forma}}</td>
 
                 <td class="rosap2" style="width: 40%; text-align: left;">12.2. ¿Cuenta con vehículo propio?*</td>
@@ -1153,7 +1153,7 @@ img{
                 @endif
                 @if($aspirante->p12_2_vehiculo=='No'){
                 <td class="grisp2" style="width: 10%; text-align: center; font-weight: bold; font-size: 5pt; word-wrap: break-word;"></td>}
-                @endif                
+                @endif
             </tr>
         </tbody>
     </table>
@@ -1279,7 +1279,7 @@ img{
             </tr>
         </tbody>
     </table>
-    
+
     <table class="enmedio">
         <tbody>
             <tr>
@@ -1420,7 +1420,7 @@ img{
                         <span>No</span>
                     @endif
                 </td>
-                
+
                 <td colspan="4" class="grisp2" style="width: 50%; text-align: justify;">
                     A) Discapacidad física o motriz: imposibilita la movilidad y coordinación de partes del cuerpo.<br>
                     B) Mental o psicosocial: trastorno del comportamiento y limitaciones de socialización.<br>
@@ -1430,19 +1430,19 @@ img{
                 </td>
             </tr>
             <tr>
-                @if($aspirante->p15_discapacidad=='Si'){ 
-                    @if($aspirante->p15_1_tipodiscapacidad=='otro')                   
+                @if($aspirante->p15_discapacidad=='Si'){
+                    @if($aspirante->p15_1_tipodiscapacidad=='otro')
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">
-                
+
                 <span>15.2 Especifique*: {{mb_strtoupper($aspirante->p15_2_otradiscapacidad)}}</span></td>
                 @else
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>@endif
                 }
-                @endif                
+                @endif
                 @if($aspirante->p15_discapacidad=='No')
                 <td colspan="4" class="rosap2" style="width: 50%; text-align: left; word-wrap: break-word;">15.2 Especifique*: </td>
                 @endif
-                
+
             </tr>
         </tbody>
         </tbody>
@@ -1601,7 +1601,7 @@ img{
                         <span  style="font-family: DejaVu Sans, sans-serif; font-size: 15px;">&#10004;</span>
                     @else
                         <span>&nbsp;</span>
-                    @endif                
+                    @endif
                </td>
                 <td class="blancop2"
                     style="border: #AD84C6 1px solid; width: 90%;">He leído el
@@ -1614,7 +1614,7 @@ img{
                         <span  style="font-family: DejaVu Sans, sans-serif; font-size: 15px;">&#10004;</span>
                     @else
                         <span>&nbsp;</span>
-                    @endif                
+                    @endif
                </td>
                 <td class="blancop2"
                     style="border: #AD84C6 1px solid; width: 90%;">Acepto ser
@@ -1629,7 +1629,7 @@ img{
                         <span  style="font-family: DejaVu Sans, sans-serif; font-size: 15px;">&#10004;</span>
                     @else
                         <span>&nbsp;</span>
-                    @endif  
+                    @endif
                 </td>
                 <td class="blancop2"
                     style="border: #AD84C6 1px solid; width: 90%;"> Acepto la
