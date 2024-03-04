@@ -531,10 +531,7 @@ table.saltopagina {
 			<span>X</span>
 		@endif</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">8. Constancia de no inhabilitación del servicio público.</td>
-            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			
-			<span>X</span>
-		@endif</td>
+            <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;"></td>
 		</tr>
     </tbody>
 </table>
@@ -548,7 +545,7 @@ table.saltopagina {
 		@endif</td>
 			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">9. Tres fotografías tamaño infantil a color o blanco y negro*.</td>
             <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[9]->entrego_copia)
+			@if ($aspirante->expedientes[8]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
@@ -564,7 +561,7 @@ table.saltopagina {
 		@endif</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">10. Carta que acredita su experiencia como docente, manejo o trato con grupos de personas</td>
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[10]->entrego_copia)
+			@if ($aspirante->expedientes[9]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
