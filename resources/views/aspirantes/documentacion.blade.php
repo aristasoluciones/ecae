@@ -580,7 +580,7 @@ table.saltopagina {
 		@endif</td>
 			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">11. Copia de la Constancia de participación en algún Proceso Electoral Federal o Local</td>
             <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[11]->entrego_copia)
+			@if ($aspirante->expedientes[10]->entrego_copia)
 			<span>X</span>
 		@endif
 		</td>
