@@ -597,7 +597,7 @@ table.saltopagina {
 		@endif</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">12. Copia de licencia de manejo vigente</td>
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[8]->entrego_copia)
+			@if ($aspirante->expedientes[11]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
