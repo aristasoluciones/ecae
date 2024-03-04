@@ -510,13 +510,13 @@ table.saltopagina {
 		<tr>
 		<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">1. Copia del acta de nacimiento (original o copia certificada y copia simple) o, en su caso, Carta de Naturalización</td>
 			<td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[0]->entrego_copia)
+			@if ($aspirante->expedientes[1]->entrego_copia)
 			<span>X</span>
 		@endif
 		</td>
 			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">7. Copia del Registro Federal de Contribuyentes (RFC)</td>
             <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[6]->entrego_copia)
+			@if ($aspirante->expedientes[7]->entrego_copia)
 			<span>X</span>
 			@endif</td>
 		</tr>
@@ -527,12 +527,12 @@ table.saltopagina {
 		<tr>
 		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">2.	Copia de la Credencial para Votar o comprobante de trámite</td>
 			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[1]->entrego_copia)
+			@if ($aspirante->expedientes[2]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">8. Constancia de no inhabilitación del servicio público.</td>
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[7]->entrego_copia)
+			@if ($aspirante->expedientes[8]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
@@ -543,12 +543,12 @@ table.saltopagina {
 		<tr>
 		<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">3. Copia del comprobante de domicilio</td>
 			<td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[2]->entrego_copia)
+			@if ($aspirante->expedientes[3]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">9. Tres fotografías tamaño infantil a color o blanco y negro*.</td>
             <td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[8]->entrego_copia)
+			@if ($aspirante->expedientes[9]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
@@ -559,12 +559,12 @@ table.saltopagina {
 		<tr>
 		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">4.	Constancia de estudios (no tira de materias)</td>
 			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[3]->entrego_copia)
+			@if ($aspirante->expedientes[4]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">10. Carta que acredita su experiencia como docente, manejo o trato con grupos de personas</td>
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[9]->entrego_copia)
+			@if ($aspirante->expedientes[10]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
@@ -575,7 +575,7 @@ table.saltopagina {
 		<tr>
 		<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">5. Original de la Declaratoria bajo protesta de decir verdad (firmada)</td>
 			<td class="rosa" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[4]->entrego_copia)
+			@if ($aspirante->expedientes[5]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 			<td class="rosa" style="width: 40%; font-size: 7pt; text-align: left;">11. Copia de la Constancia de participación en algún Proceso Electoral Federal o Local</td>
@@ -592,12 +592,12 @@ table.saltopagina {
 		<tr>
 		<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">6.	Copia de la Clave Única del Registro de Población (CURP)</td>
 			<td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[5]->entrego_copia)
+			@if ($aspirante->expedientes[6]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 			<td class="blanco" style="width: 40%; font-size: 7pt; text-align: left;">12. Copia de licencia de manejo vigente</td>
             <td class="blanco" style="width: 10%; font-size: 7pt; text-align: center; border: 1pt solid #AD84C6;">
-			@if ($aspirante->expedientes[11]->entrego_copia)
+			@if ($aspirante->expedientes[8]->entrego_copia)
 			<span>X</span>
 		@endif</td>
 		</tr>
