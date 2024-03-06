@@ -33,9 +33,14 @@ class Edad extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $resultados = Aspirante::query()
-            ->select('edad', DB::raw('count(id) as total'))
-            ->groupBy('edad')
+        $query = Aspirante::query();
+        $query->select('edad', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes')) {
+            $query->where('sede','=',auth()->user()->sede);
+        }
+
+        $resultados = $query->groupBy('edad')
             ->orderBy('edad', 'desc')
             ->get();
 
