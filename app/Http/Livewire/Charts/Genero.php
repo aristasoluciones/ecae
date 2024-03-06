@@ -33,9 +33,14 @@ class Genero extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $resultados = Aspirante::query()
-            ->select('genero','ultimo_grado_estudio', DB::raw('count(id) as total'))
-            ->groupBy('genero','ultimo_grado_estudio')
+
+        $query = Aspirante::query();
+        $query->select('genero','ultimo_grado_estudio', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes')) {
+            $query->where('sede','=',auth()->user()->sede);
+        }
+        $resultados = $query->groupBy('genero','ultimo_grado_estudio')
             ->orderBy('genero')
             ->get();
 

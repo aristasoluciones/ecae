@@ -34,9 +34,14 @@ class Municipio extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $resultados = Aspirante::query()
-            ->select('municipio', DB::raw('count(id) as total'))
-            ->groupBy('municipio')
+        $query = Aspirante::query();
+        $query->select('municipio', DB::raw('count(id) as total'));
+
+        if (auth()->user()->hasRole('odes')) {
+            $query->where('sede','=',auth()->user()->sede);
+        }
+
+        $resultados = $query->groupBy('municipio')
             ->orderBy('municipio', )
             ->get();
 
