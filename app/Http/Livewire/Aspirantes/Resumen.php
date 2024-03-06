@@ -12,7 +12,11 @@ class Resumen extends Component
     public $theme = 'info';
 
     public function mount() {
-        $candidatos =  Aspirante::where('estatus', $this->estatus)->get();
+        $query = Aspirante::query();
+        if (auth()->user()->hasRole('odes')) {
+            $query->where('sede','=',auth()->user()->sede);
+        }
+        $candidatos =  $query->where('estatus', $this->estatus)->get();
         $this->total = count($candidatos);
     }
     public function render()
