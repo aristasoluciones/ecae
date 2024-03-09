@@ -114,6 +114,7 @@ class Expediente extends Component
             if(File::isFile(storage_path('app/'.$this->aspirante->documentacion))) {
                 $this->documentacionBase64 =  base64_encode(file_get_contents(storage_path('app/'.$this->aspirante->documentacion)));
             }
+            $this->emitTo('aspirantes.solicitud','recargar');
             $this->emit('swal:alert', [
                 'icon'    => 'success',
                 'title'   => 'Archivo guardado correctamente',
@@ -126,7 +127,9 @@ class Expediente extends Component
                 'timeout' => 5000
             ]);
         }
+
         $this->emit('modal:hide', '#modal-confirmar-evidencia');
+
 
     }
 
@@ -140,6 +143,7 @@ class Expediente extends Component
                 if(File::delete(storage_path('app/'.$this->aspirante->documentacion))) {
                     $this->aspirante->documentacion = null;
                     $this->aspirante->save();
+                    $this->emitTo('aspirantes.solicitud','recargar');
                     $this->documentacionBase64 = null;
                     $typeMsg  = 'success';
                     $msg = 'Archivo eliminado';

@@ -125,6 +125,8 @@ class Solicitud extends Component
 
     public $documentos;
 
+    public $listeners = ['recargar' => 'recargarAspirante'];
+
 
     protected function rules() {
 
@@ -812,5 +814,9 @@ class Solicitud extends Component
 
             $this->iniciarExperiencias($this->experiencia_laboral ?? []);
         }
+    }
+
+    public function recargarAspirante() {
+        $this->aspirante->refresh();
     }
 }

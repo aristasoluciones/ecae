@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="btn-group-toggle text-right">
-                    @if(!$editar)
+                    @if(!$editar && auth()->user()->can('aspirantes.validar') && $aspirante->documentacion !== null)
                         <a href="javascript:;" class="btn btn-danger"
                            data-toggle="tooltip"
                            title="Rechazar solicitud" wire:click="handlerRechazar"><i class="fa fa-user-minus"></i></a>
@@ -51,13 +51,15 @@
                            title="Aceptar solicitud" wire:click="handlerAceptar"><i class="fa fa-user-check"></i></a>
                     @endif
 
-                    <a href="javascript:;" class="btn {{ !$editar ? 'btn-warning':'btn-danger'}} m-1"
-                       data-toggle="tooltip"
-                       title="{{ !$editar ? 'Editar información':'Cancelar edición'}}" wire:click="toggleEditar"><i class="fa  {{ !$editar ? 'fa-pen-square':'fa-window-close'}}"></i></a>
-                    @if($editar)
-                        <a href="javascript:;" class="btn btn-info"
+                    @if(auth()->user()->can('aspirantes.editar'))
+                        <a href="javascript:;" class="btn {{ !$editar ? 'btn-warning':'btn-danger'}} m-1"
                            data-toggle="tooltip"
-                           title="Guardar cambios" wire:click="handlerSave"><span wire:loading wire:target="Actualizar">Guardando cambios...</span><i wire:loading.remove class="fas fa-save"></i></a>
+                           title="{{ !$editar ? 'Editar información':'Cancelar edición'}}" wire:click="toggleEditar"><i class="fa  {{ !$editar ? 'fa-pen-square':'fa-window-close'}}"></i></a>
+                        @if($editar)
+                            <a href="javascript:;" class="btn btn-info"
+                               data-toggle="tooltip"
+                               title="Guardar cambios" wire:click="handlerSave"><span wire:loading wire:target="Actualizar">Guardando cambios...</span><i wire:loading.remove class="fas fa-save"></i></a>
+                        @endif
                     @endif
                     @if(!$editar)
                         <a href="javascript:;" class="btn btn-success"
