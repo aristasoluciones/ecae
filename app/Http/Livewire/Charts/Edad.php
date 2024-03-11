@@ -37,7 +37,12 @@ class Edad extends ChartComponent
         $query->select('edad', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes')) {
-            $query->where('sede','=',auth()->user()->sede);
+
+            $sedes = [auth()->user()->sede];
+            if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán') {
+                array_push($sedes, 'Consejo Municipal Electoral de Oxchuc');
+            }
+            $query->whereIn('sede',$sedes);
         }
 
         $resultados = $query->groupBy('edad')

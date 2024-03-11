@@ -125,7 +125,9 @@ class Solicitud extends Component
 
     public $documentos;
 
-    public $listeners = ['recargar' => 'recargarAspirante'];
+    public $expedientes;
+
+    public $listeners = ['recargar' => 'recargarAspirante', 'recargarExpedientes'];
 
 
     protected function rules() {
@@ -638,6 +640,7 @@ class Solicitud extends Component
         $this->email_confirmation   = $this->email;
         $this->localidadesFiltrado  =  $this->localidades[$this->municipio] ?? [];
 
+        $this->recargarExpedientes();
         $this->iniciarExperiencias($this->experiencia_laboral ?? []);
 
     }
@@ -816,7 +819,18 @@ class Solicitud extends Component
         }
     }
 
+    public function getDocumentacionObligatoriaProperty() {
+        $pendientes = $this->expedientes?->filter(fn($item) => $item->documento->requerido && !$item->entrego_copia);
+        return count($pendientes) <= 0;
+    }
+
     public function recargarAspirante() {
         $this->aspirante->refresh();
+    }
+
+    public function recargarExpedientes() {
+
+        $this->aspirante->load('expedientes');
+        $this->expedientes = $this->aspirante->expedientes;
     }
 }
