@@ -38,7 +38,12 @@ class Genero extends ChartComponent
         $query->select('genero','ultimo_grado_estudio', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes')) {
-            $query->where('sede','=',auth()->user()->sede);
+
+            $sedes = [auth()->user()->sede];
+            if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán') {
+                array_push($sedes, 'Consejo Municipal Electoral de Oxchuc');
+            }
+            $query->whereIn('sede',$sedes);
         }
         $resultados = $query->groupBy('genero','ultimo_grado_estudio')
             ->orderBy('genero')

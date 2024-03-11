@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="btn-group-toggle text-right">
-                    @if(!$editar && auth()->user()->can('aspirantes.validar') && $aspirante->documentacion !== null)
+                    @if(!$editar && auth()->user()->can('aspirantes.validar') && $aspirante->documentacion !== null && $this->documentacionObligatoria)
                         <a href="javascript:;" class="btn btn-danger"
                            data-toggle="tooltip"
                            title="Rechazar solicitud" wire:click="handlerRechazar"><i class="fa fa-user-minus"></i></a>

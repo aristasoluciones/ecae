@@ -58,11 +58,19 @@ class Lista extends DataTableComponent
 
     public function mount() {
 
+        $sedes = [];
+
         $queryMun = Aspirante::query()
             ->select('municipio', DB::raw('count(id) as total'));
 
-        if (auth()->user()->hasRole('odes'))
-            $queryMun->where('sede','=',auth()->user()->sede);
+        if (auth()->user()->hasRole('odes')) {
+            $sedes = [auth()->user()->sede];
+            if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán') {
+                array_push($sedes, 'Consejo Municipal Electoral de Oxchuc');
+            }
+            $queryMun->whereIn('sede',$sedes);
+        }
+
 
         $this->municipios = $queryMun->groupBy('municipio')
                                      ->orderBy('municipio')
@@ -72,7 +80,7 @@ class Lista extends DataTableComponent
             ->select('edad', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes'))
-            $queryEdad->where('sede','=',auth()->user()->sede);
+            $queryEdad->whereIn('sede',$sedes);
 
         $this->edades = $queryEdad->groupBy('edad')
                                   ->orderBy('edad')
@@ -82,8 +90,7 @@ class Lista extends DataTableComponent
             ->select('genero', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes'))
-            $queryGenero->where('sede','=',auth()->user()->sede);
-
+            $queryGenero->whereIn('sede', $sedes);
 
         $this->generos = $queryGenero->groupBy('genero')
                                      ->orderBy('genero')
@@ -93,7 +100,7 @@ class Lista extends DataTableComponent
             ->select('estatus', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes'))
-            $queryEstatus->where('sede','=',auth()->user()->sede);
+            $queryEstatus->whereIn('sede',$sedes);
 
         $this->estatuses = $queryEstatus->groupBy('estatus')
                                         ->orderBy('estatus')
@@ -126,7 +133,11 @@ class Lista extends DataTableComponent
     public function filtrar($query): Builder
     {
         if (auth()->user()->hasRole('odes')) {
-            $query->where('sede','=',auth()->user()->sede);
+            $sedes = [auth()->user()->sede];
+            if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán') {
+                array_push($sedes, 'Consejo Municipal Electoral de Oxchuc');
+            }
+            $query->whereIn('sede',$sedes);
         }
 
         if($this->fFolio)
