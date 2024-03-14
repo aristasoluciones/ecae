@@ -486,7 +486,7 @@ class Solicitud extends Component
     public function updatedMunicipio($value) {
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
-        $this->sede = $this->consejosMunicipales[$value] ?? [];
+        $this->sede = strtoupper($value) === 'OXCHUC' ? ($this->consejosMunicipales['Huixtán'] ?? null) : ($this->consejosMunicipales[$value] ?? null);
 
     }
 
@@ -620,6 +620,10 @@ class Solicitud extends Component
 
         $consejos = [];
         foreach($this->municipios as $mun) {
+
+            if(mb_strtoupper($mun) === 'OXCHUC')
+                continue;
+
             $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
         }
         $this->consejosMunicipales     =  $consejos;
