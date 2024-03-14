@@ -111,6 +111,9 @@
                                     <option value="{{ $cons }}">{{ $cons }}</option>
                                 @endforeach
                             </select>
+                            @if(trim($this->municipio) == 'Oxchuc')
+                                <small class="form-text text-muted text-justify">Aspirantes del municipio de <strong>Oxchuc</strong>, seleccionar el consejo mas cercano a su municipio, por default se establece el <strong>Consejo Municipal Electoral de Huixtán.</strong></small>
+                            @endif
                             @error('sede')
                                 <span class="text-danger error h6">{{ $message }}</span>
                             @enderror
