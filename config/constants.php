@@ -10846,7 +10846,7 @@ return [
             'Zacualtipán',
         ],
 
-        'Marques de Comilla' => [
+        'Marqués de Comillas' => [
             'Zamora Pico de Oro',
             'Absalón Castellanos Domínguez',
             'América Libre',
