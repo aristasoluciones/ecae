@@ -125,6 +125,10 @@ class Solicitud extends Component
 
     public $documentos;
 
+    public $expedientes;
+
+    public $listeners = ['recargar' => 'recargarAspirante', 'recargarExpedientes'];
+
 
     protected function rules() {
 
@@ -482,7 +486,7 @@ class Solicitud extends Component
     public function updatedMunicipio($value) {
 
         $this->localidadesFiltrado = $this->localidades[$value] ?? [];
-        $this->sede = $this->consejosMunicipales[$value] ?? [];
+        $this->sede = strtoupper($value) === 'OXCHUC' ? ($this->consejosMunicipales['Huixtán'] ?? null) : ($this->consejosMunicipales[$value] ?? null);
 
     }
 
@@ -616,6 +620,10 @@ class Solicitud extends Component
 
         $consejos = [];
         foreach($this->municipios as $mun) {
+
+            if(mb_strtoupper($mun) === 'OXCHUC')
+                continue;
+
             $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
         }
         $this->consejosMunicipales     =  $consejos;
@@ -636,6 +644,7 @@ class Solicitud extends Component
         $this->email_confirmation   = $this->email;
         $this->localidadesFiltrado  =  $this->localidades[$this->municipio] ?? [];
 
+        $this->recargarExpedientes();
         $this->iniciarExperiencias($this->experiencia_laboral ?? []);
 
     }
@@ -812,5 +821,20 @@ class Solicitud extends Component
 
             $this->iniciarExperiencias($this->experiencia_laboral ?? []);
         }
+    }
+
+    public function getDocumentacionObligatoriaProperty() {
+        $pendientes = $this->expedientes?->filter(fn($item) => $item->documento->requerido && !$item->entrego_copia);
+        return count($pendientes) <= 0;
+    }
+
+    public function recargarAspirante() {
+        $this->aspirante->refresh();
+    }
+
+    public function recargarExpedientes() {
+
+        $this->aspirante->load('expedientes');
+        $this->expedientes = $this->aspirante->expedientes;
     }
 }

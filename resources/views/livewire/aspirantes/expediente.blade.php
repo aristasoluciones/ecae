@@ -17,7 +17,7 @@
 
             @foreach($expedientes as $key => $expediente)
                 <tr>
-                    <td>{{ $expediente->documento->nombre }}</td>
+                    <td>@if($expediente->documento->requerido)<span class="text-danger text-bold">* </span>@endif{{ $expediente->documento->nombre }}</td>
                     <td>
                         <div class="custom-control custom-switch">
                             <input type="checkbox"
@@ -42,6 +42,11 @@
             @endforeach
             </tbody>
         </table>
+        <div class="row">
+            <div class="col 12">
+                <p class="text-bold">(<span class="text-danger text-bold">*</span>) Documento de caracter obligatorio.</p>
+            </div>
+        </div>
         <div class="row mt-3">
             <div class="col-md-12 dropdown-divider pb-3"></div>
             <div class="col-md-6 col-sm-12">
@@ -83,7 +88,7 @@
                     </button>
                 </div>
                 <div class="col-sm-12 mt-2">
-                    <iframe style="width:100%; height: 100vh" src="data:application/pdf;base64, {{ $documentacionBase64 }}"
+                    <iframe style="width:100%; height: 100vh" src="{{ $documentacionBase64 }}"
                            type="application/pdf"
                             allowfullscreen></iframe>
                 </div>
