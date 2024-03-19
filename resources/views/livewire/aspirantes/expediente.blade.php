@@ -1,10 +1,25 @@
 <div class="card" id="expediente-aspirante">
     <div class="card-header">
-        <div class="btn-group-toggle text-right">
-            <a href="javascript:;" class="btn btn-primary"
-               data-toggle="tooltip"
-               title="Imprimir acuse de documentación" wire:click="generarAcuse"><span wire:loading wire:target="generarAcuse">Generando documento...</span><span wire:loading.remove wire:target="generarAcuse"><i class="fas fa-file-pdf"></i></span></a>
+        <div class="d-flex flex-column flex-md-row justify-content-between">
+                <a class="btn btn-outline-info mt-1"
+                   title="Consultar COMPULSA Partidos Políticos"
+                   target="_blank"
+                   href="https://deppp-partidos.ine.mx/afiliadosPartidos/app/publico/consultaAfiliados/nacionales?execution=e1s1">
+                    <img class="rounded rounded-1" style="width: 50px;height: 22px" src="{{ asset('imgs/compulsa-ine.jpeg') }}"/> Partidos políticos
+                </a>
+                <a class="btn btn-outline-info mt-1"
+                   title="Consultar COMPULSA Servidores de la nación"
+                   target="_blank"
+                   href="https://nominatransparente.rhnet.gob.mx/">
+                    <img class="rounded rounded-1" style="width: 50px;height: 22px" src="{{ asset('imgs/compulsa-ine.jpeg') }}"/> Servidores de la nación
+                </a>
+                <a href="javascript:;" class="btn btn-primary mt-1"
+                   data-toggle="tooltip"
+                   title="Imprimir acuse de documentación" wire:click="generarAcuse"><span wire:loading wire:target="generarAcuse">Generando documento...</span><span wire:loading.remove wire:target="generarAcuse"><i class="fas fa-file-pdf"></i></span></a>
+
+
         </div>
+
     </div>
     <div class="card-body table-responsive">
         <table class="table table-striped">
