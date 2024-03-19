@@ -70,18 +70,13 @@ window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
         return c.renderTo.id === chartId
     });
 
-    let series = [];
-
-    chart.series.forEach((serie, key) => {
-        series.push(datasets[key]);
-    });
-
+    let series = datasets;
 
     chart.update({
         series: series,
         xAxis: {
             categories: labels,
         }
-    }, true, true);
+    }, true,true);
 
 });
