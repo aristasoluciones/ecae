@@ -82,6 +82,7 @@ class Genero extends ChartComponent
         foreach ($generos as $genero) {
             $valores [] =[
                 'name' => $genero,
+                'type' => 'column',
                 'data' => $this->crearData($labels, $genero, $resultados),
             ];
         }
