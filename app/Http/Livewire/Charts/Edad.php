@@ -11,7 +11,22 @@ use Illuminate\Support\Facades\DB;
 
 class Edad extends ChartComponent
 {
+    public function updated($field) {
+        return $this->validateOnly($field);
+    }
 
+    public function rules () {
+        return [
+            'municipio' => 'nullable',
+        ];
+    }
+    public function updatedMunicipio($value) {
+        $this->render();
+    }
+
+    public function getMunicipiosProperty() {
+        return config('constants.municipios');
+    }
     /**
      * @return string
      */
@@ -34,6 +49,7 @@ class Edad extends ChartComponent
     protected function chartData(): ChartComponentData
     {
         $query = Aspirante::query();
+
         $query->select('edad', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes')) {
@@ -44,6 +60,9 @@ class Edad extends ChartComponent
             }
             $query->whereIn('sede',$sedes);
         }
+
+        if($this->municipio)
+            $query->where('municipio',$this->municipio);
 
         $resultados = $query->groupBy('edad')
             ->orderBy('edad', 'desc')

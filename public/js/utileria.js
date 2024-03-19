@@ -65,15 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
-    let chart = Highcharts.charts.find(c => c.renderTo.id == chartId);
+
+    let chart = Highcharts.charts.find(c => {
+        return c.renderTo.id === chartId
+    });
+
     let series = [];
-    chart.series.forEach((serie,key) => {
+
+    chart.series.forEach((serie, key) => {
         series.push(datasets[key]);
     });
+
+
     chart.update({
         series: series,
         xAxis: {
             categories: labels,
         }
-    });
+    }, true, true);
+
 });
