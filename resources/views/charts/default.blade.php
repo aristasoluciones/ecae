@@ -1,6 +1,6 @@
 
 <div>
-    <div wire:key="search-{{ $chart_id }}" wire:ignore class="container-fluid">
+    <!-- div wire:key="search-{{ $chart_id }}" wire:ignore class="container-fluid">
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div -->
     <div wire:ignore wire:key="{{ $chart_id }}">
         @if($chart)
             {!! $chart->container() !!}
