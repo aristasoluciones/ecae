@@ -11,6 +11,7 @@ abstract class ChartComponent extends Component
      * @var string|null
      */
     public ?string $chart_id = null;
+    public ?string $municipio = null;
 
     /**
      * @var string|null

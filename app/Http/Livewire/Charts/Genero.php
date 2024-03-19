@@ -12,6 +12,22 @@ use Illuminate\Support\Facades\DB;
 class Genero extends ChartComponent
 {
 
+    public function updated($field) {
+        return $this->validateOnly($field);
+    }
+
+    public function updatedMunicipio($value) {
+
+    }
+    public function rules () {
+        return [
+            'municipio' => 'nullable',
+        ];
+    }
+
+    public function getMunicipiosProperty() {
+        return config('constants.municipios');
+    }
     /**
      * @return string
      */
@@ -45,6 +61,9 @@ class Genero extends ChartComponent
             }
             $query->whereIn('sede',$sedes);
         }
+        if($this->municipio)
+            $query->where('municipio',$this->municipio);
+
         $resultados = $query->groupBy('genero','ultimo_grado_estudio')
             ->orderBy('genero')
             ->get();
@@ -67,6 +86,7 @@ class Genero extends ChartComponent
             ];
         }
         $datasets = new Collection($valores);
+
 
         return (new ChartComponentData($labels, $datasets));
     }

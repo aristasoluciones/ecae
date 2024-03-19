@@ -494,6 +494,11 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
+                    'location' => '/vendor/highcharts/code/modules/export-data.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
                     'location' => '/js/highcharts.lang.js',
                 ],
                 [

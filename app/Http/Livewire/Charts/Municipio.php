@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\DB;
 class Municipio extends ChartComponent
 {
 
+    public function updatedMunicipio($value) {
+        $this->chartData();
+    }
+
+    public function getMunicipiosProperty() {
+        return config('constants.municipios');
+    }
+
+
     /**
      * @return string
      */
@@ -45,6 +54,10 @@ class Municipio extends ChartComponent
             }
             $query->whereIn('sede',$sedes);
         }
+
+        if($this->municipio)
+            $query->where('municipio',$this->municipio);
+
 
         $resultados = $query->groupBy('municipio')
             ->orderBy('municipio', )
