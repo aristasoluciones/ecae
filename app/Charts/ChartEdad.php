@@ -42,10 +42,12 @@ class ChartEdad extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 18,
+                    'pointPadding' => 4,
                 ]
             ]
         ]);
         $this->title('Aspirantes registrados por rango de edad');
+        $this->height(600);
 
         $this->labels($data->labels());
 

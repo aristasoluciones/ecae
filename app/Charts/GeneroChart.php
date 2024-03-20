@@ -40,10 +40,12 @@ class GeneroChart extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 18,
+                    'pointPadding' => 4,
                 ]
             ]
         ]);
         $this->title('Aspirantes registrados por grado de estudio y genero');
+        $this->height(600);
 
         $this->labels($data->labels());
 
