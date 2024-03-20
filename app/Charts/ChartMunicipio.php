@@ -39,8 +39,6 @@ class ChartMunicipio extends Chart
                 'scrollbar' => [
                     'enabled' => true,
                 ],
-                'min' => 0,
-                'max' => 2,
                 'tickLength' => 0,
             ],
             'subtitle' => [
@@ -51,8 +49,8 @@ class ChartMunicipio extends Chart
             ],
             'plotOptions' => [
                 'series' => [
-                    'pointWidth' => 15,
-                    'pointPadding' => 0.15,
+                    'pointWidth' => 20,
+                    'pointPadding' =>0.15
                 ]
             ]
         ]);
