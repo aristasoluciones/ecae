@@ -52,12 +52,13 @@ class ChartMunicipio extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 15,
-                    'pointPadding' => .40,
-                    'groupPadding' => .60,
+                    'pointPadding' => .30,
+                    'groupPadding' => .30,
                 ]
             ]
         ]);
         $this->title('Grafica por municipio');
+        $this->height(800);
         $this->labels($data->labels());
 
         $this->dataset('Municipios', "bar", $data->datasets()[0])->options([
