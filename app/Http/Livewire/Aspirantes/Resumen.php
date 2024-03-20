@@ -9,9 +9,13 @@ class Resumen extends Component
     public $total;
 
     public $estatus;
+
+    public $municipio;
+
     public $theme = 'info';
 
     public function mount() {
+
         $query = Aspirante::query();
         if (auth()->user()->hasRole('odes')) {
             $sedes = [auth()->user()->sede];
@@ -20,7 +24,11 @@ class Resumen extends Component
             }
             $query->whereIn('sede',$sedes);
         }
+        if($this->municipio)
+            $query->where('municipio',$this->municipio);
+
         $candidatos =  $query->where('estatus', $this->estatus)->get();
+
         $this->total = count($candidatos);
     }
     public function render()

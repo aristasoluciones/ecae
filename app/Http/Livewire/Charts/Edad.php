@@ -11,17 +11,25 @@ use Illuminate\Support\Facades\DB;
 
 class Edad extends ChartComponent
 {
+
+    public $listeners = [
+        'setMun' => 'setMunicipio'
+    ];
+
+    public function setMunicipio($val) {
+        $this->municipio = $val;
+    }
     public function updated($field) {
         return $this->validateOnly($field);
     }
 
+    public function updatedMunicipio($value) {
+
+    }
     public function rules () {
         return [
             'municipio' => 'nullable',
         ];
-    }
-    public function updatedMunicipio($value) {
-        $this->render();
     }
 
     public function getMunicipiosProperty() {
@@ -73,11 +81,18 @@ class Edad extends ChartComponent
             return $resultado->edad;
         });
 
-        $datasets = new Collection([
+        /*$datasets = new Collection([
             $resultados->map(function(Aspirante $resultado) {
                 return [$resultado->edad, intval($resultado->total), true];
             })
-        ]);
+        ]);*/
+
+        $valores = [];
+        foreach ($resultados as $res) {
+            $valores [] =[$res->edad, intval($res->total)];
+        }
+        $datasetLocal[] = [ 'data' => $valores ];
+        $datasets = new Collection($datasetLocal);
 
         return (new ChartComponentData($labels, $datasets));
     }

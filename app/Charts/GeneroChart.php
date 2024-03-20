@@ -34,25 +34,22 @@ class GeneroChart extends Chart
                     'enabled' => true,
                 ]
             ],
-            'subtitle' => [
-                'text' => 'Aspirantes por grado de estudios y genero',
-            ],
             'legend' => [
                 'enabled' => count($data->datasets()) > 0,
             ],
             'plotOptions' => [
                 'series' => [
-                    'pointWidth' => 20,
+                    'pointWidth' => 18,
                 ]
             ]
         ]);
-        $this->title('Grafica por grado de estudio y genero');
+        $this->title('Aspirantes registrados por grado de estudio y genero');
 
         $this->labels($data->labels());
 
         if(count($data->datasets())>0) {
             foreach ($data->datasets() as $dataset) {
-                $this->dataset($dataset['name'], "column", $dataset['data']);
+                $this->dataset($dataset['name'], "bar", $dataset['data']);
             }
         } else {
             $this->dataset('', "column", collect([]));
