@@ -39,6 +39,8 @@ class ChartMunicipio extends Chart
                 'scrollbar' => [
                     'enabled' => true,
                 ],
+                'min' => 0,
+                'max' => 4,
                 'tickLength' => 0,
             ],
             'subtitle' => [
@@ -56,6 +58,7 @@ class ChartMunicipio extends Chart
         ]);
         $this->title('Grafica por municipio');
         $this->labels($data->labels());
+        $this->height(800);
 
         $this->dataset('Municipios', "bar", $data->datasets()[0])->options([
             'keys' => ['name','y'],
