@@ -27,6 +27,9 @@ class ChartMunicipio extends Chart
                     'text' => 'Número de aspirantes registrados',
                 ],
                 'min'=> 0,
+                'labels'=> [
+                    'overflow' => 'justify'
+                ]
             ],
             'xAxis' => [
                'type' => 'category',
