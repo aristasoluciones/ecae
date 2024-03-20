@@ -489,6 +489,16 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
+                    'location' => '/vendor/highcharts/code/modules/stock.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/vendor/highcharts/code/modules/stock-tools.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
                     'location' => '/vendor/highcharts/code/modules/exporting.js',
                 ],
                 [
