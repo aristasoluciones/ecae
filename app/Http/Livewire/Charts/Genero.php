@@ -71,9 +71,7 @@ class Genero extends ChartComponent
             ->orderBy('genero')
             ->get();
 
-        $labels = $resultados->map(function(Aspirante $resultado) {
-            return $resultado->ultimo_grado_estudio;
-        });
+        $labels = collect(config('constants.grados'));
 
         $generos = $resultados->map(function(Aspirante $resultado) {
             return $resultado->genero;
