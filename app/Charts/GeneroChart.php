@@ -20,7 +20,7 @@ class GeneroChart extends Chart
 
         $this->options([
             'chart' => [
-               'styledMode' => true,
+               'styledMode' => false,
             ],
             'yAxis' => [
                 'title' => [
@@ -32,7 +32,13 @@ class GeneroChart extends Chart
                'type' => 'category',
                'labels' => [
                     'enabled' => true,
-                ]
+                ],
+                'scrollbar' => [
+                    'enabled' => true,
+                ],
+                'min' => 0,
+                'max' => 25,
+                'tickLength' => 0,
             ],
             'legend' => [
                 'enabled' => count($data->datasets()) > 0,
@@ -40,7 +46,7 @@ class GeneroChart extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 18,
-                    'pointPadding' => 4,
+                    'pointPadding' => 0.25,
                 ]
             ]
         ]);

@@ -40,7 +40,7 @@ class ChartMunicipio extends Chart
                     'enabled' => true,
                 ],
                 'min' => 0,
-                'max' => 20,
+                'max' => 10,
                 'tickLength' => 0,
             ],
             'subtitle' => [
@@ -52,7 +52,7 @@ class ChartMunicipio extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 18,
-                    'pointPadding' =>0.25
+                    'pointPadding' =>0.20
                 ]
             ]
         ]);
