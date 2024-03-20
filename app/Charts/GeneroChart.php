@@ -37,7 +37,7 @@ class GeneroChart extends Chart
                     'enabled' => true,
                 ],
                 'min' => 0,
-                'max' => 22,
+                'max' => 15,
                 'tickLength' => 0,
             ],
             'legend' => [
@@ -47,7 +47,17 @@ class GeneroChart extends Chart
                 'series' => [
                     'pointWidth' => 15,
                     'pointPadding' => 0.25,
-                    'pointGroupPadding' => 0.15,
+                    'groupPadding' => 0.25,
+                ]
+            ],
+            'exporting' => [
+                'sourceWidth' => 1000,
+                'sourceHeight' => 600,
+                'chartOptions' => [
+                    'xAxis' => [
+                        'min' => 0,
+                        'max' => 22
+                    ]
                 ]
             ]
         ]);
