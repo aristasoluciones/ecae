@@ -222,7 +222,7 @@ class Lista extends DataTableComponent
     }
 
     public function openNotificar() {
-        $rows = count($this->getSelected()) > 0 ? Aspirante::whereIn('id', $this->getSelected())->get() : $this->getBuilder()->get();
+        $rows = count($this->getSelected()) > 0 ? Aspirante::whereIn('id', $this->getSelected())->get() : $this->getRows();
         $todos = count($this->getSelected()) <= 0;
         $rows = $rows->filter(fn($row) => strlen($row->email));
 
