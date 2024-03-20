@@ -37,7 +37,7 @@ class GeneroChart extends Chart
                     'enabled' => true,
                 ],
                 'min' => 0,
-                'max' => 10,
+                'max' => 22,
                 'tickLength' => 0,
             ],
             'legend' => [
@@ -45,8 +45,9 @@ class GeneroChart extends Chart
             ],
             'plotOptions' => [
                 'series' => [
-                    'pointWidth' => 18,
+                    'pointWidth' => 15,
                     'pointPadding' => 0.25,
+                    'pointGroupPadding' => 0.15,
                 ]
             ]
         ]);
