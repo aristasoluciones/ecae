@@ -53,11 +53,12 @@ class ChartMunicipio extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 18,
-                    'pointPadding' =>0.20
+                    'pointPadding' =>0.25,
+                    'groupPadding' => 0.25,
                 ]
             ],
             'exporting' => [
-                'sourceWidt' => 1000,
+                'sourceWidth' => 1000,
                 'sourceHeight' => 600,
                 'chartOptions' => [
                     'xAxis' => [
