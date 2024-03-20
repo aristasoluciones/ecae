@@ -1,10 +1,10 @@
-<div class="d-flex flex-row justify-content-end {{$position}} mb-2">
-    <a class="btn btn-{{$theme}} {{$class}}"
+<div class="d-flex flex-column flex-md-row justify-content-between justify-content-md-end mb-2">
+    <a class="btn btn-{{$theme}} {{$class}} m-1"
        @isset($route) href="{{ route($route) }}" target="_blank" @endisset
        @isset($evento) wire:click="{{$evento}}" @endisset
        title="{{$title}}">
-        @isset($label) {{ $label }} @endisset
-        @isset($icon) <i class="{{ $icon }}"></i> @endisset
+        @isset($icon) <i class="{{ $icon }}"></i> @endisset @isset($label) {{ $label }} @endisset
+
     </a>
 </div>
 

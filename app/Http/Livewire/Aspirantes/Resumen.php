@@ -27,7 +27,10 @@ class Resumen extends Component
         if($this->municipio)
             $query->where('municipio',$this->municipio);
 
-        $candidatos =  $query->where('estatus', $this->estatus)->get();
+        if($this->estatus)
+            $query->where('estatus', $this->estatus);
+
+        $candidatos = $query->get();
 
         $this->total = count($candidatos);
     }
