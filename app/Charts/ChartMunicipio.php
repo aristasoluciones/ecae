@@ -55,7 +55,6 @@ class ChartMunicipio extends Chart
             ]
         ]);
         $this->title('Grafica por municipio');
-        $this->height(800);
         $this->labels($data->labels());
 
         $this->dataset('Municipios', "bar", $data->datasets()[0])->options([
