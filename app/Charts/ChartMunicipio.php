@@ -20,7 +20,7 @@ class ChartMunicipio extends Chart
 
         $this->options([
             'chart' => [
-               'styledMode' => true,
+               'styledMode' => false,
             ],
             'yAxis' => [
                 'title' => [
@@ -39,6 +39,8 @@ class ChartMunicipio extends Chart
                 'scrollbar' => [
                     'enabled' => true,
                 ],
+                'min' => 0,
+                'max' => 2,
                 'tickLength' => 0,
             ],
             'subtitle' => [
