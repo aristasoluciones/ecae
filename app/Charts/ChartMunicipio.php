@@ -55,6 +55,16 @@ class ChartMunicipio extends Chart
                     'pointWidth' => 18,
                     'pointPadding' =>0.20
                 ]
+            ],
+            'exporting' => [
+                'sourceWidt' => 1000,
+                'sourceHeight' => 600,
+                'chartOptions' => [
+                    'xAxis' => [
+                            'min' => 0,
+                            'max' => 200
+                    ]
+               ]
             ]
         ]);
         $this->title('Grafica por municipio');
