@@ -21,6 +21,7 @@ class ChartMunicipio extends Chart
         $this->options([
             'chart' => [
                'styledMode' => false,
+               'zoomType' => 'xy',
             ],
             'yAxis' => [
                 'title' => [
