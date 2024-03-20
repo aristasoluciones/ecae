@@ -27,7 +27,7 @@
                         <label>Se enviaran a los siguientes correos electrónicos</label>
                         <p>
                             @if($todos)
-                                <span class="badge badge-primary">A los <strong>{{$todos}}</strong> aspirantes registrados </span>
+                                <span class="badge badge-primary">A los <strong>{{count($destinatarios ?? 0)}}</strong> aspirantes registrados </span>
                             @else
                                 @foreach($destinatarios ?? [] as $destinatario)
                                     <span class="badge badge-primary">{{ mb_strtoupper($destinatario['nombre']." ".$destinatario['apellido1']." ".$destinatario['apellido2']."(". $destinatario['email'].")") }}</span>
