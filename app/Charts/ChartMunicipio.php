@@ -52,8 +52,8 @@ class ChartMunicipio extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 15,
-                    'pointPadding' => .30,
-                    'groupPadding' => .30,
+                    'pointPadding' => .20,
+                    'groupPadding' => .20,
                 ]
             ]
         ]);
