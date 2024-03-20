@@ -78,6 +78,6 @@ class Notificar extends Component
 
     public function resetear() {
         $this->resetValidation();
-        $this->reset(['asunto','mensaje']);
+        $this->reset(['asunto','mensaje','todos','destinatarios']);
     }
 }
