@@ -22,21 +22,26 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
+                        <livewire:aspirantes.resumen theme="secondary"
+                                                     key="todo-{{ now() }}"
+                                                     municipio="{{ $this->municipioSeleccionado }}"/>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
                         <livewire:aspirantes.resumen theme="success"
-                                                     key="{{ now() }}"
+                                                     key="aceptado-{{ now() }}"
                                                      estatus="{{ \App\Models\Aspirante::ESTATUS_ACEPTADO }}"
                                                      municipio="{{ $this->municipioSeleccionado }}"/>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
                         <livewire:aspirantes.resumen theme="warning"
-                                                     key="{{ now() }}"
+                                                     key="pendiente-{{ now() }}"
                                                      estatus="{{ \App\Models\Aspirante::ESTATUS_PENDIENTE }}"
                                                      municipio="{{ $this->municipioSeleccionado }}"/>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
                         <livewire:aspirantes.resumen theme="danger"
-                                                     key="{{ now() }}"
+                                                     key="no-aceptado-{{ now() }}"
                                                      estatus="{{ \App\Models\Aspirante::ESTATUS_NO_ACEPTADO }}"
                                                      municipio="{{ $municipioSeleccionado }}"/>
                     </div>

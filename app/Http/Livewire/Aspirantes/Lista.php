@@ -50,10 +50,21 @@ class Lista extends DataTableComponent
                    'class'   => 'btn-circle',
                    'title'   => 'Agregar aspirante',
                    'label'   => 'Agregar',
+                   'icon'   => 'fa fa-plus',
                ],
             ],
             'before-toolbar' =>'components.loading'
         ]);
+
+        if(auth()->user()->hasRole(['superadministrador','administrador'])) {
+            $this->setBulkActions([
+                'openNotificar' => 'Emitir comunicado'
+            ]);
+        }
+    }
+    public function customView(): string
+    {
+        return 'aspirantes.modal';
     }
 
     public function mount() {
@@ -208,6 +219,16 @@ class Lista extends DataTableComponent
         $builder = $this->getBuilder();
         $rows =  $builder->get();
         return Excel::download(new AspirantesExport($rows), 'aspirantes_registrados.xlsx');
+    }
+
+    public function openNotificar() {
+        $rows = count($this->getSelected()) > 0 ? Aspirante::whereIn('id', $this->getSelected())->get() : $this->getBuilder()->get();
+        $todos = count($this->getSelected()) <= 0;
+        $rows = $rows->filter(fn($row) => strlen($row->email));
+
+        $this->emitTo('aspirantes.notificar', 'resetear');
+        $this->emitTo('aspirantes.notificar', 'setFiltro',$rows,$todos);
+        $this->emit('modal:show', '#modal-notificar');
     }
 
 }
