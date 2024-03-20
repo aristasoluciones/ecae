@@ -1,4 +1,3 @@
-
 const SwalModal = (icon, title, html) => {
     Swal.fire({
         icon,
@@ -70,7 +69,10 @@ window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
         return c.renderTo.id === chartId
     });
 
-    let series = datasets;
+
+    let series = ['[]','[[]]'].includes(JSON.stringify(datasets)) ? [] : datasets;
+    console.log(JSON.stringify(datasets))
+    console.log(JSON.stringify(labels))
 
     chart.update({
         series: series,

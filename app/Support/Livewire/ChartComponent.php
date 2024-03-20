@@ -39,6 +39,7 @@ abstract class ChartComponent extends Component
     public function render(): View
     {
         $chart_data = $this->chartData();
+
         if(!$this->chart_id)
         {
             $chart_class = $this->chartClass();
@@ -48,15 +49,16 @@ abstract class ChartComponent extends Component
             $this->chart_id = $chart->id;
         }
 
-        elseif($chart_data->checksum()!==$this->chart_data_checksum)
+        elseif($chart_data->checksum()!==$this->chart_data_checksum || $this->municipio)
         {
+
             $this->emit('chartUpdate', $this->chart_id, $chart_data->labels(), $chart_data->datasets());
         }
 
         $this->chart_data_checksum = $chart_data->checksum();
 
         return view($this->view(), [
-            'chart' => ($chart ?? null)
+            'chart' => ($chart ?? null),
         ]);
     }
 }

@@ -21,6 +21,7 @@ class ChartEdad extends Chart
         $this->options([
             'chart' => [
                'styledMode' => true,
+               'type' => 'bar',
             ],
             'yAxis' => [
                 'title' => [
@@ -35,23 +36,21 @@ class ChartEdad extends Chart
                     'format' => '{text} años'
                 ]
             ],
-            'subtitle' => [
-                'text' => 'Grafica por rango de edad de aspirantes registrados',
-            ],
             'legend' => [
                 'enabled' => false,
             ],
             'plotOptions' => [
                 'series' => [
-                    'pointWidth' => 20,
+                    'pointWidth' => 18,
                 ]
             ]
         ]);
-        $this->title('Grafica por edad');
+        $this->title('Aspirantes registrados por rango de edad');
 
         $this->labels($data->labels());
 
-        $this->dataset('Edad', "column", $data->datasets()[0])->options([
+
+        $this->dataset('Edad', "column", $data->datasets()[0]['data'])->options([
             'keys' => ['name','y'],
             'borderRadius' => 5,
             'colorByPoint' => true,

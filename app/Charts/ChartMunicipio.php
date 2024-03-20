@@ -32,7 +32,11 @@ class ChartMunicipio extends Chart
                'type' => 'category',
                 'labels' => [
                     'enabled' => true,
-                ]
+                ],
+                'scrollbar' => [
+                    'enabled' => true,
+                ],
+                'tickLength' => 0,
             ],
             'subtitle' => [
                 'text' => 'Grafica de aspirantes por municipio',
@@ -42,7 +46,7 @@ class ChartMunicipio extends Chart
             ],
             'plotOptions' => [
                 'series' => [
-                    'pointWidth' => 20,
+                    'pointWidth' => 15,
                 ]
             ]
         ]);

@@ -11,14 +11,17 @@ use Illuminate\Support\Facades\DB;
 
 class Genero extends ChartComponent
 {
+    public $listeners = [
+        'setMun' => 'setMunicipio'
+    ];
 
+    public function setMunicipio($val) {
+        $this->municipio = $val;
+    }
     public function updated($field) {
         return $this->validateOnly($field);
     }
 
-    public function updatedMunicipio($value) {
-
-    }
     public function rules () {
         return [
             'municipio' => 'nullable',
@@ -82,12 +85,11 @@ class Genero extends ChartComponent
         foreach ($generos as $genero) {
             $valores [] =[
                 'name' => $genero,
-                'type' => 'column',
+                'type' => 'bar',
                 'data' => $this->crearData($labels, $genero, $resultados),
             ];
         }
         $datasets = new Collection($valores);
-
 
         return (new ChartComponentData($labels, $datasets));
     }
