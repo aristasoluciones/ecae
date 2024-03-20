@@ -53,7 +53,6 @@ class ChartMunicipio extends Chart
                 'series' => [
                     'pointWidth' => 15,
                     'pointPadding' => .20,
-                    'groupPadding' => .20,
                 ]
             ]
         ]);
