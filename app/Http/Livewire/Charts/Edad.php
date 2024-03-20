@@ -56,9 +56,42 @@ class Edad extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
+        $rangos = [
+            [
+                "name" => "De 18 a 20 Años",
+                "min"  => 18,
+                "max"  => 20,
+            ],
+            [
+                "name" => "De 21 a 29 Años",
+                "min"  => 21,
+                "max"  => 29,
+            ],
+            [
+                "name" => "De 30 a 40 Años",
+                "min"  => 30,
+                "max"  => 40,
+            ],
+            [
+                "name" => "De 41 a 50 Años",
+                "min"  => 41,
+                "max"  => 50,
+            ],
+            [
+                "name" => "De 51 a 60 Años",
+                "min"  => 51,
+                "max"  => 60,
+            ],
+            [
+                "name" => "Mayor a 60",
+                "min"  => 61,
+                "max"  => 150,
+            ],
+
+        ];
         $query = Aspirante::query();
 
-        $query->select('edad', DB::raw('count(id) as total'));
+        $query->select('edad');
 
         if (auth()->user()->hasRole('odes')) {
 
@@ -72,14 +105,15 @@ class Edad extends ChartComponent
         if($this->municipio)
             $query->where('municipio',$this->municipio);
 
-        $resultados = $query->groupBy('edad')
-            ->orderBy('edad', 'desc')
-            ->get();
+        $resultados = $query->orderBy('edad', 'desc')
+                      ->get();
 
 
-        $labels = $resultados->map(function(Aspirante $resultado) {
+        /*$labels = $resultados->map(function(Aspirante $resultado) {
             return $resultado->edad;
-        });
+        });*/
+        $labels = collect(array_column($rangos, 'name'));
+
 
         /*$datasets = new Collection([
             $resultados->map(function(Aspirante $resultado) {
@@ -88,8 +122,9 @@ class Edad extends ChartComponent
         ]);*/
 
         $valores = [];
-        foreach ($resultados as $res) {
-            $valores [] =[$res->edad, intval($res->total)];
+        foreach ($rangos as $rango) {
+            $cuantos = $resultados->filter(fn($item) => $item->edad >= $rango['min'] && $item->edad <= $rango['max']);
+            $valores [] =[$rango['name'], intval(count($cuantos))];
         }
         $datasetLocal[] = [ 'data' => $valores ];
         $datasets = new Collection($datasetLocal);
