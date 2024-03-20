@@ -33,13 +33,12 @@ class ChartEdad extends Chart
                'type' => 'category',
                 'labels' => [
                     'enabled' => true,
-                    'format' => '{text} años'
                 ],
                 'scrollbar' => [
                     'enabled' => true,
                 ],
                 'min' => 0,
-                'max' => 10,
+                'max' => 5,
                 'tickLength' => 0,
             ],
             'legend' => [
