@@ -34,7 +34,13 @@ class ChartEdad extends Chart
                 'labels' => [
                     'enabled' => true,
                     'format' => '{text} años'
-                ]
+                ],
+                'scrollbar' => [
+                    'enabled' => true,
+                ],
+                'min' => 0,
+                'max' => 10,
+                'tickLength' => 0,
             ],
             'legend' => [
                 'enabled' => false,
@@ -42,7 +48,7 @@ class ChartEdad extends Chart
             'plotOptions' => [
                 'series' => [
                     'pointWidth' => 18,
-                    'pointPadding' => 4,
+                    'pointPadding' => 0.15,
                 ]
             ]
         ]);

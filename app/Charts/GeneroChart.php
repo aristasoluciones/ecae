@@ -37,7 +37,7 @@ class GeneroChart extends Chart
                     'enabled' => true,
                 ],
                 'min' => 0,
-                'max' => 25,
+                'max' => 10,
                 'tickLength' => 0,
             ],
             'legend' => [
