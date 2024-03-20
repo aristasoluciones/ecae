@@ -40,7 +40,7 @@ class ChartMunicipio extends Chart
                     'enabled' => true,
                 ],
                 'min' => 0,
-                'max' => 10,
+                'max' => 25,
                 'tickLength' => 0,
             ],
             'subtitle' => [
