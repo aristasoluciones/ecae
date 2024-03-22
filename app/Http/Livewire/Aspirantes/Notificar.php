@@ -47,39 +47,37 @@ class Notificar extends Component
     public function enviar() {
         $this->validate();
 
-        try {
-
-            $destinatarios = array_column($this->destinatarios ?? [], 'email');
-
-
-            Mail::to($destinatarios)->bcc('hector.cruz@iepc-chiapas.org.mx')->send(new ComunicadoShipped($this->asunto, $this->mensaje));
-
-            $fecha =  date('Y-m-d H:i:s');
-            \Log::channel('sendemail')->info(' _____________INICIO '.$fecha.'__________________________________');
-            \Log::channel('sendemail')->info('Correos enviados al '.$fecha);
-
-            \Log::channel('sendemail')->info(implode(',',$destinatarios));
-            \Log::channel('sendemail')->info(' ______________FIN '.$fecha.'___________________________________');
-
-            $this->emit('swal:alert', [
-                'icon'    => 'success',
-                'title'   => 'Se ha enviado el comunicado',
-                'timeout' => 5000
-            ]);
-
-            $this->resetear();
-            $this->emit('modal:hide', '#modal-notificar');
-
-        } catch (\Exception $e) {
-             \Log::info($e->getMessage());
-            $destinatarios = array_column($this->destinatarios ?? [], 'email');
-             \Log::info(implode(',',$destinatarios));
-            $this->emit('swal:alert', [
-                'icon'    => 'error',
-                'title'   => 'Ha ocurrido un error intente nuevamente',
-                'timeout' => 5000
-            ]);
+        $logEnviados = "";
+        $logNoEnviados = "";
+        $enviados = 0;
+        $noEnviados = 0;
+        foreach($this->destinatarios as $destinatario) {
+            try {
+                Mail::to($destinatario['email'])->send(new ComunicadoShipped($this->asunto, $this->mensaje));
+                $enviados++;
+                $logEnviados .="Correo enviado a ".$destinatario['email']."\n";
+            } catch (\Throwable $e) {
+                $noEnviados++;
+                $logNoEnviados .="Error al enviar a ".$destinatario['email']." ".$e->getMessage()."\n";
+            }
         }
+
+        $fecha =  date('Y-m-d H:i:s');
+        \Log::channel('sendemail')->info(' _____________INICIO '.$fecha.'__________________________________');
+        \Log::channel('sendemail')->info('Correos enviados');
+        \Log::channel('sendemail')->info($logEnviados);
+        \Log::channel('sendemail')->info('Correos no enviados');
+        \Log::channel('sendemail')->info($logNoEnviados);
+        \Log::channel('sendemail')->info(' ______________FIN '.$fecha.'___________________________________');
+
+        $this->emit('swal:alert', [
+            'icon'    => 'success',
+            'title'   => 'Se han enviado '.$enviados." correos  y ".$noEnviados." no enviados",
+            'timeout' => 5000
+        ]);
+
+        $this->resetear();
+        $this->emit('modal:hide', '#modal-notificar');
     }
 
     public function render()
