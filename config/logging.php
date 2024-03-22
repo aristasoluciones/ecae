@@ -66,6 +66,12 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => 14,
         ],
+        'sendemail' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/send-email.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
 
         'slack' => [
             'driver' => 'slack',

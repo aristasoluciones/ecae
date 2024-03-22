@@ -49,9 +49,17 @@ class Notificar extends Component
 
         try {
 
-            foreach ($this->destinatarios as $destinatario) {
-                Mail::to($destinatario['email'])->send(new ComunicadoShipped($this->asunto, $this->mensaje));
-            }
+            $destinatarios = array_column($this->destinatarios ?? [], 'email');
+
+
+            Mail::to($destinatarios)->bcc('hector.cruz@iepc-chiapas.org.mx')->send(new ComunicadoShipped($this->asunto, $this->mensaje));
+
+            $fecha =  date('Y-m-d H:i:s');
+            \Log::channel('sendemail')->info(' _____________INICIO '.$fecha.'__________________________________');
+            \Log::channel('sendemail')->info('Correos enviados al '.$fecha);
+
+            \Log::channel('sendemail')->info(implode(',',$destinatarios));
+            \Log::channel('sendemail')->info(' ______________FIN '.$fecha.'___________________________________');
 
             $this->emit('swal:alert', [
                 'icon'    => 'success',
