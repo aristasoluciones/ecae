@@ -47,6 +47,7 @@ class Notificar extends Component
     public function enviar() {
         $this->validate();
 
+
         try {
 
             $destinatarios = array_column($this->destinatarios ?? [], 'email');
@@ -72,6 +73,8 @@ class Notificar extends Component
 
         } catch (\Exception $e) {
              \Log::info($e->getMessage());
+            $destinatarios = array_column($this->destinatarios ?? [], 'email');
+             \Log::info(implode(',',$destinatarios));
             $this->emit('swal:alert', [
                 'icon'    => 'error',
                 'title'   => 'Ha ocurrido un error intente nuevamente',
