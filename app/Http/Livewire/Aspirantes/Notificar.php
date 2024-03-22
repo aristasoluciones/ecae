@@ -71,6 +71,7 @@ class Notificar extends Component
             $this->emit('modal:hide', '#modal-notificar');
 
         } catch (\Exception $e) {
+             \Log::info($e->getMessage());
             $this->emit('swal:alert', [
                 'icon'    => 'error',
                 'title'   => 'Ha ocurrido un error intente nuevamente',
