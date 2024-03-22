@@ -14,7 +14,6 @@ use App\Models\Aspirante;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use Tintnaingwin\EmailChecker\Facades\EmailChecker;
 
 class Lista extends DataTableComponent
 {
@@ -225,7 +224,7 @@ class Lista extends DataTableComponent
     public function openNotificar() {
         $rows = count($this->getSelected()) > 0 ? Aspirante::whereIn('id', $this->getSelected())->get() : $this->getRows();
         $todos = count($this->getSelected()) <= 0;
-        $rows = $rows->filter(fn($row) => EmailChecker::check($row->email));
+        $rows = $rows->filter(fn($row) => strlen($row->email));
 
         $this->emitTo('aspirantes.notificar', 'resetear');
         $this->emitTo('aspirantes.notificar', 'setFiltro',$rows,$todos);
