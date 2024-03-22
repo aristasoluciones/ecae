@@ -47,7 +47,6 @@ class Notificar extends Component
     public function enviar() {
         $this->validate();
 
-
         try {
 
             $destinatarios = array_column($this->destinatarios ?? [], 'email');
