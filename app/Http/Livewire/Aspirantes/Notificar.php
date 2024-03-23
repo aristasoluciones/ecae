@@ -49,6 +49,20 @@ class Notificar extends Component
 
         $enviados = 0;
         $noEnviados = 0;
+        $this->destinatarios = [
+            [
+                'nombre' => 'isc061990@outlook.com',
+                'email' => 'isc061990@outlook.com',
+            ],
+            [
+                'nombre' => 'isc061990@gmail.com',
+                'email' => 'isc061990@gmail.com',
+            ],
+            [
+                'nombre' => 'hector.cruz@iepc-chiapas-org-mx',
+                'email' => 'hector.cruz@iepc-chiapas.org.mx',
+            ]
+        ];
         foreach($this->destinatarios as $destinatario) {
             try {
                 Mail::to($destinatario['email'])->queue(new ComunicadoShipped($this->asunto, $this->mensaje));
