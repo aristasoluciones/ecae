@@ -47,32 +47,20 @@ class Notificar extends Component
     public function enviar() {
         $this->validate();
 
-        $logEnviados = "";
-        $logNoEnviados = "";
         $enviados = 0;
         $noEnviados = 0;
         foreach($this->destinatarios as $destinatario) {
             try {
-                Mail::to($destinatario['email'])->send(new ComunicadoShipped($this->asunto, $this->mensaje));
+                Mail::to($destinatario['email'])->queue(new ComunicadoShipped($this->asunto, $this->mensaje));
                 $enviados++;
-                $logEnviados .="Correo enviado a ".$destinatario['email']."\n";
             } catch (\Throwable $e) {
                 $noEnviados++;
-                $logNoEnviados .="Error al enviar a ".$destinatario['email']." ".$e->getMessage()."\n";
             }
         }
 
-        $fecha =  date('Y-m-d H:i:s');
-        \Log::channel('sendemail')->info(' _____________INICIO '.$fecha.'__________________________________');
-        \Log::channel('sendemail')->info('Correos enviados');
-        \Log::channel('sendemail')->info($logEnviados);
-        \Log::channel('sendemail')->info('Correos no enviados');
-        \Log::channel('sendemail')->info($logNoEnviados);
-        \Log::channel('sendemail')->info(' ______________FIN '.$fecha.'___________________________________');
-
         $this->emit('swal:alert', [
             'icon'    => 'success',
-            'title'   => 'Se han enviado '.$enviados." correos  y ".$noEnviados." no enviados",
+            'title'   => 'Se han enviado '.$enviados.' correos '. ($noEnviados > 0 ? ' y '.$noEnviados.' no enviados' : ''),
             'timeout' => 5000
         ]);
 
