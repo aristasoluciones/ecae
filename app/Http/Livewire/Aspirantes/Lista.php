@@ -6,6 +6,7 @@ namespace App\Http\Livewire\Aspirantes;
 use App\Exports\AspirantesExport;
 use App\Mail\RegistroShipped;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\File;
 use Maatwebsite\Excel\Facades\Excel;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -38,7 +39,7 @@ class Lista extends DataTableComponent
         $this->setSearchVisibilityStatus(false);
         $this->setColumnSelectDisabled();
         $this->setPerPageAccepted([10, 25, 50, 100,500,1000,2000,3000]);
-        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede','email']);
+        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede','email','documentacion']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'aspirantes.busqueda',
@@ -229,6 +230,43 @@ class Lista extends DataTableComponent
         $this->emitTo('aspirantes.notificar', 'resetear');
         $this->emitTo('aspirantes.notificar', 'setFiltro',$rows,$todos);
         $this->emit('modal:show', '#modal-notificar');
+    }
+
+    public function openCapturaEvaluacion($id) {
+
+        $this->emitTo('aspirantes.evaluacion', 'resetear');
+        $this->emitTo('aspirantes.evaluacion', 'setAspirante',$id);
+        $this->emit('modal:show', '#modal-evaluacion');
+    }
+
+    public function descargarEvidencia($id) {
+
+        $aspirante =  Aspirante::find($id);
+
+        try {
+
+            if(File::isFile(storage_path('app/'.$aspirante->documentacion))) {
+                $name = implode('_', [
+                    $aspirante->id,
+                    str_replace(' ', '_', $aspirante->municipio),
+                    str_replace(' ', '_', $aspirante->apellido1."_".$aspirante->apellido2."_".$aspirante->nombre),
+                ]);
+                $name = htmlspecialchars(mb_strtoupper($name)).".PDF";
+                return response()->download(storage_path('app/'.$aspirante->documentacion), $name);
+            } else {
+                $this->emit('swal:alert', [
+                    'icon'    => 'error',
+                    'title'   => 'Ocurrio un error al descargar',
+                    'timeout' => 5000
+                ]);
+            }
+        } catch (\Throwable $e) {
+            $this->emit('swal:alert', [
+                'icon'    => 'error',
+                'title'   => 'Ocurrio un error al descargar',
+                'timeout' => 5000
+            ]);
+        }
     }
 
 }
