@@ -12,6 +12,8 @@ class Aspirante extends Model
 
     protected $casts = ['experiencia_laboral' => 'json'];
 
+    protected $with  = ['evaluacion'];
+
     const ESTATUS_PENDIENTE   = 'Pendiente';
     const ESTATUS_ACEPTADO    = 'Aceptado';
     const ESTATUS_NO_ACEPTADO = 'No aceptado';
@@ -27,6 +29,10 @@ class Aspirante extends Model
     public function expedientes() {
 
         return $this->hasMany(Expediente::class);
+    }
+
+    public function evaluacion() {
+        return $this->hasOne(Evaluacion::class);
     }
 
     public function getClaveElector($value)

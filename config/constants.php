@@ -6966,7 +6966,7 @@ return [
             'Santa Lucía II',
             'Texcaltic',
         ],
-        
+
         'Honduras de la Sierra' => [
             'Honduras de la Sierra',
             'Ángel Díaz',
@@ -22874,5 +22874,8 @@ return [
     ],
     'roles_especiales' => [
         'superadministrador',
-    ]
+    ],
+    'aciertos_evaluacion' => env('APP_ACIERTOS_EVALUACION',40),
+    'calificacion_minima' => env('APP_CALIFICACION_MINIMA',6),
+    'calificacion_maxima' => env('APP_CALIFICACION_MAXIMA',10),
 ];
