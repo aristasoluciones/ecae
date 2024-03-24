@@ -68,7 +68,7 @@ window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
     let chart = Highcharts.charts.find(c => {
         return c.renderTo.id === chartId
     });
-    
+
     let series = ['[]','[[]]'].includes(JSON.stringify(datasets)) ? [] : datasets;
     chart.update({
         series: series,

@@ -28,16 +28,16 @@
                     <div class=" alert alert-light small">
                         <span class="text-bold">*</span> <sup class="text-bold">1</sup> El aspirante cuenta con discapacidad  <i class="fa {{ $aspirante?->p15_discapacidad === 'Si' ? 'fa-check-circle text-success' : 'fa-times-circle'}} "></i>
                         <span class="badge fs-2 {{ $aspirante?->p15_discapacidad === 'Si' ? 'badge-succes' : 'badge-secondary'}}">
-                        {{ $aspirante?->p15_discapacidad === 'Si' ? '+'.$discapacidad.' Punto adicional' : ' +0 Punto adicional'}}
-                    </span>
+                            {{ $aspirante?->p15_discapacidad === 'Si' ? '+'.$discapacidad.' Punto adicional' : ' +0 Punto adicional'}}
+                        </span>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="alert alert-light small">
-                        <span class="text-bold">* </sup><sup class="text-bold">2</sup> El aspirante se identifica como persona LGBTTTIQ+  <i class="fa {{ $aspirante?->persona_lgbtttiq === 'Si' ? 'fa-check-circle text-success' : 'fa-times-circle'}} "></i>
+                        <span class="text-bold">* </span><sup class="text-bold">2</sup> El aspirante se identifica como persona LGBTTTIQ+  <i class="fa {{ $aspirante?->persona_lgbtttiq === 'Si' ? 'fa-check-circle text-success' : 'fa-times-circle'}} "></i>
                         <span class="badge {{ $aspirante?->persona_lgbtttiq === 'Si' ? 'badge-succes' : 'badge-secondary'}}">
-                        {{ $aspirante?->persona_lgbtttiq === 'Si' ? '+'.$lgbtttiq.' Punto adicional' : ' +0 Punto adicional'}}
-                    </span>
+                         {{ $aspirante?->persona_lgbtttiq === 'Si' ? '+'.$lgbtttiq.' Punto adicional' : ' +0 Punto adicional'}}
+                        </span>
                     </div>
                 </div>
                <div class="col-12">
