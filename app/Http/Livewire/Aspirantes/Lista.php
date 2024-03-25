@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Aspirantes;
 
 
 use App\Exports\AspirantesExport;
+use App\Exports\EvaluadosExport;
 use App\Mail\RegistroShipped;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\File;
@@ -268,5 +269,23 @@ class Lista extends DataTableComponent
             ]);
         }
     }
+
+    public function exportarEvaluados() {
+
+        $rows =  $this->getRows();
+        $rows =  $rows->filter(fn($item) => $item->evaluacion);
+
+        $municipio = $this->fMunicipio;
+        if (auth()->user()->hasRole('odes')) {
+            $municipio = str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede);
+            if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán')
+                $municipio .= ' y Oxchuck';
+
+
+        }
+
+        return Excel::download(new EvaluadosExport($rows, $municipio), 'CALIFICACION_EXAMEN_SEL_Y_CAEL.xlsx');
+    }
+
 
 }

@@ -95,6 +95,8 @@ class Evaluacion extends Component
             'timeout' => 5000
         ]);
 
+        $this->resetear();
+        $this->emit('modal:hide', '#modal-evaluacion');
     }
 
     public function render()
