@@ -277,11 +277,7 @@ class Lista extends DataTableComponent
 
         $municipio = $this->fMunicipio;
         if (auth()->user()->hasRole('odes')) {
-            $municipio = str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede);
-            if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán')
-                $municipio .= ' y Oxchuck';
-
-
+            $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
         }
 
         return Excel::download(new EvaluadosExport($rows, $municipio), 'CALIFICACION_EXAMEN_SEL_Y_CAEL.xlsx');
