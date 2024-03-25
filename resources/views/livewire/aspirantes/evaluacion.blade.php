@@ -57,7 +57,7 @@
                 <div class="col-12">
                     <button type="button" class="btn btn-danger close-btn"
                             wire:loading.remove wire:target="guardar"
-                            data-dismiss="modal">Cancelar</button>
+                            data-dismiss="modal">Cerrar</button>
                     <button class="btn btn-success" wire:click="guardar">
                         <span wire:loading.remove wire:target="guardar">Guardar</span>
                         <span wire:loading wire:target="guardar">Enviando...</span>
