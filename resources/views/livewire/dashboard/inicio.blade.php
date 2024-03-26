@@ -3,12 +3,13 @@
         <div class="row">
             <div class="col-md-2 vh-100" style="overflow: scroll">
                 <div class="list-group">
-                    @hasanyrole('superadministrador|administrador]')
+                    @hasanyrole('superadministrador|administrador|consejero')
                     <a wire:key="principal-list" wire:click.prevent="seleccionarMunicipio(null)"
+                       type="button"
                        class="list-group-item d-flex justify-content-between aligns-items-center list-group-item-action {{ !$this->municipioSeleccionado ? 'active' : '' }}">Estado</a>
                     @endhasanyrole
                     @foreach($this->municipios as $key => $mun)
-                        <a wire:key="list-{{ $key }}" @hasanyrole('superadministrador|administrador]')wire:click.prevent="seleccionarMunicipio('{{ $mun }}') @endhasanyrole"
+                        <a wire:key="list-{{ $key }}" type="button" @hasanyrole('superadministrador|administrador|consejero') wire:click.prevent="seleccionarMunicipio('{{ $mun }}')" @endhasanyrole
                            class="list-group-item d-flex justify-content-between aligns-items-center list-group-item-action {{ $mun === $this->municipioSeleccionado ? 'active' : '' }}">{{ $mun }}</a>
                     @endforeach
                 </div>
