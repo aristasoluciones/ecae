@@ -283,5 +283,19 @@ class Lista extends DataTableComponent
         return Excel::download(new EvaluadosExport($rows, $municipio), 'CALIFICACION_EXAMEN_SEL_Y_CAEL.xlsx');
     }
 
+    public function generarAcuseSel($id) {
+
+        $aspirante =  Aspirante::find($id);
+        $content = Pdf::loadView('aspirantes.sel', ['aspirante' => $aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'ACUSE-SEL-'.strtoupper($aspirante->clave_elector).'.PDF');
+    }
+
+    public function generarAcuseCael($id) {
+
+        $aspirante =  Aspirante::find($id);
+        $content = Pdf::loadView('aspirantes.cael', ['aspirante' => $aspirante])->setPaper('letter')->output();
+        return response()->streamDownload(fn() => print($content), 'ACUSE-CAEL-'.strtoupper($aspirante->clave_elector).'.PDF');
+    }
+
 
 }
