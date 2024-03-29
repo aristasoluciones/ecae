@@ -68,7 +68,8 @@ class Proyeccion extends Component
 
         $this->numContratados = count($candidatos);
 
-        $this->avance = number_format(($this->numProyectados > 0 ? ($this->numContratados * 100)/$this->numProyectados : 0), 2, ".");
+        $this->avance = number_format(($this->numProyectados > 0 ? ($this->numContratados * 100)/$this->numProyectados : 0), 2);
+        $this->avance = $this->avance >100 ? 100 : $this->avance;
 
     }
     public function render()
