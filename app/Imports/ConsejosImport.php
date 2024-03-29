@@ -15,7 +15,7 @@ class ConsejosImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        $claveMun = intval($row['clave_municipio']);
+        $claveMun = $row['clave_municipio'];
         /*$prefix = "";
 
         if ($claveMun < 10)
