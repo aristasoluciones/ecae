@@ -22,7 +22,7 @@
                     <div class="col-12 dropdown-divider"></div>
                 </div>
 
-                @hasanyrole('superadministrador|administrador|consejero')
+                @if(auth()->user()->can('aspirantes.proyecciones'))
                 <div class="row">
                     <div class="col-md-4 col-sm-12 ">
                         <livewire:aspirantes.proyeccion
@@ -43,7 +43,7 @@
                             municipio="{{ $this->municipioSeleccionado }}"/>
                     </div>
                 </div>
-                @endhasanyrole
+                @endif
 
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
