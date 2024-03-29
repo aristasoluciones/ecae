@@ -15,18 +15,18 @@ class ConsejosImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        $claveMun = $row['clave_municipio'];
-        /*$prefix = "";
+        $claveMun = intval($row['clave_municipio']);
+        $prefix = "";
 
         if ($claveMun < 10)
             $prefix = "00";
         elseif($claveMun >=10 && $claveMun < 100)
             $prefix = "0";
-*/
+
 
         return new Consejo([
             'tipo' => 'Municipal',
-            'cve_mun' => $claveMun,
+            'cve_mun' => $prefix.$claveMun,
             'numero_plaza_sel' => $row['sel'] ?? 0,
             'numero_plaza_cael' => $row['cael'] ?? 0,
         ]);
