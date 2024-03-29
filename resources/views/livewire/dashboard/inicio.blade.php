@@ -23,6 +23,27 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-4 col-sm-12 ">
+                        <livewire:aspirantes.proyeccion
+                            key="proyeccion-gen-{{ now() }}"
+                            theme="gradient-gray-dark"
+                            municipio="{{ $this->municipioSeleccionado }}"/>
+                    </div>
+                    <div class="col-md-4 col-sm-12 bg-gr">
+                        <livewire:aspirantes.proyeccion
+                            key="proyeccion-sel-{{ now() }}"
+                            figura="SEL"
+                            municipio="{{ $this->municipioSeleccionado }}"/>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <livewire:aspirantes.proyeccion
+                            key="proyeccion-cael-{{ now() }}"
+                            figura="CAEL"
+                            municipio="{{ $this->municipioSeleccionado }}"/>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-3 col-sm-12">
                         <livewire:aspirantes.resumen theme="secondary"
                                                      key="todo-{{ now() }}"
@@ -47,6 +68,7 @@
                                                      municipio="{{ $municipioSeleccionado }}"/>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="overlay-wrapper">
@@ -58,9 +80,7 @@
                             @livewire('charts.edad')
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
