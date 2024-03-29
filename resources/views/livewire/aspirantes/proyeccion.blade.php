@@ -1,7 +1,7 @@
 <div class="small-box bg-{{$theme}}">
     <div class="inner">
         <h5 class="text-bold">No. de Personas {{ $figura }} a contratar <span class="badge bg-gradient-indigo fs-15">{{ number_format($numProyectados) }}</span></h5>
-        <h5 class="text-bold">Proyeccion 3 a 1 <span class="badge bg-gradient-indigo fs-15">{{ number_format($numProyectados * 2) }}</span></h5>
+        <h5 class="text-bold">Proyeccion 3 a 1 <span class="badge bg-gradient-indigo fs-15">{{ number_format($numProyectados * 3) }}</span></h5>
         <div class="dropdown-divider"></div>
         <div class="d-flex flex-column justify-content-between">
             <p class="text-bold">Contratados <span class="badge bg-gradient-indigo fs-15">{{ number_format($numContratados) }}</span></p>
