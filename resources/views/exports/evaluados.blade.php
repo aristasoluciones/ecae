@@ -34,7 +34,7 @@
         <tr>
             <th></th>
             <th></th>
-            <th colspan="5" style="text-align: center; font-size: 13px">Consejo Municipal Electoral: <strong>{{ !$consejo ? 'Todos los consejos' : $consejo }}</strong></th>
+            <th colspan="5" style="text-align: center; font-size: 13px">Consejo Municipal Electoral : <strong>{{ !$consejo ? 'Todos los consejos' : $consejo }}</strong></th>
             <th></th>
             <th></th>
         </tr>
@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <th style="font-weight: bold" colspan="2">Fecha de consulta:</th>
-            <th>{{ now() }}</th>
+            <th>{{ date('Y-m-d', now()) }}</th>
             <th></th>
             <th></th>
             <th></th>
