@@ -17,24 +17,20 @@ class MunicipiosImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
 
-        $claveMun = $row['cve_mun'];
-        /*$prefix = "";
+        \Log::info($row);
+        $claveMun = intval($row['cve_mun']);
+        $prefix = "";
 
         if ($claveMun < 10)
             $prefix = "00";
         elseif($claveMun >=10 && $claveMun < 100)
-            $prefix = "0";*/
+            $prefix = "0";
 
         return new Municipio([
             'cve_ent' => $row['cve_ent'],
-            'cve_mun' => $claveMun,
+            'cve_mun' => $prefix.$claveMun,
             'nombre' => $row['nom_mun'],
         ]);
-    }
-
-    public function headingRow() {
-
-        return 4;
     }
 
 }
