@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <th style="font-weight: bold" colspan="2">Fecha de consulta:</th>
-            <th>{{ date('Y-m-d', now()) }}</th>
+            <th>{{ date('Y-m-d', strtotime(now())) }}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -77,8 +77,8 @@
             <!--col04--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Apellido Materno</th>
             <!--col05--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Nombre(s)</th>
             <!--col06--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">No. de aciertos</th>
-            <!--col07--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">*¿Tiene alguna discapacidad?  (agregar un punto adicional) 1</th>
-            <!--col08--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">*¿Se identifica como persona LGBTTTIQ+? <sup>2</sup></th>
+            <!--col07--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">*¿Tiene alguna discapacidad?  (agregar un punto adicional)¹</th>
+            <!--col08--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">*¿Se identifica como persona LGBTTTIQ+?²</th>
             <!--col09--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Calificación</th>
         </tr>
     </thead>
