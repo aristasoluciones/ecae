@@ -17,7 +17,6 @@ class MunicipiosImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
 
-        \Log::info($row);
         $claveMun = intval($row['cve_mun']);
         $prefix = "";
 
@@ -27,9 +26,9 @@ class MunicipiosImport implements ToModel, WithHeadingRow
             $prefix = "0";
 
         return new Municipio([
-            'cve_ent' => $row['cve_ent'],
+            'cve_ent' => trim($row['cve_ent']),
             'cve_mun' => $prefix.$claveMun,
-            'nombre' => $row['nom_mun'],
+            'nombre' => trim($row['nom_mun']),
         ]);
     }
 
