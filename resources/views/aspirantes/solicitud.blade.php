@@ -7,6 +7,9 @@
         <div class="col-sm-6">
             <h1 class="xtitulox"><i class="fa fa-users text-secondary"></i> Solicitud</h1>
         </div>
+        <div class="col-sm-6 text-right">
+            <a type="button" class="btn bg-gradient-dark" href="/aspirantes">Regresar al listado</a>
+        </div>
     </div>
 @stop
 
