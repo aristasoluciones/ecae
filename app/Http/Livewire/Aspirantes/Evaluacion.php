@@ -52,7 +52,7 @@ class Evaluacion extends Component
 
         $query = Aspirante::query();
 
-        $query->where('id', $id);
+        $query->whereRaw('id', [$id]);
 
         $this->aspirante = $query->get()->first();
 
