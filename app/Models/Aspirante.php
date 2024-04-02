@@ -35,6 +35,10 @@ class Aspirante extends Model
         return $this->hasOne(Evaluacion::class);
     }
 
+    public function entrevista() {
+        return $this->hasOne(Entrevista::class);
+    }
+
     public function getClaveElector($value)
     {
         return strtoupper($value);
