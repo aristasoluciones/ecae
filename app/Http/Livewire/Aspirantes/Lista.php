@@ -273,7 +273,7 @@ class Lista extends DataTableComponent
     public function exportarEvaluados() {
 
         $rows =  $this->getRows();
-        $rows =  $rows->filter(fn($item) => $item->evaluacion);
+       // $rows =  $rows->filter(fn($item) => $item->evaluacion);
 
         $municipio = $this->fMunicipio;
         if (auth()->user()->hasRole('odes')) {
