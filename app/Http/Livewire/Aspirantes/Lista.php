@@ -280,7 +280,15 @@ class Lista extends DataTableComponent
             $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
         }
 
-        return Excel::download(new EvaluadosExport($rows, $municipio), 'CALIFICACION_EXAMEN_SEL_Y_CAEL.xlsx');
+        return Excel::download(new EvaluadosExport($rows, $municipio), 'CALIFICACION_EXAMEN_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+
+    public function openCapturaEntrevista($id) {
+
+        $this->emitTo('aspirantes.entrevista', 'resetear');
+        $this->emitTo('aspirantes.entrevista', 'setAspirante',$id);
+        $this->emit('modal:show', '#modal-entrevista');
     }
 
     public function generarAcuseSel($id) {
