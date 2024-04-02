@@ -33,7 +33,6 @@ class Lista extends DataTableComponent
     public $fGenero;
     public $fEstatus;
 
-
     public function configure(): void
     {
         $this->setPrimaryKey('id');
@@ -68,6 +67,7 @@ class Lista extends DataTableComponent
     {
         return 'aspirantes.modal';
     }
+
 
     public function mount() {
 
@@ -272,6 +272,15 @@ class Lista extends DataTableComponent
 
     public function exportarEvaluados() {
 
+        if (!$this->fMunicipio) {
+
+            $this->emit('swal:alert', [
+                'icon'    => 'warning',
+                'title'   => 'Debe seleccionar un municipio.',
+                'timeout' => 5000
+            ]);
+            return false;
+        }
         $rows =  $this->getRows();
         $rows =  $rows->filter(fn($item) => $item->evaluacion);
 
