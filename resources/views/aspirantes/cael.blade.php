@@ -84,7 +84,7 @@ td.blanco{
         <tr>
             <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/logoIEPC.png" width="150px" height="80px" salt=""></td>
             <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/logoEAE2024.png" width="140px" height="80px" alt=""></td>
-            <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/proceso_electoral_2024.png" width="150px" height="60px" alt=""></td>
+            <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/pelo_2024.png" width="150px" height="60px" alt=""></td>
         </tr>                    
         </tbody>
     </table>
