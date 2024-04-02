@@ -103,10 +103,12 @@
                             <span wire:loading.remove wire:target="exportar"><i class="fa fa-file-excel"></i> Exportar aspirantes</span>
                             <span wire:loading wire:target="exportar">Generando archivo</span>
                         </button>
-                        <button class="btn bg-gradient-navy" wire:click="exportarEvaluados">
-                            <span wire:loading.remove wire:target="exportarEvaluados"><i class="fa fa-file-pdf"></i> Exportar aspirantes evaluados</span>
-                            <span wire:loading wire:target="exportarEvaluados">Generando archivo</span>
-                        </button>
+                        @if($this->municipio)
+                            <button class="btn bg-gradient-navy" wire:click="exportarEvaluados">
+                                <span wire:loading.remove wire:target="exportarEvaluados"><i class="fa fa-file-pdf"></i> Exportar aspirantes evaluados</span>
+                                <span wire:loading wire:target="exportarEvaluados">Generando archivo</span>
+                            </button>
+                        @endif
                     </div>
                 </div>
             </div>
