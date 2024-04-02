@@ -16,9 +16,11 @@
                 <i class="fas fa-poll-h" aria-hidden="true"></i>
             </a>
         @endif
-        <a class="btn bg-gradient-navy text-white m-1" wire:click="openCapturaEntrevista({{ $row->id }})" title="Capturar entrevista">
-            <i class="fas fa-user-tag" aria-hidden="true"></i>
-        </a>
+        @if(auth()->user()->can('aspirantes.entrevista'))
+            <a class="btn bg-gradient-navy text-white m-1" wire:click="openCapturaEntrevista({{ $row->id }})" title="Capturar entrevista">
+                <i class="fas fa-user-tag" aria-hidden="true"></i>
+            </a>
+         @endif
         @if($row->documentacion && auth()->user()->can('aspirantes.descargar_evidencia'))
             <a class="btn bg-gradient-gray text-white m-1" wire:click="descargarEvidencia({{ $row->id }})" title="Descargar evidencia escaneada">
                 <i class="fas fa-file-archive" aria-hidden="true"></i>
