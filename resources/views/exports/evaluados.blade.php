@@ -50,7 +50,7 @@
             <th></th>
         </tr>
         <tr>
-            <th colspan="4"><strong>Fecha de consulta: </strong> {{ date('Y-m-d', strtotime(now())) }}</th>
+            <th colspan="4"><strong>Fecha : </strong> {{ date('Y-m-d', strtotime(now())) }}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -80,7 +80,7 @@
             <th></th>
         </tr>
         <tr>
-            <!--col01--> <th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">No. de Aspirante</th>
+            <!--col01--> <th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">Folio del Aspirante</th>
             <!--col02--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">Fecha</th>
             <!--col03--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Apellido Paterno</th>
             <!--col04--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Apellido Materno</th>
