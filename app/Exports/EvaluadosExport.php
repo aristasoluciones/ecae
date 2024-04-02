@@ -40,7 +40,7 @@ class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithD
            'C' => 10,
            'D' => 10,
            'E' => 10,
-           'F' => 15,
+           'F' => 6,
            'G' => 15,
            'H' => 15,
            'I' => 5,
@@ -112,15 +112,15 @@ class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithD
         return [
 
             // Styling an entire column.
-            'A'  => ['font' => ['size' => 8]],
-            'B'  => ['font' => ['size' => 8]],
-            'C'  => ['font' => ['size' => 8]],
-            'D'  => ['font' => ['size' => 8]],
-            'E'  => ['font' => ['size' => 8]],
-            'F'  => ['font' => ['size' => 8]],
-            'G'  => ['font' => ['size' => 8]],
-            'H'  => ['font' => ['size' => 8]],
-            'I'  => ['font' => ['size' => 8]],
+            'A'  => ['font' => ['size' => 7]],
+            'B'  => ['font' => ['size' => 7]],
+            'C'  => ['font' => ['size' => 7]],
+            'D'  => ['font' => ['size' => 7]],
+            'E'  => ['font' => ['size' => 7]],
+            'F'  => ['font' => ['size' => 7]],
+            'G'  => ['font' => ['size' => 7]],
+            'H'  => ['font' => ['size' => 7]],
+            'I'  => ['font' => ['size' => 7]],
         ];
     }
 }
