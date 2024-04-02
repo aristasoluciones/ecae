@@ -4,7 +4,7 @@
         <h5 class="text-bold">Proyección 3 a 1 <span class="badge bg-gradient-indigo fs-15">{{ number_format($numProyectados * 3) }}</span></h5>
         <div class="dropdown-divider"></div>
         <div class="d-flex flex-column justify-content-between">
-            <p class="text-bold">Contrados <span class="badge bg-gradient-indigo fs-15">{{ number_format(0) }}</span></p>
+            <p class="text-bold">Contratados <span class="badge bg-gradient-indigo fs-15">{{ number_format(0) }}</span></p>
             <p class="text-bold">Por contratar <span class="badge bg-gradient-indigo fs-15">{{ number_format($numProyectados) }}</span></p>
         </div>
         <p class="text-bold"><span class="badge bg-gradient-lime text-bold fs-15"> {{ $avance }} %</span> de avance de un <span class="badge bg-gradient-green text-bold fs-15"> 100 %</span></p>
