@@ -16,7 +16,7 @@
         body {
             margin-top: 3cm;
             margin-left: 0.3cm;
-            font-family: "Arial";
+            font-family: Arial, Helvetica, sans-serif;
             }
 
         /** Definimos las reglas del encabezado **/
@@ -50,29 +50,43 @@ table.cuerpo  {
             table-layout: fixed;
             width: 726px;
             border-collapse: collapse;
+            border: 1px solid rgb(231, 12, 117);
 
 }
 td.rojoTi01{
             background: rgb(231, 12, 117);
-            font-size: 13pt;
+            font-size: 12pt;
             color: #FFFFFF;
             text-align: center;
             font-weight: bold;
+            border: 1px solid rgb(231, 12, 117);
                    
             }
 td.rojo{
+            
+            font-size: 8pt;
+            width: 5%;
+            text-align: center;
+            border: 1px solid rgb(231, 12, 117);
+                   
+            }
+
+td.rojo2{
+            
             background: rgb(231, 12, 117);
             font-size: 8pt;
             color: #FFFFFF;
             text-align: center;
             font-weight: bold;
+            border: 1px solid rgb(231, 12, 117);
                    
             }
 
 td.blanconumber {
-            font-size: 9pt;
+            font-size: 8pt;
             width: 5%;
             text-align: center;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 td.blancocompe{
@@ -80,39 +94,46 @@ td.blancocompe{
             width: 100%;
             text-align: center;
             font-weight: bold;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 td.blancotexto{
             font-size: 8pt;
             width: 80%;
             text-align: left;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 td.blancocali{
-            font-size: 9pt;
+            font-size: 8pt;
             width: 15%;
             text-align: center;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 td.blancosi{
-            font-size: 9pt;
+            font-size: 8pt;
             width: 10%;
             text-align: center;
+            border: 1px solid rgb(231, 12, 117);
             }
 td.blancono{
-            font-size: 9pt;
+            font-size: 8pt;
             width: 10%;
             text-align: center;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 td.blancognl{
-            font-size: 9pt;
+            font-size: 8pt;
             text-align: justify;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 td.blancognl2{
-            font-size: 9pt;
+            font-size: 8pt;
             text-align: center;
+            border: 1px solid rgb(231, 12, 117);
             }
 
 table.saltopagina {
@@ -138,13 +159,13 @@ table.saltopagina {
 
 <!--CARATULA DE ENTREVISTA-->
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
     <tbody>
         <tr>
-            <td class="rojoTi01" colspan="3">Caratula de entrevista para SEL</td>
+            <td class="rojoTi01" colspan="3">CARÁTULA DE ENTREVISTA PARA SEL</td>
         </tr>
         <tr>
-            <td class="blancognl" rowspan="2" style="text-align: justify; width: 60%;">PARA EL LLENADO DEBERA USAR PLUMA EN COLOR NEGRO O AZUL Y LLENAR CON LETRA MOLDE Y LEGIBLE. LA INFORMACION PRE-LLENADA DEBERA CONFIRMARSE CON LA PERSONA ASPIRANTE.</td>
+            <td class="blancognl" rowspan="2" style="text-align: justify; width: 60%; padding: 5px;">PARA EL LLENADO DEBERA USAR PLUMA EN COLOR NEGRO O AZUL Y LLENAR CON LETRA MOLDE Y LEGIBLE. LA INFORMACION PRE-LLENADA DEBERA CONFIRMARSE CON LA PERSONA ASPIRANTE.</td>
             <td class="blancognl" style="text-align: center; with: 15%;">FECHA DE ENTREVISTA</td>
             <td class="blancognl" style="text-align: center; with: 15%;">No. FOLIO DEL ASPIRANTE:</td>
         </tr>
@@ -156,15 +177,15 @@ table.saltopagina {
 </table>
 
 <!--INFORMACION GENERAL-->
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
 		<tr>
 			<td class="rojoTi01" colspan="7">INFORMACION GENERAL DE LA PERSONA ASPIRANTE</td>
 		</tr>
 		<tr>
-			<td class="rojo" style="width: 25%">NOMBRE:</td>
-			<td class="rojo" style="width: 25%">APELLIDO PATERNO:</td>
-			<td class="rojo" style="width: 25%">APELLIDO MATERNO:</td>
+			<td class="rojo" style="width: 25%">NOMBRE</td>
+			<td class="rojo" style="width: 25%">APELLIDO PATERNO</td>
+			<td class="rojo" style="width: 25%">APELLIDO MATERNO</td>
 			<td class="rojo" style="width: 5%">EDAD</td>
 			<td class="rojo" style="width: 5%">F</td>
 			<td class="rojo" style="width: 5%">M</td>
@@ -181,7 +202,7 @@ table.saltopagina {
 </table>
 
 <!--ULTIMO GRADO DE ESTUDIO-->
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
         <tr>
             <td class="rojoTi01" colspan="7">INDIQUE EL ULTIMO GRADO DE ESTUDIOS CONCLUIDA</td>
@@ -208,7 +229,7 @@ table.saltopagina {
 	</tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
             <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>
@@ -219,14 +240,14 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="rojoTi01" style="width: 100%;">¿Cuál es el motivo por el que quiere participar como SEL?</td>
+        <td class="rojoTi01" style="width: 100%;">¿CUÁL ES EL MOTIVO POR EL QUE QUIERE PARTICIPAR COMO SEL?</td>
     </tr>
     </tbody>
 </table>
-<table class="cuerpo" border="1" frame="border" rules="groups" >
+<table class="cuerpo" >
 	<tbody>
     <tr>
         <td class="blanco" style="width: 100%;height: 50px;"></td>
@@ -234,7 +255,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups" >
+<table class="cuerpo" >
 	<tbody>
     <tr>
         <td class="blanconumber">1</td>
@@ -245,7 +266,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups" >
+<table class="cuerpo" >
 	<tbody>
     <tr>
         <td class="blanconumber">2</td>
@@ -256,7 +277,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups" >
+<table class="cuerpo" >
 	<tbody>
     <tr>
         <td class="blanconumber">3</td>
@@ -267,17 +288,17 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blanconumber">3.1</td>
-        <td class="blancognl" style="width: 55%;">En caso de responder SI, que cargo, tiempo y donde ¿especifique?</td>
-        <td class="blanco" style="width: 45%;"></td>        
+        <td class="blanconumber"></td>
+        <td class="blancognl" style="width: 50%;">En caso de responder SI, que cargo, tiempo y donde ¿especifique?</td>
+        <td class="blancognl" style="width: 45%;"></td>        
     </tr>
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">4</td>
@@ -288,17 +309,17 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blanconumber">4.1</td>
-        <td class="blancognl" style="width: 55%;">En caso de responder SI, que cargo, tiempo y donde ¿especifique?</td>
-        <td class="blanco" style="width: 45%;"></td>        
+        <td class="blanconumber"></td>
+        <td class="blancognl" style="width: 50%;">En caso de responder SI, que cargo, tiempo y donde ¿especifique?</td>
+        <td class="blancognl" style="width: 45%;"></td>        
     </tr>
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="rojoTi01" style="width: 100%">COMPETENCIAS (40 %)</td>
@@ -309,7 +330,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="rojoTi01" style="width: 85%">SEL</td>
@@ -318,7 +339,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blancocompe">Liderazgo (20 PUNTOS)</td>
@@ -326,7 +347,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">1</td>
@@ -336,7 +357,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">2</td>
@@ -346,7 +367,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">3</td>
@@ -356,7 +377,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">4</td>
@@ -366,7 +387,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blancocompe">Trabajo bajo presión (20 PUNTOS)</td>
@@ -374,7 +395,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">1</td>
@@ -384,7 +405,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">2</td>
@@ -394,7 +415,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">3</td>
@@ -405,7 +426,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">4</td>
@@ -416,7 +437,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blancocompe">Orientación al servicio (20 Puntos)</td>
@@ -424,7 +445,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">1</td>
@@ -434,7 +455,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">2</td>
@@ -444,7 +465,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">3</td>
@@ -454,7 +475,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">4</td>
@@ -475,7 +496,7 @@ table.saltopagina {
 
 <table class="saltopagina"></table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blancocompe"">Manejo y resolución de problemas (20 Puntos)</td>
@@ -483,7 +504,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">1</td>
@@ -493,7 +514,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">2</td>
@@ -503,7 +524,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">3</td>
@@ -513,7 +534,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">4</td>
@@ -523,7 +544,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blancocompe">Planeación (20 Puntos)</td>
@@ -531,7 +552,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">1</td>
@@ -541,7 +562,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">2</td>
@@ -552,7 +573,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">3</td>
@@ -562,7 +583,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanconumber">4</td>
@@ -572,7 +593,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanco" style="width: 85%; text-align: right;">Puntaje total:</td>
@@ -581,7 +602,7 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blanco" style="width: 85%; text-align: right;">Calificación total ponderada*:</td>
@@ -590,52 +611,52 @@ table.saltopagina {
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
         <td class="blancotexto">¿SE OTORGARÁ PUNTO ADICIONAL POR SER HABLANTE DE LENGUA INDIGENA?.</td>
-        <td class="blanco" style="width: 10%;">Si</td>
-        <td class="blanco" style="width: 10%;">No</td>
+        <td class="blancognl" style="width: 10%;">Si</td>
+        <td class="blancognl" style="width: 10%;">No</td>
     </tr>
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blanco" style="width: 60%; height: 50px; text-align: center;"></td>
-        <td class="blanco" style="width: 20%; height: 50px; text-align: center;"></td>
-        <td class="blanco" style="width: 20%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 60%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="rojo" style="width: 60%; text-align: center; font-size: 10pt;">NOMBRE DE CONSEJERIA ENTREVISTADORA 1</td>
-        <td class="rojo" style="width: 20%; text-align: center; font-size: 10pt;">CALIFICACION (SEL)</td>
-        <td class="rojo" style="width: 20%; text-align: center; font-size: 10pt;">FIRMA</td>
+        <td class="rojo2" style="width: 60%;">NOMBRE DE CONSEJERIA ENTREVISTADORA 1</td>
+        <td class="rojo2" style="width: 20%;">CALIFICACION (SEL)</td>
+        <td class="rojo2" style="width: 20%;">FIRMA</td>
     </tr>
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blanco" style="width: 60%; height: 50px; text-align: center;"></td>
-        <td class="blanco" style="width: 20%; height: 50px; text-align: center;"></td>
-        <td class="blanco" style="width: 20%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 60%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
     </tbody>
 </table>
 
-<table class="cuerpo" border="1" frame="border" rules="groups">
+<table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="rojo" style="width: 60%; text-align: center; font-size: 10pt;">NOMBRE DE CONSEJERIA ENTREVISTADORA 2</td>
-        <td class="rojo" style="width: 20%; text-align: center; font-size: 10pt;">CALIFICACION (SEL)</td>
-        <td class="rojo" style="width: 20%; text-align: center; font-size: 10pt;">FIRMA</td>
+        <td class="rojo2" style="width: 60%;">NOMBRE DE CONSEJERIA ENTREVISTADORA 2</td>
+        <td class="rojo2" style="width: 20%;">CALIFICACION (SEL)</td>
+        <td class="rojo2" style="width: 20%;">FIRMA</td>
     </tr>
     </tbody>
 </table>
