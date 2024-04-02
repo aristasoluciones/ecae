@@ -8,10 +8,11 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithDrawings;
 use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
-class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithDrawings,WithEvents
+class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithDrawings,WithEvents,WithStyles
 {
 
     protected $rows;
@@ -34,15 +35,15 @@ class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithD
     public function columnWidths(): array
     {
        return [
-           'A' => 10,
-           'B' => 17,
-           'C' => 20,
-           'D' => 20,
-           'E' => 20,
-           'F' => 10,
-           'G' => 20,
-           'H' => 20,
-           'i' => 11,
+           'A' => 2,
+           'B' => 5,
+           'C' => 10,
+           'D' => 10,
+           'E' => 10,
+           'F' => 15,
+           'G' => 15,
+           'H' => 15,
+           'I' => 5,
        ];
     }
     public function drawings()
@@ -51,15 +52,17 @@ class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithD
         $drawing->setName('Logo iepc');
         $drawing->setDescription('logo iepc');
         $drawing->setPath(public_path('/imgs/logoIEPC.png'));
-        $drawing->setHeight(80);
+        $drawing->setHeight(70);
+        $drawing->setWidth(70);
         $drawing->setCoordinates('A2');
 
         $drawing2 = new Drawing();
         $drawing2->setName('Logo ople');
         $drawing2->setDescription('logo ople');
         $drawing2->setPath(public_path('/imgs/ople.png'));
-        $drawing2->setHeight(80);
-        $drawing2->setCoordinates('H2');
+        $drawing2->setWidth(60);
+        $drawing2->setHeight(60);
+        $drawing2->setCoordinates('I2');
 
 
         return [$drawing, $drawing2 ];
@@ -68,12 +71,56 @@ class EvaluadosExport implements FromView, ShouldAutoSize,WithColumnWidths,WithD
 
     public function registerEvents(): array
     {
+        $totalRows = count($this->rows);
         return [
-            AfterSheet::class => function(AfterSheet $event) {
+            AfterSheet::class => function(AfterSheet $event) use($totalRows){
                 $event->sheet->getDelegate()
                     ->getStyle('A9:I9')
-                    ->applyFromArray([ 'alignment' => ['wrapText' => true]]);
+                    ->applyFromArray([
+                        'alignment' => ['wrapText' => true],
+                    ]);
+                $event->sheet->getDelegate()
+                    ->getStyle('A1:I8')
+                    ->applyFromArray([
+                        'borders' => [
+                            'allBorders' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                                'color' => ['argb' => 'FFFFFF']
+                            ]
+                        ]
+                    ]);
+
+                $rowPie = $totalRows + 11;
+                $rowPieFin = $rowPie + 8;
+                $event->sheet->getDelegate()
+                    ->getStyle('A'.$rowPie.':I'.$rowPieFin)
+                    ->applyFromArray([
+                        'borders' => [
+                            'allBorders' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                                'color' => ['argb' => 'FFFFFF']
+                            ]
+                        ]
+                    ]);
             },
+
+        ];
+    }
+
+    public function styles(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet)
+    {
+        return [
+
+            // Styling an entire column.
+            'A'  => ['font' => ['size' => 8]],
+            'B'  => ['font' => ['size' => 8]],
+            'C'  => ['font' => ['size' => 8]],
+            'D'  => ['font' => ['size' => 8]],
+            'E'  => ['font' => ['size' => 8]],
+            'F'  => ['font' => ['size' => 8]],
+            'G'  => ['font' => ['size' => 8]],
+            'H'  => ['font' => ['size' => 8]],
+            'I'  => ['font' => ['size' => 8]],
         ];
     }
 }
