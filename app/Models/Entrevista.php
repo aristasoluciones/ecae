@@ -24,7 +24,7 @@ class Entrevista extends Model
     public function getPuntosAttribute() {
 
         $puntos = 0;
-        foreach($this->competencias as $competencia)
+        foreach($this->competencias ?? [] as $competencia)
             $puntos += $competencia['valor_respuesta'];
 
         return $puntos;
