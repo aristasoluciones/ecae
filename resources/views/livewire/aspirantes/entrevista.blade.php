@@ -18,11 +18,11 @@
                                 <tr>
                                     <td colspan="2">
                                         <div class="form-group">
-                                            <label for="" class="text-dark"><span class="text-danger">* </span>¿Cuál es el motivo por el que quiere participar?</label>
+                                            <label for="" class="font-weight-normal"><span class="text-danger">* </span>¿Cuál es el motivo por el que quiere participar?</label>
                                             <textarea class="form-control w-75 {{ $errors->has('motivo_participar') ? 'is-invalid' :'' }}"
                                                    wire:model="motivo_participar"></textarea>
                                             @error('motivo_participar')
-                                            <small>{{ $message }}</small>
+                                            <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </td>
@@ -60,7 +60,7 @@
                                                    class="form-control w-50 {{ $errors->has('cual_lengua_indigena') ? 'is-invalid' :'' }}"
                                                    wire:model="cual_lengua_indigena">
                                             @error('cual_lengua_indigena')
-                                            <small>{{ $message }}</small>
+                                            <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </td>
                                     </tr>
@@ -147,7 +147,7 @@
                                                    class="form-control w-50 {{ $errors->has('cargo_tiempo_donde_pe') ? 'is-invalid' :'' }}"
                                                    wire:model="cargo_tiempo_donde_pe">
                                             @error('cargo_tiempo_donde_pe')
-                                            <small>{{ $message }}</small>
+                                            <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </td>
                                     </tr>
@@ -1196,13 +1196,14 @@
             <div class="row">
                 <div class="col-12">
                     <button type="button" class="btn btn-danger close-btn"
-                            wire:loading.remove wire:target="guardar"
+                            wire:loading.remove wire:target="guardar,generarAcuse"
                             data-dismiss="modal">Cerrar</button>
-                    <button class="btn btn-success" wire:click="guardar">
-                        <span wire:loading.remove wire:target="guardar">Guardar</span>
-                        <span wire:loading wire:target="guardar">Enviando...</span>
+
+                    <button class="btn btn-success" wire:loading.remove wire:target="generarAcuse" wire:click="guardar">
+                        <span wire:loading.remove wire:target="guardar">{{ $entrevista?->id ? 'Actualizar' : 'Guardar' }}</span>
+                        <span wire:loading wire:target="guardar">Guardando información...</span>
                     </button>
-                    @if($this->entrevista?->id > 0 && $this->tipo)
+                    @if($this->entrevista?->id > 0 && $this->tipo && !$this->cambio_de_tipo)
                         <button class="btn bg-gradient-navy" wire:click="generarAcuse">
                             <span wire:loading.remove wire:target="generarAcuse"><i class="fa fa-download"></i> Descargar Acuse</span>
                             <span wire:loading wire:target="generarAcuse">Generado documento espere un momento...</span>

@@ -98,12 +98,16 @@ class Entrevista extends Component
         $variables = [];
         for ($ii=1; $ii <= 5; $ii++) {
 
-          $variables[] = 'competencia_'.$ii.'_pregunta';
-          $variables[] = 'competencia_'.$ii.'_respuesta';
+            $variables[] = 'competencia_'.$ii.'_pregunta';
+            $variables[] = 'competencia_'.$ii.'_respuesta';
         }
-
         $this->reset($variables);
         $this->resetValidation($variables);
+
+        if ($this->entrevista?->id > 0) {
+            if ($this->entrevista?->tipo == $valor)
+                $this->desconstruirCompetencias();
+        }
     }
 
     public function getResultadoProperty() {
@@ -115,8 +119,12 @@ class Entrevista extends Component
            $puntos += $this->{"competencia_".$ii."_respuesta"};
 
         }
-
         return $puntos;
+    }
+
+    public function getCambioDeTipoProperty() {
+
+        return $this->entrevista?->id > 0 ? ($this->entrevista?->tipo != $this->tipo) : false;
     }
 
     public function getPorcentajeObtenidoProperty() {
@@ -142,16 +150,8 @@ class Entrevista extends Component
 
         if ($this->aspirante?->entrevista?->id > 0) {
             $this->entrevista = $this->aspirante->entrevista;
-            $this->motivo_participar = $this->entrevista->motivo_participar;
-            $this->habla_indigena = $this->entrevista->habla_indigena;
-            $this->cual_lengua_indigena = $this->entrevista->cual_lengua_indigena;
-            $this->disponibilidad = $this->entrevista->disponibilidad;
-            $this->trabajo_campo  = $this->entrevista->trabajo_campo;
-            $this->participo_pe   = $this->entrevista->participo_pe;
-            $this->cargo_tiempo_donde_pe = $this->entrevista->cargo_tiempo_donde_pe;
-            $this->colaborado_pp_oc  = $this->entrevista->colaborado_pp_oc;
-            $this->cargo_tiempo_donde_pp_oc = $this->entrevista->cargo_tiempo_donde_pp_oc;
-            $this->tipo = $this->entrevista->tipo;
+            $this->iniciarEntrevista();
+
         }
         else {
             $this->entrevista = new ModelEntrevista();
@@ -165,6 +165,20 @@ class Entrevista extends Component
         }
 
         $this->desconstruirCompetencias();
+    }
+
+    public function iniciarEntrevista() {
+
+        $this->motivo_participar = $this->entrevista->motivo_participar;
+        $this->habla_indigena = $this->entrevista->habla_indigena;
+        $this->cual_lengua_indigena = $this->entrevista->cual_lengua_indigena;
+        $this->disponibilidad = $this->entrevista->disponibilidad;
+        $this->trabajo_campo  = $this->entrevista->trabajo_campo;
+        $this->participo_pe   = $this->entrevista->participo_pe;
+        $this->cargo_tiempo_donde_pe = $this->entrevista->cargo_tiempo_donde_pe;
+        $this->colaborado_pp_oc  = $this->entrevista->colaborado_pp_oc;
+        $this->cargo_tiempo_donde_pp_oc = $this->entrevista->cargo_tiempo_donde_pp_oc;
+        $this->tipo = $this->entrevista->tipo;
     }
 
     public function guardar() {
