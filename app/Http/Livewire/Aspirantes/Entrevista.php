@@ -123,12 +123,12 @@ class Entrevista extends Component
 
         $puntos = $this->resultado;
 
-        $porcentaje = ($puntos * 40) / 100;
+        $porcentaje = ($puntos * config('constants.porcentaje_entrevista')) / 100;
 
         if ($this->habla_indigena === 'SI')
             $porcentaje = $porcentaje +  10;
 
-       return $porcentaje > 40.00 ? 40 : number_format($porcentaje,2);
+       return $porcentaje > config('constants.porcentaje_entrevista') ? number_format(config('constants.porcentaje_entrevista'),2) : number_format($porcentaje,2);
     }
 
     public function setAspirante($id) {
