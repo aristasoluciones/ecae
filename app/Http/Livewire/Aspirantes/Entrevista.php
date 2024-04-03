@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Aspirantes;
 use App\Models\Aspirante;
 use App\Models\Entrevista as ModelEntrevista;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Validation\Validator;
 use Livewire\Component;
 
 class Entrevista extends Component
@@ -78,6 +79,7 @@ class Entrevista extends Component
     public function messages() {
         return [
             '*.required' => 'Campo obligatorio',
+            '*.required_if' => 'Campo obligatorio',
             'competencia_1_pregunta.required' => 'Seleccione una pregunta de la lista',
             'competencia_2_pregunta.required' => 'Seleccione una pregunta de la lista',
             'competencia_3_pregunta.required' => 'Seleccione una pregunta de la lista',
@@ -89,6 +91,19 @@ class Entrevista extends Component
 
     public function updated($field) {
         return $this->validateOnly($field);
+    }
+
+    public function updatedTipo($valor) {
+
+        $variables = [];
+        for ($ii=1; $ii <= 5; $ii++) {
+
+          $variables[] = 'competencia_'.$ii.'_pregunta';
+          $variables[] = 'competencia_'.$ii.'_respuesta';
+        }
+
+        $this->reset($variables);
+        $this->resetValidation($variables);
     }
 
     public function getResultadoProperty() {
@@ -104,8 +119,19 @@ class Entrevista extends Component
         return $puntos;
     }
 
-    public function setAspirante($id) {
+    public function getPorcentajeObtenidoProperty() {
 
+        $puntos = $this->resultado;
+
+        $porcentaje = ($puntos * 40) / 100;
+
+        if ($this->habla_indigena === 'SI')
+            $porcentaje = $porcentaje +  10;
+
+       return $porcentaje > 40.00 ? 40 : number_format($porcentaje,2);
+    }
+
+    public function setAspirante($id) {
 
         $query = Aspirante::query();
 
@@ -143,7 +169,16 @@ class Entrevista extends Component
 
     public function guardar() {
 
-        $this->validate();
+        $this->withValidator(function (Validator $validator) {
+            if($validator->fails()) {
+                $this->emit('swal:alert', [
+                    'icon'    => 'error',
+                    'title'   => 'Revise los campos marcados del formulario',
+                    'timeout' => 5000
+                ]);
+            }
+        })->validate();
+
 
         $this->entrevista->aspirante_id = $this->aspirante->id;
         $this->entrevista->tipo         =  $this->tipo;
@@ -167,8 +202,8 @@ class Entrevista extends Component
             'timeout' => 5000
         ]);
 
-        $this->resetear();
-        $this->emit('modal:hide', '#modal-entrevista');
+        $this->setAspirante($this->aspirante->id);
+        //$this->emit('modal:hide', '#modal-entrevista');
     }
 
     public function render()

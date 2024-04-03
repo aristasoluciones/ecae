@@ -221,19 +221,14 @@
                 <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                         <label for="">Puntos obtenidos</label><br>
-                        <div class="badge badge-success fs-15">{{ $this->resultado }}</div>
+                        <div class="badge badge-success fs-15">{{ $this->resultado }} de 100</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12">
-                    @if($this->entrevista?->id > 0)
-                        <div class="form-group">
-                            <label for=""></label><br>
-                            <button class="btn bg-gradient-navy" wire:click="generarAcuse">
-                                <span wire:loading.remove wire:target="generarAcuse"><i class="fa fa-download"></i> Descargar Acuse</span>
-                                <span wire:loading wire:target="generarAcuse">Generado documento espere un momento...</span>
-                                </button>
-                        </div>
-                   @endif
+                    <div class="form-group">
+                        <label for="">% Obtenido</label><br>
+                        <div class="badge badge-success fs-15">{{ $this->porcentajeObtenido }}%  de 40%</div>
+                    </div>
                 </div>
             </div>
             @if($tipo)
@@ -787,411 +782,408 @@
                               <tr>
                                   <td>
                                       <div class="d-flex flex-column justify-content-between {{ $errors->has('competencia_1_pregunta') ? 'border border-danger' : ''}}">
-                                          <h5 class="text-bold">Liderazgo</h5>
+                                          <h5 class="text-bold">Persuasión y negociación <span class="badge badge-success">+ 25 Puntos</span></h5>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
                                                      value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">1.- Cuéntame algún ejemplo en el que hayas tomado la iniciativa en un proyecto difícil</label>
+                                                     wire:model="competencia_1_pregunta"
+                                                     id="competencia_1_p_1_cael"
+                                                     name="competencia_1_p_1_cael" />
+                                              <label for="competencia_1_p_1_cael" class="form-check-label fs-13 text-justify">1.- Cuéntame como una ocasión en la que tuviste que convencer a alguien para que hiciera algo</label>
                                           </div>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">2.- Relata una situación en la que asumiste el papel de líder. ¿Qué desafíos afrontaste y cómo los abordaste?</label>
+                                                     value="2"
+                                                     wire:model="competencia_1_pregunta"
+                                                     id="competencia_1_p_2_cael"
+                                                     name="competencia_1_p_2_cael" />
+                                              <label for="competencia_1_p_2_cael" class="form-check-label fs-13 text-justify">2.- Podrías explicar un ejemplo de una negociación que tuviste pero que sentiste que te estaban haciendo presión  ¿a que conclusión llegaste? ¿Cómo termino la negociación?</label>
                                           </div>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">3.- ¿Qué hace para mantener a su equipo motivado y comprometido? Deme un ejemplo</label>
+                                                     value="3"
+                                                     wire:model="competencia_1_pregunta"
+                                                     id="competencia_1_p_3_cael"
+                                                     name="competencia_1_p_3_cael" />
+                                              <label for="competencia_1_p_3_cael" class="form-check-label fs-13 text-justify">3.- Cuéntame una ocasión en la que tuviste que negociar y te sintieras orgulloso con el resultado</label>
                                           </div>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">4.- ¿Cómo lo hace para distribuir y delegar tareas a su equipo de trabajo?  </label>
+                                                     value="4"
+                                                     wire:model="competencia_1_pregunta"
+                                                     id="competencia_1_p_3_cael"
+                                                     name="competencia_1_p_3_cael"/>
+                                              <label for="competencia_1_p_3_cael" class="form-check-label fs-13 text-justify">4.- En alguna negociación has cambiado tu comportamiento, método o incluso, visión para llegar a un acuerdo</label>
                                           </div>
+                                          @error('competencia_1_pregunta')
+                                          <div class="text-justify">
+                                              <small class="text-danger">{{ $message }}</small>
+                                          </div>
+                                          @enderror
                                       </div>
                                   </td>
                                   <td>
-                                      <div class="form-check">
+                                      <div class="form-check {{ $errors->has('competencia_1_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
+                                                 value="5"
+                                                 wire:model="competencia_1_respuesta"
+                                                 id="competencia_1_r_1_cael"
+                                                 name="competencia_1_p_1_cael" />
+                                          <label class="form-check-label"></label>
                                       </div>
                                   </td>
-                                  <td><div class="form-check">
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_1_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
+                                                 value="10"
+                                                 wire:model="competencia_1_respuesta"
+                                                 id="competencia_1_r_2_cael"
+                                                 name="competencia_1_r_2_cael" />
+                                          <label  class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_1_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="15"
+                                                 wire:model="competencia_1_respuesta"
+                                                 id="competencia_1_r_3_cael"
+                                                 name="competencia_1_r_3_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_1_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="20"
+                                                 wire:model="competencia_1_respuesta"
+                                                 id="competencia_1_r_4_cael"
+                                                 name="competencia_1_r_4_cael" />
+                                          <label class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_1_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="25"
+                                                 wire:model="competencia_1_respuesta"
+                                                 id="competencia_1_r_5_cael"
+                                                 name="competencia_1_r_5_cael" />
+                                          <label class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="d-flex flex-column justify-content-between {{ $errors->has('competencia_2_pregunta') ? 'border border-danger' : ''}}">
+                                          <h5 class="text-bold">Orientación al servicio <span class="badge badge-success">+ 25 Puntos</span></h5>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="1"
+                                                     wire:model="competencia_2_pregunta"
+                                                     id="competencia_2_p_1_cael"
+                                                     name="competencia_2_p_1_cael" />
+                                              <label for="competencia_2_p_1_cael" class="form-check-label fs-13 text-justify">1.- ¿Cómo defines el servicio a la ciudadanía?</label>
+                                          </div>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="2"
+                                                     wire:model="competencia_2_pregunta"
+                                                     id="competencia_2_p_2_cael"
+                                                     name="competencia_2_p_2_cael" />
+                                              <label for="competencia_2_p_2_cael" class="form-check-label fs-13 text-justify">2.- Dame un ejemplo de una ocasión en la que proporcionaste un servicio excepcional a un ciudadano y/o cliente.</label>
+                                          </div>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="3"
+                                                     wire:model="competencia_2_pregunta"
+                                                     id="competencia_2_p_3_cael"
+                                                     name="competencia_2_p_3_cael" />
+                                              <label for="competencia_2_p_3_cael" class="form-check-label fs-13 text-justify">3.- ¿Por qué quieres trabajar en el IEPC al servicio de la ciudadanía y que te llevó a ingresar en este campo?</label>
+                                          </div>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="4"
+                                                     wire:model="competencia_2_pregunta"
+                                                     id="competencia_2_p_4_cael"
+                                                     name="competencia_2_p_4_cael" />
+                                              <label for="competencia_2_p_4_cael" class="form-check-label fs-13 text-justify">4.- Describe un escenario de servicio en el que lograste convertir a un ciudadano insatisfecho en uno satisfecho</label>
+                                          </div>
+                                          @error('competencia_2_pregunta')
+                                          <div class="text-justify">
+                                              <small class="text-danger">{{ $message }}</small>
+                                          </div>
+                                          @enderror
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_2_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="5"
+                                                 wire:model="competencia_2_respuesta"
+                                                 id="competencia_2_r_1_cael"
+                                                 name="competencia_2_r_1_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_2_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="10"
+                                                 wire:model="competencia_2_respuesta"
+                                                 id="competencia_2_r_2_cael"
+                                                 name="competencia_2_r_2_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_2_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="15"
+                                                 wire:model="competencia_2_respuesta"
+                                                 id="competencia_2_r_3_cael"
+                                                 name="competencia_2_r_3_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_2_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="20"
+                                                 wire:model="competencia_2_respuesta"
+                                                 id="competencia_2_r_4_cael"
+                                                 name="competencia_2_r_4_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_2_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="25"
+                                                 wire:model="competencia_2_respuesta"
+                                                 id="competencia_2_r_5_cael"
+                                                 name="competencia_2_r_5_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <div class="d-flex flex-column justify-content-between {{ $errors->has('competencia_3_pregunta') ? 'border border-danger' : ''}}">
+                                          <h5 class="text-bold">Trabajo bajo presión <span class="badge badge-success">+ 25 Puntos</span></h5>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="1"
+                                                     wire:model="competencia_3_pregunta"
+                                                     id="competencia_3_p_1_cael"
+                                                     name="competencia_3_p_1_cael" />
+                                              <label for="competencia_3_p_1_cael" class="form-check-label fs-13 text-justify">1.- Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?</label>
+                                          </div>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="2"
+                                                     wire:model="competencia_3_pregunta"
+                                                     id="competencia_3_p_2_cael"
+                                                     name="competencia_3_p_2_cael"/>
+                                              <label for="competencia_3_p_2_cael" class="form-check-label fs-13 text-justify">2.- Cuéntame alguna situación en la que hayas tenido que trabajar dentro de límites muy estrictos de tiempo.</label>
+                                          </div>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="3"
+                                                     wire:model="competencia_3_pregunta"
+                                                     id="competencia_3_p_3_cael"
+                                                     name="competencia_3_p_3_cael" />
+                                              <label for="competencia_3_p_3_cael" class="form-check-label fs-13 text-justify">3.- Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?</label>
+                                          </div>
+                                          <div class="form-check">
+                                              <input type="radio"
+                                                     class="form-check-input"
+                                                     value="4"
+                                                     wire:model="competencia_3_pregunta"
+                                                     id="competencia_3_p_4_cael"
+                                                     name="competencia_3_p_4_cael" />
+                                              <label for="competencia_3_p_4_cael" class="form-check-label fs-13 text-justify">4.- Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?
+                                              </label>
+                                          </div>
+                                          @error('competencia_3_pregunta')
+                                          <div class="text-justify">
+                                              <small class="text-danger">{{ $message }}</small>
+                                          </div>
+                                          @enderror
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_3_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="5"
+                                                 wire:model="competencia_3_respuesta"
+                                                 id="competencia_3_r_1_cael"
+                                                 name="competencia_3_r_1_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td><div class="form-check {{ $errors->has('competencia_3_respuesta') ? 'border border-danger' : ''}}">
+                                          <input type="radio"
+                                                 class="form-check-input"
+                                                 value="10"
+                                                 wire:model="competencia_3_respuesta"
+                                                 id="competencia_3_r_2_cael"
+                                                 name="competencia_3_r_2_cael" />
+                                          <label for="" class="form-check-label"></label>
                                       </div></td>
-                                  <td><div class="form-check">
+                                  <td><div class="form-check {{ $errors->has('competencia_3_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
+                                                 value="15"
+                                                 wire:model="competencia_3_respuesta"
+                                                 id="competencia_3_r_3_cael"
+                                                 name="competencia_3_r_3_cael" />
+                                          <label for="" class="form-check-label"></label>
                                       </div></td>
-                                  <td><div class="form-check">
+                                  <td><div class="form-check {{ $errors->has('competencia_3_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
+                                                 value="20"
+                                                 wire:model="competencia_3_respuesta"
+                                                 id="competencia_3_r_4_cael"
+                                                 name="competencia_3_r_4_cael" />
+                                          <label for="" class="form-check-label"></label>
                                       </div></td>
-                                  <td><div class="form-check">
+                                  <td><div class="form-check {{ $errors->has('competencia_3_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
+                                                 value="25"
+                                                 wire:model="competencia_3_respuesta"
+                                                 id="competencia_3_r_5_cael"
+                                                 name="competencia_3_r_5_cael" />
+                                          <label for="" class="form-check-label"></label>
                                       </div></td>
                               </tr>
                               <tr>
                                   <td>
-                                      <div class="d-flex flex-column justify-content-between">
-                                          <h5 class="text-bold">Trabajo bajo presión </h5>
+                                      <div class="d-flex flex-column justify-content-between {{ $errors->has('competencia_4_pregunta') ? 'border border-danger' : ''}}">
+                                          <h5 class="text-bold">Trabajo en campo <span class="badge badge-success">+ 25 Puntos</span></h5>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
                                                      value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">1.- Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?</label>
+                                                     wire:model="competencia_4_pregunta"
+                                                     id="competencia_4_p_1_cael"
+                                                     name="competencia_4_p_1_cael" />
+                                              <label for="competencia_4_p_1_cael" class="form-check-label fs-13 text-justify">1.- ¿Estarías dispuesto(a) a moverte a diferentes puntos para el cumplimiento de tus objetivos?</label>
                                           </div>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">2.- Cuéntame alguna situación en la que hayas tenido que trabajar dentro de límites muy estrictos de tiempo.</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">3.- Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo.
-                                                  ¿Cómo manejaste la situación y qué aprendiste de ella?</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">4.- Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado
-                                                  ¿Cómo te las arreglaste?</label>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  <td>
-                                      <div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div>
-                                  </td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <div class="d-flex flex-column justify-content-between">
-                                          <h5 class="text-bold">Orientación al servicio</h5>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">1.- ¿Cómo defines el servicio a la ciudadanía?</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">2.- Dame un ejemplo de una ocasión en la que proporcionaste un servicio excepcional a un ciudadano y/o cliente</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">3.- ¿Por qué quieres trabajar en el IEPC al servicio de la ciudadanía y que te llevó a ingresar en este campo?</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">4.- Describe un escenario de servicio en el que lograste convertir a un ciudadano insatisfecho en uno satisfecho</label>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  <td>
-                                      <div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div>
-                                  </td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <div class="d-flex flex-column justify-content-between">
-                                          <h5 class="text-bold">Manejo y resolución de problemas</h5>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">1.- Describe el mayor problema relacionado con el trabajo que hayas experimentado.  ¿Cómo lo solucionaste?</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">2.- Describe una ocasión en la que hayas tenido que cambiar tu estrategia en el último momento. ¿Cómo manejaste esta situación?</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">3.- ¿Puedes pensar en una situación de trabajo en la que hayas visto una oportunidad en un problema potencial? ¿Qué hiciste? ¿Cuál fue el resultado?</label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">4.- ¿Alguna vez has tenido un plazo que no hayas podido cumplir? ¿Qué pasó? ¿Cómo lo resolviste?</label>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  <td>
-                                      <div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div>
-                                  </td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
-                                          <input type="radio"
-                                                 class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <div class="d-flex flex-column justify-content-between">
-                                          <h5 class="text-bold">Planeación </h5>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">1.- Cuéntame cómo te organizas cuando tienes mucho trabajo. ¿Por dónde empiezas? ¿Cómo te aseguras que todo se haga? ¿Cómo te sientes cuando tienes tanto que hacer? </label>
-                                          </div>
-                                          <div class="form-check">
-                                              <input type="radio"
-                                                     class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">2.- Cuéntame un ejemplo de cuando hayas tenido que organizar un área de trabajo o un evento. ¿Qué tuviste
-                                                  que hacer? ¿Cómo te organizaste y planificaste para ello?¿Qué plazos previste? ¿Cuál fue el resultado?
+                                                     value="2"
+                                                     wire:model="competencia_4_pregunta"
+                                                     id="competencia_4_p_2_cael"
+                                                     name="competencia_4_p_2_cael" />
+                                              <label for="competencia_4_p_2_cael" class="form-check-label fs-13 text-justify">2.- ¿Cuéntanos sobre una situación en la que tuviste que trabajar en condiciones adversas para el cumplimiento de los objetivos?
                                               </label>
                                           </div>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">3.- Cuéntame una situación especial en la que demostraras eficacia organizando y controlando tu trabajo. ¿Qué ocurrió?  ¿Cuál fue el resultado final? ¿Por qué crees que lograste ser eficaz en esa ocasión?</label>
+                                                     value="3"
+                                                     wire:model="competencia_4_pregunta"
+                                                     id="competencia_4_p_3_cael"
+                                                     name="competencia_4_p_3_cael" />
+                                              <label for="competencia_4_p_3_cael" class="form-check-label fs-13 text-justify">3.- Cuéntanos sobre situaciones que tuviste que trasladarte a otros lugares para el cumplimiento de tus objetivos ¿Cómo lo hiciste? ¿Cómo lo resolviste?</label>
                                           </div>
                                           <div class="form-check">
                                               <input type="radio"
                                                      class="form-check-input"
-                                                     value="1"
-                                                     id="liderazgo_1"
-                                                     name="liderazgo_1" />
-                                              <label for="r_liderazgo_1" class="form-check-label fs-13 text-justify">4.- Cuéntame otra situación en la que no actuaras de forma eficaz organizando y controlando su trabajo?</label>
+                                                     value="4"
+                                                     wire:model="competencia_4_pregunta"
+                                                     id="competencia_4_p_4_cael"
+                                                     name="competencia_4_p_4_cael" />
+                                              <label for="competencia_4_p_4_cael" class="form-check-label fs-13 text-justify">4.- Cuéntanos tu mecanismo de ubicación que empleas para desplazarte para la realización de tus actividades físicas ¿Qué empleas? ¿Qué utilizas?</label>
                                           </div>
+                                          @error('competencia_4_pregunta')
+                                          <div class="text-justify">
+                                              <small class="text-danger">{{ $message }}</small>
+                                          </div>
+                                          @enderror
                                       </div>
                                   </td>
                                   <td>
-                                      <div class="form-check">
+                                      <div class="form-check {{ $errors->has('competencia_4_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
+                                                 value="5"
+                                                 wire:model="competencia_4_respuesta"
+                                                 id="competencia_4_p_1_cael"
+                                                 name="competencia_4_p_1_cael" />
+                                          <label for="" class="form-check-label"></label>
                                       </div>
                                   </td>
-                                  <td><div class="form-check">
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_4_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
+                                                 value="10"
+                                                 wire:model="competencia_4_respuesta"
+                                                 id="competencia_4_p_2_cael"
+                                                 name="competencia_4_p_2_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_4_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
+                                                 value="15"
+                                                 wire:model="competencia_4_respuesta"
+                                                 id="competencia_4_p_3_cael"
+                                                 name="competencia_4_p_3_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_4_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
-                                  <td><div class="form-check">
+                                                 value="20"
+                                                 wire:model="competencia_4_respuesta"
+                                                 id="competencia_4_p_4_cael"
+                                                 name="competencia_4_p_4_cael" />
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="form-check {{ $errors->has('competencia_4_respuesta') ? 'border border-danger' : ''}}">
                                           <input type="radio"
                                                  class="form-check-input"
-                                                 value="1"
-                                                 id="liderazgo_1"
-                                                 name="liderazgo_1" />
-                                          <label for="r_liderazgo_1" class="form-check-label"></label>
-                                      </div></td>
+                                                 value="25"
+                                                 wire:model="competencia_4_respuesta"
+                                                 id="competencia_4_p_5_cael"
+                                                 name="competencia_4_p_5_cael"/>
+                                          <label for="" class="form-check-label"></label>
+                                      </div>
+                                  </td>
                               </tr>
                               </tbody>
                           @endif
@@ -1210,6 +1202,12 @@
                         <span wire:loading.remove wire:target="guardar">Guardar</span>
                         <span wire:loading wire:target="guardar">Enviando...</span>
                     </button>
+                    @if($this->entrevista?->id > 0 && $this->tipo)
+                        <button class="btn bg-gradient-navy" wire:click="generarAcuse">
+                            <span wire:loading.remove wire:target="generarAcuse"><i class="fa fa-download"></i> Descargar Acuse</span>
+                            <span wire:loading wire:target="generarAcuse">Generado documento espere un momento...</span>
+                        </button>
+                    @endif
                 </div>
             </div>
 
