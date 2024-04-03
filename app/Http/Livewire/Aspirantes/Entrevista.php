@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Aspirantes;
 use App\Models\Aspirante;
 use App\Models\Entrevista as ModelEntrevista;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Validation\Validator;
 use Livewire\Component;
 
 class Entrevista extends Component
@@ -78,6 +79,7 @@ class Entrevista extends Component
     public function messages() {
         return [
             '*.required' => 'Campo obligatorio',
+            '*.required_if' => 'Campo obligatorio',
             'competencia_1_pregunta.required' => 'Seleccione una pregunta de la lista',
             'competencia_2_pregunta.required' => 'Seleccione una pregunta de la lista',
             'competencia_3_pregunta.required' => 'Seleccione una pregunta de la lista',
@@ -91,6 +93,23 @@ class Entrevista extends Component
         return $this->validateOnly($field);
     }
 
+    public function updatedTipo($valor) {
+
+        $variables = [];
+        for ($ii=1; $ii <= 5; $ii++) {
+
+            $variables[] = 'competencia_'.$ii.'_pregunta';
+            $variables[] = 'competencia_'.$ii.'_respuesta';
+        }
+        $this->reset($variables);
+        $this->resetValidation($variables);
+
+        if ($this->entrevista?->id > 0) {
+            if ($this->entrevista?->tipo == $valor)
+                $this->desconstruirCompetencias();
+        }
+    }
+
     public function getResultadoProperty() {
 
         $numeroCompetencias = $this->tipo === 'SEL' ? 5 : 4;
@@ -100,12 +119,27 @@ class Entrevista extends Component
            $puntos += $this->{"competencia_".$ii."_respuesta"};
 
         }
-
         return $puntos;
     }
 
-    public function setAspirante($id) {
+    public function getCambioDeTipoProperty() {
 
+        return $this->entrevista?->id > 0 ? ($this->entrevista?->tipo != $this->tipo) : false;
+    }
+
+    public function getPorcentajeObtenidoProperty() {
+
+        $puntos = $this->resultado;
+
+        $porcentaje = ($puntos * config('constants.porcentaje_entrevista')) / 100;
+
+        if ($this->habla_indigena === 'SI')
+            $porcentaje = $porcentaje +  10;
+
+       return $porcentaje > config('constants.porcentaje_entrevista') ? number_format(config('constants.porcentaje_entrevista'),2) : number_format($porcentaje,2);
+    }
+
+    public function setAspirante($id) {
 
         $query = Aspirante::query();
 
@@ -116,16 +150,8 @@ class Entrevista extends Component
 
         if ($this->aspirante?->entrevista?->id > 0) {
             $this->entrevista = $this->aspirante->entrevista;
-            $this->motivo_participar = $this->entrevista->motivo_participar;
-            $this->habla_indigena = $this->entrevista->habla_indigena;
-            $this->cual_lengua_indigena = $this->entrevista->cual_lengua_indigena;
-            $this->disponibilidad = $this->entrevista->disponibilidad;
-            $this->trabajo_campo  = $this->entrevista->trabajo_campo;
-            $this->participo_pe   = $this->entrevista->participo_pe;
-            $this->cargo_tiempo_donde_pe = $this->entrevista->cargo_tiempo_donde_pe;
-            $this->colaborado_pp_oc  = $this->entrevista->colaborado_pp_oc;
-            $this->cargo_tiempo_donde_pp_oc = $this->entrevista->cargo_tiempo_donde_pp_oc;
-            $this->tipo = $this->entrevista->tipo;
+            $this->iniciarEntrevista();
+
         }
         else {
             $this->entrevista = new ModelEntrevista();
@@ -141,9 +167,32 @@ class Entrevista extends Component
         $this->desconstruirCompetencias();
     }
 
+    public function iniciarEntrevista() {
+
+        $this->motivo_participar = $this->entrevista->motivo_participar;
+        $this->habla_indigena = $this->entrevista->habla_indigena;
+        $this->cual_lengua_indigena = $this->entrevista->cual_lengua_indigena;
+        $this->disponibilidad = $this->entrevista->disponibilidad;
+        $this->trabajo_campo  = $this->entrevista->trabajo_campo;
+        $this->participo_pe   = $this->entrevista->participo_pe;
+        $this->cargo_tiempo_donde_pe = $this->entrevista->cargo_tiempo_donde_pe;
+        $this->colaborado_pp_oc  = $this->entrevista->colaborado_pp_oc;
+        $this->cargo_tiempo_donde_pp_oc = $this->entrevista->cargo_tiempo_donde_pp_oc;
+        $this->tipo = $this->entrevista->tipo;
+    }
+
     public function guardar() {
 
-        $this->validate();
+        $this->withValidator(function (Validator $validator) {
+            if($validator->fails()) {
+                $this->emit('swal:alert', [
+                    'icon'    => 'error',
+                    'title'   => 'Revise los campos marcados del formulario',
+                    'timeout' => 5000
+                ]);
+            }
+        })->validate();
+
 
         $this->entrevista->aspirante_id = $this->aspirante->id;
         $this->entrevista->tipo         =  $this->tipo;
@@ -167,8 +216,8 @@ class Entrevista extends Component
             'timeout' => 5000
         ]);
 
-        $this->resetear();
-        $this->emit('modal:hide', '#modal-entrevista');
+        $this->setAspirante($this->aspirante->id);
+        //$this->emit('modal:hide', '#modal-entrevista');
     }
 
     public function render()

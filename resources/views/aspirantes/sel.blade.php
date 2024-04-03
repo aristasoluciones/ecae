@@ -170,7 +170,7 @@ table.saltopagina {
             <td class="blancognl" style="text-align: center; with: 15%;">No. FOLIO DEL ASPIRANTE:</td>
         </tr>
         <tr>
-            <td class="blancognl" style="text-align: center; width: 20%;">3</td>
+            <td class="blancognl" style="text-align: center; width: 20%;">{{date ("Y-m-d", strtotime($aspirante->entrevista->created_at))}}</td>
             <td class="blancognl" style="text-align: center; width: 20%;">{{mb_strtoupper ($aspirante->id)}}&nbsp;</td>
         </tr>
     </tbody>
@@ -180,23 +180,46 @@ table.saltopagina {
 <table class="cuerpo">
 	<tbody>
 		<tr>
-			<td class="rojoTi01" colspan="7">INFORMACION GENERAL DE LA PERSONA ASPIRANTE</td>
+			<td class="rojoTi01" colspan="8">INFORMACION GENERAL DE LA PERSONA ASPIRANTE</td>
 		</tr>
 		<tr>
 			<td class="rojo" style="width: 25%">NOMBRE</td>
 			<td class="rojo" style="width: 25%">APELLIDO PATERNO</td>
 			<td class="rojo" style="width: 25%">APELLIDO MATERNO</td>
 			<td class="rojo" style="width: 5%">EDAD</td>
-			<td class="rojo" style="width: 5%">F</td>
-			<td class="rojo" style="width: 5%">M</td>
-			<td class="rojo" style="width: 10%">LGBTTTIQ+</td>
+
+            @if ($aspirante->genero=='Femenino')
+			        <td class="rojo" style="background: rgb(0, 68, 106); width: 3%"><span>F</span></td>
+                    @else
+                    <td class="rojo" style="width: 3%"><span>F</span></td>
+            @endif
+
+            @if ($aspirante->genero=='Masculino')
+			        <td class="rojo" style="background: rgb(0, 68, 106); width: 3%"><span>M</span></td>
+                    @else
+                    <td class="rojo" style="width: 3%"><span>M</span></td>
+            @endif
+
+            @if ($aspirante->genero=='Otro')
+			        <td class="rojo" style="background: rgb(0, 68, 106); width: 5%"><span>OTRO</span></td>
+                    @else
+                    <td class="rojo" style="width: 5%"><span>OTRO</span></td>
+            @endif
+
+            @if ($aspirante->persona_lgbtttiq=='Si')
+			        <td class="rojo" style="background: rgb(0, 68, 106); width: 10%"><span>LGBTTTIQ+</span></td>
+                    @else
+                    <td class="rojo" style="width: 10%"><span>LGBTTTIQ+</span></td>
+            @endif
+
+			
 		</tr>
 		<tr>
 			<td class="blancognl2">{{mb_strtoupper ($aspirante->nombre) }}</td>
 			<td class="blancognl2">{{mb_strtoupper ($aspirante->apellido1) }}&nbsp;</td>
 			<td class="blancognl2">{{mb_strtoupper ($aspirante->apellido2) }}&nbsp;</td>
 			<td class="blancognl2">{{ $aspirante->edad }}&nbsp;</td>
-			<td class="rojo" colspan="3">GÉNERO</td>
+			<td class="rojo" colspan="4">GÉNERO</td>
 		</tr>
 	</tbody>
 </table>
@@ -217,13 +240,25 @@ table.saltopagina {
 			<td class="rojo" style="width: 30%">NOMBRE DE LA CARRERA</td>
 		</tr>
 		<tr>
-            <td class="rojo" style="width: 10%">&nbsp;</td>
+            @if (in_array($aspirante->ultimo_grado_estudio,['Primaria Primer grado','Primaria Segundo grado','Primaria Tercer grado','Primaria Cuarto grado','Primaria Quinto grado','Primaria Sexto grado']))
+                <td class="rojo" style="width: 9%"><span  style="font-family: DejaVu Sans, sans-serif; font-size: 18px;">&#10004;</span>&nbsp;</td>
+                @else
+                <td class="rojo" style="width: 9%">&nbsp;</td>
+            @endif
+
+            @if (in_array($aspirante->ultimo_grado_estudio,['Primaria Primer grado','Primaria Segundo grado','Primaria Tercer grado','Primaria Cuarto grado','Primaria Quinto grado','Primaria Sexto grado']))
+                <td class="rojo" style="width: 11%"><span  style="font-family: DejaVu Sans, sans-serif; font-size: 18px;">&#10004;</span>&nbsp;</td>
+                @else
+                <td class="rojo" style="width: 11%">&nbsp;</td>
+            @endif
+            
+            
 			<td class="rojo" style="width: 11%">&nbsp;</td>
-			<td class="rojo" style="width: 12%">&nbsp;</td>
-			<td class="rojo" style="width: 15%">&nbsp;</td>
-			<td class="rojo" style="width: 12%">&nbsp;</td>
+			<td class="rojo" style="width: 13%">&nbsp;</td>
+			<td class="rojo" style="width: 16%">&nbsp;</td>
+			<td class="rojo" style="width: 13%">&nbsp;</td>
 			<td class="rojo" style="width: 10%">&nbsp;</td>
-			<td class="blanco" style="width: 30%">&nbsp;</td>
+			<td class="rojo" style="width: 30%">&nbsp;</td>
 		</tr>
         
 	</tbody>
@@ -250,7 +285,7 @@ table.saltopagina {
 <table class="cuerpo" >
 	<tbody>
     <tr>
-        <td class="blanco" style="width: 100%;height: 50px;"></td>
+        <td class="blancognl" style="width: 100%;height: 50px;">{{mb_strtoupper ($aspirante->entrevista->motivo_participar)}}&nbsp;</td>
     </tr>
     </tbody>
 </table>
