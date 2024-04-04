@@ -286,7 +286,9 @@ class Lista extends DataTableComponent
             ]);
             return false;
         }
+        $this->setPaginationDisabled();
         $rows =  $this->getRows();
+        $this->setPaginationEnabled();
         $rows =  $rows->filter(fn($item) => $item->evaluacion);
         $rows->append('calificacion_evaluacion');
 
@@ -311,7 +313,9 @@ class Lista extends DataTableComponent
             ]);
             return false;
         }
+        $this->setPaginationDisabled();
         $rows =  $this->getRows();
+        $this->setPaginationEnabled();
         $rows =  $rows->filter(fn($item) => $item->entrevista);
         $rows->append('calificacion_entrevista');
         $rows = $rows->sortByDesc('calificacion_entrevista');
@@ -335,7 +339,9 @@ class Lista extends DataTableComponent
             ]);
             return false;
         }
+        $this->setPaginationDisabled();
         $rows =  $this->getRows();
+        $this->setPaginationEnabled();
         $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion);
         $rows->append(['calificacion_entrevista','calificacion_evaluacion','calificacion_global']);
         $rows = $rows->sortByDesc('calificacion_global');
