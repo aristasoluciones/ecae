@@ -271,18 +271,14 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
     <tr>
-            
-            <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>
-            
-            @for ($i = 0; $i <= 2; $i++) {
-                @if ($aspirante->experiencia_laboral)
-                    <td class="rojo" style="width: 25%">{{mb_strtoupper ($aspirante->experiencia_laboral[$i]['puesto'])}}</td>
-                @endif
-            }
-            @endfor    
-
-
-
+        <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>
+        @php
+            $datos = $aspirante['experiencia_laboral'];
+            usort($datos, function($a, $b) {
+            return strtotime($b['inicio']) - strtotime($a['inicio']);
+            });
+        @endphp       
+        <td class="rojo" style="width: 25%">{{ $datos[0]['puesto'];}}</td>
 			<td class="rojo" style="width: 25%">¿HABLA ALGUNA LENGUA INDIGENA?<br>Especifique:</td>
             @if ($aspirante->entrevista->habla_indigena =='SI')
 			        <td class="rojo" style="width: 25%"><span>{{mb_strtoupper ($aspirante->entrevista->cual_lengua_indigena)}}</span></td>
@@ -848,7 +844,7 @@ page-break-before: always;
 	<tbody>
     <tr>
         <td class="blancognl" valign="bottom" style="width: 60%; height: 50px; text-align: center; font-weight: bold;">Consejo Municipal Electoral de {{($aspirante->municipio)}}</td>
-        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;">{{$aspirante->entrevista->calificacion}}%</td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
     </tbody>
@@ -868,7 +864,7 @@ page-break-before: always;
 	<tbody>
     <tr>
         <td class="blancognl" valign="bottom" style="width: 60%; height: 50px; text-align: center; font-weight: bold;">Consejo Municipal Electoral de {{($aspirante->municipio)}}</td>
-        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;">{{$aspirante->entrevista->calificacion}}%</td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
     </tbody>

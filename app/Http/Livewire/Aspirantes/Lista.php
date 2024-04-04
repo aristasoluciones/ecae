@@ -43,7 +43,7 @@ class Lista extends DataTableComponent
         $this->setSearchVisibilityStatus(false);
         $this->setColumnSelectDisabled();
         $this->setPerPageAccepted([10, 25, 50, 100,500,1000,2000,3000]);
-        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede','email','documentacion','created_at']);
+        $this->setAdditionalSelects('*');
         $this->setConfigurableAreas([
             'before-tools' => [
                 'aspirantes.busqueda',

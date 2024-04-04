@@ -256,12 +256,14 @@ class Entrevista extends Component
     public function generarAcuse() {
 
         $this->aspirante->load('entrevista');
+        $this->aspirante->append(['ultimo_empleo']);
         $tipo = $this->tipo === 'SEL' ? 'aspirantes.sel' : 'aspirantes.cael';
         $content = Pdf::loadView($tipo, ['aspirante' => $this->aspirante])->setPaper('letter')->output();
         return response()->streamDownload(fn() => print($content), 'ENTREVISTA-'.$this->aspirante->clave_elector.'.pdf');
     }
 
     public function resetear() {
+
         $this->resetValidation();
         $this->reset();
     }
