@@ -218,18 +218,6 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-12">
-                    <div class="form-group">
-                        <label for="">Puntos obtenidos</label><br>
-                        <div class="badge badge-success fs-15">{{ $this->resultado }} de 100</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <div class="form-group">
-                        <label for="">% Obtenido</label><br>
-                        <div class="badge badge-success fs-15">{{ $this->porcentajeObtenido }}%  de 40%</div>
-                    </div>
-                </div>
             </div>
             @if($tipo)
                 <div class="row">
@@ -1193,25 +1181,36 @@
             </div>
         </div>
         <div class="modal-footer">
-            <div class="row">
-                <div class="col-12">
-                    <button type="button" class="btn btn-danger close-btn"
-                            wire:loading.remove wire:target="guardar,generarAcuse"
-                            data-dismiss="modal">Cerrar</button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 d-flex flex-column flex-md-row justify-content-start">
+                        @if($tipo)
+                            <div class="form-group">
+                                <strong>Puntos obtenidos : </strong> <span class="badge badge-success fs-15">{{ $this->resultado }} de 100</span>
+                            </div>
+                            <div class="form-group ml-md-2">
+                                <strong> % Calificación Obtenida: </strong> <span class="badge badge-success fs-15">{{ $this->porcentajeObtenido }} %  de 40 %</span>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-md-right">
+                        <button type="button" class="btn btn-danger close-btn"
+                                wire:loading.remove wire:target="guardar,generarAcuse"
+                                data-dismiss="modal">Cerrar</button>
 
-                    <button class="btn btn-success" wire:loading.remove wire:target="generarAcuse" wire:click="guardar">
-                        <span wire:loading.remove wire:target="guardar">{{ $entrevista?->id ? 'Actualizar' : 'Guardar' }}</span>
-                        <span wire:loading wire:target="guardar">Guardando información...</span>
-                    </button>
-                    @if($this->entrevista?->id > 0 && $this->tipo && !$this->cambio_de_tipo)
-                        <button class="btn bg-gradient-navy" wire:click="generarAcuse">
-                            <span wire:loading.remove wire:target="generarAcuse"><i class="fa fa-download"></i> Descargar Acuse</span>
-                            <span wire:loading wire:target="generarAcuse">Generando documento espere un momento...</span>
+                        <button class="btn btn-success" wire:loading.remove wire:target="generarAcuse" wire:click="guardar">
+                            <span wire:loading.remove wire:target="guardar">{{ $entrevista?->id ? 'Actualizar' : 'Guardar' }}</span>
+                            <span wire:loading wire:target="guardar">Guardando información...</span>
                         </button>
-                    @endif
+                        @if($this->entrevista?->id > 0 && $this->tipo && !$this->cambio_de_tipo)
+                            <button class="btn bg-gradient-navy" wire:click="generarAcuse">
+                                <span wire:loading.remove wire:target="generarAcuse"><i class="fa fa-download"></i> Descargar Acuse</span>
+                                <span wire:loading wire:target="generarAcuse">Generando documento espere un momento...</span>
+                            </button>
+                        @endif
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
