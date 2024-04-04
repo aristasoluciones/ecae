@@ -271,14 +271,8 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>
-        @php
-            $datos = $aspirante['experiencia_laboral'];
-            usort($datos, function($a, $b) {
-            return strtotime($b['inicio']) - strtotime($a['inicio']);
-            });
-        @endphp       
-        <td class="rojo" style="width: 25%">{{ $datos[0]['puesto'];}}</td>
+        <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>          
+        <td class="rojo" style="width: 25%">{{$aspirante['ultimo_empleo'] ? $aspirante['ultimo_empleo']['puesto'] : '' }}</td>
 			<td class="rojo" style="width: 25%">¿HABLA ALGUNA LENGUA INDIGENA?<br>Especifique:</td>
             @if ($aspirante->entrevista->habla_indigena =='SI')
 			        <td class="rojo" style="width: 25%"><span>{{mb_strtoupper ($aspirante->entrevista->cual_lengua_indigena)}}</span></td>
