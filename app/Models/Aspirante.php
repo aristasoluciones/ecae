@@ -49,6 +49,34 @@ class Aspirante extends Model
         return number_format($this->evaluacion?->calificacion_final_porcentaje + $this->entrevista?->calificacion,2);
     }
 
+    public function getUltimoEmpleoAttribute() {
+        if (!$this->experiencia_laboral || !is_array($this->experiencia_laboral))
+            return null;
+
+        $experiencias = $this->experiencia_laboral;
+
+        if (count($experiencias) == 1)
+            return $experiencias[0];
+
+        $experiencias = array_filter($experiencias, fn($item) => $item['actual'] == 1 );
+        if (count($experiencias) > 0)
+            return $experiencias[0];
+
+
+        $fechas = array_column($experiencias, 'fin');
+        $fechas = sort($fechas, SORT_DESC);
+        $ultimaFecha = $fechas[0] ?? null;
+
+        if (!$ultimaFecha)
+            return null;
+
+        $experiencias = array_filter($experiencias, fn($item) => $item['fin'] == $ultimaFecha );
+
+        if (count($experiencias) > 0)
+            return $experiencias[0];
+
+    }
+
     public function entrevista() {
         return $this->hasOne(Entrevista::class);
     }
