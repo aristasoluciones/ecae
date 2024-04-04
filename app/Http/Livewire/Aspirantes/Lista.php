@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Aspirantes;
 
 
 use App\Exports\AspirantesExport;
+use App\Exports\EntrevistadosExport;
 use App\Exports\EvaluadosExport;
 use App\Mail\RegistroShipped;
 use Illuminate\Database\Eloquent\Builder;
@@ -154,22 +155,22 @@ class Lista extends DataTableComponent
         }
 
         if($this->fFolio)
-            $query->where('id', $this->fFolio);
+            $query->whereRaw('id = ?', [$this->fFolio]);
 
         if($this->fNombre)
             $query->whereRaw('CONCAT_WS(" ",nombre,apellido1,apellido2) LIKE ?', ['%'.$this->fNombre.'%']);
 
         if($this->fMunicipio)
-            $query->where('municipio', $this->fMunicipio);
+            $query->whereRaw('municipio = ?', [$this->fMunicipio]);
 
         if($this->fEdad)
-            $query->where('edad', $this->fEdad);
+            $query->whereRaw('edad = ?', [$this->fEdad]);
 
         if($this->fGenero)
-            $query->where('genero', $this->fGenero);
+            $query->whereRaw('genero = ?', [$this->fGenero]);
 
         if($this->fEstatus)
-            $query->where('estatus', $this->fEstatus);
+            $query->whereRaw('estatus = ?', [$this->fEstatus]);
 
         return $query;
     }
@@ -290,6 +291,28 @@ class Lista extends DataTableComponent
         }
 
         return Excel::download(new EvaluadosExport($rows, $municipio), 'CALIFICACION_EXAMEN_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportarEntrevistados() {
+
+        if (!$this->fMunicipio) {
+
+            $this->emit('swal:alert', [
+                'icon'    => 'warning',
+                'title'   => 'Debe seleccionar un municipio.',
+                'timeout' => 5000
+            ]);
+            return false;
+        }
+        $rows =  $this->getRows();
+        $rows =  $rows->filter(fn($item) => $item->entrevista);
+
+        $municipio = $this->fMunicipio;
+        if (auth()->user()->hasRole('odes')) {
+            $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
+        }
+
+        return Excel::download(new EntrevistadosExport($rows, $municipio), 'CALIFICACION_ENTREVISTA_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
 
