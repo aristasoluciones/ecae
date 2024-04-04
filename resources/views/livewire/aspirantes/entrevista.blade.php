@@ -815,9 +815,9 @@
                                                      class="form-check-input"
                                                      value="4"
                                                      wire:model="competencia_1_pregunta"
-                                                     id="competencia_1_p_3_cael"
-                                                     name="competencia_1_p_3_cael"/>
-                                              <label for="competencia_1_p_3_cael" class="form-check-label fs-13 text-justify">4.- En alguna negociación has cambiado tu comportamiento, método o incluso, visión para llegar a un acuerdo</label>
+                                                     id="competencia_1_p_4_cael"
+                                                     name="competencia_1_p_4_cael"/>
+                                              <label for="competencia_1_p_4_cael" class="form-check-label fs-13 text-justify">4.- En alguna negociación has cambiado tu comportamiento, método o incluso, visión para llegar a un acuerdo</label>
                                           </div>
                                           @error('competencia_1_pregunta')
                                           <div class="text-justify">
@@ -1135,8 +1135,8 @@
                                                  class="form-check-input"
                                                  value="5"
                                                  wire:model="competencia_4_respuesta"
-                                                 id="competencia_4_p_1_cael"
-                                                 name="competencia_4_p_1_cael" />
+                                                 id="competencia_4_r_1_cael"
+                                                 name="competencia_4_r_1_cael" />
                                           <label for="" class="form-check-label"></label>
                                       </div>
                                   </td>
@@ -1146,8 +1146,8 @@
                                                  class="form-check-input"
                                                  value="10"
                                                  wire:model="competencia_4_respuesta"
-                                                 id="competencia_4_p_2_cael"
-                                                 name="competencia_4_p_2_cael" />
+                                                 id="competencia_4_r_cael"
+                                                 name="competencia_4_r_cael" />
                                           <label for="" class="form-check-label"></label>
                                       </div>
                                   </td>
@@ -1157,8 +1157,8 @@
                                                  class="form-check-input"
                                                  value="15"
                                                  wire:model="competencia_4_respuesta"
-                                                 id="competencia_4_p_3_cael"
-                                                 name="competencia_4_p_3_cael" />
+                                                 id="competencia_4_r_cael"
+                                                 name="competencia_4_r_cael" />
                                           <label for="" class="form-check-label"></label>
                                       </div>
                                   </td>
@@ -1168,8 +1168,8 @@
                                                  class="form-check-input"
                                                  value="20"
                                                  wire:model="competencia_4_respuesta"
-                                                 id="competencia_4_p_4_cael"
-                                                 name="competencia_4_p_4_cael" />
+                                                 id="competencia_4_r_4_cael"
+                                                 name="competencia_4_r_4_cael" />
                                           <label for="" class="form-check-label"></label>
                                       </div>
                                   </td>
@@ -1179,8 +1179,8 @@
                                                  class="form-check-input"
                                                  value="25"
                                                  wire:model="competencia_4_respuesta"
-                                                 id="competencia_4_p_5_cael"
-                                                 name="competencia_4_p_5_cael"/>
+                                                 id="competencia_4_r_5_cael"
+                                                 name="competencia_4_r_5_cael"/>
                                           <label for="" class="form-check-label"></label>
                                       </div>
                                   </td>
