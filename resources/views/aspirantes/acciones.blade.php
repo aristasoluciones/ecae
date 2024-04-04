@@ -2,6 +2,11 @@
     <a href='{{ url("solicitud/" . $row->id) }}' class="btn btn-primary m-1" title="Ver solicitud">
         <i class="fas fa-edit" aria-hidden="true"></i>
     </a>
+    @if($row->estatus === \App\Models\Aspirante::ESTATUS_PENDIENTE && auth()->user()->can('aspirantes.eliminar'))
+        <a wire:click="handlerEliminar({{ $row->id }})" class="btn btn-danger m-1" title="Eliminar registro">
+            <i class="fas fa-trash" aria-hidden="true"></i>
+        </a>
+    @endif
     <a class="btn btn-warning text-white m-1" wire:click="generarFicha({{ $row->id }})" title="Generar solicitud a pdf">
         <i class="fas fa-file-pdf" aria-hidden="true"></i>
     </a>

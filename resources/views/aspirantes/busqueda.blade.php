@@ -93,30 +93,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex flex-row justify-content-center">
-                    <div class="btn-group-toggle">
-                        <button class="btn btn-success" wire:click="getRows">
+                <div class="d-flex flex-column flex-md-row justify-content-sm-start justify-content-md-center">
+                        <button class="btn btn-success mx-1 my-1" wire:click="getRows">
                             <span wire:loading.remove wire:target="getRows">Buscar</span>
                             <span wire:loading wire:target="getRows">Buscando información</span>
                         </button>
-                        <button class="btn btn-info" wire:click="exportar">
+                        <button class="btn btn-info mx-1 my-1" wire:click="exportar">
                             <span wire:loading.remove wire:target="exportar"><i class="fa fa-file-excel"></i> Exportar aspirantes</span>
                             <span wire:loading wire:target="exportar">Generando archivo</span>
                         </button>
 
-                        <button class="btn bg-gradient-navy" wire:click="exportarEvaluados">
+                        <button class="btn bg-gradient-navy  mx-1 my-1" wire:click="exportarEvaluados">
                             <span wire:loading.remove wire:target="exportarEvaluados"><i class="fa fa-file-pdf"></i> Exportar evaluados</span>
                             <span wire:loading wire:target="exportarEvaluados">Generando archivo</span>
                         </button>
-                        <button class="btn bg-gradient-indigo" wire:click="exportarEntrevistados">
+                        <button class="btn bg-gradient-indigo mx-1 my-1" wire:click="exportarEntrevistados">
                             <span wire:loading.remove wire:target="exportarEntrevistados"><i class="fa fa-file-pdf"></i> Exportar entrevistados</span>
                             <span wire:loading wire:target="exportarEntrevistados">Generando archivo</span>
                         </button>
-                        <button class="btn bg-gradient-gray-dark" wire:click="exportarResultadosFinales">
+                        <button class="btn bg-gradient-gray-dark mx-1 my-1" wire:click="exportarResultadosFinales">
                             <span wire:loading.remove wire:target="exportarResultadosFinales"><i class="fa fa-file-pdf"></i> Exportar resultados finales</span>
                             <span wire:loading wire:target="exportarResultadosFinales">Generando archivo</span>
                         </button>
-                    </div>
                 </div>
             </div>
         </div>

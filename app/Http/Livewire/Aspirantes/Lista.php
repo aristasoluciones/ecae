@@ -23,6 +23,8 @@ class Lista extends DataTableComponent
 {
     protected $model = Aspirante::class;
 
+    public $registroEliminar;
+
     public $municipios;
     public $edades;
     public $generos;
@@ -41,7 +43,7 @@ class Lista extends DataTableComponent
         $this->setSearchVisibilityStatus(false);
         $this->setColumnSelectDisabled();
         $this->setPerPageAccepted([10, 25, 50, 100,500,1000,2000,3000]);
-        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede','email','documentacion']);
+        $this->setAdditionalSelects(['id','estatus','apellido1','apellido2','sede','email','documentacion','created_at']);
         $this->setConfigurableAreas([
             'before-tools' => [
                 'aspirantes.busqueda',
@@ -220,7 +222,8 @@ class Lista extends DataTableComponent
     }
 
     public function exportar() {
-        $rows =  $this->getRows();
+        $this->selectAll =  true;
+        $rows =  $this->getSelected();
         return Excel::download(new AspirantesExport($rows), 'aspirantes_registrados.xlsx');
     }
 
@@ -350,5 +353,25 @@ class Lista extends DataTableComponent
         $this->emitTo('aspirantes.entrevista', 'resetear');
         $this->emitTo('aspirantes.entrevista', 'setAspirante',$id);
         $this->emit('modal:show', '#modal-entrevista');
+    }
+
+    public function handlerEliminar($id) {
+
+        $this->registroEliminar = Aspirante::find($id);
+        $this->emit('modal:show', '#modal-confirmar-eliminar');
+    }
+
+    public function eliminar() {
+
+        $this->registroEliminar->delete();
+
+        $this->emit('swal:alert', [
+            'icon'    => 'success',
+            'title'   => 'Registro eliminado.',
+            'timeout' => 5000
+        ]);
+        $this->reset(['registroEliminar']);
+        $this->emit('modal:hide', '#modal-confirmar-eliminar');
+        $this->render();
     }
 }

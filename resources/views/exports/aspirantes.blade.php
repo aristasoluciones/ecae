@@ -37,12 +37,12 @@
     @foreach($rows as $row)
         <tr>
             <!--col01--><td>{{ $row->id }}</td>
-            <!--col02--><td>{{ ($row->created_at) }}</td>
+            <!--col02--><td>{{ date('Y-m-d', strtotime($row->created_at)) }}</td>
             <!--col03--><td>{{ mb_strtoupper($row->clave_elector) }}</td>
             <!--col04--><td>{{ mb_strtoupper($row->seccion_electoral) }}</td>
             <!--col05--><td>{{ mb_strtoupper(str_replace("Ñ","N",$row->apellido1)) }}</td>
             <!--col06--><td>{{ mb_strtoupper(str_replace("Ñ","N",$row->apellido2)) }}</td>
-            <!--col07--><td>{{ mb_strtoupper(str_replace("Ñ","N",$row->nombre)) }}</td>            
+            <!--col07--><td>{{ mb_strtoupper(str_replace("Ñ","N",$row->nombre)) }}</td>
             <!--col08--><td>{{ mb_strtoupper($row->rfc.$row->homoclave) }}</td>
             <!--col09--><td>{{ mb_strtoupper($row->curp) }}</td>
             <!--col10--><td>{{ mb_strtoupper($row->fecha_nacimiento) }}</td>
