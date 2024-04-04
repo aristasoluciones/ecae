@@ -463,13 +463,13 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
     <tr>
-    @if($aspirante->entrevista->competencias[0]['valor_pregunta'] == 2)
+            @if($aspirante->entrevista->competencias[0]['valor_pregunta'] == 2)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">2</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Relata una situación en la que asumiste el papel de líder. ¿Qué desafíos afrontaste y cómo los abordaste?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Relata una situación en la que asumiste el papel de líder. ¿Qué desafíos afrontaste y cómo los abordaste?</td>
             <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[0]['valor_pregunta'] == 2 ? $aspirante->entrevista?->competencias[0]['valor_respuesta'] : '' }}</td>
             @else
             <td class="blanconumber">2</td>
-            <td class="blancotexto">Relata una situación en la que asumiste el papel de líder. ¿Qué desafíos afrontaste y cómo los abordaste?.</td>
+            <td class="blancotexto">Relata una situación en la que asumiste el papel de líder. ¿Qué desafíos afrontaste y cómo los abordaste?</td>
             <td class="blancocali"></td>
             @endif
     </tr>
@@ -497,11 +497,11 @@ page-break-before: always;
         <tr>
             @if($aspirante->entrevista->competencias[0]['valor_pregunta'] == 4)
                 <td class="blanconumber" style=" background: rgb(219, 215, 204);">4</td>
-                <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Cómo lo hace para distribuir y delegar tareas a su equipo de trabajo?.</td>
+                <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Cómo lo hace para distribuir y delegar tareas a su equipo de trabajo?</td>
                 <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[0]['valor_pregunta'] == 4 ? $aspirante->entrevista?->competencias[0]['valor_respuesta'] : '' }}</td>
                 @else
                 <td class="blanconumber">4</td>
-                <td class="blancotexto">¿Cómo lo hace para distribuir y delegar tareas a su equipo de trabajo?.</td>
+                <td class="blancotexto">¿Cómo lo hace para distribuir y delegar tareas a su equipo de trabajo?</td>
                 <td class="blancocali"></td>
             @endif
         </tr>
@@ -521,11 +521,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[1]['valor_pregunta'] == 1)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">1</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[1]['valor_pregunta'] == 1 ? $aspirante->entrevista?->competencias[1]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">1</td>
-            <td class="blancotexto">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?.</td>
+            <td class="blancotexto">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -551,13 +551,13 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
         <tr>
-        @if($aspirante->entrevista->competencias[1]['valor_pregunta'] == 3)
+            @if($aspirante->entrevista->competencias[1]['valor_pregunta'] == 3)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">3</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[1]['valor_pregunta'] == 3 ? $aspirante->entrevista?->competencias[1]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">3</td>
-            <td class="blancotexto">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?.</td>
+            <td class="blancotexto">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -569,11 +569,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[1]['valor_pregunta'] == 4)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">4</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[1]['valor_pregunta'] == 4 ? $aspirante->entrevista?->competencias[1]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">4</td>
-            <td class="blancotexto">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?.</td>
+            <td class="blancotexto">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -593,11 +593,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[2]['valor_pregunta'] == 1)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">1</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Cómo defines el servicio a la ciudadanía?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Cómo defines el servicio a la ciudadanía?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[2]['valor_pregunta'] == 1 ? $aspirante->entrevista?->competencias[2]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">1</td>
-            <td class="blancotexto">¿Cómo defines el servicio a la ciudadanía?.</td>
+            <td class="blancotexto">¿Cómo defines el servicio a la ciudadanía?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -625,11 +625,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[2]['valor_pregunta'] == 3)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">3</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Por qué quieres trabajar en el IEPC al servicio de la ciudadanía y que te llevó a ingresar en este campo?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Por qué quieres trabajar en el IEPC al servicio de la ciudadanía y que te llevó a ingresar en este campo?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[2]['valor_pregunta'] == 3 ? $aspirante->entrevista?->competencias[2]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">3</td>
-            <td class="blancotexto">¿Por qué quieres trabajar en el IEPC al servicio de la ciudadanía y que te llevó a ingresar en este campo?.</td>
+            <td class="blancotexto">¿Por qué quieres trabajar en el IEPC al servicio de la ciudadanía y que te llevó a ingresar en este campo?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -676,11 +676,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[3]['valor_pregunta'] == 1)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">1</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Describe el mayor problema relacionado con el trabajo que hayas experimentado. ¿Cómo lo solucionaste?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Describe el mayor problema relacionado con el trabajo que hayas experimentado. ¿Cómo lo solucionaste?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[3]['valor_pregunta'] == 1 ? $aspirante->entrevista?->competencias[3]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">1</td>
-            <td class="blancotexto">Describe el mayor problema relacionado con el trabajo que hayas experimentado. ¿Cómo lo solucionaste?.</td>
+            <td class="blancotexto">Describe el mayor problema relacionado con el trabajo que hayas experimentado. ¿Cómo lo solucionaste?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -692,11 +692,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[3]['valor_pregunta'] == 2)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">2</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Describe una ocasión en la que hayas tenido que cambiar tu estrategia en el último momento. ¿Cómo manejaste esta situación?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Describe una ocasión en la que hayas tenido que cambiar tu estrategia en el último momento. ¿Cómo manejaste esta situación?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[3]['valor_pregunta'] == 2 ? $aspirante->entrevista?->competencias[3]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">2</td>
-            <td class="blancotexto">Describe una ocasión en la que hayas tenido que cambiar tu estrategia en el último momento. ¿Cómo manejaste esta situación?.</td>
+            <td class="blancotexto">Describe una ocasión en la que hayas tenido que cambiar tu estrategia en el último momento. ¿Cómo manejaste esta situación?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -708,11 +708,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[3]['valor_pregunta'] == 3)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">3</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Puedes pensar en una situación de trabajo en la que hayas visto una oportunidad en un problema potencial? ¿Qué hiciste? ¿Cuál fue el resultado?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Puedes pensar en una situación de trabajo en la que hayas visto una oportunidad en un problema potencial? ¿Qué hiciste? ¿Cuál fue el resultado?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[3]['valor_pregunta'] == 3 ? $aspirante->entrevista?->competencias[3]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">3</td>
-            <td class="blancotexto">¿Puedes pensar en una situación de trabajo en la que hayas visto una oportunidad en un problema potencial? ¿Qué hiciste? ¿Cuál fue el resultado?.</td>
+            <td class="blancotexto">¿Puedes pensar en una situación de trabajo en la que hayas visto una oportunidad en un problema potencial? ¿Qué hiciste? ¿Cuál fue el resultado?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -724,11 +724,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[3]['valor_pregunta'] == 4)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">4</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Alguna vez has tenido un plazo que no hayas podido cumplir? ¿Qué pasó? ¿Cómo lo resolviste?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">¿Alguna vez has tenido un plazo que no hayas podido cumplir? ¿Qué pasó? ¿Cómo lo resolviste?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[3]['valor_pregunta'] == 4 ? $aspirante->entrevista?->competencias[3]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">4</td>
-            <td class="blancotexto">¿Alguna vez has tenido un plazo que no hayas podido cumplir? ¿Qué pasó? ¿Cómo lo resolviste?.</td>
+            <td class="blancotexto">¿Alguna vez has tenido un plazo que no hayas podido cumplir? ¿Qué pasó? ¿Cómo lo resolviste?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -748,11 +748,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[4]['valor_pregunta'] == 1)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">1</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame cómo te organizas cuando tienes mucho trabajo. ¿Por dónde empiezas? ¿Cómo te aseguras que todo se haga? ¿Cómo te sientes cuando tienes tanto que hacer?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame cómo te organizas cuando tienes mucho trabajo. ¿Por dónde empiezas? ¿Cómo te aseguras que todo se haga? ¿Cómo te sientes cuando tienes tanto que hacer?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[4]['valor_pregunta'] == 1 ? $aspirante->entrevista?->competencias[4]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">1</td>
-            <td class="blancotexto">Cuéntame cómo te organizas cuando tienes mucho trabajo. ¿Por dónde empiezas? ¿Cómo te aseguras que todo se haga? ¿Cómo te sientes cuando tienes tanto que hacer?.</td>
+            <td class="blancotexto">Cuéntame cómo te organizas cuando tienes mucho trabajo. ¿Por dónde empiezas? ¿Cómo te aseguras que todo se haga? ¿Cómo te sientes cuando tienes tanto que hacer?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -764,11 +764,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[4]['valor_pregunta'] == 2)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">2</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame un ejemplo de cuando hayas tenido que organizar un área de trabajo o un evento. ¿Qué tuviste qué hacer? ¿Cómo te organizaste y planificaste para ello? ¿Qué plazos previste? ¿Cuál fue el resultado?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame un ejemplo de cuando hayas tenido que organizar un área de trabajo o un evento. ¿Qué tuviste qué hacer? ¿Cómo te organizaste y planificaste para ello? ¿Qué plazos previste? ¿Cuál fue el resultado?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[4]['valor_pregunta'] == 2 ? $aspirante->entrevista?->competencias[4]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">2</td>
-            <td class="blancotexto">Cuéntame un ejemplo de cuando hayas tenido que organizar un área de trabajo o un evento. ¿Qué tuviste qué hacer? ¿Cómo te organizaste y planificaste para ello? ¿Qué plazos previste? ¿Cuál fue el resultado?.</td>
+            <td class="blancotexto">Cuéntame un ejemplo de cuando hayas tenido que organizar un área de trabajo o un evento. ¿Qué tuviste qué hacer? ¿Cómo te organizaste y planificaste para ello? ¿Qué plazos previste? ¿Cuál fue el resultado?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -780,11 +780,11 @@ page-break-before: always;
         <tr>
         @if($aspirante->entrevista->competencias[4]['valor_pregunta'] == 3)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">3</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame una situación especial en la que demostraras eficacia organizando y controlando tu trabajo. ¿Qué ocurrió?  ¿Cuál fue el resultado final? ¿Por qué crees que lograste ser eficaz en esa ocasión?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame una situación especial en la que demostraras eficacia organizando y controlando tu trabajo. ¿Qué ocurrió?  ¿Cuál fue el resultado final? ¿Por qué crees que lograste ser eficaz en esa ocasión?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[4]['valor_pregunta'] == 3 ? $aspirante->entrevista?->competencias[4]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">3</td>
-            <td class="blancotexto">Cuéntame una situación especial en la que demostraras eficacia organizando y controlando tu trabajo. ¿Qué ocurrió?  ¿Cuál fue el resultado final? ¿Por qué crees que lograste ser eficaz en esa ocasión?.</td>
+            <td class="blancotexto">Cuéntame una situación especial en la que demostraras eficacia organizando y controlando tu trabajo. ¿Qué ocurrió?  ¿Cuál fue el resultado final? ¿Por qué crees que lograste ser eficaz en esa ocasión?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -828,7 +828,7 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blancotexto">¿SE OTORGARÁ PUNTO ADICIONAL POR SER HABLANTE DE LENGUA INDIGENA?.</td>
+        <td class="blancotexto">¿SE OTORGARÁ PUNTO ADICIONAL POR SER HABLANTE DE LENGUA INDIGENA?</td>
         @if ($aspirante->entrevista->habla_indigena =='SI')
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>SI</span></td>
             @else
@@ -847,8 +847,8 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blancognl" style="width: 60%; height: 50px; text-align: center;"></td>
-        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" valign="bottom" style="width: 60%; height: 50px; text-align: center; font-weight: bold;">Consejo Municipal Electoral de {{($aspirante->municipio)}}</td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;">{{$aspirante->entrevista->calificacion}}%</td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
     </tbody>
@@ -867,8 +867,8 @@ page-break-before: always;
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blancognl" style="width: 60%; height: 50px; text-align: center;"></td>
-        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" valign="bottom" style="width: 60%; height: 50px; text-align: center; font-weight: bold;">Consejo Municipal Electoral de {{($aspirante->municipio)}}</td>
+        <td class="blancognl" style="width: 20%; height: 50px; text-align: center;">{{$aspirante->entrevista->calificacion}}%</td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
     </tbody>

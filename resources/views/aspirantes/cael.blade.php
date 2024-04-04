@@ -473,11 +473,11 @@ table.saltopagina {
     <tr>
     @if($aspirante->entrevista->competencias[0]['valor_pregunta'] == 2)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">2</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Podrías explicar un ejemplo de una negociación que tuviste pero que sentiste que te estaban haciendo presión ¿a que conclusión llegaste? ¿Cómo termino la negociación?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Podrías explicar un ejemplo de una negociación que tuviste pero que sentiste que te estaban haciendo presión ¿a que conclusión llegaste? ¿Cómo termino la negociación?</td>
             <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[0]['valor_pregunta'] == 2 ? $aspirante->entrevista?->competencias[0]['valor_respuesta'] : '' }}</td>
             @else
             <td class="blanconumber">2</td>
-            <td class="blancotexto">Podrías explicar un ejemplo de una negociación que tuviste pero que sentiste que te estaban haciendo presión ¿a que conclusión llegaste? ¿Cómo termino la negociación?.</td>
+            <td class="blancotexto">Podrías explicar un ejemplo de una negociación que tuviste pero que sentiste que te estaban haciendo presión ¿a que conclusión llegaste? ¿Cómo termino la negociación?</td>
             <td class="blancocali"></td>
             @endif
     </tr>
@@ -612,11 +612,11 @@ table.saltopagina {
         <tr>
         @if($aspirante->entrevista->competencias[2]['valor_pregunta'] == 1)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">1</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[2]['valor_pregunta'] == 1 ? $aspirante->entrevista?->competencias[2]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">1</td>
-            <td class="blancotexto">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?.</td>
+            <td class="blancotexto">Hábleme de un problema difícil que haya podido resolver ¿cómo lo resolvió y que resultados obtuvo?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -644,11 +644,11 @@ table.saltopagina {
         <tr>
         @if($aspirante->entrevista->competencias[2]['valor_pregunta'] == 3)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">3</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[2]['valor_pregunta'] == 3 ? $aspirante->entrevista?->competencias[2]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">3</td>
-            <td class="blancotexto">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?.</td>
+            <td class="blancotexto">Cuéntanos sobre una situación en la que el conflicto generó un resultado negativo. ¿Cómo manejaste la situación y qué aprendiste de ella?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -660,11 +660,11 @@ table.saltopagina {
         <tr>
         @if($aspirante->entrevista->competencias[2]['valor_pregunta'] == 4)
             <td class="blanconumber" style=" background: rgb(219, 215, 204);">4</td>
-            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?.</td>
+            <td class="blancotexto" style=" background: rgb(219, 215, 204);">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?</td>
              <td class="blancocali" style=" background: rgb(219, 215, 204);">{{ $aspirante->entrevista?->competencias[2]['valor_pregunta'] == 4 ? $aspirante->entrevista?->competencias[2]['valor_respuesta'] : '' }}</td>
              @else
             <td class="blanconumber">4</td>
-            <td class="blancotexto">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?.</td>
+            <td class="blancotexto">Cuéntame sobre las situaciones de cambio más importantes a las que te has enfrentado ¿Cómo te las arreglaste?</td>
             <td class="blancocali"></td>
             @endif
         </tr>
@@ -783,7 +783,7 @@ table.saltopagina {
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blancognl" style="width: 60%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 60%; height: 50px; text-align: center; font-weight: bold;">Consejo Municipal Electoral de {{($aspirante->municipio)}}</td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
@@ -803,7 +803,7 @@ table.saltopagina {
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="blancognl" style="width: 60%; height: 50px; text-align: center;"></td>
+        <td class="blancognl" style="width: 60%; height: 50px; text-align: center; font-weight: bold;">Consejo Municipal Electoral de {{($aspirante->municipio)}}</td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
         <td class="blancognl" style="width: 20%; height: 50px; text-align: center;"></td>
     </tr>
