@@ -821,7 +821,7 @@
                                                  value="5"
                                                  wire:model="competencia_1_respuesta"
                                                  id="competencia_1_r_1_cael"
-                                                 name="competencia_1_p_1_cael" />
+                                                 name="competencia_1_r_1_cael" />
                                           <label class="form-check-label"></label>
                                       </div>
                                   </td>
