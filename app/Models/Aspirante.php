@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use FontLib\TrueType\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -55,22 +56,27 @@ class Aspirante extends Model
 
         $experiencias = $this->experiencia_laboral;
 
+
         if (count($experiencias) == 1)
             return $experiencias[0];
 
-        $experiencias = array_filter($experiencias, fn($item) => $item['actual'] == 1 );
-        if (count($experiencias) > 0)
-            return $experiencias[0];
+        $experienciasActuales = array_filter($experiencias, fn($item) => $item['actual'] == 1 );
+
+        if (count($experienciasActuales) > 0)
+            return $experienciasActuales[0];
 
 
         $fechas = array_column($experiencias, 'fin');
-        $fechas = sort($fechas, SORT_DESC);
+        usort($fechas, function ($a, $b) {
+            return strtotime($b) - strtotime($a);
+        });
         $ultimaFecha = $fechas[0] ?? null;
 
         if (!$ultimaFecha)
             return null;
 
-        $experiencias = array_filter($experiencias, fn($item) => $item['fin'] == $ultimaFecha );
+        $experiencias = array_filter($experiencias, fn($item) => $item['fin'] == $ultimaFecha);
+        $experiencias = array_values($experiencias);
 
         if (count($experiencias) > 0)
             return $experiencias[0];
