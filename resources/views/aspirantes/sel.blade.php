@@ -122,18 +122,23 @@ page-break-before: always;
 </style>
 </head>
 <body>
-<header>    
+<header>
     <table class="header">
         <tbody>
-        <tr>
-            <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/logoIEPC.png" width="150px" height="80px" salt=""></td>
-            <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/logoEAE2024.png" width="140px" height="80px" alt=""></td>
-            <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/pelo_2024.png" width="170px" height="100px" alt=""></td>
-        </tr>                    
+            <tr>
+                <td style="width: 33%;" align="center" valign="middle"><img
+                        src="../public/imgs/logoIEPC.png" width="150px"
+                        height="80px" salt=""></td>
+                <td style="width: 33%;" align="center" valign="middle"><img
+                        src="../public/imgs/logoEAE2024.png" width="140px"
+                        height="80px" alt=""></td>
+                <td style="width: 33%;" align="center" valign="middle"><img
+                        src="../public/imgs/pelo_2024.png" width="170px"
+                        height="100px" alt=""></td>
+            </tr>
         </tbody>
     </table>
 </header>
-
 <!--CARATULA DE ENTREVISTA-->
 
 <table class="cuerpo">
@@ -273,7 +278,6 @@ page-break-before: always;
                 @if ($aspirante->experiencia_laboral)
                     <td class="rojo" style="width: 25%">{{mb_strtoupper ($aspirante->experiencia_laboral[$i]['puesto'])}}</td>
                 @endif
-                
             }
             @endfor    
 
@@ -816,7 +820,7 @@ page-break-before: always;
 	<tbody>
     <tr>
         <td class="blanco" style="width: 85%; text-align: right;">Calificación total ponderada*:</td>
-        <td class="blancocali">{{$aspirante->entrevista->calificacion}}</td>
+        <td class="blancocali">{{$aspirante->entrevista->calificacion}}%</td>
     </tr>
     </tbody>
 </table>
