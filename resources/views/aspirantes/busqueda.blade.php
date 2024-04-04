@@ -105,12 +105,16 @@
                         </button>
 
                         <button class="btn bg-gradient-navy" wire:click="exportarEvaluados">
-                            <span wire:loading.remove wire:target="exportarEvaluados"><i class="fa fa-file-pdf"></i> Exportar aspirantes evaluados</span>
+                            <span wire:loading.remove wire:target="exportarEvaluados"><i class="fa fa-file-pdf"></i> Exportar evaluados</span>
                             <span wire:loading wire:target="exportarEvaluados">Generando archivo</span>
                         </button>
-                        <button class="btn bg-gradient-dark" wire:click="exportarEntrevistados">
-                            <span wire:loading.remove wire:target="exportarEntrevistados"><i class="fa fa-file-pdf"></i> Exportar aspirantes entrevistados</span>
+                        <button class="btn bg-gradient-indigo" wire:click="exportarEntrevistados">
+                            <span wire:loading.remove wire:target="exportarEntrevistados"><i class="fa fa-file-pdf"></i> Exportar entrevistados</span>
                             <span wire:loading wire:target="exportarEntrevistados">Generando archivo</span>
+                        </button>
+                        <button class="btn bg-gradient-gray-dark" wire:click="exportarResultadosFinales">
+                            <span wire:loading.remove wire:target="exportarResultadosFinales"><i class="fa fa-file-pdf"></i> Exportar resultados finales</span>
+                            <span wire:loading wire:target="exportarResultadosFinales">Generando archivo</span>
                         </button>
                     </div>
                 </div>

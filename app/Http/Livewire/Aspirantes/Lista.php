@@ -6,6 +6,7 @@ namespace App\Http\Livewire\Aspirantes;
 use App\Exports\AspirantesExport;
 use App\Exports\EntrevistadosExport;
 use App\Exports\EvaluadosExport;
+use App\Exports\ResultadosFinalesExport;
 use App\Mail\RegistroShipped;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\File;
@@ -284,6 +285,9 @@ class Lista extends DataTableComponent
         }
         $rows =  $this->getRows();
         $rows =  $rows->filter(fn($item) => $item->evaluacion);
+        $rows->append('calificacion_evaluacion');
+
+        $rows = $rows->sortByDesc('calificacion_evaluacion');
 
         $municipio = $this->fMunicipio;
         if (auth()->user()->hasRole('odes')) {
@@ -306,6 +310,8 @@ class Lista extends DataTableComponent
         }
         $rows =  $this->getRows();
         $rows =  $rows->filter(fn($item) => $item->entrevista);
+        $rows->append('calificacion_entrevista');
+        $rows = $rows->sortByDesc('calificacion_entrevista');
 
         $municipio = $this->fMunicipio;
         if (auth()->user()->hasRole('odes')) {
@@ -315,6 +321,30 @@ class Lista extends DataTableComponent
         return Excel::download(new EntrevistadosExport($rows, $municipio), 'CALIFICACION_ENTREVISTA_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
+    public function exportarResultadosFinales() {
+
+        if (!$this->fMunicipio) {
+
+            $this->emit('swal:alert', [
+                'icon'    => 'warning',
+                'title'   => 'Debe seleccionar un municipio.',
+                'timeout' => 5000
+            ]);
+            return false;
+        }
+        $rows =  $this->getRows();
+        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion);
+        $rows->append(['calificacion_entrevista','calificacion_evaluacion','calificacion_global']);
+        $rows = $rows->sortByDesc('calificacion_global');
+
+        $municipio = $this->fMunicipio;
+        if (auth()->user()->hasRole('odes')) {
+            $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
+        }
+
+        return Excel::download(new ResultadosFinalesExport($rows, $municipio), 'RESULTADOS_FINALES_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
 
     public function openCapturaEntrevista($id) {
 
@@ -322,20 +352,4 @@ class Lista extends DataTableComponent
         $this->emitTo('aspirantes.entrevista', 'setAspirante',$id);
         $this->emit('modal:show', '#modal-entrevista');
     }
-
-    public function generarAcuseSel($id) {
-
-        $aspirante =  Aspirante::find($id);
-        $content = Pdf::loadView('aspirantes.sel', ['aspirante' => $aspirante])->setPaper('letter')->output();
-        return response()->streamDownload(fn() => print($content), 'ACUSE-SEL-'.strtoupper($aspirante->clave_elector).'.PDF');
-    }
-
-    public function generarAcuseCael($id) {
-
-        $aspirante =  Aspirante::find($id);
-        $content = Pdf::loadView('aspirantes.cael', ['aspirante' => $aspirante])->setPaper('letter')->output();
-        return response()->streamDownload(fn() => print($content), 'ACUSE-CAEL-'.strtoupper($aspirante->clave_elector).'.PDF');
-    }
-
-
 }
