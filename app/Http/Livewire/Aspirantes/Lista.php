@@ -220,8 +220,7 @@ class Lista extends DataTableComponent
     }
 
     public function exportar() {
-        $builder = $this->getBuilder();
-        $rows =  $builder->get();
+        $rows =  $this->getRows();
         return Excel::download(new AspirantesExport($rows), 'aspirantes_registrados.xlsx');
     }
 
