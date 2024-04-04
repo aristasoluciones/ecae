@@ -7,138 +7,115 @@
     <style type="">
 
 @page {
-            margin-top: 0.5cm;
-            margin-left: 1cm;
-            margin-right: 1cm;
-            margin-bottom: 0.5cm;
-            }
-        /** Definimos los márgenes body de cada página en el PDF **/
-        body {
-            margin-top: 3cm;
-            margin-left: 0.3cm;
-            font-family: Arial, Helvetica, sans-serif;
-            }
-
-        /** Definimos las reglas del encabezado **/
-        header {
-            position: fixed;
-            top: 0cm;
-            left: 0.3cm;
-            right: 0cm;
-            height: 3cm;
-            }
-
-        /** Defininimos las reglas del pie de página **/
-        footer {
-            position: fixed;
-            bottom: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 3cm;
-            }
-
-
-table.header {
-            table-layout: fixed;
-            width: 726px;
-             
+margin-top: 0.5cm;
+margin-left: 1cm;
+margin-right: 1cm;
+margin-bottom: 0.5cm;
 }
-
-table.cuerpo  {
-            
-            
-            table-layout: fixed;
-            width: 726px;
-            border-collapse: collapse;
-            border: 1px solid rgb(231, 12, 117);
-
+/** Definimos los márgenes body de cada página en el PDF **/
+body {
+margin-top: 3cm;
+margin-left: 0.3cm;
+font-family: Arial, Helvetica, sans-serif;
+}
+/** Definimos las reglas del encabezado **/
+header {
+position: fixed;
+top: 0cm;
+left: 0.3cm;
+right: 0cm;
+height: 3cm;
+}
+/** Defininimos las reglas del pie de página **/
+footer {
+position: fixed;
+bottom: 0cm;
+left: 0cm;
+right: 0cm;
+height: 3cm;
+}
+table.header {
+table-layout: fixed;
+width: 726px;
+}
+table.cuerpo {
+table-layout: fixed;
+width: 726px;
+border-collapse: collapse;
+border: 1px solid rgb(231, 12, 117);
 }
 td.rojoTi01{
-            background: rgb(231, 12, 117);
-            font-size: 12pt;
-            color: #FFFFFF;
-            text-align: center;
-            font-weight: bold;
-            border: 1px solid rgb(231, 12, 117);
-                   
-            }
+background: rgb(231, 12, 117);
+font-size: 12pt;
+color: #FFFFFF;
+text-align: center;
+font-weight: bold;
+border: 1px solid rgb(231, 12, 117);
+}
 td.rojo{
-            
-            font-size: 8pt;
-            width: 5%;
-            text-align: center;
-            border: 1px solid rgb(231, 12, 117);
-                   
-            }
-
+font-size: 8pt;
+width: 5%;
+text-align: center;
+border: 1px solid rgb(231, 12, 117);
+}
 td.rojo2{
-            
-            background: rgb(231, 12, 117);
-            font-size: 8pt;
-            color: #FFFFFF;
-            text-align: center;
-            font-weight: bold;
-            border: 1px solid rgb(231, 12, 117);
-                   
-            }
-
+background: rgb(231, 12, 117);
+font-size: 8pt;
+color: #FFFFFF;
+text-align: center;
+font-weight: bold;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blanconumber {
-            font-size: 8pt;
-            width: 5%;
-            text-align: center;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 8pt;
+width: 5%;
+text-align: center;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancocompe{
-            font-size: 10pt;
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 10pt;
+width: 100%;
+text-align: center;
+font-weight: bold;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancotexto{
-            font-size: 8pt;
-            width: 80%;
-            text-align: left;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 8pt;
+width: 80%;
+text-align: left;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancocali{
-            font-size: 8pt;
-            width: 15%;
-            text-align: center;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 8pt;
+width: 15%;
+text-align: center;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancosi{
-            font-size: 8pt;
-            width: 10%;
-            text-align: center;
-            border: 1px solid rgb(231, 12, 117);
-            }
+font-size: 8pt;
+width: 10%;
+text-align: center;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancono{
-            font-size: 8pt;
-            width: 10%;
-            text-align: center;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 8pt;
+width: 10%;
+text-align: center;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancognl{
-            font-size: 8pt;
-            text-align: justify;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 8pt;
+text-align: justify;
+border: 1px solid rgb(231, 12, 117);
+}
 td.blancognl2{
-            font-size: 8pt;
-            text-align: center;
-            border: 1px solid rgb(231, 12, 117);
-            }
-
+font-size: 8pt;
+text-align: center;
+border: 1px solid rgb(231, 12, 117);
+}
 table.saltopagina {
-            page-break-before: always;
-            }
+page-break-before: always;
+}
 
 
  
@@ -289,19 +266,25 @@ table.saltopagina {
 <table class="cuerpo">
 	<tbody>
     <tr>
+            
             <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>
-			<td class="rojo" style="width: 25%">&nbsp;</td>
+            
+            @for ($i = 0; $i <= 2; $i++) {
+                @if ($aspirante->experiencia_laboral)
+                    <td class="rojo" style="width: 25%">{{mb_strtoupper ($aspirante->experiencia_laboral[$i]['puesto'])}}</td>
+                @endif
+                
+            }
+            @endfor    
+
+
+
 			<td class="rojo" style="width: 25%">¿HABLA ALGUNA LENGUA INDIGENA?<br>Especifique:</td>
-            @if ($aspirante->entrevista->habla_indigena =='Si')
-			        <td class="rojo" style="width: 25%"><span>{{mb_strtoupper ($aspirante->p11_1_cual) }}</span></td>
+            @if ($aspirante->entrevista->habla_indigena =='SI')
+			        <td class="rojo" style="width: 25%"><span>{{mb_strtoupper ($aspirante->entrevista->cual_lengua_indigena)}}</span></td>
                     @else
                     <td class="rojo" style="width: 10%"><span>&nbsp;</span></td>
-            @endif
-            
-            @if ($aspirante->entrevista->habla_indigena =='NO')
-			        <td class="rojo" style="width: 25%"><span></span></td>
-            @endif
-				
+            @endif				
 		</tr>
     </tbody>
 </table>
