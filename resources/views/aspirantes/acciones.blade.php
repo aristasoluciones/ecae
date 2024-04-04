@@ -17,7 +17,7 @@
             </a>
         @endif
         @if(auth()->user()->can('aspirantes.entrevista'))
-            <a class="btn bg-gradient-navy text-white m-1" wire:click="openCapturaEntrevista({{ $row->id }})" title="Capturar entrevista">
+            <a class="btn bg-gradient-indigo text-white m-1" wire:click="openCapturaEntrevista({{ $row->id }})" title="Capturar entrevista">
                 <i class="fas fa-user-tag" aria-hidden="true"></i>
             </a>
          @endif
@@ -27,14 +27,4 @@
             </a>
         @endif
     @endif
-    @hasanyrole('superadministrador')
-        <a class="btn bg-gradient-indigo text-white m-1" wire:click="generarAcuseSel({{ $row->id }})" title="Generar acuse SEL">
-            <i class="fas fa-file-invoice" aria-hidden="true"></i>
-        </a>
-        <a class="btn bg-gradient-blue text-white m-1" wire:click="generarAcuseCael({{ $row->id }})" title="Generar acuse CAEL">
-            <i class="fas fa-file-invoice" aria-hidden="true"></i>
-        </a>
-    @endhasanyrole
-
-
 </div>

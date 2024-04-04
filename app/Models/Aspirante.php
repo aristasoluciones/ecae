@@ -12,7 +12,7 @@ class Aspirante extends Model
 
     protected $casts = ['experiencia_laboral' => 'json'];
 
-    protected $with  = ['evaluacion'];
+    protected $with     = ['evaluacion'];
 
     const ESTATUS_PENDIENTE   = 'Pendiente';
     const ESTATUS_ACEPTADO    = 'Aceptado';
@@ -33,6 +33,19 @@ class Aspirante extends Model
 
     public function evaluacion() {
         return $this->hasOne(Evaluacion::class);
+    }
+
+    public function getCalificacionEvaluacionAttribute() {
+        return $this->evaluacion?->calificacion_final;
+    }
+
+    public function getCalificacionEntrevistaAttribute() {
+        return $this->entrevista?->calificacion;
+    }
+
+
+    public function getCalificacionGlobalAttribute() {
+        return number_format($this->evaluacion?->calificacion_final_porcentaje + $this->entrevista?->calificacion,2);
     }
 
     public function entrevista() {

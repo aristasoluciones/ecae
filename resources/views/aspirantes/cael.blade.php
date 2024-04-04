@@ -756,7 +756,7 @@ table.saltopagina {
 	<tbody>
     <tr>
         <td class="blanco" style="width: 85%; text-align: right;">Calificación total ponderada*:</td>
-        <td class="blancocali">{{$aspirante->entrevista->calificacion}}</td>
+        <td class="blancocali">{{$aspirante->entrevista->calificacion}}%</td>
     </tr>
     </tbody>
 </table>
