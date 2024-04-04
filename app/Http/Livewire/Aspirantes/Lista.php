@@ -222,7 +222,7 @@ class Lista extends DataTableComponent
     }
 
     public function exportar() {
-        $this->selectAll =  true;
+        $this->setSelectAllStatus(true);
         $rows =  $this->getSelected();
         return Excel::download(new AspirantesExport($rows), 'aspirantes_registrados.xlsx');
     }
