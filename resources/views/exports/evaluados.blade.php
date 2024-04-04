@@ -105,16 +105,9 @@
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->evaluacion?->calificacion_final }}</td>
         </tr>
     @endforeach
-    <tr rowspan="4">
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
+    <tr>
+        <th colspan="9">&nbsp;</th>
+
     </tr>
     <tr>
         <th colspan="9">
@@ -132,36 +125,42 @@
         </th>
     </tr>
     <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th colspan="3" style="text-align: center; font-weight: bold">La Presidencia</th>
     </tr>
     <tr>
         <th></th>
         <th></th>
         <th></th>
         <th></th>
-        <th colspan="5" style="text-align: center; font-weight: bold">La Presidencia</th>
+        <th></th>
+        <th></th>
+        <th colspan="3" style="text-align: center; font-weight: bold">C.___________________________________________</th>
     </tr>
     <tr>
         <th></th>
         <th></th>
         <th></th>
         <th></th>
-        <th colspan="5" style="text-align: center; font-weight: bold">C.___________________________________________</th>
-    </tr>
-    <tr>
         <th></th>
         <th></th>
-        <th></th>
-        <th></th>
-        <th colspan="5" style="text-align: center; font-weight: bold">Nombre y firma</th>
+        <th colspan="3" style="text-align: center; font-weight: bold">Nombre y firma</th>
     </tr>
     </tbody>
 </table>
