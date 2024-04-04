@@ -1206,7 +1206,7 @@
                     @if($this->entrevista?->id > 0 && $this->tipo && !$this->cambio_de_tipo)
                         <button class="btn bg-gradient-navy" wire:click="generarAcuse">
                             <span wire:loading.remove wire:target="generarAcuse"><i class="fa fa-download"></i> Descargar Acuse</span>
-                            <span wire:loading wire:target="generarAcuse">Generado documento espere un momento...</span>
+                            <span wire:loading wire:target="generarAcuse">Generando documento espere un momento...</span>
                         </button>
                     @endif
                 </div>
