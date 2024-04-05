@@ -179,8 +179,8 @@ class Lista extends DataTableComponent
         if($this->fPeriodo) {
 
             $periodoExp = explode('al', $this->fPeriodo);
-            $fPeriodoInicial = trim($periodoExp[0])."00:00:00";
-            $fPeriodoFinal   = trim($periodoExp[1])."23:59:59";
+            $fPeriodoInicial = trim($periodoExp[0])." 00:00:00";
+            $fPeriodoFinal   = trim($periodoExp[1])." 23:59:59";
 
             $query->whereRaw('created_at >= ? AND created_at <= ?', [$fPeriodoInicial, $fPeriodoFinal]);
         }
