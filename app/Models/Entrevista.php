@@ -34,12 +34,21 @@ class Entrevista extends Model
 
         $puntos = $this->puntos;
 
-        $porcentaje = ($puntos * config('constants.porcentaje_entrevista')) / 100;
+        $porcentaje = ($puntos * config('constants.calificacion_maxima_entrevista')) / 100;
 
         if ($this->habla_indigena === 'SI')
-            $porcentaje = $porcentaje +  10;
+            $porcentaje = $porcentaje +  1;
 
-        return $porcentaje > config('constants.porcentaje_entrevista') ? number_format(config('constants.porcentaje_entrevista'),2) : number_format($porcentaje,2);
+        return $porcentaje > config('constants.calificacion_maxima_entrevista') ? number_format(config('constants.calificacion_maxima_entrevista'),2) : number_format($porcentaje,2);
+    }
+
+    public function getCalificacionFinalPorcentajeAttribute() {
+
+        $porcentaje = $this->calificacion * config('constants.porcentaje_entrevista') / config('constants.calificacion_maxima_entrevista');
+
+        return $porcentaje >  config('constants.porcentaje_entrevista')
+            ?  config('constants.porcentaje_porcentaje_entrevista')
+            : $porcentaje;
     }
 
 }

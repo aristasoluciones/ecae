@@ -118,7 +118,7 @@ page-break-before: always;
 }
 
 
- 
+
 </style>
 </head>
 <body>
@@ -194,7 +194,7 @@ page-break-before: always;
                     <td class="rojo" style="width: 10%"><span>LGBTTTIQ+</span></td>
             @endif
 
-			
+
 		</tr>
 		<tr>
 			<td class="blancognl2">{{mb_strtoupper ($aspirante->nombre) }}</td>
@@ -264,21 +264,21 @@ page-break-before: always;
                 <td class="rojo" style="width: 31%">&nbsp;</td>
             @endif
 		</tr>
-        
+
 	</tbody>
 </table>
 
 <table class="cuerpo">
 	<tbody>
     <tr>
-        <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>          
+        <td class="rojo" style="width: 25%">ULTIMO EMPLEO / ACTUAL</td>
         <td class="rojo" style="width: 25%">{{$aspirante['ultimo_empleo'] ? $aspirante['ultimo_empleo']['puesto'] : '' }}</td>
 			<td class="rojo" style="width: 25%">¿HABLA ALGUNA LENGUA INDIGENA?<br>Especifique:</td>
             @if ($aspirante->entrevista->habla_indigena =='SI')
 			        <td class="rojo" style="width: 25%"><span>{{mb_strtoupper ($aspirante->entrevista->cual_lengua_indigena)}}</span></td>
                     @else
                     <td class="rojo" style="width: 10%"><span>&nbsp;</span></td>
-            @endif				
+            @endif
 		</tr>
     </tbody>
 </table>
@@ -313,7 +313,7 @@ page-break-before: always;
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif  
+        @endif
     </tr>
     </tbody>
 </table>
@@ -333,7 +333,7 @@ page-break-before: always;
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif  
+        @endif
     </tr>
     </tbody>
 </table>
@@ -353,7 +353,7 @@ page-break-before: always;
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif  
+        @endif
     </tr>
     </tbody>
 </table>
@@ -367,7 +367,7 @@ page-break-before: always;
             <td class="blancognl" style="width: 45%; text-align:center;"><span>{{mb_strtoupper ($aspirante->entrevista->cargo_tiempo_donde_pe)}}</span></td>
             @else
             <td class="blancosi" style="width: 45%"><span></span></td>
-        @endif        
+        @endif
     </tr>
     </tbody>
 </table>
@@ -387,7 +387,7 @@ page-break-before: always;
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif  
+        @endif
     </tr>
     </tbody>
 </table>
@@ -401,7 +401,7 @@ page-break-before: always;
             <td class="blancognl" style="width: 45%; text-align:center;"><span>{{mb_strtoupper ($aspirante->entrevista->cargo_tiempo_donde_pp_oc)}}</span></td>
             @else
             <td class="blancosi" style="width: 45%"><span></span></td>
-        @endif     
+        @endif
     </tr>
     </tbody>
 </table>
@@ -810,7 +810,7 @@ page-break-before: always;
 	<tbody>
     <tr>
         <td class="blanco" style="width: 85%; text-align: right;">Calificación total ponderada*:</td>
-        <td class="blancocali">{{$aspirante->entrevista->calificacion}}%</td>
+        <td class="blancocali">{{$aspirante->entrevista->calificacion}}</td>
     </tr>
     </tbody>
 </table>
@@ -829,7 +829,7 @@ page-break-before: always;
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif  
+        @endif
     </tr>
     </tbody>
 </table>

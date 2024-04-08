@@ -97,7 +97,7 @@
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->nombre) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000; text-align: center">{{ $row->entrevista?->puntos}}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->entrevista?->habla_indigena }}</td>
-            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->entrevista?->calificacion }} %</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->entrevista?->calificacion }}</td>
         </tr>
     @endforeach
     <tr rowspan="4">
