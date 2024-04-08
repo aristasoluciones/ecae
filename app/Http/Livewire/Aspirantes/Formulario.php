@@ -25,8 +25,9 @@ class Formulario extends Component
 {
     use AuthorizesRequests;
 
-    public  $candidato;
+    public $candidato;
 
+    public $cerrado;
     public $aspirante_id;
     public $municipio;
     public $localidad;
@@ -583,6 +584,10 @@ class Formulario extends Component
         $this->validate([
             'experiencia_3_fin' =>  $this->rulesExperiencia3()['fin']
         ]);
+    }
+
+    public function booted() {
+        $this->cerrado = strtotime(date('Y-m-d H:i:s')) == strtotime('2024-04-11 23:59:59');
     }
 
     public function mount(Aspirante $candidato) {

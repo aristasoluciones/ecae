@@ -46,7 +46,15 @@
 
 @endpush
 <div class="container">
-    @if (!$this->registrado)
+    @if($cerrado)
+        <div class="col-md-12">
+                <div class="alert alert-danger">
+                    <p>El periodo de registro ha finalizado.</p>
+                </div>
+        </div>
+    @endif
+
+    @if (!$this->registrado && !$cerrado)
         <div class="card card-pink">
             <div class="card-header">
                 <h5 class="card-title text-justify text-bold">
@@ -1620,7 +1628,7 @@
             </div>
         </div>
     @endif
-    @if($this->registrado)
+    @if($this->registrado && !$cerrado)
         <div class="card card-iepc-outline">
             <div class="card-header">
                 <h4 class="card-title text-bold">Acuse de registro</h4>
@@ -1665,6 +1673,8 @@
             </div>
         </div>
     @endif
+
+    @if(!$cerrado)
     <div id="modal-confirmar" wire:ignore.self class="modal fade" role="dialog" data-backdrop="static"
          data-keyboard="false">
         <div class="modal-dialog">
@@ -1699,7 +1709,7 @@
             </div>
         </div>
     </div>
-
+    @endif
     @if($errors->any())
         <script wire:key="{{ rand() }}">
             let firstInvalidInput = document.querySelector(".is-invalid");
