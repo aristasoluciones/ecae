@@ -39,14 +39,14 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group">
-                            <label for="">Municipio</label>
+                            <label for="">Consejo Municipal</label>
                             <select class="form-control"
                                     wire:model.defer="fMunicipio"
                                     name="fMunicipio"
                                     id="fMunicipio">
                                 <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
                                 @foreach ($this->municipios as $municipio)
-                                    <option value="{{ $municipio->municipio }}">{{ $municipio->municipio }}</option>
+                                    <option value="{{ $municipio->sede }}">{{ $municipio->sede }}</option>
                                 @endforeach
                             </select>
                         </div>

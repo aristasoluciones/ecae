@@ -79,7 +79,7 @@ class Lista extends DataTableComponent
         $sedes = [];
 
         $queryMun = Aspirante::query()
-            ->select('municipio', DB::raw('count(id) as total'));
+            ->select('sede', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes')) {
             $sedes = [auth()->user()->sede];
@@ -90,8 +90,8 @@ class Lista extends DataTableComponent
         }
 
 
-        $this->municipios = $queryMun->groupBy('municipio')
-                                     ->orderBy('municipio')
+        $this->municipios = $queryMun->groupBy('sede')
+                                     ->orderBy('sede')
                                      ->get();
 
         $queryEdad = Aspirante::query()
@@ -164,8 +164,11 @@ class Lista extends DataTableComponent
         if($this->fNombre)
             $query->whereRaw('CONCAT_WS(" ",nombre,apellido1,apellido2) LIKE ?', ['%'.$this->fNombre.'%']);
 
-        if($this->fMunicipio)
-            $query->whereRaw('municipio = ?', [$this->fMunicipio]);
+        if($this->fMunicipio) {
+            //$sedeString = "Consejo Municipal Electoral de ".trim($this->fMunicipio);
+
+            $query->whereRaw('sede = ?', [$this->fMunicipio]);
+        }
 
         if($this->fEdad)
             $query->whereRaw('edad = ?', [$this->fEdad]);

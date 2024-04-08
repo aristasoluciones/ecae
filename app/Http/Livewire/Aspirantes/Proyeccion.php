@@ -33,19 +33,20 @@ class Proyeccion extends Component
 
             if(auth()->user()->sede === 'Consejo Municipal Electoral de Huixtán') {
                 array_push($sedes, 'Consejo Municipal Electoral de Oxchuc');
-                array_push($filtroMun, 'Oxchuc');
+                array_push($filtroMun, 'OXCHUC');
             }
             $query->whereIn('sede',$sedes);
         }
 
         if($this->municipio) {
-            $query->where('municipio', $this->municipio);
+            $sedeString = "Consejo Municipal Electoral de ".trim($this->municipio);
+            $query->whereRaw('sede = ?', $sedeString);
             array_push($filtroMun, trim($this->municipio));
         }
 
         if (count($filtroMun) > 0) {
             $queryConsejo->whereHas('municipio', function ($query) use ($filtroMun) {
-                $query->whereIn('nombre', $filtroMun);
+                $query->where('nombre', $filtroMun);
             });
         }
 
