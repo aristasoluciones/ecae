@@ -22878,6 +22878,8 @@ return [
     'aciertos_evaluacion' => env('APP_ACIERTOS_EVALUACION',40),
     'calificacion_minima' => env('APP_CALIFICACION_MINIMA',6),
     'calificacion_maxima' => env('APP_CALIFICACION_MAXIMA',10),
-    'porcentaje_examen'   => env('APP_PORCENTAJE_EXAMEN',60),
-    'porcentaje_entrevista'   => env('APP_PORCENTAJE_ENTREVISTA',40),
+    'porcentaje_examen'   => env('APP_PORCENTAJE_EXAMEN',6),
+    'porcentaje_entrevista'   => env('APP_PORCENTAJE_ENTREVISTA',4),
+    'porcentaje_maximo'   => env('APP_PORCENTAJE_MAXIMO',10),
+    'calificacion_maxima_entrevista' => env('APP_CALIFICACION_MAXIMA_ENTREVISTA',10),
 ];

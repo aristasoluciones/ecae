@@ -82,8 +82,8 @@
         <!--col03--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Apellido Paterno</th>
         <!--col04--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Apellido Materno</th>
         <!--col05--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Nombre(s)</th>
-        <!--col06--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">60% EXAMEN</th>
-        <!--col07--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">40% ENTREVISTA</th>
+        <!--col06--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Examen</th>
+        <!--col07--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Entrevista</th>
         <!--col09--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000">Calificación</th>
     </tr>
     </thead>
@@ -95,9 +95,9 @@
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->apellido1) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->apellido2) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->nombre) }}</td>
-            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000; text-align: center">{{ $row->evaluacion?->calificacion_final_porcentaje}} %</td>
-            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->entrevista?->calificacion }} %</td>
-            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->calificacion_global }} %</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000; text-align: center">{{ $row->evaluacion?->calificacion_final_porcentaje}}</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->entrevista?->calificacion_final_porcentaje }}</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->calificacion_global }}</td>
         </tr>
     @endforeach
     <tr rowspan="4">

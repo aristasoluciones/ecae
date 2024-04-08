@@ -1189,7 +1189,7 @@
                                 <strong>Puntos obtenidos : </strong> <span class="badge badge-success fs-15">{{ $this->resultado }} de 100</span>
                             </div>
                             <div class="form-group ml-md-2">
-                                <strong> % Calificación Obtenida: </strong> <span class="badge badge-success fs-15">{{ $this->porcentajeObtenido }} %  de 40 %</span>
+                                <strong>Calificación Obtenida: </strong> <span class="badge badge-success fs-15">{{ $this->porcentajeObtenido }} de 10.00</span>
                             </div>
                         @endif
                     </div>

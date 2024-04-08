@@ -47,7 +47,7 @@ class Aspirante extends Model
 
 
     public function getCalificacionGlobalAttribute() {
-        return number_format($this->evaluacion?->calificacion_final_porcentaje + $this->entrevista?->calificacion,2);
+        return number_format($this->evaluacion?->calificacion_final_porcentaje + $this->entrevista?->calificacion_final_porcentaje,2);
     }
 
     public function getUltimoEmpleoAttribute() {
