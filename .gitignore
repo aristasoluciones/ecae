@@ -14,3 +14,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+app/Http/Livewire/Aspirantes/Contratos.php
+app/Models/Contratos.php
+database/migrations/2024_04_05_121201_create_contratos_table.php
