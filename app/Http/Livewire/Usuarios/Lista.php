@@ -52,6 +52,7 @@ class Lista extends DataTableComponent
     }
     public function mount() {
 
+        $this->reset(['fNombre','fTipoUsuario','fConsejo']);
         $this->roles = Role::query()->whereNotIn('name', config('constants.roles_especiales'))
             ->orderBy('name')
             ->get()
