@@ -15,6 +15,7 @@
         </div>
         <div id="filtro" class="collapse show" data-parent="#">
             <div class="card-body">
+                <form action="#" onsubmit="return false" method="post" autocomplete="off">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group">
@@ -65,6 +66,7 @@
                         </button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
