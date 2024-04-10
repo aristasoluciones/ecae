@@ -102,8 +102,11 @@ class Edad extends ChartComponent
             $query->whereIn('sede',$sedes);
         }
 
-        if($this->municipio)
-            $query->where('municipio',$this->municipio);
+        if($this->municipio) {
+            $sedeString = "Consejo Municipal Electoral de ".trim($this->municipio);
+            $query->whereRaw('sede = ?', $sedeString);
+            //$query->where('municipio', $this->municipio);
+        }
 
         $resultados = $query->orderBy('edad', 'desc')
                       ->get();
