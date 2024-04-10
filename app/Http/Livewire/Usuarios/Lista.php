@@ -42,7 +42,8 @@ class Lista extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setAdditionalSelects(['id','sede','email_verified_at','activo']);
-        $this->setColumnSelectEnabled();
+        $this->setColumnSelectDisabled();
+        $this->setSearchDisabled();
         $this->setConfigurableAreas([
             'before-tools' => [
                 'usuarios.tools'
@@ -63,33 +64,7 @@ class Lista extends DataTableComponent
         $this->consejos = array_map(fn($var) => 'Consejo Municipal Electoral de ' .$var, $municipios);
     }
 
-    public function filters(): array
-    {
-        $rolesQuery = Role::query();
-        $rolesQuery->whereNotIn('name', config('constants.roles_especiales'));
 
-        $roles =  $rolesQuery->orderBy('name')
-                            ->get()
-                            ->keyBy('name')
-                            ->map(fn($rol) => $rol->name)
-                            ->toArray();
-
-        return [
-            MultiSelectFilter::make('Tipo de usuario')
-                ->options($roles)->filter(function(Builder $builder, array $value) {
-                    $builder->whereHas('roles', fn ($query2) => $query2->whereIn('name', $value));
-                }),
-            TextFilter::make('Nombre')
-                ->config([
-                    'placeholder' => 'Buscar por nombre',
-                    'maxlength' => '100',
-                ])
-                ->filter(function(Builder $builder, string $value) {
-                    $builder->where('name','like','%'.$value.'%')
-                    ->orWhere('email','like','%'.$value.'%');
-                }),
-        ];
-    }
     public function filtrar($query): Builder
     {
         if($this->fTipoUsuario)
