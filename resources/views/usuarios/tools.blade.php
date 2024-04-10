@@ -23,8 +23,8 @@
                                    autocomplete="off"
                                    class="form-control"
                                    wire:model.defer="fNombre"
-                                   name="fNombre"
-                                   id="fNombre">
+                                   id="fNombreUser"
+                                   name="fNombreUser">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
