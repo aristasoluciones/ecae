@@ -6,7 +6,7 @@
     </a>
 </div>
 
-<div id="acordion" wire:ignore>
+<div id="acordion">
     <div class="card card-pink">
         <div class="card-header">
             <h4 class="card-title w-100">
