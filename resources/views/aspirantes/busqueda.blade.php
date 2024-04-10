@@ -32,6 +32,7 @@
                         <div class="form-group">
                             <label for="">Nombre</label>
                             <input type="text" class="form-control"
+                                   autocomplete="off"
                                    wire:model.defer="fNombre"
                                    name="fNombre"
                                    id="fNombre">
