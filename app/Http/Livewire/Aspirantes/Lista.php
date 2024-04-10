@@ -26,12 +26,14 @@ class Lista extends DataTableComponent
     public $registroEliminar;
 
     public $municipios;
+    public $sedes;
     public $edades;
     public $generos;
     public $estatuses;
 
     public $fFolio;
     public $fNombre;
+    public $fSede;
     public $fMunicipio;
     public $fEdad;
     public $fGenero;
@@ -79,6 +81,9 @@ class Lista extends DataTableComponent
         $sedes = [];
 
         $queryMun = Aspirante::query()
+            ->select('municipio', DB::raw('count(id) as total'));
+
+        $querySede = Aspirante::query()
             ->select('sede', DB::raw('count(id) as total'));
 
         if (auth()->user()->hasRole('odes')) {
@@ -87,12 +92,17 @@ class Lista extends DataTableComponent
                 array_push($sedes, 'Consejo Municipal Electoral de Oxchuc');
             }
             $queryMun->whereIn('sede',$sedes);
+            $querySede->whereIn('sede',$sedes);
         }
 
 
-        $this->municipios = $queryMun->groupBy('sede')
-                                     ->orderBy('sede')
+        $this->municipios = $queryMun->groupBy('municipio')
+                                     ->orderBy('municipio')
                                      ->get();
+
+        $this->sedes = $querySede->groupBy('sede')
+            ->orderBy('sede')
+            ->get();
 
         $queryEdad = Aspirante::query()
             ->select('edad', DB::raw('count(id) as total'));
@@ -164,10 +174,12 @@ class Lista extends DataTableComponent
         if($this->fNombre)
             $query->whereRaw('CONCAT_WS(" ",nombre,apellido1,apellido2) LIKE ?', ['%'.$this->fNombre.'%']);
 
-        if($this->fMunicipio) {
-            //$sedeString = "Consejo Municipal Electoral de ".trim($this->fMunicipio);
+        if($this->fSede) {
+            $query->whereRaw('sede = ?', [$this->fSede]);
+        }
 
-            $query->whereRaw('sede = ?', [$this->fMunicipio]);
+        if($this->fMunicipio) {
+            $query->whereRaw('municipio = ?', [$this->fMunicipio]);
         }
 
         if($this->fEdad)

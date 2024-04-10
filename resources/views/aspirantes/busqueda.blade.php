@@ -40,14 +40,28 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group">
-                            <label for="">Consejo Municipal</label>
+                            <label for="">Municipio</label>
                             <select class="form-control"
                                     wire:model.defer="fMunicipio"
                                     name="fMunicipio"
                                     id="fMunicipio">
                                 <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
                                 @foreach ($this->municipios as $municipio)
-                                    <option value="{{ $municipio->sede }}">{{ $municipio->sede }}</option>
+                                    <option value="{{ $municipio->municipio }}">{{ $municipio->municipio }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
+                            <label for="">SEDE</label>
+                            <select class="form-control"
+                                    wire:model.defer="fSede"
+                                    name="fSede"
+                                    id="fSede">
+                                <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
+                                @foreach ($this->sedes as $sede)
+                                    <option value="{{ $sede->sede }}">{{ $sede->sede }}</option>
                                 @endforeach
                             </select>
                         </div>
