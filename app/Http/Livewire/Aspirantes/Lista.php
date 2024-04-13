@@ -302,11 +302,11 @@ class Lista extends DataTableComponent
 
     public function exportarEvaluados() {
 
-        if (!$this->fMunicipio) {
+        if (!$this->fSede) {
 
             $this->emit('swal:alert', [
                 'icon'    => 'warning',
-                'title'   => 'Debe seleccionar un municipio.',
+                'title'   => 'Debe seleccionar una SEDE.',
                 'timeout' => 5000
             ]);
             return false;
@@ -319,7 +319,7 @@ class Lista extends DataTableComponent
 
         $rows = $rows->sortByDesc('calificacion_evaluacion');
 
-        $municipio = $this->fMunicipio;
+        $municipio = $this->fSede;
         if (auth()->user()->hasRole('odes')) {
             $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
         }
@@ -329,11 +329,11 @@ class Lista extends DataTableComponent
 
     public function exportarEntrevistados() {
 
-        if (!$this->fMunicipio) {
+        if (!$this->fSede) {
 
             $this->emit('swal:alert', [
                 'icon'    => 'warning',
-                'title'   => 'Debe seleccionar un municipio.',
+                'title'   => 'Debe seleccionar una SEDE.',
                 'timeout' => 5000
             ]);
             return false;
@@ -345,7 +345,7 @@ class Lista extends DataTableComponent
         $rows->append('calificacion_entrevista');
         $rows = $rows->sortByDesc('calificacion_entrevista');
 
-        $municipio = $this->fMunicipio;
+        $municipio = $this->fSede;
         if (auth()->user()->hasRole('odes')) {
             $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
         }
@@ -355,11 +355,11 @@ class Lista extends DataTableComponent
 
     public function exportarResultadosFinales() {
 
-        if (!$this->fMunicipio) {
+        if (!$this->fSede) {
 
             $this->emit('swal:alert', [
                 'icon'    => 'warning',
-                'title'   => 'Debe seleccionar un municipio.',
+                'title'   => 'Debe seleccionar una SEDE.',
                 'timeout' => 5000
             ]);
             return false;
@@ -371,7 +371,7 @@ class Lista extends DataTableComponent
         $rows->append(['calificacion_entrevista','calificacion_evaluacion','calificacion_global']);
         $rows = $rows->sortByDesc('calificacion_global');
 
-        $municipio = $this->fMunicipio;
+        $municipio = $this->fSede;
         if (auth()->user()->hasRole('odes')) {
             $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
         }
