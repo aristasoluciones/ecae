@@ -39,12 +39,12 @@ class Evaluacion extends Component
     public function updatedAciertos($value) {
 
         $calificacion = ($value * config('constants.calificacion_maxima')) / config('constants.aciertos_evaluacion');
-
         $this->calificacion = $calificacion;
         $this->discapacidad =  $calificacion >= config('constants.calificacion_minima') ? ($this->aspirante->p15_discapacidad === 'Si' ? 1 : 0) : 0;
         $this->lgbtttiq     =  $calificacion >= config('constants.calificacion_minima') ? ($this->aspirante->persona_lgbtttiq === 'Si' ? 1 : 0) : 0;
 
         $calificacion = $calificacion >=config('constants.calificacion_minima') ? ($calificacion + $this->discapacidad + $this->lgbtttiq) : $calificacion;
+
         $this->calificacionFinal = $calificacion > config('constants.calificacion_maxima') ? config('constants.calificacion_maxima') : $calificacion;
 
     }
@@ -65,11 +65,11 @@ class Evaluacion extends Component
         $this->calificacion = $this->aspirante?->evaluacion?->calificacion ?? 0;
         $this->discapacidad =
             $this->aspirante?->evaluacion
-            ? $this->aspirante?->evaluacion?->discapacidad
+            ? ($this->aspirante->p15_discapacidad === 'Si' ? 1 : 0)
             : 0;
         $this->lgbtttiq =
             $this->aspirante?->evaluacion
-                ? $this->aspirante?->evaluacion?->lgbtttiq
+                ? ($this->aspirante->persona_lgbtttiq === 'Si' ? 1 : 0)
                 : 0;
 
         $this->calificacionFinal = $this->calificacion + $this->discapacidad + $this->lgbtttiq;
@@ -78,7 +78,6 @@ class Evaluacion extends Component
             : $this->calificacionFinal;
 
     }
-
 
     public function guardar() {
 

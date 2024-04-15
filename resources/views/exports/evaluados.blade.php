@@ -100,8 +100,8 @@
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->apellido2) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->nombre) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000; text-align: center">{{ $row->evaluacion?->aciertos}}</td>
-            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->evaluacion?->discapacidad ? 'SI' : 'NO' }}</td>
-            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->evaluacion?->lgbtttiq ? 'SI' : 'NO' }}</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->p15_discapacidad === 'Si' ? 'SI' : 'NO' }}</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->persona_lgbtttiq === 'Si' ? 'SI' : 'NO' }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->evaluacion?->calificacion_final }}</td>
         </tr>
     @endforeach

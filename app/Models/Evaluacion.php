@@ -21,7 +21,10 @@ class Evaluacion extends Model
 
     public function getCalificacionFinalAttribute() {
 
-        $calificacion = $this->calificacion + $this->discapacidad + $this->lgbtttiq;
+        $aspirante = $this->aspirante()->first();
+        $discapacidad = $aspirante->p15_discapacidad == 'Si' ? 1: 0;
+        $lgbtttiq     = $aspirante->persona_lgbtttiq == 'Si' ? 1: 0;
+        $calificacion = $this->calificacion + $discapacidad + $lgbtttiq;
 
         return $calificacion >  config('constants.calificacion_maxima')
             ?  config('constants.calificacion_maxima')
