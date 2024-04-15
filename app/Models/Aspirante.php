@@ -14,7 +14,7 @@ class Aspirante extends Model
 
     protected $casts = ['experiencia_laboral' => 'json'];
 
-    protected $with     = ['evaluacion'];
+   // protected $with     = ['evaluacion'];
 
     const ESTATUS_PENDIENTE   = 'Pendiente';
     const ESTATUS_ACEPTADO    = 'Aceptado';
