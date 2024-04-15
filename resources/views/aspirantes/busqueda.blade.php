@@ -102,9 +102,11 @@
                                     name="fEstatus"
                                     id="fEstatus">
                                 <option value="">{{ __('adminlte::adminlte.please_select') }}</option>
-                                @foreach ($this->estatuses as $estatus)
-                                    <option value="{{ $estatus->estatus }}">{{ $estatus->estatus }}</option>
-                                @endforeach
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="Aceptado">Aceptado</option>
+                                    <option value="No aceptado">No aceptado</option>
+                                    <option value="Evaluado">Evaluado</option>
+                                    <option value="Entrevistado">Entrevistado</option>
                             </select>
                         </div>
                     </div>
