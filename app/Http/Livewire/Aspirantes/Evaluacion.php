@@ -55,6 +55,7 @@ class Evaluacion extends Component
         $query->whereRaw('id = ?', [$id]);
 
         $this->aspirante = $query->get()->first();
+        $this->aspirante->load('evaluacion');
 
         if ($this->aspirante?->evaluacion?->id > 0)
             $this->evaluacion = $this->aspirante->evaluacion;
