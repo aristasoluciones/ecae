@@ -19,11 +19,17 @@ class Aspirante extends Model
     const ESTATUS_PENDIENTE   = 'Pendiente';
     const ESTATUS_ACEPTADO    = 'Aceptado';
     const ESTATUS_NO_ACEPTADO = 'No aceptado';
+    const ESTATUS_EVALUADO = 'Evaluado';
+    const ESTATUS_ENTREVISTADO = 'Entrevistado';
+    const ESTATUS_CONTRATADO   = 'Contratado';
 
     const ESTATUS_TITULO = [
-        self::ESTATUS_PENDIENTE => 'Pendiente',
-        self::ESTATUS_ACEPTADO  => 'Aceptado',
-        self::ESTATUS_NO_ACEPTADO  => 'No aceptado',
+        self::ESTATUS_PENDIENTE     => 'Pendiente',
+        self::ESTATUS_ACEPTADO      => 'Aceptado',
+        self::ESTATUS_NO_ACEPTADO   => 'No aceptado',
+        self::ESTATUS_EVALUADO      => 'Evaluado',
+        self::ESTATUS_ENTREVISTADO  => 'Entrevistado',
+        self::ESTATUS_CONTRATADO    => 'Contratado',
     ];
 
     protected $guarded = [];

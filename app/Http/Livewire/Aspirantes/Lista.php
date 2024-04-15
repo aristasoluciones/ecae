@@ -124,16 +124,6 @@ class Lista extends DataTableComponent
                                      ->orderBy('genero')
                                      ->get();
 
-        $queryEstatus = Aspirante::query()
-            ->select('estatus', DB::raw('count(id) as total'));
-
-        if (auth()->user()->hasRole('odes'))
-            $queryEstatus->whereIn('sede',$sedes);
-
-        $this->estatuses = $queryEstatus->groupBy('estatus')
-                                        ->orderBy('estatus')
-                                        ->get();
-
     }
 
     public function columns(): array
@@ -188,8 +178,20 @@ class Lista extends DataTableComponent
         if($this->fGenero)
             $query->whereRaw('genero = ?', [$this->fGenero]);
 
-        if($this->fEstatus)
-            $query->whereRaw('estatus = ?', [$this->fEstatus]);
+        if($this->fEstatus) {
+            switch ($this->fEstatus) {
+                case 'Evaluado':
+                    $query->whereHas('evaluacion');
+                break;
+                case 'Entrevistado':
+                    $query->whereHas('entrevista');
+                break;
+                default:
+                    $query->whereRaw('estatus = ?', [$this->fEstatus]);
+                break;
+            }
+
+        }
 
         if($this->fPeriodo) {
 

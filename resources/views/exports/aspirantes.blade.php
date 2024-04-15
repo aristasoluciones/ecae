@@ -62,7 +62,23 @@
             <!--col24--> <td>{{ mb_strtoupper($row->realiza_estudios) }}</td>
             <!--col25--><td>{{ mb_strtoupper($row->medio_convocatoria) }}</td>
             <!--col26--><td>{{ mb_strtoupper($row->motivo_secae) }}</td>
-            <!--col27--><td>{{ mb_strtoupper($row->estatus) }}</td>
+            @php
+                $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[$row->estatus];
+
+                if ($row->evaluacion) {
+                    $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[\App\Models\Aspirante::ESTATUS_EVALUADO];
+                }
+
+                if ($row->entrevista) {
+                    $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[\App\Models\Aspirante::ESTATUS_ENTREVISTADO];
+                }
+
+                if ($row->contrato) {
+                    $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[\App\Models\Aspirante::ESTATUS_CONTRATADO];
+                }
+
+            @endphp
+            <!--col27--><td>{{ mb_strtoupper($estatusTitle) }}</td>
         </tr>
     @endforeach
     </tbody>
