@@ -29,9 +29,26 @@ class Resumen extends Component
             $query->whereRaw('sede = ?', $sedeString);
         }
 
-        if($this->estatus)
-            $query->where('estatus', $this->estatus);
+        if($this->estatus) {
+            switch ($this->estatus) {
+                case Aspirante::ESTATUS_EVALUADO:
+                    $query->whereHas('evaluacion');
+                    $query->whereDoesntHave('entrevista');
+                    break;
+                case Aspirante::ESTATUS_ENTREVISTADO:
+                    $query->whereHas('entrevista');
+                    break;
+                case Aspirante::ESTATUS_ACEPTADO:
+                    $query->whereDoesntHave('evaluacion');
+                    $query->whereDoesntHave('entrevista');
+                    $query->whereRaw('estatus = ?', [$this->estatus]);
+                    break;
+                default:
+                    $query->whereRaw('estatus = ?', [$this->estatus]);
+                    break;
+            }
 
+        }
         $candidatos = $query->get();
 
         $this->total = count($candidatos);
