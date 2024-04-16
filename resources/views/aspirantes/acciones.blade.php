@@ -21,7 +21,7 @@
                 <i class="fas fa-poll-h" aria-hidden="true"></i>
             </a>
         @endif
-        @if(auth()->user()->can('aspirantes.entrevista'))
+        @if(auth()->user()->can('aspirantes.entrevista') && $row->evaluacion)
             <a class="btn bg-gradient-indigo text-white m-1" wire:click="openCapturaEntrevista({{ $row->id }})" title="Capturar entrevista">
                 <i class="fas fa-user-tag" aria-hidden="true"></i>
             </a>
