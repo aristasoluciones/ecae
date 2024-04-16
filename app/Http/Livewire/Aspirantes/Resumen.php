@@ -32,12 +32,19 @@ class Resumen extends Component
         if($this->estatus) {
             switch ($this->estatus) {
                 case Aspirante::ESTATUS_EVALUADO:
+                    $query->whereRaw('estatus = ?', [Aspirante::ESTATUS_ACEPTADO]);
                     $query->whereHas('evaluacion');
                     $query->whereDoesntHave('entrevista');
                     break;
                 case Aspirante::ESTATUS_ENTREVISTADO:
+                    $query->whereRaw('estatus = ?', [Aspirante::ESTATUS_ACEPTADO]);
                     $query->whereHas('entrevista');
+                   // $query->whereDoesntHave('contrato');
                     break;
+                /*case Aspirante::ESTATUS_CONTRATADO:
+                    $query->whereRaw('estatus = ?', [Aspirante::ESTATUS_ACEPTADO]);
+                    $query->whereHas('contrato');
+                    break;*/
                 case Aspirante::ESTATUS_ACEPTADO:
                     $query->whereDoesntHave('evaluacion');
                     $query->whereDoesntHave('entrevista');

@@ -52,18 +52,6 @@
                                                      municipio="{{ $this->municipioSeleccionado }}"/>
                     </div>
                     <div class="col-md-3 col-sm-12">
-                        <livewire:aspirantes.resumen theme="indigo"
-                                                     key="aceptado-{{ now() }}"
-                                                     estatus="{{ \App\Models\Aspirante::ESTATUS_EVALUADO }}"
-                                                     municipio="{{ $this->municipioSeleccionado }}"/>
-                    </div>
-                    <div class="col-md-3 col-sm-12">
-                        <livewire:aspirantes.resumen theme="pink"
-                                                     key="aceptado-{{ now() }}"
-                                                     estatus="{{ \App\Models\Aspirante::ESTATUS_ENTREVISTADO }}"
-                                                     municipio="{{ $this->municipioSeleccionado }}"/>
-                    </div>
-                    <div class="col-md-3 col-sm-12">
                         <livewire:aspirantes.resumen theme="success"
                                                      key="aceptado-{{ now() }}"
                                                      estatus="{{ \App\Models\Aspirante::ESTATUS_ACEPTADO }}"
@@ -80,6 +68,18 @@
                                                      key="no-aceptado-{{ now() }}"
                                                      estatus="{{ \App\Models\Aspirante::ESTATUS_NO_ACEPTADO }}"
                                                      municipio="{{ $municipioSeleccionado }}"/>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <livewire:aspirantes.resumen theme="indigo"
+                                                     key="aceptado-{{ now() }}"
+                                                     estatus="{{ \App\Models\Aspirante::ESTATUS_EVALUADO }}"
+                                                     municipio="{{ $this->municipioSeleccionado }}"/>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <livewire:aspirantes.resumen theme="pink"
+                                                     key="aceptado-{{ now() }}"
+                                                     estatus="{{ \App\Models\Aspirante::ESTATUS_ENTREVISTADO }}"
+                                                     municipio="{{ $this->municipioSeleccionado }}"/>
                     </div>
                 </div>
 
