@@ -180,12 +180,17 @@ class Lista extends DataTableComponent
 
         if($this->fEstatus) {
             switch ($this->fEstatus) {
-                case 'Evaluado':
+                case Aspirante::ESTATUS_EVALUADO:
                     $query->whereHas('evaluacion');
                 break;
-                case 'Entrevistado':
+                case Aspirante::ESTATUS_ENTREVISTADO:
                     $query->whereHas('entrevista');
                 break;
+                case Aspirante::ESTATUS_ACEPTADO:
+                    $query->whereDoesntHave('evaluacion');
+                    $query->whereDoesntHave('entrevista');
+                    $query->whereRaw('estatus = ?', [$this->fEstatus]);
+                    break;
                 default:
                     $query->whereRaw('estatus = ?', [$this->fEstatus]);
                 break;
