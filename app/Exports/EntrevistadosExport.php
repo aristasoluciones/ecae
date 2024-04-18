@@ -26,7 +26,8 @@ class EntrevistadosExport implements FromView, ShouldAutoSize,WithColumnWidths,W
     */
     public function view(): View
     {
-        return view('exports.entrevistados',[
+        $viewExcel = $this->consejo ? 'exports.entrevistados' : 'exports.entrevistados-excel';
+        return view($viewExcel,[
             'rows' => $this->rows,
             'consejo' => $this->consejo
         ]);
