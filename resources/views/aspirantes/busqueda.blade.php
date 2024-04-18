@@ -135,6 +135,10 @@
                             <span wire:loading.remove wire:target="exportarEntrevistados"><i class="fa fa-file-pdf"></i> Exportar entrevistados</span>
                             <span wire:loading wire:target="exportarEntrevistados">Generando archivo</span>
                         </button>
+                        <button class="btn bg-gradient-indigo mx-1 my-1" wire:click="exportarEntrevistadosExcel">
+                            <span wire:loading.remove wire:target="exportarEntrevistadosExcel"><i class="fa fa-file-excel"></i> Exportar entrevistados a excel</span>
+                            <span wire:loading wire:target="exportarEntrevistadosExcel">Generando archivo</span>
+                        </button>
                         <button class="btn bg-gradient-gray-dark mx-1 my-1" wire:click="exportarResultadosFinales">
                             <span wire:loading.remove wire:target="exportarResultadosFinales"><i class="fa fa-file-pdf"></i> Exportar resultados finales</span>
                             <span wire:loading wire:target="exportarResultadosFinales">Generando archivo</span>

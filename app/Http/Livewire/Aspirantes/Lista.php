@@ -368,6 +368,23 @@ class Lista extends DataTableComponent
         return Excel::download(new EntrevistadosExport($rows, $municipio), 'CALIFICACION_ENTREVISTA_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
+    public function exportarEntrevistadosExcel() {
+
+        $this->setPaginationDisabled();
+        $rows =  $this->getRows();
+        $this->setPaginationEnabled();
+        $rows =  $rows->filter(fn($item) => $item->entrevista);
+        $rows->append('calificacion_entrevista');
+        $rows = $rows->sortByDesc('calificacion_entrevista');
+
+        $municipio = $this->fSede;
+        if (auth()->user()->hasRole('odes')) {
+            $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
+        }
+
+        return Excel::download(new EntrevistadosExport($rows, $municipio), 'CALIFICACION_ENTREVISTA_SEL_Y_CAEL.xlsx');
+    }
+
     public function exportarResultadosFinales() {
 
         if (!$this->fSede) {
