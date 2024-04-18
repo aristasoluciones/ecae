@@ -66,7 +66,8 @@ class Aspirante extends Model
         if (count($experiencias) == 1)
             return $experiencias[0];
 
-        $experienciasActuales = array_filter($experiencias, fn($item) => $item['actual'] == 1 );
+        $experienciasActuales = array_filter($experiencias, fn($item) => $item['actual'] == 1)->values();
+
 
         if (count($experienciasActuales) > 0)
             return $experienciasActuales[0];
