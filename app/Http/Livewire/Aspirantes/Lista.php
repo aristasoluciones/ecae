@@ -6,6 +6,7 @@ namespace App\Http\Livewire\Aspirantes;
 use App\Exports\AspirantesExport;
 use App\Exports\EntrevistadosExport;
 use App\Exports\EvaluadosExport;
+use App\Exports\ResultadosFinalesExcelExport;
 use App\Exports\ResultadosFinalesExport;
 use App\Mail\RegistroShipped;
 use Illuminate\Database\Eloquent\Builder;
@@ -409,6 +410,23 @@ class Lista extends DataTableComponent
         }
 
         return Excel::download(new ResultadosFinalesExport($rows, $municipio), 'RESULTADOS_FINALES_SEL_Y_CAEL.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportarResultadosFinalesExcel() {
+
+        $this->setPaginationDisabled();
+        $rows =  $this->getRows();
+        $this->setPaginationEnabled();
+        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion);
+        $rows->append(['calificacion_entrevista','calificacion_evaluacion','calificacion_global']);
+        $rows = $rows->sortByDesc('calificacion_global');
+
+        $municipio = $this->fSede;
+        if (auth()->user()->hasRole('odes')) {
+            $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
+        }
+
+        return Excel::download(new ResultadosFinalesExcelExport($rows, $municipio), 'RESULTADOS_FINALES_SEL_Y_CAEL.xlsx');
     }
 
 
