@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Aspirantes;
 
 use App\Exports\AspirantesExport;
 use App\Exports\EntrevistadosExport;
+use App\Exports\EntrevistadosExportExcel;
 use App\Exports\EvaluadosExport;
 use App\Exports\ResultadosFinalesExcelExport;
 use App\Exports\ResultadosFinalesExport;
@@ -383,7 +384,7 @@ class Lista extends DataTableComponent
             $municipio = !$municipio ? str_replace('Consejo Municipal Electoral de ', '',auth()->user()->sede) : $municipio;
         }
 
-        return Excel::download(new EntrevistadosExport($rows, $municipio), 'CALIFICACION_ENTREVISTA_SEL_Y_CAEL.xlsx');
+        return Excel::download(new EntrevistadosExportExcel($rows, $municipio), 'CALIFICACION_ENTREVISTA_SEL_Y_CAEL.xlsx');
     }
 
     public function exportarResultadosFinales() {
