@@ -330,7 +330,7 @@ class Lista extends DataTableComponent
         $this->setPaginationDisabled();
         $rows =  $this->getRows();
         $this->setPaginationEnabled();
-        $rows =  $rows->filter(fn($item) => $item->evaluacion);
+        $rows =  $rows->filter(fn($item) => $item->evaluacion && $item->estatus === Aspirante::ESTATUS_ACEPTADO);
         $rows->append('calificacion_evaluacion');
 
         $rows = $rows->sortByDesc('calificacion_evaluacion');
@@ -357,7 +357,7 @@ class Lista extends DataTableComponent
         $this->setPaginationDisabled();
         $rows =  $this->getRows();
         $this->setPaginationEnabled();
-        $rows =  $rows->filter(fn($item) => $item->entrevista);
+        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->estatus === Aspirante::ESTATUS_ACEPTADO);
         $rows->append('calificacion_entrevista');
         $rows = $rows->sortByDesc('calificacion_entrevista');
 
@@ -374,7 +374,7 @@ class Lista extends DataTableComponent
         $this->setPaginationDisabled();
         $rows =  $this->getRows();
         $this->setPaginationEnabled();
-        $rows =  $rows->filter(fn($item) => $item->entrevista);
+        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->estatus === Aspirante::ESTATUS_ACEPTADO);
         $rows->append('calificacion_entrevista');
         $rows = $rows->sortByDesc('calificacion_entrevista');
 
@@ -400,7 +400,7 @@ class Lista extends DataTableComponent
         $this->setPaginationDisabled();
         $rows =  $this->getRows();
         $this->setPaginationEnabled();
-        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion);
+        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion && $item->estatus === Aspirante::ESTATUS_ACEPTADO);
         $rows->append(['calificacion_entrevista','calificacion_evaluacion','calificacion_global']);
         $rows = $rows->sortByDesc('calificacion_global');
 
@@ -417,7 +417,7 @@ class Lista extends DataTableComponent
         $this->setPaginationDisabled();
         $rows =  $this->getRows();
         $this->setPaginationEnabled();
-        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion);
+        $rows =  $rows->filter(fn($item) => $item->entrevista && $item->evaluacion && $item->estatus === Aspirante::ESTATUS_ACEPTADO);
         $rows->append(['calificacion_entrevista','calificacion_evaluacion','calificacion_global']);
         $rows = $rows->sortByDesc('calificacion_global');
 

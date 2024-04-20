@@ -3,17 +3,17 @@
     $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[$row->estatus];
     $estatus = $row->estatus;
 
-    if ($row->evaluacion) {
+    if ($row->evaluacion && $row->estatus === \App\Models\Aspirante::ESTATUS_ACEPTADO) {
         $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[\App\Models\Aspirante::ESTATUS_EVALUADO];
         $estatus      = \App\Models\Aspirante::ESTATUS_EVALUADO;
     }
 
-    if ($row->entrevista) {
+    if ($row->entrevista && $row->estatus === \App\Models\Aspirante::ESTATUS_ACEPTADO) {
         $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[\App\Models\Aspirante::ESTATUS_ENTREVISTADO];
         $estatus      = \App\Models\Aspirante::ESTATUS_ENTREVISTADO;
     }
 
-    if ($row->contrato) {
+    if ($row->contrato && $row->estatus === \App\Models\Aspirante::ESTATUS_ACEPTADO) {
         $estatusTitle = \App\Models\Aspirante::ESTATUS_TITULO[\App\Models\Aspirante::ESTATUS_CONTRATADO];
         $estatus      = \App\Models\Aspirante::ESTATUS_CONTRATADO;
     }
