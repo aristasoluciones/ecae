@@ -51,7 +51,7 @@ footer {
         
 	</tbody>
 </table>
-		</header>
+</header>
 
 <!--INICIA SECCION 01 -->
 

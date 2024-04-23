@@ -148,8 +148,8 @@ page-break-before: always;
         </tr>
         <tr>
             <td class="blancognl" rowspan="2" style="text-align: justify; width: 60%; padding: 5px;">PARA EL LLENADO DEBERA USAR PLUMA EN COLOR NEGRO O AZUL Y LLENAR CON LETRA MOLDE Y LEGIBLE. LA INFORMACION PRE-LLENADA DEBERA CONFIRMARSE CON LA PERSONA ASPIRANTE.</td>
-            <td class="blancognl" style="text-align: center; with: 15%;">FECHA DE ENTREVISTA</td>
-            <td class="blancognl" style="text-align: center; with: 15%;">No. FOLIO DEL ASPIRANTE:</td>
+            <td class="blancognl" style="text-align: center; width: 15%;">FECHA DE ENTREVISTA</td>
+            <td class="blancognl" style="text-align: center; width: 15%;">No. FOLIO DEL ASPIRANTE:</td>
         </tr>
         <tr>
             <td class="blancognl" style="text-align: center; width: 20%;">{{date ("Y-m-d", strtotime($aspirante->entrevista->created_at))}}</td>
