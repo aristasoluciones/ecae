@@ -251,7 +251,7 @@ img{
         <tbody>
         <tbody>
             <tr>
-                <td class="blancop1" style="width: 5%; text-aling: left;">RFC<sup style="font-size:5pt">1</sup></td>
+                <td class="blancop1" style="width: 5%; text-align: left;">RFC<sup style="font-size:5pt">1</sup></td>
 
                 @for ($i = 0; $i <= 9; $i++)
                 @if (isset($aspirante->rfc[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->rfc[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
@@ -261,7 +261,7 @@ img{
                 @if (isset($aspirante->homoclave[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->homoclave[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
                 @endfor
 
-                <td class="blancop1" style="width: 5%; text-aling: left;">CURP<sup style="font-size:5pt">1</sup></td>
+                <td class="blancop1" style="width: 5%; text-align: left;">CURP<sup style="font-size:5pt">1</sup></td>
 
                 @for ($i = 0; $i <= 17; $i++)
                 @if (isset($aspirante->curp[$i])) <td class="rosap1">{{ mb_strtoupper ($aspirante->curp[$i])?? ''}}</td> @else <td class="rosap1"></td> @endif
@@ -737,9 +737,9 @@ img{
                     @endif
                 </td>
 
-                <td class="blancop1" style="width: 5.833333333333333%; center;">&nbsp;</td>
-                <td class="blancop1" style="width: 5.833333333333333%; center;">&nbsp;</td>
-                <td class="blancop1" style="width: 5.833333333333333%; center;">&nbsp;</td>
+                <td class="blancop1" style="width: 5.833333333333333%;">&nbsp;</td>
+                <td class="blancop1" style="width: 5.833333333333333%;">&nbsp;</td>
+                <td class="blancop1" style="width: 5.833333333333333%;">&nbsp;</td>
 
                 <td class="grisp1" style="width: 51px; text-align: center;">G. Pláticas <br>informativas</td>
                     <td class="rosap1" style="width: 51px; text-align: center;">

@@ -278,6 +278,27 @@ return [
         'Yajalón',
         'Zinacantán',
     ],
+    'municipios_2_convocatoria' => [
+        'Amatenango de la Frontera',
+        'La Concordia',
+        'Chanal',
+        'Chenalhó',
+        'Huitiupan',
+        'Ixtapangajoya',
+        'Las margaritas',
+        'Metapa',
+        'Huixtán',
+        'Pantelhó',
+        'Reforma',
+        'Simojovel',
+        'Suchiate',
+        'Tapachula',
+        'Tecpatán',
+        'Tenejapa',
+        'Tuxtla Gutiérrez',
+        'Venustiano Carranza',
+        'Capitán Luis Ángel Vidal'
+    ],
     'localidades' => [
         'Acacoyagua' => [
             'Acacoyagua',

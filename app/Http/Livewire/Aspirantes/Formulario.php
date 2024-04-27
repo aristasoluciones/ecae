@@ -587,7 +587,7 @@ class Formulario extends Component
     }
 
     public function booted() {
-        $this->cerrado = strtotime(date('Y-m-d H:i:s')) > strtotime('2024-04-11 23:59:59');
+      $this->cerrado = strtotime(date('Y-m-d H:i:s')) <= strtotime('2024-04-27 11:59:59');
     }
 
     public function mount(Aspirante $candidato) {
@@ -597,6 +597,7 @@ class Formulario extends Component
         $this->sexos       =  config('constants.sexos');
         $this->entidades   =  config('constants.entidades');
         $this->municipios  =  config('constants.municipios');
+        $this->municipios2convocatoria =  config('constants.municipios_2_convocatoria');
         $this->paises      =  config('constants.paises');
         $this->localidades =  config('constants.localidades');
 
@@ -610,7 +611,8 @@ class Formulario extends Component
             if(mb_strtoupper($mun) === 'OXCHUC')
                 continue;
 
-            $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
+            if (in_array($mun, $this->municipios2convocatoria))
+                $consejos[$mun] = 'Consejo Municipal Electoral de ' .$mun;
         }
         $this->consejosMunicipales     =  $consejos;
         $this->consejosFiltrado     =  [];
@@ -644,7 +646,7 @@ class Formulario extends Component
         $dataFill =  $data;
 
         unset($dataFill['email_confirmation']);
-        $dataFill['numero_convocatoria'] = 1;
+        $dataFill['numero_convocatoria'] = 2;
         $dataFill['acepto_ser_contactado'] = $dataFill['acepto_ser_contactado'] ?? 0;
         $dataFill['acepto_declaratoria'] = $dataFill['acepto_declaratoria'] ?? 0;
 
@@ -752,6 +754,7 @@ class Formulario extends Component
             'paises',
             'entidades',
             'municipios',
+            'municipios2convocatoria',
             'localidades',
             'localidadesFiltrado',
             'domLocalidadesFiltrado',

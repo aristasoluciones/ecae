@@ -41,12 +41,12 @@
 table.header {
             table-layout: fixed;
             width: 726px;
-
+             
 }
 
 table.cuerpo  {
-
-
+            
+            
             table-layout: fixed;
             width: 726px;
             border-collapse: collapse;
@@ -60,26 +60,26 @@ td.rojoTi01{
             text-align: center;
             font-weight: bold;
             border: 1px solid rgb(231, 12, 117);
-
+                   
             }
 td.rojo{
-
+            
             font-size: 8pt;
             width: 5%;
             text-align: center;
             border: 1px solid rgb(231, 12, 117);
-
+                   
             }
 
 td.rojo2{
-
+            
             background: rgb(231, 12, 117);
             font-size: 8pt;
             color: #FFFFFF;
             text-align: center;
             font-weight: bold;
             border: 1px solid rgb(231, 12, 117);
-
+                   
             }
 
 td.blanconumber {
@@ -141,18 +141,18 @@ table.saltopagina {
             }
 
 
-
+ 
 </style>
 </head>
 <body>
-<header>
+<header>    
     <table class="header">
         <tbody>
         <tr>
             <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/logoIEPC.png" width="150px" height="80px" salt=""></td>
             <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/logoEAE2024.png" width="140px" height="80px" alt=""></td>
             <td style="width: 33%;" align="center" valign="middle"><img  src="../public/imgs/pelo_2024.png" width="170px" height="100px" alt=""></td>
-        </tr>
+        </tr>                    
         </tbody>
     </table>
 </header>
@@ -166,8 +166,8 @@ table.saltopagina {
         </tr>
         <tr>
             <td class="blancognl" rowspan="2" style="text-align: justify; width: 60%; padding: 5px;">PARA EL LLENADO DEBERA USAR PLUMA EN COLOR NEGRO O AZUL Y LLENAR CON LETRA MOLDE Y LEGIBLE. LA INFORMACION PRE-LLENADA DEBERA CONFIRMARSE CON LA PERSONA ASPIRANTE.</td>
-            <td class="blancognl" style="text-align: center; with: 15%;">FECHA DE ENTREVISTA</td>
-            <td class="blancognl" style="text-align: center; with: 15%;">No. FOLIO DEL ASPIRANTE:</td>
+            <td class="blancognl" style="text-align: center; width: 15%;">FECHA DE ENTREVISTA</td>
+            <td class="blancognl" style="text-align: center; width: 15%;">No. FOLIO DEL ASPIRANTE:</td>
         </tr>
         <tr>
             <td class="blancognl" style="text-align: center; width: 20%;">{{date ("Y-m-d", strtotime($aspirante->entrevista->created_at))}}</td>
@@ -212,7 +212,7 @@ table.saltopagina {
                     <td class="rojo" style="width: 10%"><span>LGBTTTIQ+</span></td>
             @endif
 
-
+			
 		</tr>
 		<tr>
 			<td class="blancognl2">{{mb_strtoupper ($aspirante->nombre) }}</td>
@@ -282,7 +282,7 @@ table.saltopagina {
                 <td class="rojo" style="width: 31%">&nbsp;</td>
             @endif
 		</tr>
-
+        
 	</tbody>
 </table>
 
@@ -296,7 +296,7 @@ table.saltopagina {
 			        <td class="rojo" style="width: 25%"><span>{{mb_strtoupper ($aspirante->entrevista->cual_lengua_indigena)}}</span></td>
                     @else
                     <td class="rojo" style="width: 10%"><span>&nbsp;</span></td>
-            @endif
+            @endif				
 		</tr>
     </tbody>
 </table>
@@ -331,7 +331,7 @@ table.saltopagina {
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif
+        @endif  
     </tr>
     </tbody>
 </table>
@@ -351,7 +351,7 @@ table.saltopagina {
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif
+        @endif  
     </tr>
     </tbody>
 </table>
@@ -371,7 +371,7 @@ table.saltopagina {
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif
+        @endif  
     </tr>
     </tbody>
 </table>
@@ -385,7 +385,7 @@ table.saltopagina {
             <td class="blancognl" style="width: 45%; text-align:center;"><span>{{mb_strtoupper ($aspirante->entrevista->cargo_tiempo_donde_pe)}}</span></td>
             @else
             <td class="blancosi" style="width: 45%"><span></span></td>
-        @endif
+        @endif        
     </tr>
     </tbody>
 </table>
@@ -405,7 +405,7 @@ table.saltopagina {
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif
+        @endif  
     </tr>
     </tbody>
 </table>
@@ -419,7 +419,7 @@ table.saltopagina {
             <td class="blancognl" style="width: 45%; text-align:center;"><span>{{mb_strtoupper ($aspirante->entrevista->cargo_tiempo_donde_pp_oc)}}</span></td>
             @else
             <td class="blancosi" style="width: 45%"><span></span></td>
-        @endif
+        @endif     
     </tr>
     </tbody>
 </table>
@@ -756,7 +756,7 @@ table.saltopagina {
 	<tbody>
     <tr>
         <td class="blanco" style="width: 85%; text-align: right;">Calificación total ponderada*:</td>
-        <td class="blancocali">{{$aspirante->entrevista->calificacion}}</td>
+        <td class="blancocali">{{$aspirante->entrevista->calificacion}}%</td>
     </tr>
     </tbody>
 </table>
@@ -775,7 +775,7 @@ table.saltopagina {
             <td class="blancosi" style="background: rgb(219, 215, 204); width: 10%"><span>NO</span></td>
             @else
             <td class="blancosi" style="width: 10%"><span>NO</span></td>
-        @endif
+        @endif  
     </tr>
     </tbody>
 </table>
