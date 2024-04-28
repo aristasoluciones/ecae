@@ -288,6 +288,7 @@ return [
         'Las Margaritas',
         'Metapa',
         'Huixtán',
+        'Huehuetán',
         'Pantelhó',
         'Reforma',
         'Simojovel',
