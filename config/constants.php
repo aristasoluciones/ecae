@@ -285,7 +285,7 @@ return [
         'Chenalhó',
         'Huitiupan',
         'Ixtapangajoya',
-        'Las margaritas',
+        'Las Margaritas',
         'Metapa',
         'Huixtán',
         'Pantelhó',
@@ -297,7 +297,14 @@ return [
         'Tenejapa',
         'Tuxtla Gutiérrez',
         'Venustiano Carranza',
-        'Capitán Luis Ángel Vidal'
+        'Capitán Luis Ángel Vidal',
+        'Bochil',
+        'El Bosque',
+        'Chicomuselo',
+        'Mitontic',
+        'Ocozocoautla de Espinosa',
+        'Palenque',
+        'Unión Juárez'
     ],
     'localidades' => [
         'Acacoyagua' => [
