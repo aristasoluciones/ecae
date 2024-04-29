@@ -283,7 +283,7 @@ return [
         'La Concordia',
         'Chanal',
         'Chenalhó',
-        'Huitiupan',
+        'Huitiupán',
         'Ixtapangajoya',
         'Las Margaritas',
         'Metapa',
