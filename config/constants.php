@@ -293,6 +293,8 @@ return [
         'Reforma',
         'Simojovel',
         'Suchiate',
+        'Palenque',
+        'Amatenango del Valle',
         'Tapachula',
         'Tecpatán',
         'Tenejapa',
@@ -305,7 +307,9 @@ return [
         'Mitontic',
         'Ocozocoautla de Espinosa',
         'Palenque',
-        'Unión Juárez'
+        'Unión Juárez',
+        'Maravilla Tenejapa',
+        'Cintalapa de Figueroa'
     ],
     'localidades' => [
         'Acacoyagua' => [
