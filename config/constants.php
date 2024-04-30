@@ -280,6 +280,7 @@ return [
     ],
     'municipios_2_convocatoria' => [
         'Amatenango de la Frontera',
+        'Bejucal de Ocampo',
         'La Concordia',
         'Chanal',
         'Chenalhó',
@@ -287,6 +288,7 @@ return [
         'Ixtapangajoya',
         'Las Margaritas',
         'Metapa',
+        'Mapastepec',
         'Huixtán',
         'Huehuetán',
         'Pantelhó',
