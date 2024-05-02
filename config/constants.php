@@ -311,7 +311,8 @@ return [
         'Palenque',
         'Unión Juárez',
         'Maravilla Tenejapa',
-        'Cintalapa de Figueroa'
+        'Cintalapa de Figueroa',
+        'Mezcalapa',
     ],
     'localidades' => [
         'Acacoyagua' => [
