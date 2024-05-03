@@ -281,6 +281,10 @@ return [
     'municipios_2_convocatoria' => [
         'Amatenango de la Frontera',
         'Bejucal de Ocampo',
+        'San Cristóbal de las Casas',
+        'Huehuetán',
+        'Pueblo Nuevo Solistahuacán',
+        'Acapetahua',
         'La Concordia',
         'Chanal',
         'Chenalhó',
@@ -290,7 +294,6 @@ return [
         'Metapa',
         'Mapastepec',
         'Huixtán',
-        'Huehuetán',
         'Pantelhó',
         'Reforma',
         'Simojovel',
@@ -313,6 +316,8 @@ return [
         'Maravilla Tenejapa',
         'Cintalapa de Figueroa',
         'Mezcalapa',
+        'Arriaga',
+        'Benemérito de las Américas'
     ],
     'localidades' => [
         'Acacoyagua' => [
