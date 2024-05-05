@@ -317,7 +317,8 @@ return [
         'Cintalapa de Figueroa',
         'Mezcalapa',
         'Arriaga',
-        'Benemérito de las Américas'
+        'Benemérito de las Américas',
+        'Siltepec',
     ],
     'localidades' => [
         'Acacoyagua' => [
