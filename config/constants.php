@@ -319,6 +319,7 @@ return [
         'Arriaga',
         'Benemérito de las Américas',
         'Siltepec',
+        'La Trinitaria'
     ],
     'localidades' => [
         'Acacoyagua' => [
