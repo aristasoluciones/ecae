@@ -322,6 +322,8 @@ return [
         'La Trinitaria',
         'Salto de Agua',
         'Tila',
+        'Chamula',
+        'Sabanilla',
     ],
     'localidades' => [
         'Acacoyagua' => [
