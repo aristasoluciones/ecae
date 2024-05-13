@@ -108,14 +108,12 @@
                             </select>
                         </div>
                     </div>
-                    @hasanyrole('superadministrador')
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label for="">Periodo</label>
                             <input class="form-control" type="text" readonly name="filtro-periodo" id="filtro-periodo">
                         </div>
                     </div>
-                    @endhasanyrole
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-sm-start justify-content-md-center">
                         <button class="btn btn-success mx-1 my-1" wire:click="getRows">
