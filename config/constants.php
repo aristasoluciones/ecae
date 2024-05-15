@@ -287,7 +287,8 @@ return [
         'Las Margaritas',
         'Simojovel',
         'Palenque',
-        'Pantelhó'
+        'Pantelhó',
+        'Pueblo Nuevo Solistahuacán',
     ],
     'localidades' => [
         'Acacoyagua' => [
