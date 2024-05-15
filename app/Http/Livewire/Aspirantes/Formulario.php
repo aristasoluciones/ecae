@@ -587,7 +587,7 @@ class Formulario extends Component
     }
 
     public function booted() {
-      $this->cerrado = strtotime(date('Y-m-d H:i:s')) >= strtotime('2024-05-10 23:59:59');
+      $this->cerrado = strtotime(date('Y-m-d H:i:s')) <= strtotime('2024-05-14 23:59:59');
     }
 
     public function mount(Aspirante $candidato) {
