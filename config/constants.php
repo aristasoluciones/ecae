@@ -279,18 +279,13 @@ return [
         'Zinacantán',
     ],
     'municipios_2_convocatoria' => [
+        'Amatenango de la Frontera',
         'Bejucal de Ocampo',
-        'Chenalhó',
-        'El Bosque',
         'Huitiupán',
         'La Concordia',
         'Las Margaritas',
-        'Simojovel',
-        'Palenque',
         'Pantelhó',
-        'Pueblo Nuevo Solistahuacán',
         'Venustiano Carranza',
-        'Larráinzar',
     ],
     'localidades' => [
         'Acacoyagua' => [
