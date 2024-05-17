@@ -286,6 +286,8 @@ return [
         'Las Margaritas',
         'Pantelhó',
         'Venustiano Carranza',
+        'Larráinzar',
+        'San Cristóbal de las Casas',
     ],
     'localidades' => [
         'Acacoyagua' => [
