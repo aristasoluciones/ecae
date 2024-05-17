@@ -289,6 +289,8 @@ return [
         'Palenque',
         'Pantelhó',
         'Pueblo Nuevo Solistahuacán',
+        'Venustiano Carranza',
+        'Larráinzar',
     ],
     'localidades' => [
         'Acacoyagua' => [
