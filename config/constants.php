@@ -287,6 +287,7 @@ return [
         'Pantelhó',
         'Venustiano Carranza',
         'Larráinzar',
+        'Chenalhó',
         'San Cristóbal de las Casas',
     ],
     'localidades' => [
