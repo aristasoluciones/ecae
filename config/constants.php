@@ -289,6 +289,7 @@ return [
         'Larráinzar',
         'Chenalhó',
         'San Cristóbal de las Casas',
+        'Bochil',
     ],
     'localidades' => [
         'Acacoyagua' => [
