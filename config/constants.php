@@ -290,6 +290,7 @@ return [
         'Chenalhó',
         'San Cristóbal de las Casas',
         'Bochil',
+        'Simojovel',
     ],
     'localidades' => [
         'Acacoyagua' => [
