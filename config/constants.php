@@ -295,6 +295,8 @@ return [
         'Tuxtla Gutiérrez',
         'Venustiano Carranza',
         'Tapachula',
+        'Bochil',
+        'Tila',
     ],
     'localidades' => [
         'Acacoyagua' => [
