@@ -298,6 +298,7 @@ return [
         'Bochil',
         'Tila',
         'Catazajá',
+        'Huixtán',
     ],
     'localidades' => [
         'Acacoyagua' => [
