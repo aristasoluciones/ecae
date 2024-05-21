@@ -297,6 +297,7 @@ return [
         'Tapachula',
         'Bochil',
         'Tila',
+        'Catazajá',
     ],
     'localidades' => [
         'Acacoyagua' => [
