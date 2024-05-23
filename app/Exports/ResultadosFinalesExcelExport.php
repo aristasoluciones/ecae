@@ -42,9 +42,11 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
            'E' => 12,
            'F' => 15,
            'G' => 15,
-           'H' => 5,
-           'I' => 5,
+           'H' => 15,
+           'I' => 15,
            'J' => 5,
+           'K' => 5,
+           'L' => 5,
        ];
     }
     public function drawings()
@@ -63,7 +65,7 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
         $drawing2->setPath(public_path('/imgs/ople.png'));
         $drawing2->setWidth(60);
         $drawing2->setHeight(60);
-        $drawing2->setCoordinates('H2');
+        $drawing2->setCoordinates('J2');
 
 
         return [$drawing, $drawing2 ];
@@ -81,7 +83,7 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
                         'alignment' => ['wrapText' => true],
                     ]);
                 $event->sheet->getDelegate()
-                    ->getStyle('A1:J8')
+                    ->getStyle('A1:L8')
                     ->applyFromArray([
                         'borders' => [
                             'allBorders' => [
@@ -94,7 +96,7 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
                 $rowPie = $totalRows + 11;
                 $rowPieFin = $rowPie + 5;
                 $event->sheet->getDelegate()
-                    ->getStyle('A'.$rowPie.':J'.$rowPieFin)
+                    ->getStyle('A'.$rowPie.':L'.$rowPieFin)
                     ->applyFromArray([
                         'borders' => [
                             'allBorders' => [
@@ -123,6 +125,8 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
             'H'  => ['font' => ['size' => 7]],
             'I'  => ['font' => ['size' => 7]],
             'J'  => ['font' => ['size' => 7]],
+            'K'  => ['font' => ['size' => 7]],
+            'L'  => ['font' => ['size' => 7]],
         ];
     }
 }
