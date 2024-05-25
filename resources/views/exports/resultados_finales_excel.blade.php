@@ -9,7 +9,7 @@
         <th style="border-top:1px solid #000000; border-left:1px solid #000000; border-bottom: none; border-right: none"></th>
         <th style="border-top:1px solid #000000; border-left:none; border-bottom: none; border-right: none"></th>
         <th style="border-top:1px solid #000000; border-left:none; border-bottom: none; border-right: none"></th>
-        <th colspan="6" style="text-align: center; font-weight: bold; font-size: 13px;">Instituto de Elecciones y Participación Ciudadana</th>
+        <th colspan="7" style="text-align: center; font-weight: bold; font-size: 13px;">Instituto de Elecciones y Participación Ciudadana</th>
         <th style="border:none"></th>
         <th style="border:none"></th>
         <th style="border:none"></th>
@@ -18,7 +18,7 @@
         <th style="border:0px"></th>
         <th></th>
         <th></th>
-        <th colspan="6" style="text-align: center; font-weight: bold; font-size: 13px">Secretaría Ejecutiva</th>
+        <th colspan="7" style="text-align: center; font-weight: bold; font-size: 13px">Secretaría Ejecutiva</th>
         <th></th>
         <th></th>
         <th></th>
@@ -27,7 +27,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th colspan="6" style="text-align: center;font-size: 13px">Dirección Ejecutiva de Organización Electoral</th>
+        <th colspan="7" style="text-align: center;font-size: 13px">Dirección Ejecutiva de Organización Electoral</th>
         <th></th>
         <th></th>
         <th></th>
@@ -36,7 +36,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th colspan="6" style="text-align: center; font-size: 13px">Cuadro de calificación Final SEL y CAEL para el Proceso Electoral Local Ordinario 2024</th>
+        <th colspan="7" style="text-align: center; font-size: 13px">Cuadro de calificación Final SEL y CAEL para el Proceso Electoral Local Ordinario 2024</th>
         <th></th>
         <th></th>
         <th></th>
@@ -44,7 +44,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th colspan="6" style="text-align: center; font-size: 15px">Consejo Municipal Electoral : <strong> {{ !$consejo ? 'Todos los consejos' : $consejo }}</strong></th>
+        <th colspan="7" style="text-align: center; font-size: 15px">Consejo Municipal Electoral : <strong> {{ !$consejo ? 'Todos los consejos' : $consejo }}</strong></th>
         <th></th>
         <th></th>
         <th></th>
@@ -72,22 +72,25 @@
         <th></th>
         <th></th>
         <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
         <th></th>
     </tr>
     <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
@@ -103,6 +106,7 @@
     </tr>
     <tr>
         <!--col01--> <th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">Folio del Aspirante</th>
+        <!--col01--> <th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">Tipo</th>
         <!--col02--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">Fecha de evaluación</th>
         <!--col02--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">Fecha de entrevista</th>
         <!--col02--><th style="background: #ff0c75; color: #ffffff; font-weight: bold; vertical-align: middle;text-align: center;border:1px solid #000000;">SEDE</th>
@@ -120,6 +124,7 @@
     @foreach($rows as $row)
         <tr>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{ $row->id }}</td>
+            <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000;text-align: center">{{  $row->entrevista?->tipo  }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ date('Y-m-d', strtotime($row->evaluacion?->created_at)) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ date('Y-m-d', strtotime($row->entrevista?->created_at)) }}</td>
             <td style="background: {{ $loop->odd ? '#FCE4D6' : 'transparent' }};border:1px solid #000000">{{ mb_strtoupper($row->sede) }}</td>
@@ -146,6 +151,7 @@
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
+        <th>&nbsp;</th>
     </tr>
     <tr>
         <th></th>
@@ -161,8 +167,10 @@
         <th></th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
     <tr>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
@@ -178,9 +186,11 @@
         <th></th>
         <th></th>
         <th></th>
+        <th></th>
         <th colspan="6" style="text-align: center; font-weight: bold">C.___________________________________________</th>
     </tr>
     <tr>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
