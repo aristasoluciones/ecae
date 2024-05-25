@@ -44,9 +44,10 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
            'G' => 15,
            'H' => 15,
            'I' => 15,
-           'J' => 5,
+           'J' => 15,
            'K' => 5,
            'L' => 5,
+           'M' => 5,
        ];
     }
     public function drawings()
@@ -65,7 +66,7 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
         $drawing2->setPath(public_path('/imgs/ople.png'));
         $drawing2->setWidth(60);
         $drawing2->setHeight(60);
-        $drawing2->setCoordinates('J2');
+        $drawing2->setCoordinates('K2');
 
 
         return [$drawing, $drawing2 ];
@@ -78,12 +79,12 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
         return [
             AfterSheet::class => function(AfterSheet $event) use($totalRows){
                 $event->sheet->getDelegate()
-                    ->getStyle('A9:J9')
+                    ->getStyle('A10:M10')
                     ->applyFromArray([
                         'alignment' => ['wrapText' => true],
                     ]);
                 $event->sheet->getDelegate()
-                    ->getStyle('A1:L8')
+                    ->getStyle('A1:M9')
                     ->applyFromArray([
                         'borders' => [
                             'allBorders' => [
@@ -96,7 +97,7 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
                 $rowPie = $totalRows + 11;
                 $rowPieFin = $rowPie + 5;
                 $event->sheet->getDelegate()
-                    ->getStyle('A'.$rowPie.':L'.$rowPieFin)
+                    ->getStyle('A'.$rowPie.':M'.$rowPieFin)
                     ->applyFromArray([
                         'borders' => [
                             'allBorders' => [
@@ -127,6 +128,7 @@ class ResultadosFinalesExcelExport implements FromView, ShouldAutoSize,WithColum
             'J'  => ['font' => ['size' => 7]],
             'K'  => ['font' => ['size' => 7]],
             'L'  => ['font' => ['size' => 7]],
+            'M'  => ['font' => ['size' => 7]],
         ];
     }
 }
