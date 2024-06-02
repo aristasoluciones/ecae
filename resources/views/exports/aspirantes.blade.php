@@ -1,7 +1,7 @@
 <table>
     <thead>
         <tr>
-            <th colspan="27" style="background: #0c84ff; color: #ffffff; font-weight: bold;">REPORTE DE ASPIRANTES REGISTRADOS</th>
+            <th colspan="29" style="background: #0c84ff; color: #ffffff; font-weight: bold;">REPORTE DE ASPIRANTES REGISTRADOS</th>
         </tr>
         <tr>
             <!--col01--> <th style="background: #0c84ff; color: #ffffff; font-weight: bold;">ID</th>
@@ -15,6 +15,8 @@
             <!--col09--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">CURP</th>
             <!--col10--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">FECHA DE NACIMIENTO</th>
             <!--col11--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">GENERO</th>
+            <!--col05--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">TELÉFONO FIJO</th>
+            <!--col05--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">TELÉFONO CELULAR</th>
             <!--col12--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">¿SE IDENTIFICA COMO UNA PERSONA LGBTTTIQ+?</th>
             <!--col13--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">¿TIENE ALGUNA DISCAPACIDAD?</th>
             <!--col14--><th style="background: #0c84ff; color: #ffffff; font-weight: bold;">DESCRIBIR TIPO DE DISCAPACIDAD</th>
@@ -47,6 +49,8 @@
             <!--col09--><td>{{ mb_strtoupper($row->curp) }}</td>
             <!--col10--><td>{{ mb_strtoupper($row->fecha_nacimiento) }}</td>
             <!--col11--><td>{{ mb_strtoupper($row->genero) }}</td>
+            <!--col11--><td>{{ $row->tel_fijo ?? '' }}</td>
+            <!--col11--><td>{{ $row->tel_celular ?? '' }}</td>
             <!--col12--><td>{{ mb_strtoupper($row->persona_lgbtttiq) }}</td>
             <!--col13--><td>{{ mb_strtoupper($row->p15_discapacidad) }}</td>
             <!--col14-->@if($row->p15_1_tipodiscapacidad == "otro")<td>{{ mb_strtoupper(str_replace("_"," O ",$row->p15_2_otradiscapacidad)) }}</td> @else <td>{{ mb_strtoupper(str_replace("_"," O ",$row->p15_1_tipodiscapacidad)) }}</td>@endif

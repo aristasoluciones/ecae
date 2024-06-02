@@ -300,6 +300,7 @@ return [
         'Catazajá',
         'Huixtán',
         'Motozintla',
+        'Ixtapangajoya',
     ],
     'localidades' => [
         'Acacoyagua' => [
