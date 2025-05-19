@@ -22905,5 +22905,6 @@ return [
     'porcentaje_examen'   => env('APP_PORCENTAJE_EXAMEN',6),
     'porcentaje_entrevista'   => env('APP_PORCENTAJE_ENTREVISTA',4),
     'porcentaje_maximo'   => env('APP_PORCENTAJE_MAXIMO',10),
+    'fecha_cierre'   => env('APP_FECHA_CIERRE',''),
     'calificacion_maxima_entrevista' => env('APP_CALIFICACION_MAXIMA_ENTREVISTA',10),
 ];
