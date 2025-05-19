@@ -284,6 +284,7 @@ return [
         'Cacahoatán',
         'La Concordia',
         'Chamula',
+        'Frontera Comalapa',
         'Chenalhó',
         'Huitiupán',
         'Larráinzar',
